@@ -127,11 +127,11 @@ public class STRIPSState extends State implements Cloneable
 	{
 		if (!RPCalculated)
 		{
-			RelaxedPlan = (TotalOrderPlan) RPG.getPlan(this);
+			RelaxedPlan = (TotalOrderPlan) RPG.getPlan(this); // plano a imprimir
 			helpfulActions = new HashSet();
 			if (!(RelaxedPlan == null))
 			{
-				HValue = new BigDecimal(RelaxedPlan.getPlanLength());
+				HValue = new BigDecimal(RelaxedPlan.getPlanLength()); // valor da heurística
 
 				Iterator it = RelaxedPlan.iterator();
 				while (it.hasNext())
