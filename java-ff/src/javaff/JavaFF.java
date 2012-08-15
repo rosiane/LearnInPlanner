@@ -108,9 +108,10 @@ public class JavaFF {
 		//
 		// } else {
 		File domainFile = new File(
-				"/home/rosy/Documentos/USP/Mestrado/Meu Trabalho/Planning/Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
+				"../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
 		File problemFile = new File(
-				"/home/rosy/Documentos/USP/Mestrado/Meu Trabalho/Planning/Examples/IPC3/Tests1/Depots/Strips/pfile1");
+				"../Examples/IPC3/Tests1/Depots/Strips/pfile1");
+
 		File solutionFile = null;
 		// if (args.length > 2) {
 		// generator = new Random(Integer.parseInt(args[2]));
@@ -118,7 +119,7 @@ public class JavaFF {
 
 		// if (args.length > 3) {
 		solutionFile = new File(
-				"/home/rosy/Documentos/USP/Mestrado/Meu Trabalho/Planning/Examples/IPC3/Tests1/Depots/Strips/pfile1Solution.pddl");
+				"../Examples/IPC3/Tests1/Depots/Strips/pfile1Solution.pddl");
 		// }
 
 		Plan plan = plan(domainFile, problemFile);
@@ -158,7 +159,7 @@ public class JavaFF {
 				.getTemporalMetricInitialState();
 
 		State goalState = performFFSearch(initialState);
-		// State goalState = null;
+//		 State goalState = null;
 
 		long afterPlanning = System.currentTimeMillis();
 
@@ -200,7 +201,7 @@ public class JavaFF {
 		infoOutput.println("Planning Time =\t" + planningTime + "sec");
 		// infoOutput.println("Scheduling Time =\t"+schedulingTime+"sec");
 
-		performHValue(initialState, goalState);
+//		performHValue(initialState, goalState);
 
 		return top;
 	}
@@ -263,24 +264,24 @@ public class JavaFF {
 				initialState);
 		top.print(planOutput);
 
-		Iterator<State> iterator = initialState.getNextStates(
-				HelpfulFilter.getInstance().getActions(initialState))
-				.iterator();
+//		Iterator<State> iterator = initialState.getNextStates(
+//				HelpfulFilter.getInstance().getActions(initialState))
+//				.iterator();
 
-		while (iterator.hasNext()) {
-			TemporalMetricState succ = (TemporalMetricState) iterator.next();
-			System.out.println(succ.getHValue());
-			top = (TotalOrderPlan) succ.getRPG().getPlan(succ);
-			top.print(planOutput);
-		}
-
-		System.out.println("######################");
-		Iterator<Action> plan = goalState.getSolution().getActions().iterator();
-		TemporalMetricState succ = initialState;
-		// while (plan.hasNext()) {
-		succ = (TemporalMetricState) succ.apply(plan.next());
-		System.out.println(succ.getHValue());
-		top = (TotalOrderPlan) succ.getRPG().getPlan(succ);
+//		while (iterator.hasNext()) {
+//			TemporalMetricState succ = (TemporalMetricState) iterator.next();
+//			System.out.println(succ.getHValue());
+//			top = (TotalOrderPlan) succ.getRPG().getPlan(succ);
+//			top.print(planOutput);
+//		}
+//
+//		System.out.println("######################");
+//		Iterator<Action> plan = goalState.getSolution().getActions().iterator();
+//		TemporalMetricState succ = initialState;
+//		// while (plan.hasNext()) {
+//		succ = (TemporalMetricState) succ.apply(plan.next());
+//		System.out.println(succ.getHValue());
+//		top = (TotalOrderPlan) succ.getRPG().getPlan(succ);
 		// top.print(planOutput);
 		// }
 	}
