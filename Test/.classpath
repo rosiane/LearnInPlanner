@@ -5,7 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/neural-network"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/preprocessor"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/heuristic-rpl"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test-lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
