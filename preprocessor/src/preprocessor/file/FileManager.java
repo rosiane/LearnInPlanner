@@ -198,7 +198,7 @@ public class FileManager {
 				temp = samplesClasses.get(clazz);
 				numberSamples = temp.size() / k;
 				for (int indexK = 0; indexK < k; indexK++) {
-					beginTestSample = indexK  * numberSamples;
+					beginTestSample = indexK * numberSamples;
 					endTestSample = indexK * numberSamples + numberSamples;
 					printWriterTraining = new PrintWriter(new FileWriter(
 							((prefixOutputFile.concat("Training")).concat(""
@@ -240,5 +240,25 @@ public class FileManager {
 				bufferedReader.close();
 			}
 		}
+	}
+
+	public static void write(String path, String content, boolean append)
+			throws IOException {
+		PrintWriter printWriter = null;
+		try {
+			printWriter = new PrintWriter(new FileWriter(path, append));
+			printWriter.println(content);
+		} catch (FileNotFoundException e) {
+			throw e;
+		} catch (NumberFormatException e) {
+			throw e;
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			if (printWriter != null) {
+				printWriter.close();
+			}
+		}
+
 	}
 }
