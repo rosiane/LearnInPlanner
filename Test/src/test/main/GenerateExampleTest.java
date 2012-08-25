@@ -17,7 +17,7 @@ public class GenerateExampleTest {
 	private static void generateRPL() throws IOException {
 		String domainPath = "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl";
 		String examplePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/pfile";
-		int numberExamples = 5;
+		int numberExamples = 22;
 		String solutionFFPathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/training/pfile";
 		String solutionFFPathSufix = "Solution.pddl";
 		String resultDir = "../Examples/IPC3/Tests1/Depots/Strips/training/rpl";
