@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 import javaff.data.GroundProblem;
+import javaff.data.PDDLPrintable;
+import javaff.data.PDDLPrinter;
 import javaff.data.UngroundProblem;
 import javaff.data.strips.Proposition;
 import javaff.data.strips.STRIPSInstantAction;
@@ -34,10 +36,11 @@ public class DatabaseTest {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
+		
 		GroundProblem ground = unground.ground();
 		TemporalMetricState initialState = ground
 				.getTemporalMetricInitialState();
-
+		
 		Set<Proposition> facts = initialState.facts;
 
 		Iterator<Proposition> factsIterator = facts.iterator();
