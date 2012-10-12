@@ -125,4 +125,23 @@ public class MatrixHandler extends Matrix {
 		}
 		return result;
 	}
+
+	public static int countValue(int[] array, int value) {
+		int count = 0;
+		for (int index = 0; index < array.length; index++) {
+			if (array[index] == value) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static boolean isAllValue(int[] array, int value) {
+		for (int index = 0; index < array.length; index++) {
+			if (array[index] != value) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

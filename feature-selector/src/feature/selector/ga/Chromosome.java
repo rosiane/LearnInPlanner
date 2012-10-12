@@ -29,13 +29,5 @@ public class Chromosome {
 		}
 	}
 
-	public int countGene(int value) {
-		int count = 0;
-		for (int index = 0; index < gene.length; index++) {
-			if (gene[index] == value) {
-				count++;
-			}
-		}
-		return count;
-	}
+	
 }

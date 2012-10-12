@@ -2,6 +2,7 @@ package feature.selector.ga.mlp;
 
 import java.io.IOException;
 
+import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.util.NeuralNetworkUtils;
@@ -9,6 +10,8 @@ import neural.network.util.Weight;
 import preprocessor.file.ReaderFeature;
 
 import com.syvys.jaRBM.Layers.Layer;
+import com.syvys.jaRBM.Layers.LogisticLayer;
+
 import common.Data;
 import common.MatrixHandler;
 
@@ -20,8 +23,6 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	private NeuralNetworkIF neuralNetwork;
 	private Layer[] net;
 	private Weight[] weights;
-	private int numberInput;
-	private int numberOutput;
 	private ParameterTraining parameterTraining;
 
 	/**
@@ -31,33 +32,57 @@ public class FitnessFunctionMLP implements FitnessFunction {
 
 	}
 
-	public FitnessFunctionMLP(ReaderFeature readerFeature) {
+	public FitnessFunctionMLP(ReaderFeature readerFeature,
+			ParameterTraining parameterTraining) {
 		this.readerFeature = readerFeature;
+		this.parameterTraining = parameterTraining;
 	}
 
 	@Override
 	public double evaluate(Chromosome chromosome) throws IOException {
-		int numberAttribute = chromosome.countGene(1);
-		Weight[] result = train(neuralNetwork, net, weights, numberInput,
-				numberAttribute, numberOutput, parameterTraining,
-				chromosome.getGene());
-		double evaluation = test(neuralNetwork, net, result, numberAttribute,
-				numberAttribute, numberAttribute, parameterTraining,
-				chromosome.getGene());
+		double evaluation = 0;
+		if (MatrixHandler.isAllValue(chromosome.getGene(), 0)) {
+			evaluation = 100;
+		} else {
+			int numberAttribute = MatrixHandler.countValue(
+					chromosome.getGene(), 1);
+			initializeNetwork(numberAttribute);
+			Weight[] result = train(chromosome.getGene());
+			evaluation = test(result, chromosome.getGene());
+		}
 		return evaluation;
 	}
 
-	private Weight[] train(NeuralNetworkIF neuralNetwork, Layer[] net,
-			Weight[] weights, int numberInput, int numberAttribute,
-			int numberOutput, ParameterTraining parameterTraining, int[] indexes)
-			throws IOException {
-		Data dataTraining = new Data();
-		double[][] sample = new double[numberInput][numberAttribute];
-		dataTraining.setSample(sample);
-		double[][] label = new double[numberInput][numberOutput];
-		dataTraining.setLabel(label);
+	private void initializeNetwork(int numberAttribute) {
+		net = new Layer[parameterTraining.getNumberHiddenLayers() + 1];
+		for (int index = 0; index < net.length; index++) {
+			net[index] = new LogisticLayer(
+					parameterTraining.getNumberUnitHidden());
+			net[index].setMomentum(parameterTraining.getMomentum());
+			net[index].setLearningRate(parameterTraining.getLearningRate());
+		}
 
-		dataTraining = readerFeature.readTraining(indexes);
+		weights = new Weight[parameterTraining.getNumberHiddenLayers() + 1];
+
+		for (int index = 0; index < weights.length; index++) {
+			if (index == 0) {
+				weights[index] = new Weight(numberAttribute,
+						parameterTraining.getNumberUnitHidden());
+			} else if (index == weights.length - 1) {
+				weights[index] = new Weight(
+						parameterTraining.getNumberUnitHidden(),
+						parameterTraining.getNumberOutput());
+			} else {
+				weights[index] = new Weight(
+						parameterTraining.getNumberUnitHidden(),
+						parameterTraining.getNumberUnitHidden());
+			}
+		}
+		neuralNetwork = new MLP();
+	}
+
+	private Weight[] train(int[] indexes) throws IOException {
+		Data dataTraining = readerFeature.readTraining(indexes);
 		dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
 				dataTraining.getLabel());
 		Weight[] update = weights.clone();
@@ -66,17 +91,8 @@ public class FitnessFunctionMLP implements FitnessFunction {
 		return update;
 	}
 
-	private double test(NeuralNetworkIF neuralNetwork, Layer[] net,
-			Weight[] weights, int numberInput, int numberAttribute,
-			int numberOutput, ParameterTraining parameterTraining, int[] indexes)
-			throws IOException {
-		Data dataTest = new Data();
-		double[][] sample = new double[numberInput][numberAttribute];
-		dataTest.setSample(sample);
-		double[][] label = new double[numberInput][numberOutput];
-		dataTest.setLabel(label);
-
-		dataTest = readerFeature.readTest(indexes);
+	private double test(Weight[] weights, int[] indexes) throws IOException {
+		Data dataTest = readerFeature.readTest(indexes);
 		dataTest = MatrixHandler.randomize(dataTest.getSample(),
 				dataTest.getLabel());
 		double numberCorrect = 0;
@@ -92,7 +108,8 @@ public class FitnessFunctionMLP implements FitnessFunction {
 			}
 		}
 		double errorRate = 100 - ((double) numberCorrect / MatrixHandler
-				.rows(sample)) * 100;
+				.rows(dataTest.getSample())) * 100;
+		System.out.println("Error Rate Test " + errorRate);
 		return errorRate;
 	}
 

@@ -16,6 +16,8 @@ public class GeneticAlgorithm {
 		Chromosome result = null;
 		List<Chromosome> currentPopulation = population;
 		for (int index = 0; index < parameterGA.getNumberGeneration(); index++) {
+			System.out.println("########## Run Generation " + (index + 1)
+					+ "##########");
 			currentPopulation = Operators.selection(currentPopulation,
 					fitnessFunction, parameterGA.getNumberFathers());
 			if (currentPopulation.get(0).getEvaluation() <= parameterGA

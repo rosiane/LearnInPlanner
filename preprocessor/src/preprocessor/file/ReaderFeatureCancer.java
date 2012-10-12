@@ -16,30 +16,44 @@ public class ReaderFeatureCancer implements ReaderFeature {
 
 	private String pathTraining;
 	private String pathTest;
-	private Data dataTraining;
-	private Data dataTest;
+	private int numberInputTraining;
+	private int numberInputTest;
+	private int numberOutput;
 
 	public ReaderFeatureCancer(String pathTraining, String pathTest,
-			Data dataTraining, Data dataTest) {
+			int numberInputTraining, int numberInputTest, int numberOutput) {
 		this.pathTraining = pathTraining;
 		this.pathTest = pathTest;
-		this.dataTraining = dataTraining;
-		this.dataTest = dataTest;
+		this.numberInputTraining = numberInputTraining;
+		this.numberInputTest = numberInputTest;
+		this.numberOutput = numberOutput;
+
+	}
+
+	private static Data initialize(int numberInput, int numberAttribute,
+			int numberOutput) {
+		Data data = new Data();
+		double[][] sample = new double[numberInput][numberAttribute];
+		data.setSample(sample);
+		double[][] label = new double[numberInput][numberOutput];
+		data.setLabel(label);
+		return data;
 	}
 
 	@Override
 	public Data readTraining(int[] indexes) throws IOException {
-		return read(pathTraining, dataTraining, indexes);
+		return read(pathTraining, numberInputTraining, indexes);
 	}
 
 	@Override
 	public Data readTest(int[] indexes) throws IOException {
-		return read(pathTest, dataTest, indexes);
+		return read(pathTest, numberInputTest, indexes);
 	}
 
-	public static Data read(String path, Data data, int[] indexes)
+	public Data read(String path, int numberInput, int[] indexes)
 			throws IOException {
-		Data dataReading = data;
+		Data dataReading = initialize(numberInput,
+				MatrixHandler.countValue(indexes, 1), numberOutput);
 		double[][] sample = dataReading.getSample();
 		double[][] sampleLabel = dataReading.getLabel();
 		FileInputStream fileInputStream;
