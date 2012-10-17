@@ -14,6 +14,7 @@ public class ParameterTraining {
 	private double momentum;
 	private double learningRate;
 	private int numberOutput;
+	private boolean updateBatch;
 
 	public long getNumberEpochs() {
 		return numberEpochs;
@@ -110,5 +111,13 @@ public class ParameterTraining {
 
 	public void setNumberOutput(int numberOutput) {
 		this.numberOutput = numberOutput;
+	}
+
+	public boolean isUpdateBatch() {
+		return updateBatch;
+	}
+
+	public void setUpdateBatch(boolean updateBatch) {
+		this.updateBatch = updateBatch;
 	}
 }

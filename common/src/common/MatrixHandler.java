@@ -21,6 +21,15 @@ public class MatrixHandler extends Matrix {
 		return result;
 	}
 
+	public static double[] sum(double[] leftSide, double[] rightSide) {
+		double[] result = new double[leftSide.length];
+
+		for (int index = 0; index < leftSide.length; index++) {
+			result[index] = leftSide[index] + rightSide[index];
+		}
+		return result;
+	}
+
 	public static double[] multiply(double[] leftSide, double[] rightSide) {
 		double[] result = new double[leftSide.length];
 		for (int index = 0; index < leftSide.length; index++) {
@@ -31,6 +40,14 @@ public class MatrixHandler extends Matrix {
 
 	public static double[] multiply(double[] vector, double number) {
 		return getRow(multiply(new double[][] { vector }, number), 0);
+	}
+	
+	public static double[] division(double[] vector, double number) {
+		double[] result = new double[vector.length];
+		for (int index = 0; index < vector.length; index++) {
+			result[index] = vector[index] / number;
+		}
+		return result;
 	}
 
 	public static double[] parseDouble(String[] matrix) {

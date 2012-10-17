@@ -109,7 +109,7 @@ public class MLP implements NeuralNetworkIF {
 	public Weight[] train(Layer[] net, Weight[] weights, double[][] sample,
 			double[][] sampleLabel, ParameterTraining parameterTraining) {
 		double result[];
-		double errors[];
+		double errors[] = null;
 		Weight[] weightsUpdated = weights;
 		if (parameterTraining.isWeightsInitializationRandom()) {
 			weightsUpdated = initializeRandom(weightsUpdated);
@@ -142,7 +142,9 @@ public class MLP implements NeuralNetworkIF {
 			Data data = MatrixHandler.randomize(sample, sampleLabel);
 			for (int indexSample = 0; indexSample < MatrixHandler.rows(data
 					.getSample()); indexSample++) {
-				weightsUpdated = normalizeWeightsCols(weightsUpdated);
+				if (!parameterTraining.isUpdateBatch()) {
+					weightsUpdated = normalizeWeightsCols(weightsUpdated);
+				}
 				result = run(net, weightsUpdated,
 						MatrixHandler.getRow(data.getSample(), indexSample));
 				if (NeuralNetworkUtils.isCorrect(result,
@@ -150,10 +152,30 @@ public class MLP implements NeuralNetworkIF {
 						parameterTraining.getTask())) {
 					countCorrect++;
 				}
-				errors = MatrixHandler.subtract(
-						MatrixHandler.getRow(data.getLabel(), indexSample),
-						NeuralNetworkUtils.parseBinary(result));
+				if (!parameterTraining.isUpdateBatch()) {
+					errors = MatrixHandler.subtract(
+							MatrixHandler.getRow(data.getLabel(), indexSample),
+							NeuralNetworkUtils.parseBinary(result));
+					weightsUpdated = backpropagation(net, weightsUpdated,
+							errors);
+				} else {
+					if (indexSample == 0) {
+						errors = MatrixHandler.subtract(MatrixHandler.getRow(
+								data.getLabel(), indexSample),
+								NeuralNetworkUtils.parseBinary(result));
+					} else {
+						errors = MatrixHandler.sum(errors, MatrixHandler
+								.subtract(MatrixHandler.getRow(data.getLabel(),
+										indexSample), NeuralNetworkUtils
+										.parseBinary(result)));
+					}
+				}
+			}
+			if (parameterTraining.isUpdateBatch()) {
+				errors = MatrixHandler.division(errors,
+						MatrixHandler.rows(data.getSample()));
 				weightsUpdated = backpropagation(net, weightsUpdated, errors);
+				weightsUpdated = normalizeWeightsCols(weightsUpdated);
 			}
 			errorRate = 100 - ((double) countCorrect / MatrixHandler.rows(data
 					.getSample())) * 100;

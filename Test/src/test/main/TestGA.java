@@ -42,7 +42,7 @@ public class TestGA {
 		// Parameters GA
 		double maxErrorGA = 5;
 		int numberFathers = 10;
-		long numberGeneration = 500;
+		long numberGeneration = 100;
 //		long numberGeneration = 1;
 		int numberIndividualCrossing = 4;
 		int numberIndividualMutation = 1;
@@ -50,16 +50,17 @@ public class TestGA {
 		// Parameters MLP
 		long numberEpochs = 2000;
 //		long numberEpochs = 1;
-		double maxErrorMLPTraining = 16;
-		double learningRateDecrease = 0.97;
+		double maxErrorMLPTraining = 10;
+		double learningRateDecrease = 0.95;
 		double minLearningRate = 0.1;
 		boolean initializeRandom = true;
 		Task task = Task.CLASSIFICATION;
 		int intervalEpochPercentage = 5;
 		double momentum = 0.2;
-		double learningRate = 0.7;
+		double learningRate = 0.3;
 		int numberHiddenLayers = 1;
 		int numberUnitHidden = 10;
+		boolean updateBatch = true;
 
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
 		List<Chromosome> population = RandomUtils.initializePopulation(
@@ -82,6 +83,7 @@ public class TestGA {
 		parameterTraining.setNumberHiddenLayers(numberHiddenLayers);
 		parameterTraining.setNumberOutput(numberOutput);
 		parameterTraining.setNumberUnitHidden(numberUnitHidden);
+		parameterTraining.setUpdateBatch(updateBatch);
 
 		FitnessFunctionMLP fitnessFunction = new FitnessFunctionMLP(
 				readerFeatureCancer, parameterTraining);
