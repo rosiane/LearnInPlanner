@@ -10,7 +10,7 @@ public class RandomUtils {
 	private static Random random = new Random();
 
 	public static int nextInt(int max) {
-		return random.nextInt() * max;
+		return (int) (nextDouble() * max);
 	}
 
 	public static double nextDouble() {
@@ -27,7 +27,7 @@ public class RandomUtils {
 			individual = new Chromosome();
 			gene = new int[numberGenes];
 			for (int indexGene = 0; indexGene < numberGenes; indexGene++) {
-				sorted = nextInt(1);
+				sorted = nextDouble();
 				if (sorted < 0.5) {
 					gene[indexGene] = 0;
 				} else {

@@ -56,8 +56,13 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	private void initializeNetwork(int numberAttribute) {
 		net = new Layer[parameterTraining.getNumberHiddenLayers() + 1];
 		for (int index = 0; index < net.length; index++) {
-			net[index] = new LogisticLayer(
-					parameterTraining.getNumberUnitHidden());
+			if (index == net.length - 1) {
+				net[index] = new LogisticLayer(
+						parameterTraining.getNumberOutput());
+			} else {
+				net[index] = new LogisticLayer(
+						parameterTraining.getNumberUnitHidden());
+			}
 			net[index].setMomentum(parameterTraining.getMomentum());
 			net[index].setLearningRate(parameterTraining.getLearningRate());
 		}
@@ -83,8 +88,6 @@ public class FitnessFunctionMLP implements FitnessFunction {
 
 	private Weight[] train(int[] indexes) throws IOException {
 		Data dataTraining = readerFeature.readTraining(indexes);
-		dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
-				dataTraining.getLabel());
 		Weight[] update = weights.clone();
 		update = neuralNetwork.train(net, update, dataTraining.getSample(),
 				dataTraining.getLabel(), parameterTraining);

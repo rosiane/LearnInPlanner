@@ -12,6 +12,7 @@ import feature.selector.ga.util.RandomUtils;
 public class Operators {
 	public static List<Chromosome> reproduction(
 			List<Chromosome> currentPopulation, ParameterGA parameterGA) {
+		System.out.println("+++++++++++++++++ Reproduction +++++++++++++++++");
 		List<Chromosome> result = currentPopulation;
 		List<Chromosome> newIndividuals = new ArrayList<>();
 		newIndividuals = crossing(currentPopulation,
@@ -30,7 +31,8 @@ public class Operators {
 		int[] father = null;
 		int indexMother = 0;
 		int indexFather = 0;
-		int[] son = null;
+		int[] son1 = null;
+		int[] son2 = null;
 		int indexMutation = 0;
 		int indexSon = 0;
 		for (int index = 0; index < numberIndividualCrossing; index++) {
@@ -41,19 +43,26 @@ public class Operators {
 					break;
 				}
 			}
-			indexMutation = RandomUtils.nextInt(mother.length);
 			mother = currentPopulation.get(indexMother).getGene();
 			father = currentPopulation.get(indexFather).getGene();
-			son = new int[mother.length];
-			for (indexSon = 0; indexSon < son.length; indexSon++) {
+			indexMutation = RandomUtils.nextInt(mother.length);
+			son1 = new int[mother.length];
+			son2 = new int[mother.length];
+			for (indexSon = 0; indexSon < son1.length; indexSon++) {
 				if (indexSon <= indexMutation) {
-					son[indexSon] = mother[indexSon];
+					son1[indexSon] = mother[indexSon];
+					son2[indexSon] = father[indexSon];
 				} else {
-					son[indexSon] = father[indexSon];
+					son1[indexSon] = father[indexSon];
+					son2[indexSon] = mother[indexSon];
 				}
 			}
 			newIndividual = new Chromosome();
-			newIndividual.setGene(son);
+			newIndividual.setGene(son1);
+			result.add(newIndividual);
+			
+			newIndividual = new Chromosome();
+			newIndividual.setGene(son2);
 			result.add(newIndividual);
 		}
 		return result;
@@ -75,6 +84,7 @@ public class Operators {
 	public static List<Chromosome> selection(List<Chromosome> population,
 			FitnessFunction fitnessFunction, int numberFathers)
 			throws IOException {
+		System.out.println("+++++++++++++++++ Selection +++++++++++++++++");
 		List<Chromosome> fathers = new ArrayList<>();
 		Iterator<Chromosome> populationIterator = population.iterator();
 		Chromosome individual = null;

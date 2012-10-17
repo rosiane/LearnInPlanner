@@ -18,12 +18,13 @@ public class GeneticAlgorithm {
 		for (int index = 0; index < parameterGA.getNumberGeneration(); index++) {
 			System.out.println("########## Run Generation " + (index + 1)
 					+ "##########");
+			System.out.println("Population size=" + currentPopulation.size());
 			currentPopulation = Operators.selection(currentPopulation,
 					fitnessFunction, parameterGA.getNumberFathers());
-			if (currentPopulation.get(0).getEvaluation() <= parameterGA
-					.getMaxError()) {
-				break;
-			}
+//			if (currentPopulation.get(0).getEvaluation() <= parameterGA
+//					.getMaxError()) {
+//				break;
+//			}
 			currentPopulation = Operators.reproduction(currentPopulation,
 					parameterGA);
 		}

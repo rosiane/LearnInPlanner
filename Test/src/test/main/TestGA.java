@@ -18,6 +18,8 @@ import feature.selector.ga.util.RandomUtils;
 public class TestGA {
 
 	public static void main(String[] args) {
+//		System.out.println(RandomUtils.nextInt(10));
+//		System.out.println(RandomUtils.nextDouble());
 		try {
 			test();
 		} catch (IOException e) {
@@ -40,20 +42,22 @@ public class TestGA {
 		// Parameters GA
 		double maxErrorGA = 5;
 		int numberFathers = 10;
-		long numberGeneration = 100;
+		long numberGeneration = 500;
+//		long numberGeneration = 1;
 		int numberIndividualCrossing = 4;
 		int numberIndividualMutation = 1;
 
 		// Parameters MLP
 		long numberEpochs = 2000;
-		double maxErrorMLPTraining = 5;
-		double learningRateDecrease = 0.99;
+//		long numberEpochs = 1;
+		double maxErrorMLPTraining = 16;
+		double learningRateDecrease = 0.97;
 		double minLearningRate = 0.1;
 		boolean initializeRandom = true;
 		Task task = Task.CLASSIFICATION;
-		int intervalEpochPercentage = 2;
-		double momentum = 0.1;
-		double learningRate = 0.4;
+		int intervalEpochPercentage = 5;
+		double momentum = 0.2;
+		double learningRate = 0.7;
 		int numberHiddenLayers = 1;
 		int numberUnitHidden = 10;
 

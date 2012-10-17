@@ -158,8 +158,8 @@ public class MLP implements NeuralNetworkIF {
 			errorRate = 100 - ((double) countCorrect / MatrixHandler.rows(data
 					.getSample())) * 100;
 			if (epoch
-					% ((parameterTraining.getNumberEpochs() * parameterTraining
-							.getIntervalEpochPercentage()) / 100) == 0) {
+					% (((double) (parameterTraining.getNumberEpochs() * parameterTraining
+							.getIntervalEpochPercentage())) / 100) == 0) {
 				if (net[0].getLearningRate() > parameterTraining
 						.getMinLearningRate()) {
 					net = decreaseLearningRate(net,
