@@ -4,7 +4,6 @@ public class ParameterGA {
 
 	private long numberGeneration;
 	private int numberFathers;
-	private double maxError;
 	private int numberIndividualMutation;
 	private int numberIndividualCrossing;
 
@@ -22,14 +21,6 @@ public class ParameterGA {
 
 	public void setNumberFathers(int numberFathers) {
 		this.numberFathers = numberFathers;
-	}
-
-	public double getMaxError() {
-		return maxError;
-	}
-
-	public void setMaxError(double maxError) {
-		this.maxError = maxError;
 	}
 
 	public int getNumberIndividualMutation() {

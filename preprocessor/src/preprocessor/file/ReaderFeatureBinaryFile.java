@@ -12,20 +12,25 @@ import java.util.List;
 import common.Data;
 import common.MatrixHandler;
 
-public class ReaderFeatureCancer implements ReaderFeature {
+public class ReaderFeatureBinaryFile implements ReaderFeature {
 
 	private String pathTraining;
 	private String pathTest;
+	private String pathValidation;
 	private int numberInputTraining;
 	private int numberInputTest;
+	private int numberInputValidation;
 	private int numberOutput;
 
-	public ReaderFeatureCancer(String pathTraining, String pathTest,
-			int numberInputTraining, int numberInputTest, int numberOutput) {
+	public ReaderFeatureBinaryFile(String pathTraining, String pathTest,
+			String pathValidation, int numberInputTraining,
+			int numberInputTest, int numberInputValidation, int numberOutput) {
 		this.pathTraining = pathTraining;
 		this.pathTest = pathTest;
+		this.pathValidation = pathValidation;
 		this.numberInputTraining = numberInputTraining;
 		this.numberInputTest = numberInputTest;
+		this.numberInputValidation = numberInputValidation;
 		this.numberOutput = numberOutput;
 
 	}
@@ -48,6 +53,11 @@ public class ReaderFeatureCancer implements ReaderFeature {
 	@Override
 	public Data readTest(int[] indexes) throws IOException {
 		return read(pathTest, numberInputTest, indexes);
+	}
+
+	@Override
+	public Data readValidation(int[] indexes) throws IOException {
+		return read(pathValidation, numberInputValidation, indexes);
 	}
 
 	public Data read(String path, int numberInput, int[] indexes)

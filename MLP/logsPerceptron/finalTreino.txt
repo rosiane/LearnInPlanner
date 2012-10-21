@@ -1,0 +1,56 @@
+******************** RUN 1 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 1406
+
+******************** RUN 2 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 1537
+
+******************** RUN 3 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 1192
+
+******************** RUN 4 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 197
+
+******************** RUN 5 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 331
+
+******************** RUN 6 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 864
+
+******************** RUN 7 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 54
+
+******************** RUN 8 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 1506
+
+******************** RUN 9 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 771
+
+******************** RUN 10 ********************
+contClassificacoesCorretasTreino: 133
+contCiclos: 394
+
+******************** RUN 1 ********************
+contClassificacoesCorretasTreino: 1
+contCiclos: 2000
+
+******************** RUN 1 ********************
+contClassificacoesCorretasTreino: 0
+contCiclos: 1
+
+******************** RUN 1 ********************
+contClassificacoesCorretasTreino: 0
+contCiclos: 1
+
+******************** RUN 1 ********************
+contClassificacoesCorretasTreino: 1
+contCiclos: 1
+

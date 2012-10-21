@@ -10,4 +10,6 @@ public interface ReaderFeature {
 
 	public Data readTest(int[] indexes) throws IOException;
 
+	public Data readValidation(int[] indexes) throws IOException;
+
 }

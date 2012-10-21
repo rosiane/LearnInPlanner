@@ -12,7 +12,7 @@ import common.MatrixHandler;
  */
 public class Weight {
 	private double[][] weights;
-	private double[] lastUpdates;
+	private double[][] lastUpdates;
 
 	/**
 	 * Avoiding create instance without initialize weights
@@ -28,7 +28,7 @@ public class Weight {
 	 */
 	public Weight(int numRows, int numCols) {
 		this.weights = new double[numRows][numCols];
-		this.lastUpdates = new double[numCols];
+		this.lastUpdates = new double[numRows][numCols];
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Weight {
 	 * 
 	 * @return
 	 */
-	public double[] getLastUpdates() {
+	public double[][] getLastUpdates() {
 		return lastUpdates;
 	}
 
@@ -68,7 +68,7 @@ public class Weight {
 	 * 
 	 * @param lastUpdates
 	 */
-	public void setLastUpdates(double[] lastUpdates) {
+	public void setLastUpdates(double[][] lastUpdates) {
 		this.lastUpdates = lastUpdates;
 	}
 

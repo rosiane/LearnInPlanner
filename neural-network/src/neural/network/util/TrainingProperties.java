@@ -4,6 +4,7 @@ public class TrainingProperties {
 
 	private double[] gradientRightLayer;
 	private double[] inputsLayer;
+	private double[] inputsLayerLeft;
 	private double[] upwardSumLayer;
 
 	/**
@@ -41,6 +42,15 @@ public class TrainingProperties {
 
 	public void setUpwardSumLayer(double[] upwardSumLayer) {
 		this.upwardSumLayer = upwardSumLayer;
+	}
+
+	public double [] getInputsLayerLeft(){
+		return this.inputsLayerLeft;
+	}
+	
+	public void setInputsLayerLeft(double[] inputs) {
+		this.inputsLayerLeft = inputs;
+		
 	}
 
 }

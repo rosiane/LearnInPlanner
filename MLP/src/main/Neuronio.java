@@ -28,8 +28,11 @@ public class Neuronio {
 	public double calculaV(double[] entradas, double[][] pesos, int j) {
 		double v = 0;
 		
-		for (int i = 0; i < entradas.length; i++)
+		for (int i = 0; i < entradas.length; i++){
+			System.out.println("[" + i + "][ " + j + "] " + entradas[i] + " * " + pesos[i][j]);
 			v += entradas[i] * pesos[i][j];
+		}
+		System.out.println(v);
 		
 		return v;
 	}

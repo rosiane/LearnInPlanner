@@ -43,9 +43,10 @@ public class Perceptron {
 	private Neuronio[] camadaOcu;
 	private Neuronio[] camadaSai;
 	
-	public Perceptron(double taxaAprendizado, double alvoAtivacao, double alvoNaoAtivacao,
-			double taxaErroMaxTreino,	int nEnt, int nOcu, int nSai,
-			int nPadroesTreino, int nPadroesValidacao, int nMaxCiclos) {
+	public Perceptron(double taxaAprendizado, double alvoAtivacao,
+			double alvoNaoAtivacao, double taxaErroMaxTreino, int nEnt,
+			int nOcu, int nSai, int nPadroesTreino, int nPadroesValidacao,
+			int nMaxCiclos) {
 		this.alvoAtivacao = alvoAtivacao;
 		this.alvoNaoAtivacao = alvoNaoAtivacao;
 		this.taxaErroMaxTreino = taxaErroMaxTreino;
@@ -73,14 +74,14 @@ public class Perceptron {
 		listTaxaErro = new LinkedList<Double>();
 		camadaOcu = new Neuronio[nOcu];
 		camadaSai = new Neuronio[nSai];
-		
+
 		for (int i = 0; i < nOcu; i++)
 			camadaOcu[i] = new Neuronio(taxaAprendizado);
-		
+
 		for (int i = 0; i < nSai; i++)
 			camadaSai[i] = new Neuronio(taxaAprendizado);
 	}
-	
+
 	public void iniciarTreino(double[][] entradas, double[][] esperados) {
 		entradasTreino = entradas;
 		esperadosTreino = esperados;
@@ -88,89 +89,136 @@ public class Perceptron {
 		taxaErro = 100;
 		contClassificacoesCorretasTreino = 0;
 		inicializaPesos();
-		
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/inicializacaoTreino", ".txt", imprimeInicioTreino());
+
+		Arquivo.escrever(Arquivo.diretorioRaiz
+				+ "logsPerceptron/inicializacaoTreino", ".txt",
+				imprimeInicioTreino());
 		out.println("Treinando...");
-		
+
 		while (taxaErro > taxaErroMaxTreino && contCiclos < nMaxCiclos) {
 			contClassificacoesCorretasTreino = 0;
 			somaQuadradoErros = 0;
-			
+
 			out.println("Ciclo: " + (contCiclos + 1));
-			
-			for (int j = 0; j < nPadroesTreino; j++) {
+
+			for (int j = 0; j < 1/*nPadroesTreino*/; j++) {
 				int max = 0;
-				
-				for (int k = 0; k < nOcu; k++)
-					saidasOcuTreino[k] = camadaOcu[k].forward(entradasTreino[j], pesosEntOcu, k);
-				
-				for (int k = 0; k < nSai; k++)
-					saidasTreino[k] = camadaSai[k].forward(saidasOcuTreino, pesosOcuSai, k);
-				
-				for (int k = 0; k < nSai; k++)
-					erros[k] = esperadosTreino[j][k] - saidasTreino[k];
-				
-				for (int k = 0; k < nSai; k++)
-					deltasSai[k] = camadaSai[k].deltaSaida(saidasOcuTreino, pesosOcuSai, k, erros[k]);
-				
+				System.out.println("Forward");
+				System.out.println("Entrada Oculta");
 				for (int k = 0; k < nOcu; k++) {
-					for (int l = 0; l < nSai; l++)
-						pesosOcuSai[k][l] += camadaSai[l].getTaxaAprendizado() * deltasSai[l] * saidasOcuTreino[k];
+					saidasOcuTreino[k] = camadaOcu[k].forward(
+							entradasTreino[j], pesosEntOcu, k);
+					System.out.println("[" + k + "]" + saidasOcuTreino[k]);
 				}
-				
-				for (int k = 0; k < nOcu; k++)
-					deltasOcu[k] = camadaOcu[k].deltaOculto(entradasTreino[j], pesosEntOcu, k, deltasSai, pesosOcuSai, k);
-				
+
+				System.out.println("Oculta SaÃ­da");
+				for (int k = 0; k < nSai; k++) {
+					saidasTreino[k] = camadaSai[k].forward(saidasOcuTreino,
+							pesosOcuSai, k);
+					System.out.println("[" + k + "]" + saidasTreino[k]);
+				}
+
+				System.out.println("Erro");
+				for (int k = 0; k < nSai; k++) {
+					erros[k] = esperadosTreino[j][k] - saidasTreino[k];
+					System.out.print(erros[k] + " ");
+				}
+
+				System.out.println();
+
+				System.out.println("Backpropagation");
+				System.out.println("Delta SaÃ­da");
+				for (int k = 0; k < nSai; k++) {
+					deltasSai[k] = camadaSai[k].deltaSaida(saidasOcuTreino,
+							pesosOcuSai, k, erros[k]);
+					System.out.println("[" + k + "]" + deltasSai[k]);
+				}
+
+				System.out.println("Update Oculta SaÃ­da");
+				for (int k = 0; k < nOcu; k++) {
+					for (int l = 0; l < nSai; l++){
+						pesosOcuSai[k][l] += camadaSai[l].getTaxaAprendizado()
+								* deltasSai[l] * saidasOcuTreino[k];
+						System.out.print("[" + k + "][" + l + "]" + pesosOcuSai[k][l]);
+					}
+					System.out.println();
+				}
+
+				System.out.println("Delta Oculta");
+				for (int k = 0; k < nOcu; k++){
+					deltasOcu[k] = camadaOcu[k].deltaOculto(entradasTreino[j],
+							pesosEntOcu, k, deltasSai, pesosOcuSai, k);
+					System.out.println("[" + k + "]" +  deltasOcu[k]);
+				}
+
+				System.out.println("Update Entrada Oculta");
 				for (int k = 0; k < nEnt; k++) {
-					for (int l = 0; l < nOcu; l++)
-						pesosEntOcu[k][l] += camadaOcu[l].getTaxaAprendizado() * deltasOcu[l] * entradasTreino[j][k];
+					for (int l = 0; l < nOcu; l++){
+						pesosEntOcu[k][l] += camadaOcu[l].getTaxaAprendizado()
+								* deltasOcu[l] * entradasTreino[j][k];
+						System.out.print("[" + k + "][" + l + "]" + pesosEntOcu[k][l]);
+					}
+					System.out.println();
 				}
-				
+
 				for (int k = 1; k < nSai; k++) {
 					if (saidasTreino[k] > saidasTreino[max])
 						max = k;
 				}
-				
+
 				if (esperadosTreino[j][max] == alvoAtivacao)
 					contClassificacoesCorretasTreino++;
-				
+
 				for (int k = 0; k < nSai; k++)
 					somaQuadradoErros += Math.pow(erros[k], 2);
-				
-				//Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/treinoSaidasPorPadrao", ".txt", imprimeTreinoCadaPadrao();
-			} // Fim de um Padrão
-			
-			taxaErro = 100 - ((double)contClassificacoesCorretasTreino / nPadroesTreino) * 100;
+
+				// Arquivo.escrever(Arquivo.diretorioRaiz +
+				// "logsPerceptron/treinoSaidasPorPadrao", ".txt",
+				// imprimeTreinoCadaPadrao();
+			} // Fim de um Padrï¿½o
+
+			taxaErro = 100 - ((double) contClassificacoesCorretasTreino / nPadroesTreino) * 100;
 			listTaxaErro.add(taxaErro);
 			listSomaQuadradoErros.add(somaQuadradoErros);
 			contCiclos++;
 		} // Fim do Treino
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/finalTreino", ".txt", imprimeFinalTreino());
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/plotContCiclos", ".txt", imprimePlotContCiclos());
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/plotSomaQuadradoErros", ".txt", imprimePlotErrosQuadraticos());
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/plotTaxaErros", ".txt", imprimePlotTaxaErro());
-		
+		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/finalTreino",
+				".txt", imprimeFinalTreino());
+		Arquivo.escrever(Arquivo.diretorioRaiz
+				+ "logsPerceptron/plotContCiclos", ".txt",
+				imprimePlotContCiclos());
+		Arquivo.escrever(Arquivo.diretorioRaiz
+				+ "logsPerceptron/plotSomaQuadradoErros", ".txt",
+				imprimePlotErrosQuadraticos());
+		Arquivo.escrever(
+				Arquivo.diretorioRaiz + "logsPerceptron/plotTaxaErros", ".txt",
+				imprimePlotTaxaErro());
+
 		out.println("Treinamento terminado. Num. Ciclos: " + contCiclos);
 		out.println();
 	}
-	
+
 	public void iniciarValidacao(double[][] entradas, double[][] esperados) {
 		entradasValidacao = entradas;
 		esperadosValidacao = esperados;
 		contClassificacoesCorretasValidacao = 0;
-		
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/inicializacaoValidacao", ".txt", imprimeInicioValidacao());
+
+		Arquivo.escrever(Arquivo.diretorioRaiz
+				+ "logsPerceptron/inicializacaoValidacao", ".txt",
+				imprimeInicioValidacao());
 		out.println("Validando...");
-		
+
 		for (int j = 0; j < nPadroesValidacao; j++) {
 			int max = 0;
-			
+
 			for (int k = 0; k < nOcu; k++)
-				saidasOcuValidacao[k] = camadaOcu[k].forward(entradasValidacao[j], pesosEntOcu, k);
-			
+				saidasOcuValidacao[k] = camadaOcu[k].forward(
+						entradasValidacao[j], pesosEntOcu, k);
+
 			for (int k = 0; k < nSai; k++)
-				saidasValidacao[k] = camadaSai[k].forward(saidasOcuValidacao, pesosOcuSai, k);
-			
+				saidasValidacao[k] = camadaSai[k].forward(saidasOcuValidacao,
+						pesosOcuSai, k);
+
 			for (int k = 1; k < nSai; k++) {
 				if (saidasValidacao[k] > saidasValidacao[max])
 					max = k;
@@ -178,49 +226,55 @@ public class Perceptron {
 			if (esperadosValidacao[j][max] == alvoAtivacao) {
 				contClassificacoesCorretasValidacao++;
 			}
-			
+
 			classificacoesValidacao[j][0] = max;
 			classificacoesValidacao[j][1] = esperadoToInt(esperadosValidacao, j);
-			// Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/validacaoSaidasPorPadrao", ".txt", imprimeValidacao());
+			// Arquivo.escrever(Arquivo.diretorioRaiz +
+			// "logsPerceptron/validacaoSaidasPorPadrao", ".txt",
+			// imprimeValidacao());
 		} // Fim da Validacao
-		
-		Arquivo.escrever(Arquivo.diretorioRaiz + "logsPerceptron/classificacoesValidacao", ".txt", imprimeClassificacoesValidacao());
-		
-		out.println("Validação Terminada. Acertos: " + contClassificacoesCorretasValidacao);
+
+		Arquivo.escrever(Arquivo.diretorioRaiz
+				+ "logsPerceptron/classificacoesValidacao", ".txt",
+				imprimeClassificacoesValidacao());
+
+		out.println("Validaï¿½ï¿½o Terminada. Acertos: "
+				+ contClassificacoesCorretasValidacao);
 		out.println();
-		
+
 		contRuns++;
 	}
-	
+
 	public void inicializaPesos() {
 		for (int i = 0; i < nEnt; i++) {
 			for (int j = 0; j < nOcu; j++)
 				pesosEntOcu[i][j] = Math.random() * 2 - 1;
 		}
-		
+
 		for (int i = 0; i < nOcu; i++) {
 			for (int j = 0; j < nSai; j++)
 				pesosOcuSai[i][j] = Math.random() * 2 - 1;
 		}
 	}
-	
+
 	public int esperadoToInt(double[][] esperados, int i) {
 		int classe = 0;
-		
+
 		for (int j = 0; j < nSai; j++) {
-			if ( esperados[i][j] == alvoAtivacao ) {
+			if (esperados[i][j] == alvoAtivacao) {
 				classe = j;
 				break;
 			}
 		}
-		
+
 		return classe;
 	}
-	
+
 	public String imprimeInicioTreino() {
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
 		saida += "alvoAtivacao: " + alvoAtivacao + "\n";
 		saida += "alvoNaoAtivacao: " + alvoNaoAtivacao + "\n";
 		saida += "taxaErroMaxTreino: " + taxaErroMaxTreino + "\n";
@@ -229,7 +283,7 @@ public class Perceptron {
 		saida += "nOcu: " + nOcu + "\n";
 		saida += "nPadroesTreino: " + nPadroesTreino + "\n";
 		saida += "nSai: " + nSai + "\n";
-		
+
 		saida += "entradasTreino\n";
 		for (int i = 0; i < nPadroesTreino; i++) {
 			for (int j = 0; j < nEnt; j++)
@@ -244,21 +298,22 @@ public class Perceptron {
 			saida += "\n";
 		}
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeInicioValidacao() {
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
 		saida += "alvoAtivacao: " + alvoAtivacao + "\n";
 		saida += "alvoNaoAtivacao: " + alvoNaoAtivacao + "\n";
 		saida += "nEnt: " + nEnt + "\n";
 		saida += "nOcu: " + nOcu + "\n";
 		saida += "nPadroesValidacao: " + nPadroesValidacao + "\n";
 		saida += "nSai: " + nSai + "\n";
-		
+
 		saida += "entradasValidacao\n";
 		for (int i = 0; i < nPadroesValidacao; i++) {
 			for (int j = 0; j < nEnt; j++)
@@ -273,19 +328,19 @@ public class Perceptron {
 			saida += "\n";
 		}
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeTreinoCadaPadrao() {
 		String saida = "";
-		
+
 		saida += "saidasOcuTreino\n";
 		for (int i = 0; i < nOcu; i++)
 			saida += saidasOcuTreino[i] + "   ";
 		saida += "\n";
 		saida += "saidasTreino\n";
-		for (int i = 0; i < nPadroesTreino; i++) 
+		for (int i = 0; i < nPadroesTreino; i++)
 			saida += saidasTreino[i] + "   ";
 		saida += "\n";
 		saida += "erros\n";
@@ -294,29 +349,29 @@ public class Perceptron {
 		saida += "\n";
 		saida += "deltasSai\n";
 		for (int i = 0; i < nPadroesTreino; i++)
-				saida += deltasSai[i] + "   ";
+			saida += deltasSai[i] + "   ";
 		saida += "\n";
 		saida += "deltasOcu\n";
 		for (int i = 0; i < nPadroesTreino; i++)
 			saida += deltasOcu[i] + "   ";
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeTreinoCiclo() {
 		String saida = "";
-		
+
 		saida += "somaQuadradoErros: " + somaQuadradoErros + "\n";
 		saida += "taxaErro: " + taxaErro + "\n";
 		saida += "contCiclos: " + contCiclos + "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimePesos() {
 		String saida = "";
-		
+
 		saida += "pesosEntOcu\n";
 		for (int i = 0; i < nEnt; i++) {
 			for (int j = 0; j < nOcu; j++)
@@ -331,23 +386,25 @@ public class Perceptron {
 			saida += "\n";
 		}
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeFinalTreino() {
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
-		saida += "contClassificacoesCorretasTreino: " + contClassificacoesCorretasTreino + "\n";
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
+		saida += "contClassificacoesCorretasTreino: "
+				+ contClassificacoesCorretasTreino + "\n";
 		saida += "contCiclos: " + contCiclos + "\n\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeValidacaoSaidasPadrao() {
 		String saida = "";
-		
+
 		saida += "saidasOcuValidacao\n";
 		for (int i = 0; i < nPadroesValidacao; i++)
 			saida += saidasOcuValidacao[i] + "   ";
@@ -356,66 +413,73 @@ public class Perceptron {
 		for (int i = 0; i < nPadroesValidacao; i++)
 			saida += saidasValidacao[i] + "   ";
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimeClassificacoesValidacao() {
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
 		saida += "Modelo:\n";
 		saida += "[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]\n\n";
-		
+
 		for (int i = 0; i < nPadroesValidacao; i++) {
-			saida += (classificacoesValidacao[i][0] + 1) + " - " + (classificacoesValidacao[i][1] + 1) + " -> ";
-			
+			saida += (classificacoesValidacao[i][0] + 1) + " - "
+					+ (classificacoesValidacao[i][1] + 1) + " -> ";
+
 			if (classificacoesValidacao[i][0] == classificacoesValidacao[i][1])
 				saida += "CORRETO\n";
 			else
 				saida += "ERRADO\n";
 		}
 		saida += "\n";
-		saida += "Acertos: " + contClassificacoesCorretasValidacao + " de " + nPadroesValidacao + "\n";
-		saida += "Porcentagem: " + ((double)contClassificacoesCorretasValidacao / nPadroesValidacao * 100) + "\n";
+		saida += "Acertos: " + contClassificacoesCorretasValidacao + " de "
+				+ nPadroesValidacao + "\n";
+		saida += "Porcentagem: "
+				+ ((double) contClassificacoesCorretasValidacao
+						/ nPadroesValidacao * 100) + "\n";
 		saida += "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimePlotContCiclos() {
 		String saida = "";
-		
+
 		saida += contCiclos + "\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimePlotErrosQuadraticos() {
 		Iterator<Double> iterator = listSomaQuadradoErros.iterator();
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
-		
-		while(iterator.hasNext())
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
+
+		while (iterator.hasNext())
 			saida += iterator.next().toString().replace('.', ',') + "\n";
-		
+
 		saida += "\n\n";
-		
+
 		return saida;
 	}
-	
+
 	public String imprimePlotTaxaErro() {
 		Iterator<Double> iterator = listTaxaErro.iterator();
 		String saida = "";
-		
-		saida += "******************** RUN " + (contRuns + 1) + " ********************\n";
-		
-		while(iterator.hasNext())
+
+		saida += "******************** RUN " + (contRuns + 1)
+				+ " ********************\n";
+
+		while (iterator.hasNext())
 			saida += iterator.next().toString().replace('.', ',') + "\n";
-		
+
 		saida += "\n\n";
-		
+
 		return saida;
 	}
 
@@ -684,5 +748,5 @@ public class Perceptron {
 	public void setTaxaErroMaxTreino(double taxaErroMaxTreino) {
 		this.taxaErroMaxTreino = taxaErroMaxTreino;
 	}
-	
+
 }

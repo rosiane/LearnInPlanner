@@ -1,0 +1,59 @@
+Resultado da Validacao
+Acertos	Porcentagem
+15		100.0
+15		100.0
+15		100.0
+14		93.33333333333333
+15		100.0
+15		100.0
+12		80.0
+15		100.0
+14		93.33333333333333
+15		100.0
+
+M�dia de acertos: 14.5
+Desvio padr�o: 0.9219544457292888
+
+M�dia de acertos (%): 96.66666666666666
+Desvio Padr�o: 6.146362971528593
+
+Resultado da Validacao
+Acertos	Porcentagem
+5		33.33333333333333
+
+M�dia de acertos: 5.0
+Desvio padr�o: 0.0
+
+M�dia de acertos (%): 33.33333333333333
+Desvio Padr�o: 0.0
+
+Resultado da Validacao
+Acertos	Porcentagem
+5		33.33333333333333
+
+M�dia de acertos: 5.0
+Desvio padr�o: 0.0
+
+M�dia de acertos (%): 33.33333333333333
+Desvio Padr�o: 0.0
+
+Resultado da Validacao
+Acertos	Porcentagem
+5		33.33333333333333
+
+M�dia de acertos: 5.0
+Desvio padr�o: 0.0
+
+M�dia de acertos (%): 33.33333333333333
+Desvio Padr�o: 0.0
+
+Resultado da Validacao
+Acertos	Porcentagem
+5		33.33333333333333
+
+M�dia de acertos: 5.0
+Desvio padr�o: 0.0
+
+M�dia de acertos (%): 33.33333333333333
+Desvio Padr�o: 0.0
+

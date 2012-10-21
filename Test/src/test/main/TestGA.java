@@ -8,7 +8,7 @@ import common.MatrixHandler;
 import neural.network.enums.Task;
 import neural.network.impl.ParameterTraining;
 
-import preprocessor.file.ReaderFeatureCancer;
+import preprocessor.file.ReaderFeatureBinaryFile;
 import feature.selector.GeneticAlgorithm;
 import feature.selector.ga.Chromosome;
 import feature.selector.ga.ParameterGA;
@@ -18,57 +18,58 @@ import feature.selector.ga.util.RandomUtils;
 public class TestGA {
 
 	public static void main(String[] args) {
-//		System.out.println(RandomUtils.nextInt(10));
-//		System.out.println(RandomUtils.nextDouble());
 		try {
 			test();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	private static void test() throws IOException {
-		int numberInputTraining = 513;
-		int numberInputTest = 56;
+		int numberInputTraining = 467;
+		int numberInputTest = 51;
+		int numberInputValidation = 51;
 		int numberOutput = 2;
 
-		String pathTraining = "./data/cancer/cancer_binaryTraining1.csv";
-		String pathTest = "./data/cancer/cancer_binaryTest1.csv";
+		// String pathTraining = "./data/cancer/cancer_binaryTraining1.csv";
+		// String pathTest = "./data/cancer/cancer_binaryTest1.csv";
+		// String pathValidation = "./data/cancer/cancer_binary_validation.csv";
+		String pathTraining = "./data/cancer/cancer_binary_patternizedTraining1.csv";
+		String pathTest = "./data/cancer/cancer_binary_patternizedTest1.csv";
+		String pathValidation = "./data/cancer/cancer_binary_patternized_validation.csv";
 
 		int numberIndividualInitial = 20;
 		int numberGenes = 30;
 
 		// Parameters GA
-		double maxErrorGA = 5;
 		int numberFathers = 10;
-		long numberGeneration = 100;
-//		long numberGeneration = 1;
+		long numberGeneration = 50;
 		int numberIndividualCrossing = 4;
-		int numberIndividualMutation = 1;
+		int numberIndividualMutation = 2;
 
 		// Parameters MLP
-		long numberEpochs = 2000;
-//		long numberEpochs = 1;
-		double maxErrorMLPTraining = 10;
-		double learningRateDecrease = 0.95;
+		long numberEpochs = 100;
+		double maxErrorMLPTraining = 6;
+		double learningRateDecrease = 0.99;
 		double minLearningRate = 0.1;
 		boolean initializeRandom = true;
 		Task task = Task.CLASSIFICATION;
-		int intervalEpochPercentage = 5;
-		double momentum = 0.2;
-		double learningRate = 0.3;
+		int intervalEpochPercentage = 2;
+		double momentum = 0.1;
+		double learningRate = 0.4;
 		int numberHiddenLayers = 1;
 		int numberUnitHidden = 10;
-		boolean updateBatch = true;
+		boolean updateBatch = false;
+		boolean normalizeWeights = true;
+		boolean validation = true;
 
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
 		List<Chromosome> population = RandomUtils.initializePopulation(
 				numberIndividualInitial, numberGenes);
 
-		ReaderFeatureCancer readerFeatureCancer = new ReaderFeatureCancer(
-				pathTraining, pathTest, numberInputTraining, numberInputTest,
-				numberOutput);
+		ReaderFeatureBinaryFile readerFeatureCancer = new ReaderFeatureBinaryFile(
+				pathTraining, pathTest, pathValidation, numberInputTraining,
+				numberInputTest, numberInputValidation, numberOutput);
 
 		ParameterTraining parameterTraining = new ParameterTraining();
 		parameterTraining.setNumberEpochs(numberEpochs);
@@ -84,19 +85,21 @@ public class TestGA {
 		parameterTraining.setNumberOutput(numberOutput);
 		parameterTraining.setNumberUnitHidden(numberUnitHidden);
 		parameterTraining.setUpdateBatch(updateBatch);
+		parameterTraining.setNormalizeWeights(normalizeWeights);
+		parameterTraining.setValidation(validation);
 
 		FitnessFunctionMLP fitnessFunction = new FitnessFunctionMLP(
 				readerFeatureCancer, parameterTraining);
-		
+
 		ParameterGA parameterGA = new ParameterGA();
-		parameterGA.setMaxError(maxErrorGA);
 		parameterGA.setNumberFathers(numberFathers);
 		parameterGA.setNumberGeneration(numberGeneration);
 		parameterGA.setNumberIndividualCrossing(numberIndividualCrossing);
 		parameterGA.setNumberIndividualMutation(numberIndividualMutation);
-		
-		Chromosome chromosome = geneticAlgorithm.run(population, fitnessFunction, parameterGA);
-		
+
+		Chromosome chromosome = geneticAlgorithm.run(population,
+				fitnessFunction, parameterGA);
+
 		System.out.println("Genes Finais");
 		MatrixHandler.printArray(chromosome.getGene());
 		System.out.println("Evaluation: " + chromosome.getEvaluation());

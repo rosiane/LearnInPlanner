@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Arquivo {
-	public static String diretorioRaiz = "/home/rosy/Documentos/USP/Mestrado/Meu Trabalho/Outros/pesquisa-sti/Perceptron/";
+	public static String diretorioRaiz = "/home/rosy/Development/workspaces/LearnInPlanner/MLP/";
 	
 	public static String ler( String nomeArquivo ) {
 		String texto = "";

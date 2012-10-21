@@ -27,8 +27,8 @@ public class XValidation {
 		int nSai = 3;
 		int nPadroesTreino = 135;
 		int nPadroesValidacao = 15;
-		int nMaxCiclos = 2000;
-		int nRuns = 10;
+		int nMaxCiclos = 1;
+		int nRuns = 1;
 		XValidation xVal = new XValidation();
 		
 		out.println("Rede iniciada");

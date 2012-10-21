@@ -61,8 +61,9 @@ public class Crossvalidation {
 		dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
 				dataTraining.getLabel());
 		Weight[] update = weights.clone();
-		update = neuralNetwork.train(net, update, dataTraining.getSample(),
-				dataTraining.getLabel(), parameterTraining);
+		// TODO Alterar para validacao
+		 update = neuralNetwork.train(net, update, dataTraining.getSample(),
+		 dataTraining.getLabel(), parameterTraining, null);
 		return update;
 	}
 

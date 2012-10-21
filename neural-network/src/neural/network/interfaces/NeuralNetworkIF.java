@@ -4,6 +4,7 @@ import neural.network.impl.ParameterTraining;
 import neural.network.util.Weight;
 
 import com.syvys.jaRBM.Layers.Layer;
+import common.Data;
 
 /**
  * 
@@ -12,7 +13,8 @@ import com.syvys.jaRBM.Layers.Layer;
  */
 public interface NeuralNetworkIF {
 	public Weight[] train(Layer[] net, Weight[] weights, double[][] sample,
-			double[][] sampleLabel, ParameterTraining parameterTraining);
+			double[][] sampleLabel, ParameterTraining parameterTraining,
+			Data dataValidation);
 
 	public double[] run(Layer[] net, Weight[] weights, double[] data);
 

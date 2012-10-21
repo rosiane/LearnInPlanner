@@ -1,0 +1,322 @@
+******************** RUN 1 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 2 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 3 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 4 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+3 - 2 -> ERRADO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+
+Acertos: 14 de 15
+Porcentagem: 93.33333333333333
+
+******************** RUN 5 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 6 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 7 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 3 -> ERRADO
+3 - 2 -> ERRADO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+2 - 3 -> ERRADO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+
+Acertos: 12 de 15
+Porcentagem: 80.0
+
+******************** RUN 8 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 9 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+3 - 2 -> ERRADO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+
+Acertos: 14 de 15
+Porcentagem: 93.33333333333333
+
+******************** RUN 10 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+2 - 2 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+3 - 3 -> CORRETO
+1 - 1 -> CORRETO
+2 - 2 -> CORRETO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+
+Acertos: 15 de 15
+Porcentagem: 100.0
+
+******************** RUN 1 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 1 -> CORRETO
+1 - 3 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+
+Acertos: 5 de 15
+Porcentagem: 33.33333333333333
+
+******************** RUN 1 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+2 - 1 -> ERRADO
+2 - 2 -> CORRETO
+2 - 1 -> ERRADO
+2 - 3 -> ERRADO
+2 - 3 -> ERRADO
+2 - 1 -> ERRADO
+2 - 2 -> CORRETO
+2 - 3 -> ERRADO
+2 - 2 -> CORRETO
+2 - 3 -> ERRADO
+2 - 1 -> ERRADO
+2 - 2 -> CORRETO
+2 - 3 -> ERRADO
+2 - 1 -> ERRADO
+2 - 2 -> CORRETO
+
+Acertos: 5 de 15
+Porcentagem: 33.33333333333333
+
+******************** RUN 1 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+3 - 1 -> ERRADO
+3 - 2 -> ERRADO
+3 - 1 -> ERRADO
+3 - 3 -> CORRETO
+3 - 3 -> CORRETO
+3 - 1 -> ERRADO
+3 - 2 -> ERRADO
+3 - 3 -> CORRETO
+3 - 2 -> ERRADO
+3 - 3 -> CORRETO
+3 - 1 -> ERRADO
+3 - 2 -> ERRADO
+3 - 3 -> CORRETO
+3 - 1 -> ERRADO
+3 - 2 -> ERRADO
+
+Acertos: 5 de 15
+Porcentagem: 33.33333333333333
+
+******************** RUN 1 ********************
+Modelo:
+[classificacao da rede] - [esperado] -> [CORRETO/ERRADO]
+
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 1 -> CORRETO
+1 - 3 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+1 - 3 -> ERRADO
+1 - 1 -> CORRETO
+1 - 2 -> ERRADO
+
+Acertos: 5 de 15
+Porcentagem: 33.33333333333333
+

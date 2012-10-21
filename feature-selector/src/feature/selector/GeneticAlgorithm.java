@@ -21,10 +21,6 @@ public class GeneticAlgorithm {
 			System.out.println("Population size=" + currentPopulation.size());
 			currentPopulation = Operators.selection(currentPopulation,
 					fitnessFunction, parameterGA.getNumberFathers());
-//			if (currentPopulation.get(0).getEvaluation() <= parameterGA
-//					.getMaxError()) {
-//				break;
-//			}
 			currentPopulation = Operators.reproduction(currentPopulation,
 					parameterGA);
 		}

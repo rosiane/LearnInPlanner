@@ -41,7 +41,7 @@ public class MatrixHandler extends Matrix {
 	public static double[] multiply(double[] vector, double number) {
 		return getRow(multiply(new double[][] { vector }, number), 0);
 	}
-	
+
 	public static double[] division(double[] vector, double number) {
 		double[] result = new double[vector.length];
 		for (int index = 0; index < vector.length; index++) {
@@ -160,5 +160,23 @@ public class MatrixHandler extends Matrix {
 			}
 		}
 		return true;
+	}
+
+	public static double[] abs(double[] array) {
+		double[] result = new double[array.length];
+		for (int index = 0; index < array.length; index++) {
+			result[index] = Math.abs(array[index]);
+		}
+		return result;
+	}
+
+	public static double[] multiply(double[] inputsLayer, double[][] weights) {
+		double[] result = new double[MatrixHandler.cols(weights)];
+		for (int cols = 0; cols < MatrixHandler.cols(weights); cols++) {
+			for (int rows = 0; rows < MatrixHandler.rows(weights); rows++) {
+				result[cols] += inputsLayer[rows] * weights[rows][cols];
+			}
+		}
+		return result;
 	}
 }

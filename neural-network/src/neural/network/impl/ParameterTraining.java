@@ -15,6 +15,8 @@ public class ParameterTraining {
 	private double learningRate;
 	private int numberOutput;
 	private boolean updateBatch;
+	private boolean normalizeWeights;
+	private boolean validation;
 
 	public long getNumberEpochs() {
 		return numberEpochs;
@@ -119,5 +121,21 @@ public class ParameterTraining {
 
 	public void setUpdateBatch(boolean updateBatch) {
 		this.updateBatch = updateBatch;
+	}
+
+	public boolean isNormalizeWeights() {
+		return normalizeWeights;
+	}
+
+	public void setNormalizeWeights(boolean normalizeWeights) {
+		this.normalizeWeights = normalizeWeights;
+	}
+
+	public boolean isValidation() {
+		return validation;
+	}
+
+	public void setValidation(boolean validation) {
+		this.validation = validation;
 	}
 }

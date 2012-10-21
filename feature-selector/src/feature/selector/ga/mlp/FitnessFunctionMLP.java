@@ -5,13 +5,13 @@ import java.io.IOException;
 import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.LogisticLayerMLP;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.Weight;
 import preprocessor.file.ReaderFeature;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
-
 import common.Data;
 import common.MatrixHandler;
 
@@ -54,13 +54,13 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	}
 
 	private void initializeNetwork(int numberAttribute) {
-		net = new Layer[parameterTraining.getNumberHiddenLayers() + 1];
+		net = new LogisticLayerMLP[parameterTraining.getNumberHiddenLayers() + 1];
 		for (int index = 0; index < net.length; index++) {
 			if (index == net.length - 1) {
-				net[index] = new LogisticLayer(
+				net[index] = new LogisticLayerMLP(
 						parameterTraining.getNumberOutput());
 			} else {
-				net[index] = new LogisticLayer(
+				net[index] = new LogisticLayerMLP(
 						parameterTraining.getNumberUnitHidden());
 			}
 			net[index].setMomentum(parameterTraining.getMomentum());
@@ -88,9 +88,10 @@ public class FitnessFunctionMLP implements FitnessFunction {
 
 	private Weight[] train(int[] indexes) throws IOException {
 		Data dataTraining = readerFeature.readTraining(indexes);
+		Data dataValidation = readerFeature.readValidation(indexes);
 		Weight[] update = weights.clone();
 		update = neuralNetwork.train(net, update, dataTraining.getSample(),
-				dataTraining.getLabel(), parameterTraining);
+				dataTraining.getLabel(), parameterTraining, dataValidation);
 		return update;
 	}
 
