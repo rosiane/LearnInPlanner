@@ -11,8 +11,8 @@ import preprocessor.file.FileManager;
 public class ConvertFile {
 	public static void main(String[] args) {
 		// patternize();
-//		preparaCrossvalidation();
-		 numberToBinary();
+		preparaCrossvalidation();
+		numberToBinary();
 
 	}
 
@@ -24,16 +24,16 @@ public class ConvertFile {
 		map.put(1, "1 0");
 		map.put(2, "0 1");
 		try {
-			// for (int index = 1; index <= 10; index++) {
-			for (int index = 1; index <= 1; index++) {
+			for (int index = 1; index <= 10; index++) {
+				// for (int index = 1; index <= 1; index++) {
 				// FileManager.convertLabelNumberToBinary("./data/iris_numberTest"
 				// + index + ".csv", "./data/iris_binaryTest"
 				// + index + ".csv", map);
-//				FileManager.convertLabelNumberToBinary(
-//						"./data/cancer/cancer_numberTest" + index
-//								+ ".csv",
-//						"./data/cancer/cancer_binaryTest" + index
-//								+ ".csv", map);
+				// FileManager.convertLabelNumberToBinary(
+				// "./data/cancer/cancer_numberTest" + index
+				// + ".csv",
+				// "./data/cancer/cancer_binaryTest" + index
+				// + ".csv", map);
 				FileManager.convertLabelNumberToBinary(
 						"./data/cancer/cancer_number_patternizedTest" + index
 								+ ".csv",
@@ -49,10 +49,10 @@ public class ConvertFile {
 						"./data/cancer/cancer_binary_patternizedTraining"
 								+ index + ".csv", map);
 			}
-			FileManager.convertLabelNumberToBinary(
-					"./data/cancer/cancer_number_patternized_validation.csv",
-					"./data/cancer/cancer_binary_patternized_validation.csv",
-					map);
+			// FileManager.convertLabelNumberToBinary(
+			// "./data/cancer/cancer_number_patternized_validation.csv",
+			// "./data/cancer/cancer_binary_patternized_validation.csv",
+			// map);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,12 +77,11 @@ public class ConvertFile {
 		// String pathInputFile = "./data/iris_number.csv";
 		// String prefixOutputFile = "./data/iris_number";
 		// String pathInputFile = "./data/cancer/cancer_number.csv";
-//		String prefixOutputFile = "./data/cancer/cancer_number";
-//		String pathInputFile = "./data/cancer/cancer_numberTraining.csv";
-//		 String pathInputFile = "./data/cancer/cancer_number_patternized.csv";
-		 String pathInputFile =
-		 "./data/cancer/cancer_number_patternizedTraining.csv";
-		 String prefixOutputFile = "./data/cancer/cancer_number_patternized";
+		// String prefixOutputFile = "./data/cancer/cancer_number";
+		// String pathInputFile = "./data/cancer/cancer_numberTraining.csv";
+		 String pathInputFile = "./data/cancer/cancer_number_patternized.csv";
+//		String pathInputFile = "./data/cancer/cancer_number_patternizedTraining.csv";
+		String prefixOutputFile = "./data/cancer/cancer_number_patternized";
 		List<Double> classes = new ArrayList<>();
 		classes.add(1.0);
 		classes.add(2.0);

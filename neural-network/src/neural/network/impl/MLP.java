@@ -153,10 +153,35 @@ public class MLP implements NeuralNetworkIF {
 		int countCorrect = 0;
 		long epoch = 0;
 		int countDecreaseLearning = 3;
-		Data data = null;
+//		Data data = null;
+		Data data = new Data();
+		data.setSample(sample);
+		data.setLabel(sampleLabel);
 		if (parameterTraining.isNormalizeWeights()) {
 			weightsUpdated = normalizeWeightsCols(weightsUpdated);
 		}
+		
+		for (int indexSample = 0; indexSample < MatrixHandler.rows(data
+				.getSample()); indexSample++) {
+			result = run(net, weightsUpdated,
+					MatrixHandler.getRow(data.getSample(), indexSample));
+			if (NeuralNetworkUtils.isCorrect(result,
+					MatrixHandler.getRow(data.getLabel(), indexSample),
+					parameterTraining.getTask())) {
+				countCorrect++;
+			}
+		}
+		errorRate = 100 - ((double) countCorrect / MatrixHandler
+				.rows(data.getSample())) * 100;
+		
+		System.out.println("Before training");
+		System.out.println("\t Correct: " + countCorrect);
+		System.out.println("\t Error Rate: " + errorRate);
+		System.out.println("\t Learning Rate: "
+				+ net[0].getLearningRate());
+		
+		errorRate = 100;
+		
 		for (epoch = 0; epoch < parameterTraining.getNumberEpochs()
 				&& errorRate > parameterTraining.getMaxError(); epoch++) {
 			data = MatrixHandler.randomize(sample, sampleLabel);
@@ -233,12 +258,12 @@ public class MLP implements NeuralNetworkIF {
 							parameterTraining.getLearningRateDecrease(),
 							parameterTraining.getMinLearningRate());
 				} else {
-					net = decreaseLearningRateLog(net, countDecreaseLearning,
+					/*net = decreaseLearningRateLog(net, countDecreaseLearning,
 							parameterTraining.getMinLearningRate());
-					countDecreaseLearning++;
+					countDecreaseLearning++;*/
 				}
 			}
-			if (epoch % 100 == 0) {
+			if (epoch % 1/*00*/ == 0) {
 				System.out.println("Running Epoch: " + epoch);
 				System.out.println("\t Correct: " + countCorrect);
 				System.out.println("\t Error Rate: " + errorRate);

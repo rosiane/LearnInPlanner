@@ -34,16 +34,16 @@ public class TestGA {
 		// String pathTraining = "./data/cancer/cancer_binaryTraining1.csv";
 		// String pathTest = "./data/cancer/cancer_binaryTest1.csv";
 		// String pathValidation = "./data/cancer/cancer_binary_validation.csv";
-		String pathTraining = "./data/cancer/cancer_binary_patternizedTraining1.csv";
-		String pathTest = "./data/cancer/cancer_binary_patternizedTest1.csv";
-		String pathValidation = "./data/cancer/cancer_binary_patternized_validation.csv";
+		String pathTraining = "./data/backup/cancer/cancer_binary_patternizedTraining1.csv";
+		String pathTest = "./data/backup/cancer/cancer_binary_patternizedTest1.csv";
+		String pathValidation = "./data/backup/cancer/cancer_binary_patternized_validation.csv";
 
 		int numberIndividualInitial = 20;
 		int numberGenes = 30;
 
 		// Parameters GA
 		int numberFathers = 10;
-		long numberGeneration = 50;
+		long numberGeneration = 10;
 		int numberIndividualCrossing = 4;
 		int numberIndividualMutation = 2;
 
