@@ -25,7 +25,7 @@ public class Main {
 			// testCrossvalidation();
 			// testMNIST();
 			testDeepLearning();
-//			testNet();
+			// testNet();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -212,7 +212,7 @@ public class Main {
 		parameterTraining.setValidation(false);
 		parameterTraining.setUpdateBatch(false);
 		parameterTraining.setIntervalEpochPercentage(1);
-		
+
 		Layer[] net = new Layer[2];
 		net[0] = new LogisticLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
@@ -231,7 +231,8 @@ public class Main {
 	}
 
 	public static void testCrossvalidation() throws IOException {
-		int numberInput = 100;
+		int quantityTraining = 90;
+		int quantityTest = 10;
 
 		int numberAttribute = 4;
 		int numberUnitHidden = 9;
@@ -281,12 +282,13 @@ public class Main {
 
 		Crossvalidation crossvalidation = new Crossvalidation();
 		crossvalidation.run(neuralNetwork, net, weights, prefixSampleTraining,
-				prefixSampleTest, numberInput, numberAttribute, numberOutput,
-				parameterTraining, k);
+				prefixSampleTest, numberAttribute, numberOutput,
+				parameterTraining, k, quantityTraining, quantityTest);
 	}
 
 	public static void testMNIST() throws IOException {
-		int numberInput = 6000;
+		int quantityTraining = 5400;
+		int quantityTest = 600;
 		// int numberInput = 6500;
 
 		int numberAttribute = 28 * 28;
@@ -344,23 +346,25 @@ public class Main {
 
 		Crossvalidation crossvalidation = new Crossvalidation();
 		crossvalidation.run(neuralNetwork, net, weights, prefixSampleTraining,
-				prefixSampleTest, numberInput, numberAttribute, numberOutput,
-				parameterTraining, k);
+				prefixSampleTest, numberAttribute, numberOutput,
+				parameterTraining, k, quantityTraining, quantityTest);
 	}
 
 	public static void testDeepLearning() throws IOException {
-//		int numberInput = 6500;
-//		 int numberInput = 100;
-		 int numberInput = 569;
+		// int numberInput = 6500;
+		// int numberInput = 100;
+		// int numberInput = 569;
+		int quantityTraining = 513;
+		int quantityTest = 56;
 
 		// int numberInput = 30000;
 
-		 int numberAttribute = 30;
-//		int numberAttribute = 28 * 28;
-//		 int numberAttribute = 4;
+		int numberAttribute = 30;
+		// int numberAttribute = 28 * 28;
+		// int numberAttribute = 4;
 		int numberUnitHidden = 9;
-		 int numberHiddenLayers = 3;
-//		int numberHiddenLayers = 1;
+		int numberHiddenLayers = 3;
+		// int numberHiddenLayers = 1;
 		int numberOutput = 2;
 
 		double momentum = 0;
@@ -368,22 +372,22 @@ public class Main {
 		int intervalEpochPercentage = 2;
 
 		long numberEpochs = 100;
-		double maxError = 5;
+		double maxError = 3;
 		double learningRateDecrease = 0.99;
 		double minLearningRate = 0.01;
 		boolean initializeRandom = true;
 		Task task = Task.CLASSIFICATION;
 
-//		 String prefixSampleTraining =
-//		 "./data/1_2_nopattern/iris_binaryTraining";
-//		 String prefixSampleTest = "./data/1_2_nopattern/iris_binaryTest";
-//		String prefixSampleTraining = "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_TRAIN";
-//		String prefixSampleTest = "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_TEST";
+		// String prefixSampleTraining =
+		// "./data/1_2_nopattern/iris_binaryTraining";
+		// String prefixSampleTest = "./data/1_2_nopattern/iris_binaryTest";
+		// String prefixSampleTraining =
+		// "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_TRAIN";
+		// String prefixSampleTest =
+		// "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_TEST";
 
-		 String prefixSampleTraining =
-		 "./data/cancer/cancer_binary_patternizedTraining";
-		 String prefixSampleTest =
-		 "./data/cancer/cancer_binary_patternizedTest";
+		String prefixSampleTraining = "./data/cancer/cancer_binary_patternizedTraining";
+		String prefixSampleTest = "./data/cancer/cancer_binary_patternizedTest";
 
 		// String prefixSampleTraining =
 		// "./data/MNIST/MNIST_MLP_10_digitos_30000_exemplos_train_";
@@ -394,48 +398,48 @@ public class Main {
 
 		NeuralNetworkIF neuralNetwork = new MLP();
 
-//		Layer[] net = new Layer[2];
+		// Layer[] net = new Layer[2];
 		// Layer[] net = new Layer[4];
-//		net[0] = new LogisticLayerMLP(numberUnitHidden);
-//		net[0].setMomentum(momentum);
-//		net[0].setLearningRate(learningRate);
-//		net[1] = new LogisticLayerMLP(numberOutput);
-//		net[1].setMomentum(momentum);
-//		net[1].setLearningRate(learningRate);
+		// net[0] = new LogisticLayerMLP(numberUnitHidden);
+		// net[0].setMomentum(momentum);
+		// net[0].setLearningRate(learningRate);
+		// net[1] = new LogisticLayerMLP(numberOutput);
+		// net[1].setMomentum(momentum);
+		// net[1].setLearningRate(learningRate);
 
-		 Layer[] net = new Layer[4];
-		 net[0] = new LogisticLayerMLP(numberUnitHidden);
-		 net[0].setMomentum(momentum);
-		 net[0].setLearningRate(learningRate);
-		 net[1] = new LogisticLayerMLP(numberUnitHidden);
-		 net[1].setMomentum(momentum);
-		 net[1].setLearningRate(learningRate);
-		 net[2] = new LogisticLayerMLP(numberUnitHidden);
-		 net[2].setMomentum(momentum);
-		 net[2].setLearningRate(learningRate);
-		 net[3] = new LogisticLayerMLP(numberOutput);
-		 net[3].setMomentum(momentum);
-		 net[3].setLearningRate(learningRate);
-//		 net[4] = new LogisticLayerMLP(numberOutput);
-//		 net[4].setMomentum(momentum);
-//		 net[4].setLearningRate(learningRate);
+		Layer[] net = new Layer[4];
+		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0].setMomentum(momentum);
+		net[0].setLearningRate(learningRate);
+		net[1] = new LogisticLayerMLP(numberUnitHidden);
+		net[1].setMomentum(momentum);
+		net[1].setLearningRate(learningRate);
+		net[2] = new LogisticLayerMLP(numberUnitHidden);
+		net[2].setMomentum(momentum);
+		net[2].setLearningRate(learningRate);
+		net[3] = new LogisticLayerMLP(numberOutput);
+		net[3].setMomentum(momentum);
+		net[3].setLearningRate(learningRate);
+		// net[4] = new LogisticLayerMLP(numberOutput);
+		// net[4].setMomentum(momentum);
+		// net[4].setLearningRate(learningRate);
 
-//		 Weight[] weightsTest = new Weight[2];
-//		 weightsTest[0] = new Weight(numberAttribute, numberUnitHidden);
-//		 weightsTest[1] = new Weight(numberUnitHidden, numberOutput);
+		// Weight[] weightsTest = new Weight[2];
+		// weightsTest[0] = new Weight(numberAttribute, numberUnitHidden);
+		// weightsTest[1] = new Weight(numberUnitHidden, numberOutput);
 
-//		 Weight[] weights = new Weight[5];
-//		 weights[0] = new Weight(numberAttribute, numberUnitHidden);
-//		 weights[1] = new Weight(numberUnitHidden, numberUnitHidden);
-//		 weights[2] = new Weight(numberUnitHidden, numberUnitHidden);
-//		 weights[3] = new Weight(numberUnitHidden, numberUnitHidden);
-//		 weights[4] = new Weight(numberUnitHidden, numberOutput);
+		// Weight[] weights = new Weight[5];
+		// weights[0] = new Weight(numberAttribute, numberUnitHidden);
+		// weights[1] = new Weight(numberUnitHidden, numberUnitHidden);
+		// weights[2] = new Weight(numberUnitHidden, numberUnitHidden);
+		// weights[3] = new Weight(numberUnitHidden, numberUnitHidden);
+		// weights[4] = new Weight(numberUnitHidden, numberOutput);
 
 		// -- DEEP LEARNING
 		Data dataTraining = new Data();
-		double[][] sample = new double[ 513 /* 90 *//*5850*/][numberAttribute];
+		double[][] sample = new double[513 /* 90 *//* 5850 */][numberAttribute];
 		dataTraining.setSample(sample);
-		double[][] label = new double[ 513  /*90*/  /*5850*/][numberAttribute];
+		double[][] label = new double[513 /* 90 *//* 5850 */][numberAttribute];
 		dataTraining.setLabel(label);
 
 		int numberEpochsCRBM = 10;
@@ -475,8 +479,9 @@ public class Main {
 
 		Crossvalidation crossvalidation = new Crossvalidation();
 		crossvalidation.run(neuralNetwork, net, weight_folds,
-				prefixSampleTraining, prefixSampleTest, numberInput,
-				numberAttribute, numberOutput, parameterTraining, k);
+				prefixSampleTraining, prefixSampleTest, numberAttribute,
+				numberOutput, parameterTraining, k, quantityTraining,
+				quantityTest);
 	}
 
 }

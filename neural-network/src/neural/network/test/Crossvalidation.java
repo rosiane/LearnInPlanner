@@ -16,12 +16,11 @@ public class Crossvalidation {
 
 	public void run(NeuralNetworkIF neuralNetwork, Layer[] net,
 			Weight[] weights, String prefixSampleTraining,
-			String prefixSampleTest, int numberInput, int numberAttribute,
-			int numberOutput, ParameterTraining parameterTraining, int k)
-			throws IOException {
+			String prefixSampleTest, int numberAttribute, int numberOutput,
+			ParameterTraining parameterTraining, int k, int quantityTraining,
+			int quantityTest) throws IOException {
 		Weight[] update = null;
 		double[] errors = new double[k];
-		int memberPerFold = numberInput / k;
 		double[] learningRate = new double[net.length];
 		for (int indexNet = 0; indexNet < net.length; indexNet++) {
 			learningRate[indexNet] = net[indexNet].getLearningRate();
@@ -29,10 +28,10 @@ public class Crossvalidation {
 		for (int index = 0; index < k; index++) {
 			System.out.println("Running " + (index + 1));
 			update = train(neuralNetwork, net, prefixSampleTraining, weights,
-					(k - 1) * memberPerFold, numberAttribute, numberOutput,
+					quantityTraining, numberAttribute, numberOutput,
 					parameterTraining, index + 1);
 			errors[index] = test(neuralNetwork, net, update, prefixSampleTest,
-					memberPerFold, numberAttribute, numberOutput,
+					quantityTest, numberAttribute, numberOutput,
 					parameterTraining, index + 1);
 			for (int indexNet = 0; indexNet < net.length; indexNet++) {
 				net[indexNet].setLearningRate(learningRate[indexNet]);
@@ -80,8 +79,6 @@ public class Crossvalidation {
 
 		dataTest = FileManager.read(prefixSampleTest + indexK + ".csv",
 				dataTest);
-		// dataTest = MatrixHandler.randomize(dataTest.getSample(),
-		// dataTest.getLabel());
 		double numberCorrect = 0;
 		double[] result = null;
 		for (int indexData = 0; indexData < MatrixHandler.rows(dataTest
@@ -103,12 +100,11 @@ public class Crossvalidation {
 
 	public void run(NeuralNetworkIF neuralNetwork, Layer[] net,
 			Weight[][] weights_folds, String prefixSampleTraining,
-			String prefixSampleTest, int numberInput, int numberAttribute,
-			int numberOutput, ParameterTraining parameterTraining, int k)
-			throws IOException {
+			String prefixSampleTest, int numberAttribute, int numberOutput,
+			ParameterTraining parameterTraining, int k, int quantityTraining,
+			int quantityTest) throws IOException {
 		Weight[] update = null;
 		double[] errors = new double[k];
-		int memberPerFold = numberInput / k;
 		double[] learningRate = new double[net.length];
 		for (int indexNet = 0; indexNet < net.length; indexNet++) {
 			learningRate[indexNet] = net[indexNet].getLearningRate();
@@ -118,10 +114,10 @@ public class Crossvalidation {
 			// The current fold's weight matrices
 			Weight[] weights = weights_folds[index];
 			update = train(neuralNetwork, net, prefixSampleTraining, weights,
-					/*(k - 1) * memberPerFold*/ 513, numberAttribute, numberOutput,
+					quantityTraining, numberAttribute, numberOutput,
 					parameterTraining, index + 1);
 			errors[index] = test(neuralNetwork, net, update, prefixSampleTest,
-					memberPerFold, numberAttribute, numberOutput,
+					quantityTest, numberAttribute, numberOutput,
 					parameterTraining, index + 1);
 			for (int indexNet = 0; indexNet < net.length; indexNet++) {
 				net[indexNet].setLearningRate(learningRate[indexNet]);
