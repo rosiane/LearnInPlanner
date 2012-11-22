@@ -428,39 +428,39 @@ public class Main {
 		// weightsTest[0] = new Weight(numberAttribute, numberUnitHidden);
 		// weightsTest[1] = new Weight(numberUnitHidden, numberOutput);
 
-		// Weight[] weights = new Weight[5];
-		// weights[0] = new Weight(numberAttribute, numberUnitHidden);
-		// weights[1] = new Weight(numberUnitHidden, numberUnitHidden);
-		// weights[2] = new Weight(numberUnitHidden, numberUnitHidden);
-		// weights[3] = new Weight(numberUnitHidden, numberUnitHidden);
-		// weights[4] = new Weight(numberUnitHidden, numberOutput);
+		 Weight[] weights = new Weight[5];
+		 weights[0] = new Weight(numberAttribute, numberUnitHidden);
+		 weights[1] = new Weight(numberUnitHidden, numberUnitHidden);
+		 weights[2] = new Weight(numberUnitHidden, numberUnitHidden);
+		 weights[3] = new Weight(numberUnitHidden, numberUnitHidden);
+		 weights[4] = new Weight(numberUnitHidden, numberOutput);
 
 		// -- DEEP LEARNING
-		Data dataTraining = new Data();
-		double[][] sample = new double[513 /* 90 *//* 5850 */][numberAttribute];
-		dataTraining.setSample(sample);
-		double[][] label = new double[513 /* 90 *//* 5850 */][numberAttribute];
-		dataTraining.setLabel(label);
-
-		int numberEpochsCRBM = 10;
-
-		// A list of 'k' lists of weight matrices
-		Weight[][] weight_folds = new Weight[k][numberHiddenLayers + 1];
-
-		for (int fold = 0; fold < k; fold++) {
-			System.out.println("CRBM pre-training: fold " + (fold + 1) + ":");
-
-			dataTraining = FileManager.read(prefixSampleTraining + (fold + 1)
-					+ ".csv", dataTraining);
-			dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
-					dataTraining.getLabel());
-			DeepLearning deep_learning = new DeepLearning(numberAttribute,
-					numberHiddenLayers, numberUnitHidden, numberOutput,
-					numberEpochsCRBM);
-			Weight[] weights = deep_learning.runDeepLearning(dataTraining
-					.getSample());
-			weight_folds[fold] = weights;
-		}
+//		Data dataTraining = new Data();
+//		double[][] sample = new double[513 /* 90 *//* 5850 */][numberAttribute];
+//		dataTraining.setSample(sample);
+//		double[][] label = new double[513 /* 90 *//* 5850 */][numberAttribute];
+//		dataTraining.setLabel(label);
+//
+//		int numberEpochsCRBM = 10;
+//
+//		// A list of 'k' lists of weight matrices
+//		Weight[][] weight_folds = new Weight[k][numberHiddenLayers + 1];
+//
+//		for (int fold = 0; fold < k; fold++) {
+//			System.out.println("CRBM pre-training: fold " + (fold + 1) + ":");
+//
+//			dataTraining = FileManager.read(prefixSampleTraining + (fold + 1)
+//					+ ".csv", dataTraining);
+//			dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
+//					dataTraining.getLabel());
+//			DeepLearning deep_learning = new DeepLearning(numberAttribute,
+//					numberHiddenLayers, numberUnitHidden, numberOutput,
+//					numberEpochsCRBM);
+//			Weight[] weights = deep_learning.runDeepLearning(dataTraining
+//					.getSample());
+//			weight_folds[fold] = weights;
+//		}
 
 		System.out.println("- MLP -");
 		// -- DEEP LEARNING
@@ -478,7 +478,7 @@ public class Main {
 		parameterTraining.setValidation(false);
 
 		Crossvalidation crossvalidation = new Crossvalidation();
-		crossvalidation.run(neuralNetwork, net, weight_folds,
+		crossvalidation.run(neuralNetwork, net, weights,
 				prefixSampleTraining, prefixSampleTest, numberAttribute,
 				numberOutput, parameterTraining, k, quantityTraining,
 				quantityTest);

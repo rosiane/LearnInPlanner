@@ -261,4 +261,107 @@ public class FileManager {
 		}
 
 	}
+
+	/**
+	 * Create sets of training and test for crossvalidation with balanced
+	 * classes.
+	 * 
+	 * @param pathInputFile
+	 * @param prefixOutputFile
+	 * @param k
+	 * @param classes
+	 * @throws IOException
+	 */
+	public static void prepareCrossvalidationBinary(String pathInputFile,
+			String prefixOutputFile, int k, List<Double> classes)
+			throws IOException {
+		PrintWriter printWriterTraining = null;
+		PrintWriter printWriterTest = null;
+		DataInputStream dataInputStream = null;
+		BufferedReader bufferedReader = null;
+		try {
+			dataInputStream = new DataInputStream(new FileInputStream(
+					pathInputFile));
+			bufferedReader = new BufferedReader(new InputStreamReader(
+					dataInputStream));
+			String strLine;
+			String[] lineArray;
+			Map<Double, List<Sample>> samplesClasses = new HashMap<Double, List<Sample>>();
+			List<Sample> data = new ArrayList<>();
+			int count = 0;
+			String sampleString = null;
+			int labelNumber = 0;
+			double[] label = null;
+			while ((strLine = bufferedReader.readLine()) != null) {
+				if (count % 2 == 0) {
+					sampleString = strLine;
+				} else {
+					lineArray = strLine.split(" ");
+					label = new double[lineArray.length];
+					for (int index = 0; index < label.length; index++) {
+						label[index] = Double.parseDouble(lineArray[index]);
+					}
+					labelNumber = MatrixHandler.maxNumber(label) + 1;
+					data.add(new Sample(sampleString + " " + labelNumber,
+							labelNumber));
+				}
+				count++;
+			}
+			for (Double clazz : classes) {
+				samplesClasses.put(clazz, new ArrayList<Sample>());
+			}
+			for (Sample sample : data) {
+				samplesClasses.get(sample.getLabel()).add(sample);
+			}
+			List<Sample> temp = null;
+			int numberSamples = 0;
+			int beginTestSample = 0;
+			int endTestSample = 0;
+			for (Double clazz : classes) {
+				temp = samplesClasses.get(clazz);
+				numberSamples = temp.size() / k;
+				for (int indexK = 0; indexK < k; indexK++) {
+					beginTestSample = indexK * numberSamples;
+					endTestSample = indexK * numberSamples + numberSamples;
+					printWriterTraining = new PrintWriter(new FileWriter(
+							((prefixOutputFile.concat("Training")).concat(""
+									+ (indexK + 1) + "")).concat(".csv"), true));
+					printWriterTest = new PrintWriter(new FileWriter(
+							((prefixOutputFile.concat("Test")).concat(""
+									+ (indexK + 1) + "")).concat(".csv"), true));
+					for (int indexSample = 0; indexSample < temp.size(); indexSample++) {
+						if (indexSample >= beginTestSample
+								&& indexSample < endTestSample) {
+							printWriterTest.println(temp.get(indexSample)
+									.getSample());
+						} else {
+							printWriterTraining.println(temp.get(indexSample)
+									.getSample());
+						}
+					}
+					printWriterTraining.close();
+					printWriterTest.close();
+				}
+			}
+		} catch (FileNotFoundException e) {
+			throw e;
+		} catch (NumberFormatException e) {
+			throw e;
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			if (dataInputStream != null) {
+				dataInputStream.close();
+			}
+			if (printWriterTraining != null) {
+				printWriterTraining.close();
+			}
+			if (printWriterTest != null) {
+				printWriterTest.close();
+			}
+			if (bufferedReader != null) {
+				bufferedReader.close();
+			}
+		}
+	}
 }

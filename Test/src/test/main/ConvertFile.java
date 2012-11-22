@@ -11,7 +11,8 @@ import preprocessor.file.FileManager;
 public class ConvertFile {
 	public static void main(String[] args) {
 		// patternize();
-		preparaCrossvalidation();
+//		preparaCrossvalidation();
+//		preparaCrossvalidationBinary();
 		numberToBinary();
 
 	}
@@ -35,18 +36,18 @@ public class ConvertFile {
 				// "./data/cancer/cancer_binaryTest" + index
 				// + ".csv", map);
 				FileManager.convertLabelNumberToBinary(
-						"./data/cancer/cancer_number_patternizedTest" + index
+						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTest" + index
 								+ ".csv",
-						"./data/cancer/cancer_binary_patternizedTest" + index
+						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTest" + index
 								+ ".csv", map);
 				// FileManager.convertLabelNumberToBinary(
 				// "./data/iris_numberTraining" + index + ".csv",
 				// "./data/iris_binaryTraining" + index + ".csv",
 				// map);
 				FileManager.convertLabelNumberToBinary(
-						"./data/cancer/cancer_number_patternizedTraining"
+						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
 								+ index + ".csv",
-						"./data/cancer/cancer_binary_patternizedTraining"
+						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
 								+ index + ".csv", map);
 			}
 			// FileManager.convertLabelNumberToBinary(
@@ -79,8 +80,9 @@ public class ConvertFile {
 		// String pathInputFile = "./data/cancer/cancer_number.csv";
 		// String prefixOutputFile = "./data/cancer/cancer_number";
 		// String pathInputFile = "./data/cancer/cancer_numberTraining.csv";
-		 String pathInputFile = "./data/cancer/cancer_number_patternized.csv";
-//		String pathInputFile = "./data/cancer/cancer_number_patternizedTraining.csv";
+		String pathInputFile = "./data/cancer/cancer_number_patternized.csv";
+		// String pathInputFile =
+		// "./data/cancer/cancer_number_patternizedTraining.csv";
 		String prefixOutputFile = "./data/cancer/cancer_number_patternized";
 		List<Double> classes = new ArrayList<>();
 		classes.add(1.0);
@@ -89,6 +91,30 @@ public class ConvertFile {
 		try {
 			FileManager.prepareCrossvalidation(pathInputFile, prefixOutputFile,
 					10, classes);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void preparaCrossvalidationBinary() {
+		// String pathInputFile = "./data/iris_number_patternized_1_2.csv";
+		// String pathInputFile = "./data/iris_number.csv";
+		// String prefixOutputFile = "./data/iris_number";
+		// String pathInputFile = "./data/cancer/cancer_number.csv";
+		// String prefixOutputFile = "./data/cancer/cancer_number";
+		// String pathInputFile = "./data/cancer/cancer_numberTraining.csv";
+		String pathInputFile = "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplos.csv";
+		// String pathInputFile =
+		// "./data/cancer/cancer_number_patternizedTraining.csv";
+		String prefixOutputFile = "./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplos";
+		List<Double> classes = new ArrayList<>();
+		classes.add(1.0);
+		classes.add(2.0);
+		// classes.add(3.0);
+		try {
+			FileManager.prepareCrossvalidationBinary(pathInputFile,
+					prefixOutputFile, 10, classes);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
