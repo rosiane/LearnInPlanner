@@ -27,19 +27,38 @@ public class SearcherTest {
 	public static PrintStream errorOutput = System.err;
 
 	public static void main(String args[]) {
-		File domainFile = new File(
-				"../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
-		File problemFile = new File(
-				"../Examples/IPC3/Tests1/Depots/Strips/pfile2");
+		testDepots();
+		// File domainFile = new File(
+		// "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
+		// File problemFile = new File(
+		// "../Examples/IPC3/Tests1/Depots/Strips/pfile2");
+		//
+		// File solutionFile = null;
+		// solutionFile = new File(
+		// "../Examples/IPC3/Tests1/Depots/Strips/pfile2Solution_MySearch.pddl");
+		//
+		// Plan plan = plan(domainFile, problemFile);
+		//
+		// if (solutionFile != null && plan != null) {
+		// writePlanToFile(plan, solutionFile);
+		// }
+	}
 
+	public static void testDepots() {
+		String domainFilePath = "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl";
+		String problemFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/pfile";
+		String solutionFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/mysearch/pfileSolution_MySearch";
+		File domainFile = null;
+		File problemFile = null;
 		File solutionFile = null;
-		solutionFile = new File(
-				"../Examples/IPC3/Tests1/Depots/Strips/pfile2Solution_MySearch.pddl");
-
-		Plan plan = plan(domainFile, problemFile);
-
-		if (solutionFile != null && plan != null) {
-			writePlanToFile(plan, solutionFile);
+		for (int index = 1; index < 22; index++) {
+			domainFile = new File(domainFilePath);
+			problemFile = new File(problemFilePathPrefix + index);
+			solutionFile = new File(solutionFilePathPrefix + index + ".pddl");
+			Plan plan = plan(domainFile, problemFile);
+			if (solutionFile != null && plan != null) {
+				writePlanToFile(plan, solutionFile);
+			}
 		}
 	}
 
@@ -76,10 +95,11 @@ public class SearcherTest {
 		long afterPlanning = System.currentTimeMillis();
 
 		TotalOrderPlan top = null;
-		if (goalState != null)
+		if (goalState != null) {
 			top = (TotalOrderPlan) goalState.getSolution();
-		if (top != null)
-			top.print(planOutput);
+		}
+//		if (top != null)
+//			top.print(planOutput);
 
 		double groundingTime = (afterGrounding - startTime) / 1000.00;
 		double planningTime = (afterPlanning - afterGrounding) / 1000.00;

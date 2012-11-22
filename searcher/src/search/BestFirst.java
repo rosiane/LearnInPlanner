@@ -67,8 +67,9 @@ public class BestFirst/* extends BestFirstSearch */{
 		Integer Shash = new Integer(s.hashCode());
 		LearnInPlannerState D = closed.get(Shash);
 
-		if (closed.containsKey(Shash) && D.equals(s))
+		if (closed.containsKey(Shash) && D.equals(s)) {
 			return false;
+		}
 
 		closed.put(Shash, new LearnInPlannerState(s));
 		return true;
@@ -77,9 +78,9 @@ public class BestFirst/* extends BestFirstSearch */{
 	public State search() {
 
 		open.add(start);
-
+		State s = null;
 		while (!open.isEmpty()) {
-			State s = removeNext();
+			s = removeNext();
 			if (needToVisit(s)) {
 				++nodeCount;
 				if (s.goalReached()) {
