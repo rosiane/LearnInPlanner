@@ -13,10 +13,8 @@ import javaff.data.UngroundProblem;
 import javaff.parser.PDDL21parser;
 import javaff.planning.HelpfulFilter;
 import javaff.planning.State;
-import javaff.planning.TemporalMetricState;
-import planner.util.LearnInPlannerState;
-import search.BestFirst;
-import search.util.HeuristicValueComparator;
+import javaff.planning.TemporalMetricStateDelta;
+import javaff.search.BestFirstSearch;
 
 public class SearcherTest {
 	public static boolean VALIDATE = false;
@@ -87,8 +85,8 @@ public class SearcherTest {
 		// ********************************
 
 		// Get the initial state
-		TemporalMetricState initialState = ground
-				.getTemporalMetricInitialState();
+		TemporalMetricStateDelta initialState = ground
+				.getTemporalMetricInitialStateDelta();
 
 		State goalState = performSearch(initialState);
 
@@ -122,13 +120,14 @@ public class SearcherTest {
 		}
 	}
 
-	public static State performSearch(TemporalMetricState initialState) {
+	public static State performSearch(TemporalMetricStateDelta initialState) {
 
 		infoOutput.println("Performing search");
 
 		// Now, initialise an BestFirst searcher
-		BestFirst bestFirst = new BestFirst(new LearnInPlannerState(
-				initialState), new HeuristicValueComparator());
+//		BestFirst bestFirst = new BestFirst(new LearnInPlannerState(
+//				initialState), new HeuristicValueComparator());
+		BestFirstSearch bestFirst = new BestFirstSearch(initialState);
 
 		bestFirst.setFilter(HelpfulFilter.getInstance()); // and use the helpful
 		// actions neighbourhood

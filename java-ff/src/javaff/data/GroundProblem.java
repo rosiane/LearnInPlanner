@@ -34,6 +34,7 @@ import javaff.planning.TemporalMetricState;
 import javaff.planning.RelaxedPlanningGraph;
 import javaff.planning.RelaxedMetricPlanningGraph;
 import javaff.planning.RelaxedTemporalMetricPlanningGraph;
+import javaff.planning.TemporalMetricStateDelta;
 import javaff.data.metric.NamedFunction;
 import javaff.data.strips.InstantAction;
 import javaff.data.temporal.DurativeAction;
@@ -56,6 +57,7 @@ public class GroundProblem
     public Set initial;                                // (Proposition)
 
 	public TemporalMetricState state = null;
+	public TemporalMetricStateDelta stateDelta = null;
 
 	public GroundProblem(Set a, Set i, GroundCondition g, Map f, Metric m)
 	{
@@ -111,5 +113,35 @@ public class GroundProblem
 		return state;
 	}
 
+	public TemporalMetricStateDelta getTemporalMetricInitialStateDelta()
+    {
+		if (stateDelta == null)
+		{
+			Set na = new HashSet();
+			Set ni = new HashSet();
+			Iterator ait = actions.iterator();
+			while (ait.hasNext())
+			{
+				Action act = (Action) ait.next();
+				if (act instanceof InstantAction)
+				{
+					na.add(act);
+					ni.add(act);
+				}
+				else if (act instanceof DurativeAction)
+				{
+					DurativeAction dact = (DurativeAction) act;
+					na.add(dact.startAction);
+					na.add(dact.endAction);
+					ni.add(dact.startAction);
+				}
+			}
+			TemporalMetricStateDelta ts = new TemporalMetricStateDelta(ni, initial, goal, functionValues, metric);
+			GroundProblem gp = new GroundProblem(na, initial, goal, functionValues, metric);
+			ts.setRPG(new RelaxedTemporalMetricPlanningGraph(gp));
+			stateDelta = ts;
+		}
+		return stateDelta;
+	}
 	
 }

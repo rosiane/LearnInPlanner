@@ -36,6 +36,7 @@ public abstract class Search {
 	protected State start;
 	protected int nodeCount = 0;
 	protected Comparator<State> comp;
+	public boolean delta;
 
 	public Search(State s) {
 		start = s;
@@ -50,5 +51,6 @@ public abstract class Search {
 	}
 
 	public abstract State search();
+	
 
 }

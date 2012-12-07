@@ -31,6 +31,7 @@ package javaff.data.temporal;
 import javaff.data.strips.Proposition;
 import javaff.data.strips.InstantAction;
 import javaff.planning.TemporalMetricState;
+import javaff.planning.TemporalMetricStateDelta;
 
 public abstract class SplitInstantAction extends InstantAction
 {
@@ -53,6 +54,7 @@ public abstract class SplitInstantAction extends InstantAction
     }
 
 	public abstract void applySplit(TemporalMetricState ts);
+	public abstract void applySplit(TemporalMetricStateDelta ts);
 	public abstract boolean exclusivelyInvariant(Proposition p);
 	
 }

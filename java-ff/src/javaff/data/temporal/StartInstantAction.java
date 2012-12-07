@@ -30,6 +30,7 @@ package javaff.data.temporal;
 
 import javaff.data.strips.Proposition;
 import javaff.planning.TemporalMetricState;
+import javaff.planning.TemporalMetricStateDelta;
 
 public class StartInstantAction extends SplitInstantAction
 {
@@ -51,4 +52,11 @@ public class StartInstantAction extends SplitInstantAction
     {
 		return !parent.startCondition.getConditionalPropositions().contains(p) || !parent.startEffect.getAddPropositions().contains(p) || !parent.startEffect.getDeletePropositions().contains(p);
     }
+
+	public void applySplit(TemporalMetricStateDelta ts) {
+		ts.invariants.addAll(parent.invariant.getConditionalPropositions());
+		ts.openActions.add(parent);
+		ts.actions.remove(this);
+		ts.actions.add(getSibling());
+	}
 }

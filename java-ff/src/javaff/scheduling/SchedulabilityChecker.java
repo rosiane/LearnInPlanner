@@ -32,9 +32,13 @@ package javaff.scheduling;
 
 import javaff.data.strips.InstantAction;
 import javaff.planning.TemporalMetricState;
+import javaff.planning.TemporalMetricStateDelta;
 
-public interface SchedulabilityChecker
-{
+public interface SchedulabilityChecker {
 	public Object clone();
+
 	public boolean addAction(InstantAction a, TemporalMetricState s);
+
+	public boolean addAction(InstantAction a,
+			TemporalMetricStateDelta temporalMetricStateDelta);
 }

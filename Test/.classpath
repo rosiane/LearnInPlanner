@@ -6,7 +6,9 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/preprocessor"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/heuristic-rpl"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/feature-selector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test-lib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/deep-learning"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-ff"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
