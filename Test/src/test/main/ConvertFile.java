@@ -11,8 +11,8 @@ import preprocessor.file.FileManager;
 public class ConvertFile {
 	public static void main(String[] args) {
 		// patternize();
-//		preparaCrossvalidation();
-//		preparaCrossvalidationBinary();
+		// preparaCrossvalidation();
+		// preparaCrossvalidationBinary();
 		numberToBinary();
 
 	}
@@ -36,10 +36,10 @@ public class ConvertFile {
 				// "./data/cancer/cancer_binaryTest" + index
 				// + ".csv", map);
 				FileManager.convertLabelNumberToBinary(
-						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTest" + index
-								+ ".csv",
-						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTest" + index
-								+ ".csv", map);
+						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTest"
+								+ index + ".csv",
+						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTest"
+								+ index + ".csv", map, " ");
 				// FileManager.convertLabelNumberToBinary(
 				// "./data/iris_numberTraining" + index + ".csv",
 				// "./data/iris_binaryTraining" + index + ".csv",
@@ -48,7 +48,7 @@ public class ConvertFile {
 						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
 								+ index + ".csv",
 						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
-								+ index + ".csv", map);
+								+ index + ".csv", map, " ");
 			}
 			// FileManager.convertLabelNumberToBinary(
 			// "./data/cancer/cancer_number_patternized_validation.csv",
@@ -66,7 +66,7 @@ public class ConvertFile {
 			int attributes = 30;
 			FileManager.patternizeAttributes("./data/cancer/cancer_number.csv",
 					"./data/cancer/cancer_number_patternized.csv", patterns,
-					attributes);
+					attributes, " ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,7 +90,7 @@ public class ConvertFile {
 		// classes.add(3.0);
 		try {
 			FileManager.prepareCrossvalidation(pathInputFile, prefixOutputFile,
-					10, classes);
+					10, classes, " ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,7 +114,7 @@ public class ConvertFile {
 		// classes.add(3.0);
 		try {
 			FileManager.prepareCrossvalidationBinary(pathInputFile,
-					prefixOutputFile, 10, classes);
+					prefixOutputFile, 10, classes, " ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

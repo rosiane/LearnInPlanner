@@ -152,8 +152,6 @@ public class MLP implements NeuralNetworkIF {
 		double errorRate = 100;
 		int countCorrect = 0;
 		long epoch = 0;
-		int countDecreaseLearning = 3;
-//		Data data = null;
 		Data data = new Data();
 		data.setSample(sample);
 		data.setLabel(sampleLabel);
@@ -257,13 +255,9 @@ public class MLP implements NeuralNetworkIF {
 					net = decreaseLearningRate(net,
 							parameterTraining.getLearningRateDecrease(),
 							parameterTraining.getMinLearningRate());
-				} else {
-					/*net = decreaseLearningRateLog(net, countDecreaseLearning,
-							parameterTraining.getMinLearningRate());
-					countDecreaseLearning++;*/
-				}
+				} 
 			}
-			if (epoch % 1/*00*/ == 0) {
+			if (epoch % 100 == 0) {
 				System.out.println("Running Epoch: " + epoch);
 				System.out.println("\t Correct: " + countCorrect);
 				System.out.println("\t Error Rate: " + errorRate);
