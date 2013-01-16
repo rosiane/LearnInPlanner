@@ -63,6 +63,7 @@ public class DeepLearningTest {
 		Task task = Task.CLASSIFICATION;
 
 		// String prefixSampleTraining =
+		
 		// "./data/1_2_nopattern/iris_binaryTraining";
 		// String prefixSampleTest = "./data/1_2_nopattern/iris_binaryTest";
 		// String prefixSampleTraining =

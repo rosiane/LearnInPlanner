@@ -88,11 +88,10 @@ public class BestFirstSearch extends Search {
 	}
 
 	public State search() {
-
 		open.add(start);
-
+		State s = null;
 		while (!open.isEmpty()) {
-			State s = removeNext();
+			s = removeNext();
 			if (needToVisit(s)) {
 				++nodeCount;
 				if (s.goalReached()) {

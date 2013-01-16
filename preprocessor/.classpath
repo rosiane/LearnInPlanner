@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/heuristic-rpl"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/preprocessor-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/java-ff"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/preprocessor-lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

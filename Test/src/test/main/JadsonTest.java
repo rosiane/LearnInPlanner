@@ -14,7 +14,6 @@ import neural.network.test.Crossvalidation;
 import neural.network.util.LogisticLayerMLP;
 import neural.network.util.Weight;
 import preprocessor.file.FileManager;
-import sun.nio.ch.EPollSelectorProvider;
 
 import com.syvys.jaRBM.Layers.Layer;
 
@@ -23,31 +22,44 @@ public class JadsonTest {
 	public static void main(String[] args) {
 		// prepareLeaveOneOut();
 		// numberToBinary();
+		// createFiles();
 		try {
-			test();
+			// test();
+			testAllSets();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	private static void numberToBinary() {
+	public static void createFiles() {
+		String dir = "./data/jadson/";
+		String prefixPCA = "pca-npcs-";
+		String pathInputFile = null;
+		String prefixOutputFile = null;
+
+		for (int index = 10; index < 50; index += 10) {
+			pathInputFile = dir + prefixPCA + index + ".txt";
+			prefixOutputFile = dir + prefixPCA + index + "_";
+			prepareLeaveOneOut(pathInputFile, prefixOutputFile);
+			numberToBinary(prefixOutputFile);
+		}
+
+	}
+
+	private static void numberToBinary(String prefixFile) {
 		Map<Integer, String> map = new HashMap<>();
 		map.put(0, "1 0");
 		map.put(1, "0 1");
 		String separator = "	";
 		try {
 			for (int index = 1; index <= 70; index++) {
-				FileManager.convertLabelNumberToBinary(
-						"./data/jadson/spca-npcs-10-gamma-0.10_Test" + index
-								+ ".csv",
-						"./data/jadson/spca-npcs-10-gamma-0.10_binary_Test"
-								+ index + ".csv", map, separator);
-				FileManager.convertLabelNumberToBinary(
-						"./data/jadson/spca-npcs-10-gamma-0.10_Training"
-								+ index + ".csv",
-						"./data/jadson/spca-npcs-10-gamma-0.10_binary_Training"
-								+ index + ".csv", map, separator);
+				FileManager.convertLabelNumberToBinary(prefixFile + "Test"
+						+ index + ".csv", prefixFile + "binary_Test" + index
+						+ ".csv", map, separator);
+				FileManager.convertLabelNumberToBinary(prefixFile + "Training"
+						+ index + ".csv", prefixFile + "binary_Training"
+						+ index + ".csv", map, separator);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -55,9 +67,8 @@ public class JadsonTest {
 		}
 	}
 
-	private static void prepareLeaveOneOut() {
-		String pathInputFile = "./data/jadson/spca-npcs-10-gamma-0.10.txt";
-		String prefixOutputFile = "./data/jadson/spca-npcs-10-gamma-0.10_";
+	private static void prepareLeaveOneOut(String pathInputFile,
+			String prefixOutputFile) {
 		List<Double> classes = new ArrayList<>();
 		classes.add(0.0);
 		classes.add(1.0);
@@ -87,7 +98,7 @@ public class JadsonTest {
 		double learningRate = 0.09;
 		int intervalEpochPercentage = 4;
 
-		long numberEpochs = 1000;
+		long numberEpochs = 10;
 		double maxError = 0;
 		double learningRateDecrease = 1;
 		double minLearningRate = 0.01;
@@ -211,6 +222,165 @@ public class JadsonTest {
 		Crossvalidation crossvalidation = new Crossvalidation();
 		crossvalidation.run(neuralNetwork, net, weights, prefixSampleTraining,
 				prefixSampleTest, numberAttribute, numberOutput,
-				parameterTraining, k, quantityTraining, quantityTest);
+				parameterTraining, k, quantityTraining, quantityTest, null);
+	}
+
+	public static void testAllSets() throws IOException {
+		// Fixed Parameters
+		String fileResult = "./data/jadson/resultados/Resultados.doc";
+
+		int quantityTraining = 69;
+		int quantityTest = 1;
+
+		int numberHiddenLayers = 1;
+		int numberOutput = 2;
+
+		double momentum = 0;
+		int intervalEpochPercentage = 4;
+		double maxError = 0;
+		double minLearningRate = 0.01;
+		boolean initializeRandom = true;
+		Task task = Task.CLASSIFICATION;
+		int k = 70;
+
+		// Parameters for Test
+		int[] numberUnitHidden = { 3, 5, 10 };
+		double[] learningRate = { 0.09, 0.1, 0.2 };
+		long[] numberEpochs = { 100, 1000, 10000 };
+		double[] learningRateDecrease = { 1, 0.99 };
+
+		// Initializing Objects
+		NeuralNetworkIF neuralNetwork = new MLP();
+		Layer[] net = new Layer[2];
+		Weight[] weights = new Weight[2];
+
+		// Running all sets
+		String dir = "./data/jadson/";
+		String prefixPCA = "pca-npcs-";
+
+		String prefixSampleTraining = null;
+		String prefixSampleTest = null;
+
+		for (int indexFile = 10; indexFile < 50; indexFile += 10) {
+			prefixSampleTraining = dir + prefixPCA + indexFile
+					+ "_binary_Training";
+			prefixSampleTest = dir + prefixPCA + indexFile + "_binary_Test";
+			System.out.println("Prefix File Training: " + prefixSampleTraining);
+			System.out.println("Prefix File Test: " + prefixSampleTest);
+			FileManager.write(fileResult, "Prefix File Training: "
+					+ prefixSampleTraining, true);
+			FileManager.write(fileResult, "Prefix File Test: "
+					+ prefixSampleTest, true);
+
+			// Running with differents parameters
+			testParameters(fileResult, quantityTraining, quantityTest,
+					indexFile, numberHiddenLayers, numberOutput, momentum,
+					intervalEpochPercentage, maxError, minLearningRate,
+					initializeRandom, task, k, numberUnitHidden, learningRate,
+					numberEpochs, learningRateDecrease, neuralNetwork, net,
+					weights, prefixSampleTraining, prefixSampleTest);
+		}
+
+	}
+
+	private static void testParameters(String fileResult, int quantityTraining,
+			int quantityTest, int numberAttribute, int numberHiddenLayers,
+			int numberOutput, double momentum, int intervalEpochPercentage,
+			double maxError, double minLearningRate, boolean initializeRandom,
+			Task task, int k, int[] numberUnitHidden, double[] learningRate,
+			long[] numberEpochs, double[] learningRateDecrease,
+			NeuralNetworkIF neuralNetwork, Layer[] net, Weight[] weights,
+			String prefixSampleTraining, String prefixSampleTest)
+			throws IOException {
+		ParameterTraining parameterTraining = null;
+		for (int indexUnitHidden = 0; indexUnitHidden < numberUnitHidden.length; indexUnitHidden++) {
+			for (int indexLearningRate = 0; indexLearningRate < learningRate.length; indexLearningRate++) {
+				for (int indexNumberEpochs = 0; indexNumberEpochs < numberEpochs.length; indexNumberEpochs++) {
+					for (int indexLearningRateDecrease = 0; indexLearningRateDecrease < learningRateDecrease.length; indexLearningRateDecrease++) {
+						net[0] = new LogisticLayerMLP(
+								numberUnitHidden[indexUnitHidden]);
+						net[0].setMomentum(momentum);
+						net[0].setLearningRate(learningRate[indexLearningRate]);
+						net[1] = new LogisticLayerMLP(numberOutput);
+						net[1].setMomentum(momentum);
+						net[1].setLearningRate(learningRate[indexLearningRate]);
+
+						weights[0] = new Weight(numberAttribute,
+								numberUnitHidden[indexUnitHidden]);
+						weights[1] = new Weight(
+								numberUnitHidden[indexUnitHidden], numberOutput);
+
+						System.out.println("MLP parameters:");
+						System.out.println("Number of attributes: "
+								+ numberAttribute);
+						System.out.println("Number of hidden layers: "
+								+ numberHiddenLayers);
+						System.out.println("Number of hidden units: "
+								+ numberUnitHidden[indexUnitHidden]);
+						System.out.println("Number of examples: "
+								+ (quantityTraining + quantityTest) + "\n");
+						System.out.println("Number of epochs: "
+								+ numberEpochs[indexNumberEpochs] + "\n");
+						System.out.println("Learning rate: "
+								+ learningRate[indexLearningRate]);
+						System.out
+								.println("Learning rate decrease: "
+										+ learningRateDecrease[indexLearningRateDecrease]);
+						System.out.println("Max error: " + maxError + "\n");
+
+						FileManager.write(fileResult, "MLP parameters:", true);
+						FileManager.write(fileResult, "Number of attributes: "
+								+ numberAttribute, true);
+						FileManager.write(fileResult,
+								"Number of hidden layers: "
+										+ numberHiddenLayers, true);
+						FileManager.write(fileResult,
+								"Number of hidden units: "
+										+ numberUnitHidden[indexUnitHidden],
+								true);
+						FileManager.write(fileResult, "Number of examples: "
+								+ (quantityTraining + quantityTest), true);
+						FileManager.write(fileResult, "Number of epochs: "
+								+ numberEpochs[indexNumberEpochs], true);
+						FileManager.write(fileResult, "Learning rate: "
+								+ learningRate[indexLearningRate], true);
+						FileManager
+								.write(fileResult,
+										"Learning rate decrease: "
+												+ learningRateDecrease[indexLearningRateDecrease],
+										true);
+						FileManager.write(fileResult, "Max error: " + maxError,
+								true);
+
+						parameterTraining = new ParameterTraining();
+						parameterTraining
+								.setNumberEpochs(numberEpochs[indexNumberEpochs]);
+						parameterTraining.setMaxError(maxError);
+						parameterTraining.setTask(task.getValue());
+						parameterTraining
+								.setLearningRateDecrease(learningRateDecrease[indexLearningRateDecrease]);
+						parameterTraining.setMinLearningRate(minLearningRate);
+						parameterTraining
+								.setWeightsInitializationRandom(initializeRandom);
+						parameterTraining
+								.setIntervalEpochPercentage(intervalEpochPercentage);
+						parameterTraining.setUpdateBatch(false);
+						parameterTraining.setNormalizeWeights(true);
+						parameterTraining.setValidation(false);
+
+						Crossvalidation crossvalidation = new Crossvalidation();
+						crossvalidation.run(neuralNetwork, net, weights,
+								prefixSampleTraining, prefixSampleTest,
+								numberAttribute, numberOutput,
+								parameterTraining, k, quantityTraining,
+								quantityTest, fileResult);
+
+						FileManager.write(fileResult, "", true);
+						FileManager.write(fileResult, "", true);
+						FileManager.write(fileResult, "", true);
+					}
+				}
+			}
+		}
 	}
 }

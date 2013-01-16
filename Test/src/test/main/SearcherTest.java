@@ -12,9 +12,11 @@ import javaff.data.TotalOrderPlan;
 import javaff.data.UngroundProblem;
 import javaff.parser.PDDL21parser;
 import javaff.planning.HelpfulFilter;
+import javaff.planning.NullFilter;
 import javaff.planning.State;
 import javaff.planning.TemporalMetricStateDelta;
 import javaff.search.BestFirstSearch;
+import javaff.search.EnforcedHillClimbingSearch;
 
 public class SearcherTest {
 	public static boolean VALIDATE = false;
@@ -88,7 +90,7 @@ public class SearcherTest {
 		TemporalMetricStateDelta initialState = ground
 				.getTemporalMetricInitialStateDelta();
 
-		State goalState = performSearch(initialState);
+		State goalState = performSearchFFModified(initialState);
 
 		long afterPlanning = System.currentTimeMillis();
 
@@ -96,8 +98,8 @@ public class SearcherTest {
 		if (goalState != null) {
 			top = (TotalOrderPlan) goalState.getSolution();
 		}
-//		if (top != null)
-//			top.print(planOutput);
+		// if (top != null)
+		// top.print(planOutput);
 
 		double groundingTime = (afterGrounding - startTime) / 1000.00;
 		double planningTime = (afterPlanning - afterGrounding) / 1000.00;
@@ -125,8 +127,8 @@ public class SearcherTest {
 		infoOutput.println("Performing search");
 
 		// Now, initialise an BestFirst searcher
-//		BestFirst bestFirst = new BestFirst(new LearnInPlannerState(
-//				initialState), new HeuristicValueComparator());
+		// BestFirst bestFirst = new BestFirst(new LearnInPlannerState(
+		// initialState), new HeuristicValueComparator());
 		BestFirstSearch bestFirst = new BestFirstSearch(initialState);
 
 		bestFirst.setFilter(HelpfulFilter.getInstance()); // and use the helpful
@@ -139,6 +141,43 @@ public class SearcherTest {
 			infoOutput.println("BestFirst failed");
 
 		}
+		return goalState; // return the plan
+	}
+
+	public static State performSearchFFModified(
+			TemporalMetricStateDelta initialState) {
+		// Implementation of standard FF-style search
+
+		infoOutput
+				.println("Performing search as in FF - first considering EHC with only helpful actions");
+
+		// Now, initialise an EHC searcher
+		EnforcedHillClimbingSearch EHCS = new EnforcedHillClimbingSearch(
+				initialState);
+
+		EHCS.setFilter(HelpfulFilter.getInstance()); // and use the helpful
+														// actions neighbourhood
+
+		// Try and find a plan using EHC
+		State goalState = EHCS.search();
+
+		if (goalState == null) // if we can't find one
+		{
+			infoOutput
+					.println("EHC failed, using best-first search, with all actions");
+
+			// create a Best-First Searcher
+			BestFirstSearch BFS = new BestFirstSearch(initialState);
+
+			// ... change to using the 'all actions' neighbourhood (a null
+			// filter, as it removes nothing)
+
+			BFS.setFilter(NullFilter.getInstance());
+
+			// and use that
+			goalState = BFS.search();
+		}
+
 		return goalState; // return the plan
 	}
 

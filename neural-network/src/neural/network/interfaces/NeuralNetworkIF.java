@@ -1,5 +1,7 @@
 package neural.network.interfaces;
 
+import java.io.IOException;
+
 import neural.network.impl.ParameterTraining;
 import neural.network.util.Weight;
 
@@ -14,7 +16,7 @@ import common.Data;
 public interface NeuralNetworkIF {
 	public Weight[] train(Layer[] net, Weight[] weights, double[][] sample,
 			double[][] sampleLabel, ParameterTraining parameterTraining,
-			Data dataValidation);
+			Data dataValidation, String fileResult) throws IOException;
 
 	public double[] run(Layer[] net, Weight[] weights, double[] data);
 

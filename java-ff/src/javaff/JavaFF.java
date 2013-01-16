@@ -124,8 +124,8 @@ public class JavaFF {
 				"../Examples/IPC3/Tests1/Depots/Strips/pfile3SolutionDelta.pddl");
 //		 }
 
-//		Plan plan = plan(domainFile, problemFile);
-		Plan plan = planDelta(domainFile, problemFile);
+		Plan plan = plan(domainFile, problemFile);
+//		Plan plan = planDelta(domainFile, problemFile);
 		
 
 		if (solutionFile != null && plan != null)

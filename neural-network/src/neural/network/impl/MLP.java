@@ -1,9 +1,14 @@
 package neural.network.impl;
 
+import java.io.IOException;
+
+import neural.network.enums.Task;
 import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.ErrorRate;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.TrainingProperties;
 import neural.network.util.Weight;
+import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
 import common.Data;
@@ -124,7 +129,7 @@ public class MLP implements NeuralNetworkIF {
 	@Override
 	public Weight[] train(Layer[] net, Weight[] weights, double[][] sample,
 			double[][] sampleLabel, ParameterTraining parameterTraining,
-			Data dataValidation) {
+			Data dataValidation, String fileResult) throws IOException {
 		double result[];
 		double errors[] = null;
 		Weight[] weightsUpdated = weights;
@@ -149,8 +154,7 @@ public class MLP implements NeuralNetworkIF {
 			initialLearningRates[index] = net[index].getLearningRate();
 		}
 
-		double errorRate = 100;
-		int countCorrect = 0;
+		ErrorRate errorRate = new ErrorRate(0, 100);
 		long epoch = 0;
 		Data data = new Data();
 		data.setSample(sample);
@@ -158,30 +162,28 @@ public class MLP implements NeuralNetworkIF {
 		if (parameterTraining.isNormalizeWeights()) {
 			weightsUpdated = normalizeWeightsCols(weightsUpdated);
 		}
-		
-		for (int indexSample = 0; indexSample < MatrixHandler.rows(data
-				.getSample()); indexSample++) {
-			result = run(net, weightsUpdated,
-					MatrixHandler.getRow(data.getSample(), indexSample));
-			if (NeuralNetworkUtils.isCorrect(result,
-					MatrixHandler.getRow(data.getLabel(), indexSample),
-					parameterTraining.getTask())) {
-				countCorrect++;
+
+		if (fileResult == null || fileResult.isEmpty()) {
+			if (parameterTraining.isValidation()) {
+				errorRate = calculateErrorRate(net, weightsUpdated,
+						dataValidation, parameterTraining);
+			} else {
+				errorRate = calculateErrorRate(net, weightsUpdated, data,
+						parameterTraining);
 			}
+
+			System.out.println("Before training");
+			if (parameterTraining.getTask() == Task.CLASSIFICATION.getValue()) {
+				System.out
+						.println("\t Correct: " + errorRate.getCountCorrect());
+			}
+			System.out.println("\t Error Rate: " + errorRate.getErrorRate());
+			System.out.println("\t Learning Rate: " + net[0].getLearningRate());
 		}
-		errorRate = 100 - ((double) countCorrect / MatrixHandler
-				.rows(data.getSample())) * 100;
-		
-		System.out.println("Before training");
-		System.out.println("\t Correct: " + countCorrect);
-		System.out.println("\t Error Rate: " + errorRate);
-		System.out.println("\t Learning Rate: "
-				+ net[0].getLearningRate());
-		
-		errorRate = 100;
-		
+		errorRate = new ErrorRate(0, 100);
+
 		for (epoch = 0; epoch < parameterTraining.getNumberEpochs()
-				&& errorRate > parameterTraining.getMaxError(); epoch++) {
+				&& errorRate.getErrorRate() > parameterTraining.getMaxError(); epoch++) {
 			data = MatrixHandler.randomize(sample, sampleLabel);
 			for (int indexSample = 0; indexSample < MatrixHandler.rows(data
 					.getSample()); indexSample++) {
@@ -216,34 +218,12 @@ public class MLP implements NeuralNetworkIF {
 				}
 			}
 
-			countCorrect = 0;
-
 			if (parameterTraining.isValidation()) {
-				for (int indexSample = 0; indexSample < MatrixHandler
-						.rows(dataValidation.getSample()); indexSample++) {
-					result = run(net, weightsUpdated, MatrixHandler.getRow(
-							dataValidation.getSample(), indexSample));
-					if (NeuralNetworkUtils.isCorrect(result, MatrixHandler
-							.getRow(dataValidation.getLabel(), indexSample),
-							parameterTraining.getTask())) {
-						countCorrect++;
-					}
-				}
-				errorRate = 100 - ((double) countCorrect / MatrixHandler
-						.rows(dataValidation.getSample())) * 100;
+				errorRate = calculateErrorRate(net, weightsUpdated,
+						dataValidation, parameterTraining);
 			} else {
-				for (int indexSample = 0; indexSample < MatrixHandler.rows(data
-						.getSample()); indexSample++) {
-					result = run(net, weightsUpdated,
-							MatrixHandler.getRow(data.getSample(), indexSample));
-					if (NeuralNetworkUtils.isCorrect(result,
-							MatrixHandler.getRow(data.getLabel(), indexSample),
-							parameterTraining.getTask())) {
-						countCorrect++;
-					}
-				}
-				errorRate = 100 - ((double) countCorrect / MatrixHandler
-						.rows(data.getSample())) * 100;
+				errorRate = calculateErrorRate(net, weightsUpdated, data,
+						parameterTraining);
 			}
 
 			if (epoch > 0
@@ -255,17 +235,50 @@ public class MLP implements NeuralNetworkIF {
 					net = decreaseLearningRate(net,
 							parameterTraining.getLearningRateDecrease(),
 							parameterTraining.getMinLearningRate());
-				} 
+				}
 			}
-			if (epoch % 100 == 0) {
-				System.out.println("Running Epoch: " + epoch);
-				System.out.println("\t Correct: " + countCorrect);
-				System.out.println("\t Error Rate: " + errorRate);
-				System.out.println("\t Learning Rate: "
-						+ net[0].getLearningRate());
+			if (fileResult == null || fileResult.isEmpty()) {
+				if (epoch % 100 == 0) {
+					System.out.println("Running Epoch: " + epoch);
+					if (parameterTraining.getTask() == Task.CLASSIFICATION
+							.getValue()) {
+						System.out.println("\t Correct: "
+								+ errorRate.getCountCorrect());
+					}
+					System.out.println("\t Error Rate: "
+							+ errorRate.getErrorRate());
+					System.out.println("\t Learning Rate: "
+							+ net[0].getLearningRate());
+				}
+			} else {
+				if (epoch % 10 == 0) {
+					FileManager.write(fileResult, "Running Epoch: " + epoch,
+							true);
+					if (parameterTraining.getTask() == Task.CLASSIFICATION
+							.getValue()) {
+						FileManager.write(fileResult, "\t Correct: "
+								+ errorRate.getCountCorrect(), true);
+					}
+					FileManager.write(fileResult,
+							"\t Error Rate: " + errorRate.getErrorRate(), true);
+					FileManager.write(fileResult,
+							"\t Learning Rate: " + net[0].getLearningRate(),
+							true);
+				}
 			}
 		}
-		System.out.println("Number Epoches: " + epoch);
+		if (fileResult == null || fileResult.isEmpty()) {
+			System.out.println("After training");
+			if (parameterTraining.getTask() == Task.CLASSIFICATION.getValue()) {
+				System.out
+						.println("\t Correct: " + errorRate.getCountCorrect());
+			}
+			System.out.println("\t Error Rate: " + errorRate.getErrorRate());
+			System.out.println("\t Learning Rate: " + net[0].getLearningRate());
+			System.out.println("Number Epoches: " + epoch);
+		} else {
+			FileManager.write(fileResult, "Number Epoches Run: " + epoch, true);
+		}
 		return weightsUpdated;
 	}
 
@@ -301,14 +314,14 @@ public class MLP implements NeuralNetworkIF {
 		return netUpdated;
 	}
 
-	private Layer[] decreaseLearningRateLog(Layer[] net, double x,
-			double minimum) {
-		Layer[] netUpdated = net;
-		for (int index = 0; index < netUpdated.length; index++) {
-			netUpdated[index].setLearningRate(minimum / Math.log(x));
-		}
-		return netUpdated;
-	}
+	// private Layer[] decreaseLearningRateLog(Layer[] net, double x,
+	// double minimum) {
+	// Layer[] netUpdated = net;
+	// for (int index = 0; index < netUpdated.length; index++) {
+	// netUpdated[index].setLearningRate(minimum / Math.log(x));
+	// }
+	// return netUpdated;
+	// }
 
 	private Weight updateWeight(Layer layer, Weight weight, double[] gradient,
 			int indexLayer) {
@@ -336,5 +349,38 @@ public class MLP implements NeuralNetworkIF {
 		weightToUpdate.setWeights(weightsLayer);
 		weightToUpdate.setLastUpdates(currentUpdate);
 		return weightToUpdate;
+	}
+
+	private ErrorRate calculateErrorRate(Layer[] net, Weight[] weights,
+			Data data, ParameterTraining parameterTraining) {
+		int countCorrect = 0;
+		double errorSumRegression = 0;
+		double errorRate = 100;
+		double result[];
+		for (int indexSample = 0; indexSample < MatrixHandler.rows(data
+				.getSample()); indexSample++) {
+			result = run(net, weights,
+					MatrixHandler.getRow(data.getSample(), indexSample));
+			if (parameterTraining.getTask() == Task.CLASSIFICATION.getValue()) {
+				if (NeuralNetworkUtils.isCorrect(result,
+						MatrixHandler.getRow(data.getLabel(), indexSample),
+						parameterTraining.getTask())) {
+					countCorrect++;
+				}
+			} else {
+				errorSumRegression += MatrixHandler.getSquaredError(
+						MatrixHandler.getRow(data.getLabel(), indexSample),
+						result);
+			}
+		}
+
+		if (parameterTraining.getTask() == Task.CLASSIFICATION.getValue()) {
+			errorRate = 100 - ((double) countCorrect / MatrixHandler.rows(data
+					.getSample())) * 100;
+		} else {
+			errorRate = errorSumRegression
+					/ MatrixHandler.rows(data.getSample());
+		}
+		return new ErrorRate(countCorrect, errorRate);
 	}
 }

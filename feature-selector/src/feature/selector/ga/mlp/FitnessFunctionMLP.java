@@ -90,8 +90,9 @@ public class FitnessFunctionMLP implements FitnessFunction {
 		Data dataTraining = readerFeature.readTraining(indexes);
 		Data dataValidation = readerFeature.readValidation(indexes);
 		Weight[] update = weights.clone();
+		// TODO alterar para passar o nome do arquivo de resultado
 		update = neuralNetwork.train(net, update, dataTraining.getSample(),
-				dataTraining.getLabel(), parameterTraining, dataValidation);
+				dataTraining.getLabel(), parameterTraining, dataValidation, null);
 		return update;
 	}
 

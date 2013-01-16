@@ -1,0 +1,3032 @@
+Prefix File Training: ./data/jadson/pca-npcs-10_binary_Training
+Prefix File Test: ./data/jadson/pca-npcs-10_binary_Test
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.308511264837314
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.66754586687041
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 50.0
+Standard Deviation: 50.36101551853349
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 50.0
+Standard Deviation: 50.36101551853349
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 50.0
+Standard Deviation: 50.36101551853349
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792265
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 52.857142857142854
+Standard Deviation: 50.27872622251888
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 45.71428571428571
+Standard Deviation: 50.17567482042769
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 47.142857142857146
+Standard Deviation: 50.27872622251888
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 45.71428571428571
+Standard Deviation: 50.17567482042769
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.758265619318124
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 47.142857142857146
+Standard Deviation: 50.27872622251888
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 10
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+Prefix File Training: ./data/jadson/pca-npcs-20_binary_Training
+Prefix File Test: ./data/jadson/pca-npcs-20_binary_Test
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.027815656773186
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.3085112648373
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687038
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.75826561931812
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.758265619318124
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.75826561931812
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.758265619318124
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142857
+Standard Deviation: 49.02781565677319
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.308511264837314
+
+
+
+MLP parameters:
+Number of attributes: 20
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+Prefix File Training: ./data/jadson/pca-npcs-30_binary_Training
+Prefix File Test: ./data/jadson/pca-npcs-30_binary_Test
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857143
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483731
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.027815656773186
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571423
+Standard Deviation: 46.758265619318145
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.75826561931812
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483729
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.3085112648373
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.3085112648373
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.3085112648373
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483731
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.809144373375716
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.308511264837314
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.30851126483731
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.66754586687041
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.758265619318124
+
+
+
+MLP parameters:
+Number of attributes: 30
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+Prefix File Training: ./data/jadson/pca-npcs-40_binary_Training
+Prefix File Test: ./data/jadson/pca-npcs-40_binary_Test
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.02781565677321
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.84447862792267
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 44.28571428571429
+Standard Deviation: 50.03104626191731
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.857142857142854
+Standard Deviation: 49.844478627922676
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142857
+Standard Deviation: 49.027815656773186
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.66754586687039
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 45.71428571428571
+Standard Deviation: 50.17567482042769
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 3
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.809144373375716
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 31.428571428571427
+Standard Deviation: 46.758265619318124
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792266
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792265
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142857
+Standard Deviation: 49.02781565677319
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 32.857142857142854
+Standard Deviation: 47.3085112648373
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 5
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142857
+Standard Deviation: 49.02781565677319
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.09
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 42.85714285714286
+Standard Deviation: 49.84447862792265
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.14285714285714
+Standard Deviation: 48.667545866870405
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.261708906584005
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 40.0
+Standard Deviation: 49.34351637951689
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 30.0
+Standard Deviation: 46.156633137705086
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.0278156567732
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 41.42857142857142
+Standard Deviation: 49.61549881405294
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337573
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 100
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 37.142857142857146
+Standard Deviation: 48.6675458668704
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 1000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 38.57142857142858
+Standard Deviation: 49.02781565677319
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 1.0
+Max error: 0.0
+Mean: 35.71428571428571
+Standard Deviation: 48.26170890658401
+
+
+
+MLP parameters:
+Number of attributes: 40
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 70
+Number of epochs: 10000
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+Mean: 34.28571428571429
+Standard Deviation: 47.80914437337572
+
+
+
