@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import feature.selector.ga.util.RandomUtils;
+import feature.selector.ga.util.RandomUtilsFeatureSelector;
 
 public class Operators {
 	public static List<Chromosome> reproduction(
@@ -36,16 +36,16 @@ public class Operators {
 		int indexMutation = 0;
 		int indexSon = 0;
 		for (int index = 0; index < numberIndividualCrossing; index++) {
-			indexMother = RandomUtils.nextInt(currentPopulation.size());
+			indexMother = RandomUtilsFeatureSelector.nextInt(currentPopulation.size());
 			while (true) {
-				indexFather = RandomUtils.nextInt(currentPopulation.size());
+				indexFather = RandomUtilsFeatureSelector.nextInt(currentPopulation.size());
 				if (indexMother != indexFather) {
 					break;
 				}
 			}
 			mother = currentPopulation.get(indexMother).getGene();
 			father = currentPopulation.get(indexFather).getGene();
-			indexMutation = RandomUtils.nextInt(mother.length);
+			indexMutation = RandomUtilsFeatureSelector.nextInt(mother.length);
 			son1 = new int[mother.length];
 			son2 = new int[mother.length];
 			for (indexSon = 0; indexSon < son1.length; indexSon++) {
@@ -73,9 +73,9 @@ public class Operators {
 		Chromosome individual = null;
 		List<Chromosome> result = currentPopulation;
 		for (int index = 0; index < numberIndividualMutation; index++) {
-			individual = result.get(RandomUtils.nextInt(result.size()));
+			individual = result.get(RandomUtilsFeatureSelector.nextInt(result.size()));
 			individual
-					.mutation(RandomUtils.nextInt(individual.getGene().length));
+					.mutation(RandomUtilsFeatureSelector.nextInt(individual.getGene().length));
 		}
 
 		return result;

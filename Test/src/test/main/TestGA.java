@@ -3,17 +3,18 @@ package test.main;
 import java.io.IOException;
 import java.util.List;
 
-import common.MatrixHandler;
-
 import neural.network.enums.Task;
 import neural.network.impl.ParameterTraining;
-
 import preprocessor.file.ReaderFeatureBinaryFile;
+
+import common.MatrixHandler;
+import common.RandomUtils;
+
 import feature.selector.GeneticAlgorithm;
 import feature.selector.ga.Chromosome;
 import feature.selector.ga.ParameterGA;
 import feature.selector.ga.mlp.FitnessFunctionMLP;
-import feature.selector.ga.util.RandomUtils;
+import feature.selector.ga.util.RandomUtilsFeatureSelector;
 
 public class TestGA {
 
@@ -64,8 +65,8 @@ public class TestGA {
 		boolean validation = true;
 
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
-		List<Chromosome> population = RandomUtils.initializePopulation(
-				numberIndividualInitial, numberGenes);
+		List<Chromosome> population = RandomUtilsFeatureSelector
+				.initializePopulation(numberIndividualInitial, numberGenes);
 
 		ReaderFeatureBinaryFile readerFeatureCancer = new ReaderFeatureBinaryFile(
 				pathTraining, pathTest, pathValidation, numberInputTraining,

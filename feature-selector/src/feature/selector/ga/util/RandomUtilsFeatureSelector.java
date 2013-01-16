@@ -4,18 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import common.RandomUtils;
+
 import feature.selector.ga.Chromosome;
 
-public class RandomUtils {
-	private static Random random = new Random();
-
-	public static int nextInt(int max) {
-		return (int) (nextDouble() * max);
-	}
-
-	public static double nextDouble() {
-		return random.nextDouble();
-	}
+public class RandomUtilsFeatureSelector extends RandomUtils {
 
 	public static List<Chromosome> initializePopulation(int numberIndividuals,
 			int numberGenes) {

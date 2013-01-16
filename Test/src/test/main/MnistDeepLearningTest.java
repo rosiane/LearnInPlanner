@@ -193,7 +193,7 @@ public class MnistDeepLearningTest {
 		int numberOutput = 10;
 
 		double momentum = 0.1;
-		int intervalEpochPercentage = 2;
+		int intervalEpochPercentage = 8;
 		double minLearningRate = 0.000000000001;
 		Task task = Task.CLASSIFICATION;
 		boolean initializeRandom = false;
@@ -202,8 +202,8 @@ public class MnistDeepLearningTest {
 		int[] numberUnitHidden = {/* 50, 100, */ 200 };
 		double[] learningRate = { 0.1/*, 0.2, 0.5, 0.9 */};
 		long[] numberEpochs = { /*200,*/ 500 };
-		double[] maxError = { /*0,*/ 12 };
-		double[] learningRateDecrease = { /*0.99,*/ 1 };
+		double[] maxError = { 0, 15 };
+		double[] learningRateDecrease = { 0.99, 1 };
 
 		// Carregando dados
 		String pathTraining = "./data/MNIST/normal/mnist_train_paper_binary.csv";
