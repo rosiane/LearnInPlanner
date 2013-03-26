@@ -10,6 +10,7 @@ import preprocessor.file.FileManager;
 
 public class ConvertFile {
 	public static void main(String[] args) {
+		 separeClasses();
 		// patternize();
 		// preparaCrossvalidation();
 		// preparaCrossvalidationBinary();
@@ -19,41 +20,35 @@ public class ConvertFile {
 
 	private static void numberToBinary() {
 		Map<Integer, String> map = new HashMap<>();
-		// map.put(1, "1 0 0");
-		// map.put(2, "0 1 0");
-		// map.put(3, "0 0 1");
-		map.put(1, "1 0");
-		map.put(2, "0 1");
+		map.put(0, "1 0 0 0 0 0 0 0 0");
+		map.put(1, "0 1 0 0 0 0 0 0 0");
+		map.put(2, "0 0 1 0 0 0 0 0 0");
+		map.put(3, "0 0 0 1 0 0 0 0 0");
+		map.put(4, "0 0 0 0 1 0 0 0 0");
+		map.put(5, "0 0 0 0 0 1 0 0 0");
+		map.put(6, "0 0 0 0 0 0 1 0 0");
+		map.put(7, "0 0 0 0 0 0 0 1 0");
+		map.put(8, "0 0 0 0 0 0 0 0 1");
 		try {
-			for (int index = 1; index <= 10; index++) {
-				// for (int index = 1; index <= 1; index++) {
-				// FileManager.convertLabelNumberToBinary("./data/iris_numberTest"
-				// + index + ".csv", "./data/iris_binaryTest"
-				// + index + ".csv", map);
-				// FileManager.convertLabelNumberToBinary(
-				// "./data/cancer/cancer_numberTest" + index
-				// + ".csv",
-				// "./data/cancer/cancer_binaryTest" + index
-				// + ".csv", map);
-				FileManager.convertLabelNumberToBinary(
-						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTest"
-								+ index + ".csv",
-						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTest"
-								+ index + ".csv", map, " ");
-				// FileManager.convertLabelNumberToBinary(
-				// "./data/iris_numberTraining" + index + ".csv",
-				// "./data/iris_binaryTraining" + index + ".csv",
-				// map);
-				FileManager.convertLabelNumberToBinary(
-						"./data/MNIST/MNIST_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
-								+ index + ".csv",
-						"./data/MNIST/MNIST_binary_MLP_2_exemplos_1_e_0_6500_exemplosTraining"
-								+ index + ".csv", map, " ");
-			}
-			// FileManager.convertLabelNumberToBinary(
-			// "./data/cancer/cancer_number_patternized_validation.csv",
-			// "./data/cancer/cancer_binary_patternized_validation.csv",
-			// map);
+			
+			String pathTraining = "./data/MNIST/normal/mnist_train_0_1_2_3_4_5_6_7_8.csv";
+			String pathValidation = "./data/MNIST/normal/mnist_validation_0_1_2_3_4_5_6_7_8.csv";
+			String pathTest = "./data/MNIST/normal/mnist_test_0_1_2_3_4_5_6_7_8.csv";
+			String pathTrainingBinary = "./data/MNIST/normal/mnist_train_0_1_2_3_4_5_6_7_8_binary.csv";
+			String pathValidationBinary = "./data/MNIST/normal/mnist_validation_0_1_2_3_4_5_6_7_8_binary.csv";
+			String pathTestBinary = "./data/MNIST/normal/mnist_test_0_1_2_3_4_5_6_7_8_binary.csv";
+//			String pathTraining = "./data/MNIST/normal/mnist_train_6_8.csv";
+//			String pathValidation = "./data/MNIST/normal/mnist_validation_6_8.csv";
+//			String pathTest = "./data/MNIST/normal/mnist_test_6_8.csv";
+//			String pathTrainingBinary = "./data/MNIST/normal/mnist_train_6_8_binary.csv";
+//			String pathValidationBinary = "./data/MNIST/normal/mnist_validation_6_8_binary.csv";
+//			String pathTestBinary = "./data/MNIST/normal/mnist_test_6_8_binary.csv";
+			FileManager.convertLabelNumberToBinary(pathTraining,
+					pathTrainingBinary, map, " ");
+			FileManager.convertLabelNumberToBinary(pathValidation,
+					pathValidationBinary, map, " ");
+			FileManager.convertLabelNumberToBinary(pathTest,
+					pathTestBinary, map, " ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -115,6 +110,40 @@ public class ConvertFile {
 		try {
 			FileManager.prepareCrossvalidationBinary(pathInputFile,
 					prefixOutputFile, 10, classes, " ");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void separeClasses() {
+		String pathTrainingInput = "./data/MNIST/normal/mnist_test.csv";
+		String pathValidationInput = "./data/MNIST/normal/mnist_validation.csv";
+		String pathTestInput = "./data/MNIST/normal/mnist_train_paper.csv";
+		String pathTrainingOutput = "./data/MNIST/normal/mnist_train_0_1_2_3_4_5_6_7_8.csv";
+		String pathValidationOutput = "./data/MNIST/normal/mnist_validation_0_1_2_3_4_5_6_7_8.csv";
+		String pathTestOutput = "./data/MNIST/normal/mnist_test_0_1_2_3_4_5_6_7_8.csv";
+//		String pathTrainingOutput = "./data/MNIST/normal/mnist_train_6_8.csv";
+//		String pathValidationOutput = "./data/MNIST/normal/mnist_validation_6_8.csv";
+//		String pathTestOutput = "./data/MNIST/normal/mnist_test_6_8.csv";
+		List<Double> classes = new ArrayList<>();
+		classes.add(0.0);
+		classes.add(1.0);
+		classes.add(2.0);
+		classes.add(3.0);
+		classes.add(4.0);
+		classes.add(5.0);
+		classes.add(6.0);
+		classes.add(7.0);
+		classes.add(8.0);
+		
+		try {
+			FileManager.separeClasses(pathTrainingInput, pathTrainingOutput,
+					classes, " ");
+			FileManager.separeClasses(pathValidationInput,
+					pathValidationOutput, classes, " ");
+			FileManager.separeClasses(pathTestInput, pathTestOutput, classes,
+					" ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

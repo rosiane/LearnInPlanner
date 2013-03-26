@@ -7,6 +7,8 @@ public class TrainingProperties {
 	private double[] inputsLayerLeft;
 	private double[] upwardSumLayer;
 
+	private double[] outputsLayer;
+	
 	/**
 	 * Avoiding create instance without initialize properties
 	 */
@@ -51,6 +53,14 @@ public class TrainingProperties {
 	public void setInputsLayerLeft(double[] inputs) {
 		this.inputsLayerLeft = inputs;
 		
+	}
+
+	public double[] getOutputsLayer() {
+		return outputsLayer;
+	}
+
+	public void setOutputsLayer(double[] outputsLayer) {
+		this.outputsLayer = outputsLayer;
 	}
 
 }

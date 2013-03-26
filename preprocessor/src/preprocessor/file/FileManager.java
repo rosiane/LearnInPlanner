@@ -539,4 +539,41 @@ public class FileManager {
 			}
 		}
 	}
+
+	public static void separeClasses(String pathInputFile,
+			String pathOutputFile, List<Double> classes, String separator) throws IOException {
+		PrintWriter printWriter = null;
+		DataInputStream dataInputStream = null;
+		BufferedReader bufferedReader = null;
+		try {
+			printWriter = new PrintWriter(new FileWriter(pathOutputFile, true));
+			dataInputStream = new DataInputStream(new FileInputStream(
+					pathInputFile));
+			bufferedReader = new BufferedReader(new InputStreamReader(
+					dataInputStream));
+			String strLine;
+			String[] lineArray;
+			while ((strLine = bufferedReader.readLine()) != null) {
+				lineArray = strLine.split(separator);
+				if(classes.contains(Double.parseDouble(lineArray[lineArray.length - 1]))){
+					printWriter.println(strLine);	
+				}
+				
+			}
+		} catch (FileNotFoundException e) {
+			throw e;
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			if (dataInputStream != null) {
+				dataInputStream.close();
+			}
+			if (printWriter != null) {
+				printWriter.close();
+			}
+			if (bufferedReader != null) {
+				bufferedReader.close();
+			}
+		}
+	}
 }

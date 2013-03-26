@@ -1,0 +1,177 @@
+CRBM parameters:
+Learning rate (weights): 0.5
+Learning rate (noise controls; 'aj'): 0.5
+Theta low: -1.0
+Theta high: 1.0
+Sigma: 0.2
+
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 3
+Number of hidden units: {200, 200, 50}
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Number of Epochs: 100
+Max error: 0.0
+Running Epoch: 0
+	 Correct: 229
+	 Error Rate: 88.55
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Correct: 1355
+	 Error Rate: 32.25
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Correct: 1611
+	 Error Rate: 19.450000000000003
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Correct: 1598
+	 Error Rate: 20.099999999999994
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Correct: 1618
+	 Error Rate: 19.099999999999994
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Correct: 1439
+	 Error Rate: 28.049999999999997
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Correct: 1720
+	 Error Rate: 14.0
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Correct: 1051
+	 Error Rate: 47.45
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Correct: 1561
+	 Error Rate: 21.950000000000003
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Correct: 1518
+	 Error Rate: 24.099999999999994
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Correct: 6007.0, Error Rate: 39.93
+Time millisseconds: 1330508
+#######################################################################
+CRBM parameters:
+Learning rate (weights): 0.5
+Learning rate (noise controls; 'aj'): 0.5
+Theta low: -1.0
+Theta high: 1.0
+Sigma: 0.2
+
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 3
+Number of hidden units: {100, 100, 50}
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Number of Epochs: 100
+Max error: 0.0
+Running Epoch: 0
+	 Correct: 511
+	 Error Rate: 74.45
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Correct: 905
+	 Error Rate: 54.75
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Correct: 1329
+	 Error Rate: 33.55
+	 Learning Rate: 0.099
+Running Epoch: 30
+	 Correct: 1243
+	 Error Rate: 37.849999999999994
+	 Learning Rate: 0.099
+Running Epoch: 40
+	 Correct: 1164
+	 Error Rate: 41.800000000000004
+	 Learning Rate: 0.09801
+Running Epoch: 50
+	 Correct: 1352
+	 Error Rate: 32.39999999999999
+	 Learning Rate: 0.09801
+Running Epoch: 60
+	 Correct: 908
+	 Error Rate: 54.6
+	 Learning Rate: 0.0970299
+Running Epoch: 70
+	 Correct: 885
+	 Error Rate: 55.75
+	 Learning Rate: 0.0970299
+Running Epoch: 80
+	 Correct: 923
+	 Error Rate: 53.849999999999994
+	 Learning Rate: 0.096059601
+Running Epoch: 90
+	 Correct: 1006
+	 Error Rate: 49.7
+	 Learning Rate: 0.096059601
+Number Epoches Run: 100
+Correct: 6096.0, Error Rate: 39.04
+Time millisseconds: 622852
+#######################################################################
+CRBM parameters:
+Learning rate (weights): 0.5
+Learning rate (noise controls; 'aj'): 0.5
+Theta low: -1.0
+Theta high: 1.0
+Sigma: 0.2
+
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 3
+Number of hidden units: {100, 100, 50}
+Learning rate: 0.1
+Learning rate decrease: 1.0
+Number of Epochs: 100
+Max error: 0.0
+Running Epoch: 0
+	 Correct: 207
+	 Error Rate: 89.65
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Correct: 1108
+	 Error Rate: 44.599999999999994
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Correct: 949
+	 Error Rate: 52.550000000000004
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Correct: 1274
+	 Error Rate: 36.3
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Correct: 1260
+	 Error Rate: 37.0
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Correct: 1012
+	 Error Rate: 49.4
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Correct: 1052
+	 Error Rate: 47.4
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Correct: 1335
+	 Error Rate: 33.25
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Correct: 989
+	 Error Rate: 50.55
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Correct: 1283
+	 Error Rate: 35.85000000000001
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Correct: 6806.0, Error Rate: 31.939999999999998
+Time millisseconds: 620569
+#######################################################################

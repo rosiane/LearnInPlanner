@@ -1,0 +1,429 @@
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 100
+Number of examples: 18637
+
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 597
+	 Error Rate: 2.7687296416938096
+	 Learning Rate: 0.1
+Number Epoches Run: 5
+Correct: 3011.0, Error Rate: 3.4626482847066313
+Time millisseconds 11106
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 18637
+
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 568
+	 Error Rate: 7.491856677524439
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Correct: 602
+	 Error Rate: 1.9543973941368051
+	 Learning Rate: 0.09509900499
+Running Epoch: 20
+	 Correct: 599
+	 Error Rate: 2.4429967426710135
+	 Learning Rate: 0.09043820750088044
+Running Epoch: 30
+	 Correct: 610
+	 Error Rate: 0.6514657980456064
+	 Learning Rate: 0.08600583546412884
+Running Epoch: 40
+	 Correct: 608
+	 Error Rate: 0.9771986970684026
+	 Learning Rate: 0.08179069375972306
+Running Epoch: 50
+	 Correct: 602
+	 Error Rate: 1.9543973941368051
+	 Learning Rate: 0.07778213593991465
+Running Epoch: 60
+	 Correct: 608
+	 Error Rate: 0.9771986970684026
+	 Learning Rate: 0.073970037338828
+Running Epoch: 70
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.07034476949995691
+Running Epoch: 80
+	 Correct: 611
+	 Error Rate: 0.4885993485342084
+	 Learning Rate: 0.06689717585696801
+Running Epoch: 90
+	 Correct: 609
+	 Error Rate: 0.8143322475570045
+	 Learning Rate: 0.06361854860638709
+Number Epoches Run: 100
+Correct: 3016.0, Error Rate: 3.302340493748005
+Time millisseconds 27798
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 572
+	 Error Rate: 6.840390879478832
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 593
+	 Error Rate: 3.420195439739416
+	 Learning Rate: 0.19019800998
+Running Epoch: 20
+	 Correct: 580
+	 Error Rate: 5.537459283387619
+	 Learning Rate: 0.18087641500176088
+Running Epoch: 30
+	 Correct: 602
+	 Error Rate: 1.9543973941368051
+	 Learning Rate: 0.17201167092825767
+Running Epoch: 40
+	 Correct: 593
+	 Error Rate: 3.420195439739416
+	 Learning Rate: 0.16358138751944612
+Running Epoch: 50
+	 Correct: 582
+	 Error Rate: 5.211726384364823
+	 Learning Rate: 0.1555642718798293
+Running Epoch: 60
+	 Correct: 599
+	 Error Rate: 2.4429967426710135
+	 Learning Rate: 0.147940074677656
+Running Epoch: 70
+	 Correct: 581
+	 Error Rate: 5.374592833876221
+	 Learning Rate: 0.14068953899991382
+Running Epoch: 80
+	 Correct: 600
+	 Error Rate: 2.2801302931596155
+	 Learning Rate: 0.13379435171393603
+Running Epoch: 90
+	 Correct: 602
+	 Error Rate: 1.9543973941368051
+	 Learning Rate: 0.12723709721277418
+Number Epoches Run: 100
+Correct: 2983.0, Error Rate: 4.360371914075017
+Time millisseconds 28814
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 10
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 2.0
+
+Running Epoch: 0
+	 Correct: 583
+	 Error Rate: 5.048859934853425
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 486
+	 Error Rate: 20.84690553745928
+	 Learning Rate: 0.19019800998
+Running Epoch: 20
+	 Correct: 595
+	 Error Rate: 3.09446254071662
+	 Learning Rate: 0.18087641500176088
+Running Epoch: 30
+	 Correct: 523
+	 Error Rate: 14.82084690553745
+	 Learning Rate: 0.17201167092825767
+Running Epoch: 40
+	 Correct: 529
+	 Error Rate: 13.843648208469048
+	 Learning Rate: 0.16358138751944612
+Running Epoch: 50
+	 Correct: 330
+	 Error Rate: 46.25407166123778
+	 Learning Rate: 0.1555642718798293
+Running Epoch: 60
+	 Correct: 579
+	 Error Rate: 5.7003257328990316
+	 Learning Rate: 0.147940074677656
+Number Epoches Run: 67
+Correct: 3009.0, Error Rate: 3.5267714010900875
+Time millisseconds 19913
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 2.0
+
+Running Epoch: 0
+	 Correct: 533
+	 Error Rate: 13.192182410423442
+	 Learning Rate: 0.2
+Number Epoches Run: 7
+Correct: 2989.0, Error Rate: 4.168002564924649
+Time millisseconds 6913
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 1.0
+
+Running Epoch: 0
+	 Correct: 598
+	 Error Rate: 2.6058631921824116
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 598
+	 Error Rate: 2.6058631921824116
+	 Learning Rate: 0.19019800998
+Number Epoches Run: 17
+Correct: 2992.0, Error Rate: 4.071817890349479
+Time millisseconds 12106
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 465
+	 Error Rate: 24.267100977198695
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 561
+	 Error Rate: 8.63192182410424
+	 Learning Rate: 0.19019800998
+Running Epoch: 20
+	 Correct: 595
+	 Error Rate: 3.09446254071662
+	 Learning Rate: 0.18087641500176088
+Running Epoch: 30
+	 Correct: 604
+	 Error Rate: 1.628664495114009
+	 Learning Rate: 0.17201167092825767
+Running Epoch: 40
+	 Correct: 609
+	 Error Rate: 0.8143322475570045
+	 Learning Rate: 0.16358138751944612
+Running Epoch: 50
+	 Correct: 605
+	 Error Rate: 1.465798045602611
+	 Learning Rate: 0.1555642718798293
+Running Epoch: 60
+	 Correct: 605
+	 Error Rate: 1.465798045602611
+	 Learning Rate: 0.147940074677656
+Running Epoch: 70
+	 Correct: 579
+	 Error Rate: 5.7003257328990316
+	 Learning Rate: 0.14068953899991382
+Running Epoch: 80
+	 Correct: 607
+	 Error Rate: 1.1400651465798006
+	 Learning Rate: 0.13379435171393603
+Running Epoch: 90
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.12723709721277418
+Number Epoches Run: 100
+Correct: 3032.0, Error Rate: 2.789355562680356
+Time millisseconds 57569
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.9
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 568
+	 Error Rate: 7.491856677524439
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 599
+	 Error Rate: 2.4429967426710135
+	 Learning Rate: 0.18000000000000002
+Running Epoch: 20
+	 Correct: 593
+	 Error Rate: 3.420195439739416
+	 Learning Rate: 0.16200000000000003
+Running Epoch: 30
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.14580000000000004
+Running Epoch: 40
+	 Correct: 610
+	 Error Rate: 0.6514657980456064
+	 Learning Rate: 0.13122000000000003
+Running Epoch: 50
+	 Correct: 611
+	 Error Rate: 0.4885993485342084
+	 Learning Rate: 0.11809800000000004
+Number Epoches Run: 57
+Correct: 3033.0, Error Rate: 2.757294004488614
+Time millisseconds 34154
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.9
+Max error: 0.0
+
+Momentum: 0.05
+
+Running Epoch: 0
+	 Correct: 594
+	 Error Rate: 3.257328990228018
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 599
+	 Error Rate: 2.4429967426710135
+	 Learning Rate: 0.18000000000000002
+Running Epoch: 20
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.16200000000000003
+Running Epoch: 30
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.14580000000000004
+Running Epoch: 40
+	 Correct: 583
+	 Error Rate: 5.048859934853425
+	 Learning Rate: 0.13122000000000003
+Running Epoch: 50
+	 Correct: 610
+	 Error Rate: 0.6514657980456064
+	 Learning Rate: 0.11809800000000004
+Number Epoches Run: 60
+Correct: 3016.0, Error Rate: 3.302340493748005
+Time millisseconds 35002
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.9
+Max error: -1.0
+
+Momentum: 0.05
+
+Running Epoch: 0
+	 Correct: 449
+	 Error Rate: 26.872964169381106
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 582
+	 Error Rate: 5.211726384364823
+	 Learning Rate: 0.18000000000000002
+Running Epoch: 20
+	 Correct: 600
+	 Error Rate: 2.2801302931596155
+	 Learning Rate: 0.16200000000000003
+Running Epoch: 30
+	 Correct: 599
+	 Error Rate: 2.4429967426710135
+	 Learning Rate: 0.14580000000000004
+Running Epoch: 40
+	 Correct: 610
+	 Error Rate: 0.6514657980456064
+	 Learning Rate: 0.13122000000000003
+Running Epoch: 50
+	 Correct: 605
+	 Error Rate: 1.465798045602611
+	 Learning Rate: 0.11809800000000004
+Running Epoch: 60
+	 Correct: 608
+	 Error Rate: 0.9771986970684026
+	 Learning Rate: 0.10628820000000004
+Running Epoch: 70
+	 Correct: 613
+	 Error Rate: 0.16286644951139806
+	 Learning Rate: 0.09565938000000004
+Running Epoch: 80
+	 Correct: 614
+	 Error Rate: 0.0
+	 Learning Rate: 0.08609344200000005
+Running Epoch: 90
+	 Correct: 614
+	 Error Rate: 0.0
+	 Learning Rate: 0.07748409780000004
+Number Epoches Run: 100
+Correct: 3025.0, Error Rate: 3.0137864700224384
+Time millisseconds 79124
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 30
+Number of examples: 18637
+
+Learning rate: 0.2
+Learning rate decrease: 0.9
+Max error: 0.2
+
+Momentum: 0.05
+
+Running Epoch: 0
+	 Correct: 596
+	 Error Rate: 2.9315960912052077
+	 Learning Rate: 0.2
+Running Epoch: 10
+	 Correct: 577
+	 Error Rate: 6.026058631921828
+	 Learning Rate: 0.18000000000000002
+Running Epoch: 20
+	 Correct: 572
+	 Error Rate: 6.840390879478832
+	 Learning Rate: 0.16200000000000003
+Running Epoch: 30
+	 Correct: 605
+	 Error Rate: 1.465798045602611
+	 Learning Rate: 0.14580000000000004
+Running Epoch: 40
+	 Correct: 606
+	 Error Rate: 1.302931596091213
+	 Learning Rate: 0.13122000000000003
+Running Epoch: 50
+	 Correct: 611
+	 Error Rate: 0.4885993485342084
+	 Learning Rate: 0.11809800000000004
+Running Epoch: 60
+	 Correct: 610
+	 Error Rate: 0.6514657980456064
+	 Learning Rate: 0.10628820000000004
+Number Epoches Run: 62
+Correct: 3026.0, Error Rate: 2.9817249118307245
+Time millisseconds 37316

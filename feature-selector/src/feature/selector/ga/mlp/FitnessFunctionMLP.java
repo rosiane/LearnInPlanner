@@ -5,7 +5,6 @@ import java.io.IOException;
 import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
-import neural.network.util.LogisticLayerMLP;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.Weight;
 import preprocessor.file.ReaderFeature;
@@ -54,13 +53,13 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	}
 
 	private void initializeNetwork(int numberAttribute) {
-		net = new LogisticLayerMLP[parameterTraining.getNumberHiddenLayers() + 1];
+		net = new LogisticLayer[parameterTraining.getNumberHiddenLayers() + 1];
 		for (int index = 0; index < net.length; index++) {
 			if (index == net.length - 1) {
-				net[index] = new LogisticLayerMLP(
+				net[index] = new LogisticLayer(
 						parameterTraining.getNumberOutput());
 			} else {
-				net[index] = new LogisticLayerMLP(
+				net[index] = new LogisticLayer(
 						parameterTraining.getNumberUnitHidden());
 			}
 			net[index].setMomentum(parameterTraining.getMomentum());

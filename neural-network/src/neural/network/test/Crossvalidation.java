@@ -114,7 +114,7 @@ public class Crossvalidation {
 			Weight[][] weights_folds, String prefixSampleTraining,
 			String prefixSampleTest, int numberAttribute, int numberOutput,
 			ParameterTraining parameterTraining, int k, int quantityTraining,
-			int quantityTest) throws IOException {
+			int quantityTest, String fileResult) throws IOException {
 		Weight[] update = null;
 		double[] errors = new double[k];
 		double[] learningRate = new double[net.length];

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import neural.network.enums.Task;
 import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.ErrorLayer;
 import neural.network.util.ErrorRate;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.TrainingProperties;
@@ -24,55 +25,114 @@ public class MLP implements NeuralNetworkIF {
 	private TrainingProperties[] trainingProperties;
 
 	private Weight[] backpropagation(Layer[] net, Weight[] weights,
-			double errors[]) {
-		Weight[] weightsUpdated = weights;
-		double[] gradient;
+			double label[], double result[]) {
+		ErrorLayer[] errorsLayer = new ErrorLayer[weights.length];
+
+		double[] errors = null;
 		for (int indexLayer = net.length - 1; indexLayer >= 0; indexLayer--) {
 			if (indexLayer == (net.length - 1)) {
-				gradient = calculateGradientHiddenOutput(net[indexLayer],
-						weightsUpdated[indexLayer], errors, indexLayer);
+				 errors = MatrixHandler.multiply(
+				 net[indexLayer].getLayerDerivative(result),
+				 MatrixHandler.subtract(label, result));
+//				errors = MatrixHandler.multiply(result, MatrixHandler.multiply(
+//						MatrixHandler.subtract(label, result),
+//						MatrixHandler.subtract(label, result)));
+//				System.out.println("aaaaaaaaaaaaaaaa");
+//				MatrixHandler.printArray(errors);
 			} else {
-				gradient = calculateGradientHidden(net[indexLayer],
-						weightsUpdated[indexLayer],
-						weightsUpdated[indexLayer + 1], indexLayer);
+				errors = MatrixHandler.multiply(net[indexLayer]
+						.getLayerDerivative(trainingProperties[indexLayer]
+								.getOutputsLayer()), MatrixHandler.multiplySum(
+						weights[indexLayer + 1].getWeights(),
+						errorsLayer[indexLayer + 1].getErrors()));
+
 			}
-			weightsUpdated[indexLayer] = updateWeight(net[indexLayer],
-					weightsUpdated[indexLayer], gradient, indexLayer);
+			errorsLayer[indexLayer] = new ErrorLayer(errors);
 		}
+		Weight[] weightsUpdated = weights;
+		double[][] newWeight;
+		double[][] update;
+		for (int indexWeights = 0; indexWeights < weightsUpdated.length; indexWeights++) {
+			newWeight = weightsUpdated[indexWeights].getWeights();
+			update = new double[MatrixHandler.rows(newWeight)][MatrixHandler
+					.cols(newWeight)];
+			for (int indexRows = 0; indexRows < MatrixHandler.rows(newWeight); indexRows++) {
+				for (int indexCols = 0; indexCols < MatrixHandler
+						.cols(newWeight); indexCols++) {
+					update[indexRows][indexCols] = net[indexWeights]
+							.getLearningRate()
+							* trainingProperties[indexWeights]
+									.getInputsLayerLeft()[indexRows]
+							* errorsLayer[indexWeights].getErrors()[indexCols];
+					if (weightsUpdated[indexWeights].getLastUpdates() != null) {
+						update[indexRows][indexCols] += net[indexWeights]
+								.getMomentum()
+								* weightsUpdated[indexWeights].getLastUpdates()[indexRows][indexCols];
+					}
+					newWeight[indexRows][indexCols] = newWeight[indexRows][indexCols]
+							+ update[indexRows][indexCols];
+				}
+			}
+			weightsUpdated[indexWeights].setLastUpdates(update);
+		}
+		// TODO refazer
+		// double[] gradient;
+		// weightsUpdated[net.length - 1] = updateWeight(net[net.length - 1],
+		// weightsUpdated[net.length - 1], errors, net.length - 1);
+		// for (int indexLayer = net.length - 1; indexLayer >= 0; indexLayer--)
+		// {
+		// if (indexLayer == (net.length - 1)) {
+		// gradient = calculateGradientHiddenOutput(net,
+		// weightsUpdated[indexLayer], errors, indexLayer);
+		// } else {
+		// gradient = calculateGradientHidden(net[indexLayer],
+		// weightsUpdated[indexLayer],
+		// weightsUpdated[indexLayer + 1], indexLayer);
+		// }
+		// weightsUpdated[indexLayer - 1] = updateWeight(net[indexLayer],
+		// weightsUpdated[indexLayer - 1], gradient, indexLayer);
+		// }
 		return weightsUpdated;
 	}
 
-	private double[] calculateGradientHidden(Layer layer, Weight weight,
-			Weight weightRightLayer, int indexLayer) {
-		double[][] weightsRightLayer = weightRightLayer.getWeights();
-		double[][] resultMultiplyGradientWeights = new double[MatrixHandler
-				.rows(weightsRightLayer)][MatrixHandler.cols(weightsRightLayer)];
-		for (int indexWeights = 0; indexWeights < MatrixHandler
-				.rows(weightsRightLayer); indexWeights++) {
-			resultMultiplyGradientWeights[indexWeights] = MatrixHandler
-					.multiply(MatrixHandler.getRow(weightsRightLayer,
-							indexWeights), trainingProperties[indexLayer]
-							.getGradientRightLayer());
-		}
-		double[] resultSum = MatrixHandler
-				.sumCols(resultMultiplyGradientWeights);
+	// private double[] calculateGradientHidden(Layer layer, Weight weight,
+	// Weight weightRightLayer, int indexLayer) {
+	// double[][] weightsRightLayer = weightRightLayer.getWeights();
+	// double[][] resultMultiplyGradientWeights = new double[MatrixHandler
+	// .rows(weightsRightLayer)][MatrixHandler.cols(weightsRightLayer)];
+	// for (int indexWeights = 0; indexWeights < MatrixHandler
+	// .rows(weightsRightLayer); indexWeights++) {
+	// resultMultiplyGradientWeights[indexWeights] = MatrixHandler
+	// .multiply(MatrixHandler.getRow(weightsRightLayer,
+	// indexWeights), trainingProperties[indexLayer]
+	// .getGradientRightLayer());
+	// }
+	// double[] resultSum = MatrixHandler
+	// .sumCols(resultMultiplyGradientWeights);
+	//
+	// double[] inputsLayerWeightMultiply = MatrixHandler.multiply(
+	// trainingProperties[indexLayer].getInputsLayerLeft(),
+	// weight.getWeights());
+	// double[] gradient = MatrixHandler.multiply(
+	// layer.getLayerDerivative(inputsLayerWeightMultiply), resultSum);
+	// return gradient;
+	// }
 
-		double[] inputsLayerWeightMultiply = MatrixHandler.multiply(
-				trainingProperties[indexLayer].getInputsLayerLeft(),
-				weight.getWeights());
-		double[] gradient = MatrixHandler.multiply(
-				layer.getLayerDerivative(inputsLayerWeightMultiply), resultSum);
-		return gradient;
-	}
-
-	private double[] calculateGradientHiddenOutput(Layer layer, Weight weight,
-			double errors[], int indexLayer) {
-		double[] inputsLayerWeightMultiply = MatrixHandler.multiply(
-				trainingProperties[indexLayer].getInputsLayerLeft(),
-				weight.getWeights());
-		return MatrixHandler.multiply(errors,
-				layer.getLayerDerivative(inputsLayerWeightMultiply));
-	}
+	// private double[] calculateGradientHiddenOutput(Layer[] net, Weight
+	// weight,
+	// double errors[], int indexLayer) {
+	// double[] errorsLayerWeightMultipĺy = MatrixHandler.multiply(errors,
+	// weight.getWeights());
+	// // double[] inputsLayerWeightMultiply = MatrixHandler.multiply(
+	// // trainingProperties[indexLayer].getInputsLayerLeft(),
+	// // weight.getWeights());
+	// // return MatrixHandler.multiply(errors,
+	// // layer.getLayerDerivative(inputsLayerWeightMultiply));
+	// return MatrixHandler.multiply(errorsLayerWeightMultipĺy,
+	// net[indexLayer - 1]
+	// .getLayerDerivative(trainingProperties[indexLayer]
+	// .getInputsLayerLeft()));
+	// }
 
 	private double[] getActivities(Layer layer, double[][] weights,
 			double[] data, int indexLayer) {
@@ -98,7 +158,7 @@ public class MLP implements NeuralNetworkIF {
 			activities = getActivities(net[index], weights[index].getWeights(),
 					activities, index);
 			if (trainingProperties != null) {
-				setInputsLayer(activities, index);
+				setOutputsLayer(activities, index);
 				if (index == 0) {
 					setInputsLayerLeft(data, index);
 				}
@@ -108,6 +168,10 @@ public class MLP implements NeuralNetworkIF {
 			}
 		}
 		return activities;
+	}
+
+	private void setOutputsLayer(double[] outputs, int indexLayer) {
+		trainingProperties[indexLayer].setOutputsLayer(outputs);
 	}
 
 	private void setGradientRightLayer(double[] gradient, int indexLayer) {
@@ -189,12 +253,19 @@ public class MLP implements NeuralNetworkIF {
 					.getSample()); indexSample++) {
 				result = run(net, weightsUpdated,
 						MatrixHandler.getRow(data.getSample(), indexSample));
+//				System.out.println(">>>Result<<<");
+//				MatrixHandler.printArray(result);
 				if (!parameterTraining.isUpdateBatch()) {
-					errors = MatrixHandler.subtract(
+					weightsUpdated = backpropagation(net, weightsUpdated,
 							MatrixHandler.getRow(data.getLabel(), indexSample),
 							result);
-					weightsUpdated = backpropagation(net, weightsUpdated,
-							errors);
+//					for (int indexWeights = 0; indexWeights < weightsUpdated.length; indexWeights++) {
+//						System.out.println(">>>Matrix " + (indexWeights + 1)
+//								+ "<<<");
+//						MatrixHandler.printMatrix(weightsUpdated[indexWeights]
+//								.getWeights());
+//					}
+
 					if (parameterTraining.isNormalizeWeights()) {
 						weightsUpdated = normalizeWeightsCols(weightsUpdated);
 					}
@@ -212,7 +283,8 @@ public class MLP implements NeuralNetworkIF {
 			if (parameterTraining.isUpdateBatch()) {
 				errors = MatrixHandler.division(errors,
 						MatrixHandler.rows(data.getSample()));
-				weightsUpdated = backpropagation(net, weightsUpdated, errors);
+				weightsUpdated = backpropagation(net, weightsUpdated, errors,
+						null);
 				if (parameterTraining.isNormalizeWeights()) {
 					weightsUpdated = normalizeWeightsCols(weightsUpdated);
 				}
@@ -344,8 +416,11 @@ public class MLP implements NeuralNetworkIF {
 		}
 		double[][] weightsLayer = weightToUpdate.getWeights();
 		weightsLayer = MatrixHandler.add(weightsLayer, currentUpdate);
-		lastUpdate = MatrixHandler.multiply(lastUpdate, layer.getMomentum());
-		weightsLayer = MatrixHandler.add(weightsLayer, lastUpdate);
+		if (lastUpdate != null) {
+			lastUpdate = MatrixHandler
+					.multiply(lastUpdate, layer.getMomentum());
+			weightsLayer = MatrixHandler.add(weightsLayer, lastUpdate);
+		}
 		weightToUpdate.setWeights(weightsLayer);
 		weightToUpdate.setLastUpdates(currentUpdate);
 		return weightToUpdate;

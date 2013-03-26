@@ -1,28 +1,24 @@
 package test.main;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import neural.network.enums.Task;
 import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
-import neural.network.test.Crossvalidation;
-import neural.network.util.LogisticLayerMLP;
+import neural.network.util.HyperbolicTangentLayer;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.Weight;
+import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
+import com.syvys.jaRBM.Layers.LogisticLayer;
+import com.syvys.jaRBM.Layers.SoftmaxLayer;
 import common.Data;
 import common.MatrixHandler;
+
 import deeplearning.DeepLearning;
 import deeplearning.ParameterTrainingCRBM;
-
-import preprocessor.file.FileManager;
-import sun.security.util.Length;
 
 public class MnistDeepLearningTest {
 
@@ -37,7 +33,7 @@ public class MnistDeepLearningTest {
 		int quantityTest = 50000;
 
 		int numberAttribute = 784;
-		int numberUnitHidden = 200;
+		int[] numberUnitHidden = { 200, 200 };
 		int numberHiddenLayers = 2;
 		int numberOutput = 10;
 
@@ -59,13 +55,13 @@ public class MnistDeepLearningTest {
 		NeuralNetworkIF neuralNetwork = new MLP();
 
 		Layer[] net = new Layer[3];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden[0]);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberUnitHidden);
+		net[1] = new LogisticLayer(numberUnitHidden[1]);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
-		net[2] = new LogisticLayerMLP(numberOutput);
+		net[2] = new SoftmaxLayer(numberOutput);
 		net[2].setMomentum(momentum);
 		net[2].setLearningRate(learningRate);
 		// net[3] = new LogisticLayerMLP(numberOutput);
@@ -183,26 +179,37 @@ public class MnistDeepLearningTest {
 
 	private static void testPaperParametersComDeepLearning() throws IOException {
 		// Parametros fixos
-		String fileResult = "./data/MNIST/normal/resultados/Resultados_DeepLearning.doc";
+		// String fileResult =
+		// "./data/MNIST/normal/resultados/Resultados_DeepLearning_Softmax_aaaaaaaaaaa.doc";
+		// String fileResult =
+		// "./data/MNIST/normal/resultados/Resultados_WithoutDeepLearning_Softmax.doc";
+		// String fileResult =
+		// "./data/MNIST/normal/resultados/ResultadosTanhDeepLearning_Softmax.doc";
+		String fileResult = "./data/MNIST/normal/resultados/Resultados10000_50000TanhDeepLearning_Softmax.doc";
+		// String fileResult =
+		// "./data/MNIST/normal/resultados/Resultados_DeepLearning_Logistic.doc";
 		int quantityTraining = 10000;
 		int quantityValidation = 2000;
 		int quantityTest = 50000;
 
 		int numberAttribute = 784;
-		int numberHiddenLayers = 2;
+		int numberHiddenLayers = 3;
+		/* int[] numberUnitHidden = { 500, 500, 2000 }; */
+		int[] numberUnitHidden = { 100, 100, 50 };
+		// int[] numberUnitHidden = { 10, 10, 2 };
 		int numberOutput = 10;
 
-		double momentum = 0.1;
-		int intervalEpochPercentage = 8;
+		double momentum = 0;
+		int intervalEpochPercentage = 20;
 		double minLearningRate = 0.000000000001;
 		Task task = Task.CLASSIFICATION;
 		boolean initializeRandom = false;
+		// boolean initializeRandom = true;
 
 		// Parametros para variar
-		int[] numberUnitHidden = {/* 50, 100, */ 200 };
-		double[] learningRate = { 0.1/*, 0.2, 0.5, 0.9 */};
-		long[] numberEpochs = { /*200,*/ 500 };
-		double[] maxError = { 0, 15 };
+		double[] learningRate = { 0.1 /* 0.2 *//* , 0.5, 0.9 */};
+		long[] numberEpochs = { 100 /* , 10 */};
+		double[] maxError = { 0 /* , 15, 12 */};
 		double[] learningRateDecrease = { 0.99, 1 };
 
 		// Carregando dados
@@ -252,7 +259,7 @@ public class MnistDeepLearningTest {
 			double[][] sample, Data dataValidation, Data dataTest,
 			String fileResult) throws IOException {
 		NeuralNetworkIF neuralNetwork = new MLP();
-		Layer[] net = new Layer[3];
+		Layer[] net = new Layer[4];
 		Weight[] weights = null;
 		ParameterTraining parameterTraining = null;
 		long begin = 0;
@@ -260,194 +267,198 @@ public class MnistDeepLearningTest {
 
 		// CRBM training parameters.
 		ParameterTrainingCRBM parameterTrainingCRBM = new ParameterTrainingCRBM();
-		parameterTrainingCRBM.setLearning_rate_weights(1.0);
-		parameterTrainingCRBM.setLearning_rate_aj(1.0);
+		parameterTrainingCRBM.setLearning_rate_weights(0.5);
+		parameterTrainingCRBM.setLearning_rate_aj(0.5);
 		parameterTrainingCRBM.setTheta_low(-1.0);
 		parameterTrainingCRBM.setTheta_high(1.0);
 		parameterTrainingCRBM.setSigma(0.2);
 
-		int numberEpochsCRBM = 100;
+		int numberEpochsCRBM = 10;
 		DeepLearning deep_learning = null;
 		double numberCorrect = 0;
 		double[] result = null;
 		double errorRate = 0;
 		Weight[] update = null;
-		for (int indexUnitHidden = 0; indexUnitHidden < numberUnitHidden.length; indexUnitHidden++) {
-			for (int indexLearningRate = 0; indexLearningRate < learningRate.length; indexLearningRate++) {
-				for (int indexNumberEpochs = 0; indexNumberEpochs < numberEpochs.length; indexNumberEpochs++) {
-					for (int indexMaxError = 0; indexMaxError < maxError.length; indexMaxError++) {
-						for (int indexLearningRateDecrease = 0; indexLearningRateDecrease < learningRateDecrease.length; indexLearningRateDecrease++) {
-							net[0] = new LogisticLayerMLP(
-									numberUnitHidden[indexUnitHidden]);
-							net[0].setMomentum(momentum);
-							net[0].setLearningRate(learningRate[indexLearningRate]);
-							net[1] = new LogisticLayerMLP(
-									numberUnitHidden[indexUnitHidden]);
-							net[1].setMomentum(momentum);
-							net[1].setLearningRate(learningRate[indexLearningRate]);
-							net[2] = new LogisticLayerMLP(numberOutput);
-							net[2].setMomentum(momentum);
-							net[2].setLearningRate(learningRate[indexLearningRate]);
-							// net[3] = new LogisticLayerMLP(numberOutput);
-							// net[3].setMomentum(momentum);
-							// net[3].setLearningRate(learningRate[indexLearningRate]);
+		// for (int indexUnitHidden = 0; indexUnitHidden <
+		// numberUnitHidden.length; indexUnitHidden++) {
+		for (int indexLearningRate = 0; indexLearningRate < learningRate.length; indexLearningRate++) {
+			for (int indexNumberEpochs = 0; indexNumberEpochs < numberEpochs.length; indexNumberEpochs++) {
+				for (int indexMaxError = 0; indexMaxError < maxError.length; indexMaxError++) {
+					for (int indexLearningRateDecrease = 0; indexLearningRateDecrease < learningRateDecrease.length; indexLearningRateDecrease++) {
+						// net[0] = new LogisticLayer(numberUnitHidden[0]);
+						net[0] = new HyperbolicTangentLayer(numberUnitHidden[0]);
+						net[0].setMomentum(momentum);
+						net[0].setLearningRate(learningRate[indexLearningRate]);
+						// net[1] = new LogisticLayer(numberUnitHidden[1]);
+						net[1] = new HyperbolicTangentLayer(numberUnitHidden[1]);
+						net[1].setMomentum(momentum);
+						net[1].setLearningRate(learningRate[indexLearningRate]);
+						// net[2] = new LogisticLayer(numberUnitHidden[2]);
+						net[2] = new HyperbolicTangentLayer(numberUnitHidden[2]);
+						net[2].setMomentum(momentum);
+						net[2].setLearningRate(learningRate[indexLearningRate]);
+						net[3] = new SoftmaxLayer(numberOutput);
+						// net[3] = new LogisticLayerMLP(numberOutput);
+						net[3].setMomentum(momentum);
+						net[3].setLearningRate(learningRate[indexLearningRate]);
 
-							// Aplicando o deep learning
-							System.out.println("CRBM parameters:");
-							System.out.println("Learning rate (weights): "
-									+ parameterTrainingCRBM
-											.getLearning_rate_weights());
-							System.out
-									.println("Learning rate (noise controls; 'aj'): "
-											+ parameterTrainingCRBM
-													.getLearning_rate_aj());
-							System.out.println("Theta low: "
-									+ parameterTrainingCRBM.getTheta_low());
-							System.out.println("Theta high: "
-									+ parameterTrainingCRBM.getTheta_high());
-							System.out.println("Sigma: "
-									+ parameterTrainingCRBM.getSigma() + "\n");
-							FileManager.write(fileResult, "CRBM parameters:",
-									true);
-							FileManager
-									.write(fileResult,
-											"Learning rate (weights): "
-													+ parameterTrainingCRBM
-															.getLearning_rate_weights(),
-											true);
-							FileManager.write(
-									fileResult,
-									"Learning rate (noise controls; 'aj'): "
-											+ parameterTrainingCRBM
-													.getLearning_rate_aj(),
-									true);
-							FileManager.write(fileResult, "Theta low: "
-									+ parameterTrainingCRBM.getTheta_low(),
-									true);
-							FileManager.write(fileResult, "Theta high: "
-									+ parameterTrainingCRBM.getTheta_high(),
-									true);
-							FileManager.write(fileResult, "Sigma: "
-									+ parameterTrainingCRBM.getSigma(), true);
-							FileManager.write(fileResult, "", true);
+						// weights = new Weight[4];
+						// weights[0] = new Weight(numberAttribute,
+						// numberUnitHidden[0]);
+						// weights[1] = new Weight(numberUnitHidden[0],
+						// numberUnitHidden[1]);
+						// weights[2] = new Weight(numberUnitHidden[1],
+						// numberUnitHidden[2]);
+						// weights[3] = new Weight(numberUnitHidden[2],
+						// numberOutput);
 
-							begin = System.currentTimeMillis();
+						// Aplicando o deep learning
+						System.out.println("CRBM parameters:");
+						System.out.println("Learning rate (weights): "
+								+ parameterTrainingCRBM
+										.getLearning_rate_weights());
+						System.out
+								.println("Learning rate (noise controls; 'aj'): "
+										+ parameterTrainingCRBM
+												.getLearning_rate_aj());
+						System.out.println("Theta low: "
+								+ parameterTrainingCRBM.getTheta_low());
+						System.out.println("Theta high: "
+								+ parameterTrainingCRBM.getTheta_high());
+						System.out.println("Sigma: "
+								+ parameterTrainingCRBM.getSigma() + "\n");
+						FileManager.write(fileResult, "CRBM parameters:", true);
+						FileManager.write(
+								fileResult,
+								"Learning rate (weights): "
+										+ parameterTrainingCRBM
+												.getLearning_rate_weights(),
+								true);
+						FileManager.write(
+								fileResult,
+								"Learning rate (noise controls; 'aj'): "
+										+ parameterTrainingCRBM
+												.getLearning_rate_aj(), true);
+						FileManager.write(fileResult, "Theta low: "
+								+ parameterTrainingCRBM.getTheta_low(), true);
+						FileManager.write(fileResult, "Theta high: "
+								+ parameterTrainingCRBM.getTheta_high(), true);
+						FileManager.write(fileResult, "Sigma: "
+								+ parameterTrainingCRBM.getSigma(), true);
+						FileManager.write(fileResult, "", true);
 
-							deep_learning = new DeepLearning(numberAttribute,
-									numberHiddenLayers,
-									numberUnitHidden[indexUnitHidden],
-									numberOutput, numberEpochsCRBM,
-									parameterTrainingCRBM);
-							weights = deep_learning
-									.runDeepLearning(dataTraining.getSample());
+						begin = System.currentTimeMillis();
 
-							System.out.println("MLP parameters:");
-							System.out.println("Number of attributes: "
-									+ numberAttribute);
-							System.out.println("Number of hidden layers: "
-									+ numberHiddenLayers);
-							System.out.println("Number of hidden units: "
-									+ numberUnitHidden[indexUnitHidden]);
-							System.out.println("Number of examples: "
-									+ (quantityTraining + quantityTest) + "\n");
-							System.out.println("Learning rate: "
-									+ learningRate[indexLearningRate]);
-							System.out
-									.println("Learning rate decrease: "
-											+ learningRateDecrease[indexLearningRateDecrease]);
-							System.out.println("Number of Epochs: "
-									+ numberEpochs[indexNumberEpochs]);
-							System.out.println("Max error: "
-									+ maxError[indexMaxError] + "\n");
+						deep_learning = new DeepLearning(numberAttribute,
+								numberHiddenLayers, numberUnitHidden,
+								numberOutput, numberEpochsCRBM,
+								parameterTrainingCRBM);
+						weights = deep_learning.runDeepLearning(dataTraining
+								.getSample());
 
-							FileManager.write(fileResult, "MLP parameters:",
-									true);
-							FileManager.write(fileResult,
-									"Number of attributes: " + numberAttribute,
-									true);
-							FileManager.write(fileResult,
-									"Number of hidden layers: "
-											+ numberHiddenLayers, true);
-							FileManager
-									.write(fileResult,
-											"Number of hidden units: "
-													+ numberUnitHidden[indexUnitHidden],
-											true);
-							FileManager.write(fileResult, "Learning rate: "
-									+ learningRate[indexLearningRate], true);
-							FileManager
-									.write(fileResult,
-											"Learning rate decrease: "
-													+ learningRateDecrease[indexLearningRateDecrease],
-											true);
-							FileManager.write(fileResult, "Number of Epochs: "
-									+ numberEpochs[indexNumberEpochs], true);
-							FileManager.write(fileResult, "Max error: "
-									+ maxError[indexMaxError], true);
+						System.out.println("MLP parameters:");
+						System.out.println("Number of attributes: "
+								+ numberAttribute);
+						System.out.println("Number of hidden layers: "
+								+ numberHiddenLayers);
+						System.out.println("Number of hidden units: {"
+								+ numberUnitHidden[0] + ", "
+								+ numberUnitHidden[1] + ", "
+								+ numberUnitHidden[2] + "}");
 
-							parameterTraining = new ParameterTraining();
-							parameterTraining
-									.setNumberEpochs(numberEpochs[indexNumberEpochs]);
-							parameterTraining
-									.setMaxError(maxError[indexMaxError]);
-							parameterTraining.setTask(task.getValue());
-							parameterTraining
-									.setLearningRateDecrease(learningRateDecrease[indexLearningRateDecrease]);
-							parameterTraining
-									.setMinLearningRate(minLearningRate);
-							parameterTraining
-									.setWeightsInitializationRandom(initializeRandom);
-							parameterTraining
-									.setIntervalEpochPercentage(intervalEpochPercentage);
-							parameterTraining.setUpdateBatch(false);
-							parameterTraining.setNormalizeWeights(true);
-							parameterTraining.setValidation(true);
+						System.out.println("Number of examples: "
+								+ (quantityTraining + quantityTest) + "\n");
+						System.out.println("Learning rate: "
+								+ learningRate[indexLearningRate]);
+						System.out
+								.println("Learning rate decrease: "
+										+ learningRateDecrease[indexLearningRateDecrease]);
+						System.out.println("Number of Epochs: "
+								+ numberEpochs[indexNumberEpochs]);
+						System.out.println("Max error: "
+								+ maxError[indexMaxError] + "\n");
 
-							update = weights.clone();
-							update = neuralNetwork.train(net, update,
-									dataTraining.getSample(),
-									dataTraining.getLabel(), parameterTraining,
-									dataValidation, fileResult);
+						FileManager.write(fileResult, "MLP parameters:", true);
+						FileManager.write(fileResult, "Number of attributes: "
+								+ numberAttribute, true);
+						FileManager.write(fileResult,
+								"Number of hidden layers: "
+										+ numberHiddenLayers, true);
+						FileManager.write(fileResult,
+								"Number of hidden units: {"
+										+ numberUnitHidden[0] + ", "
+										+ numberUnitHidden[1] + ", "
+										+ numberUnitHidden[2] + "}", true);
+						FileManager.write(fileResult, "Learning rate: "
+								+ learningRate[indexLearningRate], true);
+						FileManager
+								.write(fileResult,
+										"Learning rate decrease: "
+												+ learningRateDecrease[indexLearningRateDecrease],
+										true);
+						FileManager.write(fileResult, "Number of Epochs: "
+								+ numberEpochs[indexNumberEpochs], true);
+						FileManager.write(fileResult, "Max error: "
+								+ maxError[indexMaxError], true);
 
-							numberCorrect = 0;
-							result = null;
-							for (int indexData = 0; indexData < MatrixHandler
-									.rows(dataTest.getSample()); indexData++) {
-								result = neuralNetwork
-										.run(net, weights, MatrixHandler
-												.getRow(dataTest.getSample(),
-														indexData));
-								if (NeuralNetworkUtils
-										.isCorrect(result, MatrixHandler
-												.getRow(dataTest.getLabel(),
-														indexData),
-												parameterTraining.getTask())) {
-									numberCorrect++;
-								}
+						parameterTraining = new ParameterTraining();
+						parameterTraining
+								.setNumberEpochs(numberEpochs[indexNumberEpochs]);
+						parameterTraining.setMaxError(maxError[indexMaxError]);
+						parameterTraining.setTask(task.getValue());
+						parameterTraining
+								.setLearningRateDecrease(learningRateDecrease[indexLearningRateDecrease]);
+						parameterTraining.setMinLearningRate(minLearningRate);
+						parameterTraining
+								.setWeightsInitializationRandom(initializeRandom);
+						parameterTraining
+								.setIntervalEpochPercentage(intervalEpochPercentage);
+						parameterTraining.setUpdateBatch(false);
+						parameterTraining.setNormalizeWeights(true);
+						parameterTraining.setValidation(true);
+
+						update = weights.clone();
+						update = neuralNetwork.train(net, update,
+								dataTraining.getSample(),
+								dataTraining.getLabel(), parameterTraining,
+								dataValidation, fileResult);
+
+						numberCorrect = 0;
+						result = null;
+						for (int indexData = 0; indexData < MatrixHandler
+								.rows(dataTest.getSample()); indexData++) {
+							result = neuralNetwork.run(net, weights,
+									MatrixHandler.getRow(dataTest.getSample(),
+											indexData));
+							if (NeuralNetworkUtils.isCorrect(result,
+									MatrixHandler.getRow(dataTest.getLabel(),
+											indexData), parameterTraining
+											.getTask())) {
+								numberCorrect++;
 							}
-							errorRate = 100 - ((double) numberCorrect / MatrixHandler
-									.rows(sample)) * 100;
-
-							duration = System.currentTimeMillis() - begin;
-
-							System.out.println("Correct: " + numberCorrect
-									+ ", Error Rate: " + errorRate);
-							System.out.println("Time millisseconds: "
-									+ duration);
-
-							FileManager.write(fileResult, "Correct: "
-									+ numberCorrect + ", Error Rate: "
-									+ errorRate, true);
-							FileManager.write(fileResult,
-									"Time millisseconds: " + duration, true);
-							FileManager
-									.write(fileResult,
-											"#######################################################################",
-											true);
 						}
+						errorRate = 100 - ((double) numberCorrect / MatrixHandler
+								.rows(sample)) * 100;
+
+						duration = System.currentTimeMillis() - begin;
+
+						System.out.println("Correct: " + numberCorrect
+								+ ", Error Rate: " + errorRate);
+						System.out.println("Time millisseconds: " + duration);
+
+						FileManager.write(fileResult, "Correct: "
+								+ numberCorrect + ", Error Rate: " + errorRate,
+								true);
+						FileManager.write(fileResult, "Time millisseconds: "
+								+ duration, true);
+						FileManager
+								.write(fileResult,
+										"#######################################################################",
+										true);
 					}
 				}
 			}
 		}
+		// }
 	}
 }

@@ -1,0 +1,51 @@
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 50
+Number of examples: 12645
+
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 429
+	 Error Rate: 0.0
+	 Learning Rate: 0.1
+Number Epoches Run: 1
+Correct: 2124.0, Error Rate: 0.18796992481202324
+Time millisseconds 2922
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 40
+Number of examples: 12645
+
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 429
+	 Error Rate: 0.0
+	 Learning Rate: 0.1
+Number Epoches Run: 1
+Correct: 2121.0, Error Rate: 0.3289473684210549
+Time millisseconds 2889
+MLP parameters:
+Number of attributes: 784
+Number of hidden layers: 1
+Number of hidden units: 100
+Number of examples: 12645
+
+Learning rate: 0.1
+Learning rate decrease: 0.99
+Max error: 0.0
+
+Running Epoch: 0
+	 Correct: 429
+	 Error Rate: 0.0
+	 Learning Rate: 0.1
+Number Epoches Run: 1
+Correct: 2126.0, Error Rate: 0.09398496240601162
+Time millisseconds 3578

@@ -171,10 +171,20 @@ public class MatrixHandler extends Matrix {
 	}
 
 	public static double[] multiply(double[] inputsLayer, double[][] weights) {
-		double[] result = new double[MatrixHandler.cols(weights)];
-		for (int cols = 0; cols < MatrixHandler.cols(weights); cols++) {
-			for (int rows = 0; rows < MatrixHandler.rows(weights); rows++) {
-				result[cols] += inputsLayer[rows] * weights[rows][cols];
+		double[] result = new double[MatrixHandler.rows(weights)];
+		for (int rows = 0; rows < MatrixHandler.rows(weights); rows++) {
+			for (int cols = 0; cols < MatrixHandler.cols(weights); cols++) {
+				result[rows] += inputsLayer[cols] * weights[rows][cols];
+			}
+		}
+		return result;
+	}
+
+	public static double[] multiplySum(double[][] matrix, double[] vector) {
+		double [] result = new double [MatrixHandler.rows(matrix)];
+		for(int rows = 0; rows < MatrixHandler.rows(matrix); rows++){
+			for(int cols = 0; cols < MatrixHandler.cols(matrix); cols++){
+				result[rows] +=  matrix[rows][cols] * vector[cols];
 			}
 		}
 		return result;

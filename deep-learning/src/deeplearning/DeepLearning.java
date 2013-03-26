@@ -2,7 +2,6 @@ package deeplearning;
 
 import neural.network.impl.MLP;
 import neural.network.interfaces.NeuralNetworkIF;
-import neural.network.util.LogisticLayerMLP;
 import neural.network.util.Weight;
 
 import com.syvys.jaRBM.Layers.Layer;
@@ -13,7 +12,7 @@ public class DeepLearning {
 
 	private int numberAttribute;
 	private int numberHiddenLayers;
-	private int numberHidden;
+	private int numberHidden[];
 	private int numberOutput;
 	private int numberEpochsCRBM;
 
@@ -24,7 +23,7 @@ public class DeepLearning {
 	private double CRBM_learning_rate_aj;
 
 	public DeepLearning(int numberAttribute, int numberHiddenLayers,
-			int numberHidden, int numberOutput, int numberEpochsCRBM,
+			int[] numberHidden, int numberOutput, int numberEpochsCRBM,
 			ParameterTrainingCRBM parameterTrainingCRBM) {
 		this.numberAttribute = numberAttribute;
 		this.numberHiddenLayers = numberHiddenLayers;
@@ -52,21 +51,23 @@ public class DeepLearning {
 		double[][] input = data;
 
 		// First weight matrix: weights[numberAttribute][numHidden]
-		CRBM crbm = new CRBM(numberAttribute, numberHidden,
+		CRBM crbm = new CRBM(numberAttribute, numberHidden[0],
 				CRBM_learning_rate_weights, CRBM_learning_rate_aj,
 				CRBM_theta_low, CRBM_theta_high, CRBM_sigma);
 		// System.out.println("\t- First weight matrix -");
 		crbm.train(input, numberEpochsCRBM);
 		double[][] weightsCRBM = crbm.getWeights();
 
-		Weight new_weight = new Weight(numberAttribute, numberHidden);
+		Weight new_weight = new Weight(numberAttribute, numberHidden[0]);
 		new_weight.setWeights(weightsCRBM);
 		weight_matrices_list[0] = new_weight;
 
 		// Weight matrices between hidden layers
 		for (int layer_weights_count = 1; layer_weights_count < weight_matrices_list.length - 1; layer_weights_count++) {
-			input = getNextInput(input, new_weight, numberHidden);
-			crbm = new CRBM(numberHidden, numberHidden,
+			input = getNextInput(input, new_weight,
+					numberHidden[layer_weights_count - 1], false);
+			crbm = new CRBM(numberHidden[layer_weights_count - 1],
+					numberHidden[layer_weights_count],
 					CRBM_learning_rate_weights, CRBM_learning_rate_aj,
 					CRBM_theta_low, CRBM_theta_high, CRBM_sigma);
 			// System.out.println("\t- Hidden weight matrix " +
@@ -74,21 +75,24 @@ public class DeepLearning {
 			crbm.train(input, numberEpochsCRBM);
 			weightsCRBM = crbm.getWeights();
 
-			new_weight = new Weight(numberHidden, numberHidden);
+			new_weight = new Weight(numberHidden[layer_weights_count - 1],
+					numberHidden[layer_weights_count]);
 			new_weight.setWeights(weightsCRBM);
 			weight_matrices_list[layer_weights_count] = new_weight;
 		}
 
-		input = getNextInput(input, new_weight, numberHidden);
+		input = getNextInput(input, new_weight,
+				numberHidden[numberHidden.length - 1], true);
 		// Last weight matrix: weights[numHidden][numberOutput]
-		crbm = new CRBM(numberHidden, numberOutput, CRBM_learning_rate_weights,
-				CRBM_learning_rate_aj, CRBM_theta_low, CRBM_theta_high,
-				CRBM_sigma);
+		crbm = new CRBM(numberHidden[numberHidden.length - 1], numberOutput,
+				CRBM_learning_rate_weights, CRBM_learning_rate_aj,
+				CRBM_theta_low, CRBM_theta_high, CRBM_sigma);
 		// System.out.println("\t- Last weight matrix -");
 		crbm.train(input, numberEpochsCRBM);
 		weightsCRBM = crbm.getWeights();
 
-		new_weight = new Weight(numberHidden, numberOutput);
+		new_weight = new Weight(numberHidden[numberHidden.length - 1],
+				numberOutput);
 		new_weight.setWeights(weightsCRBM);
 		weight_matrices_list[weight_matrices_list.length - 1] = new_weight;
 
@@ -96,11 +100,12 @@ public class DeepLearning {
 	}
 
 	private double[][] getNextInput(double[][] data, Weight new_weight,
-			int numberOutput) {
+			int numberOutput, boolean lastLayer) {
 		double[][] input;
 		NeuralNetworkIF mlp = new MLP();
 		Layer[] net = new Layer[1];
-		net[0] = new LogisticLayerMLP(numberOutput);
+//		net[0] = new LogisticLayerMLP(numberOutput);
+		net[0] = new LogisticLayer(numberOutput);
 		input = new double[MatrixHandler.rows(data)][numberOutput];
 
 		Weight[] weigthsArray = new Weight[1];

@@ -7,16 +7,18 @@ import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
-import neural.network.util.LogisticLayerMLP;
+import neural.network.util.HyperbolicTangentLayer;
 import neural.network.util.Weight;
 import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
+import com.syvys.jaRBM.Layers.SoftmaxLayer;
 import common.Data;
 import common.MatrixHandler;
 
 import deeplearning.DeepLearning;
+import deeplearning.ParameterTrainingCRBM;
 
 public class Main {
 
@@ -77,10 +79,10 @@ public class Main {
 		parameterTraining.setWeightsInitializationRandom(initializeRandom);
 
 		Layer[] net = new Layer[2];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberOutput);
+		net[1] = new LogisticLayer(numberOutput);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
 
@@ -181,7 +183,7 @@ public class Main {
 		double learningRate = 0.5;
 		int numberUnitHidden = 5;
 		long numberEpochs = 50;
-		double maxError = 5;
+		double maxError = 0;
 		double learningRateDecrease = 0.99;
 		double minLearningRate = 0.0002;
 		boolean initializeRandom = true;
@@ -214,10 +216,12 @@ public class Main {
 		parameterTraining.setIntervalEpochPercentage(1);
 
 		Layer[] net = new Layer[2];
-		net[0] = new LogisticLayer(numberUnitHidden);
+		// net[0] = new LogisticLayer(numberUnitHidden);
+		net[0] = new HyperbolicTangentLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayer(numberOutput);
+		// net[1] = new LogisticLayer(numberOutput);
+		net[1] = new HyperbolicTangentLayer(numberOutput);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
 
@@ -257,10 +261,10 @@ public class Main {
 		NeuralNetworkIF neuralNetwork = new MLP();
 
 		Layer[] net = new Layer[2];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberOutput);
+		net[1] = new LogisticLayer(numberOutput);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
 
@@ -321,10 +325,10 @@ public class Main {
 		NeuralNetworkIF neuralNetwork = new MLP();
 
 		Layer[] net = new Layer[2];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberOutput);
+		net[1] = new LogisticLayer(numberOutput);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
 
@@ -362,7 +366,7 @@ public class Main {
 		int numberAttribute = 30;
 		// int numberAttribute = 28 * 28;
 		// int numberAttribute = 4;
-		int numberUnitHidden = 9;
+		int numberUnitHidden[] = { 9, 9, 9 };
 		int numberHiddenLayers = 3;
 		// int numberHiddenLayers = 1;
 		int numberOutput = 2;
@@ -372,10 +376,11 @@ public class Main {
 		int intervalEpochPercentage = 2;
 
 		long numberEpochs = 100;
-		double maxError = 3;
+		double maxError = 0;
 		double learningRateDecrease = 0.99;
 		double minLearningRate = 0.01;
-		boolean initializeRandom = true;
+		// boolean initializeRandom = true;
+		boolean initializeRandom = false;
 		Task task = Task.CLASSIFICATION;
 
 		// String prefixSampleTraining =
@@ -408,16 +413,19 @@ public class Main {
 		// net[1].setLearningRate(learningRate);
 
 		Layer[] net = new Layer[4];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		// net[0] = new LogisticLayer(numberUnitHidden[0]);
+		net[0] = new HyperbolicTangentLayer(numberUnitHidden[0]);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberUnitHidden);
+		// net[1] = new LogisticLayer(numberUnitHidden[1]);
+		net[1] = new HyperbolicTangentLayer(numberUnitHidden[1]);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
-		net[2] = new LogisticLayerMLP(numberUnitHidden);
+		// net[2] = new LogisticLayer(numberUnitHidden[2]);
+		net[2] = new HyperbolicTangentLayer(numberUnitHidden[2]);
 		net[2].setMomentum(momentum);
 		net[2].setLearningRate(learningRate);
-		net[3] = new LogisticLayerMLP(numberOutput);
+		net[3] = new SoftmaxLayer(numberOutput);
 		net[3].setMomentum(momentum);
 		net[3].setLearningRate(learningRate);
 		// net[4] = new LogisticLayerMLP(numberOutput);
@@ -428,41 +436,48 @@ public class Main {
 		// weightsTest[0] = new Weight(numberAttribute, numberUnitHidden);
 		// weightsTest[1] = new Weight(numberUnitHidden, numberOutput);
 
-		Weight[] weights = new Weight[5];
-		weights[0] = new Weight(numberAttribute, numberUnitHidden);
-		weights[1] = new Weight(numberUnitHidden, numberUnitHidden);
-		weights[2] = new Weight(numberUnitHidden, numberUnitHidden);
-		weights[3] = new Weight(numberUnitHidden, numberUnitHidden);
-		weights[4] = new Weight(numberUnitHidden, numberOutput);
+		// Weight[] weights = new Weight[4];
+		// weights[0] = new Weight(numberAttribute, numberUnitHidden[0]);
+		// weights[1] = new Weight(numberUnitHidden[0], numberUnitHidden[1]);
+		// weights[2] = new Weight(numberUnitHidden[1], numberUnitHidden[2]);
+		// weights[3] = new Weight(numberUnitHidden[2], numberOutput);
 
 		// -- DEEP LEARNING
-		// Data dataTraining = new Data();
-		// double[][] sample = new double[513 /* 90 *//* 5850
-		// */][numberAttribute];
-		// dataTraining.setSample(sample);
-		// double[][] label = new double[513 /* 90 *//* 5850
-		// */][numberAttribute];
-		// dataTraining.setLabel(label);
-		//
-		// int numberEpochsCRBM = 10;
-		//
-		// // A list of 'k' lists of weight matrices
-		// Weight[][] weight_folds = new Weight[k][numberHiddenLayers + 1];
-		//
-		// for (int fold = 0; fold < k; fold++) {
-		// System.out.println("CRBM pre-training: fold " + (fold + 1) + ":");
-		//
-		// dataTraining = FileManager.read(prefixSampleTraining + (fold + 1)
-		// + ".csv", dataTraining);
-		// dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
-		// dataTraining.getLabel());
-		// DeepLearning deep_learning = new DeepLearning(numberAttribute,
-		// numberHiddenLayers, numberUnitHidden, numberOutput,
-		// numberEpochsCRBM);
-		// Weight[] weights = deep_learning.runDeepLearning(dataTraining
-		// .getSample());
-		// weight_folds[fold] = weights;
-		// }
+		Data dataTraining = new Data();
+		double[][] sample = new double[513 /* 90 *//*
+													 * 5850
+													 */][numberAttribute];
+		dataTraining.setSample(sample);
+		double[][] label = new double[513 /* 90 *//*
+												 * 5850
+												 */][numberAttribute];
+		dataTraining.setLabel(label);
+
+		int numberEpochsCRBM = 10;
+
+		Weight[][] weight_folds = new Weight[k][numberHiddenLayers + 1];
+
+		ParameterTrainingCRBM parameterTrainingCRBM = new ParameterTrainingCRBM();
+		parameterTrainingCRBM.setLearning_rate_weights(0.5);
+		parameterTrainingCRBM.setLearning_rate_aj(0.5);
+		parameterTrainingCRBM.setTheta_low(-1.0);
+		parameterTrainingCRBM.setTheta_high(1.0);
+		parameterTrainingCRBM.setSigma(0.2);
+
+		for (int fold = 0; fold < k; fold++) {
+			System.out.println("CRBM pre-training: fold " + (fold + 1) + ":");
+
+			dataTraining = FileManager.read(prefixSampleTraining + (fold + 1)
+					+ ".csv", dataTraining);
+			dataTraining = MatrixHandler.randomize(dataTraining.getSample(),
+					dataTraining.getLabel());
+			DeepLearning deep_learning = new DeepLearning(numberAttribute,
+					numberHiddenLayers, numberUnitHidden, numberOutput,
+					numberEpochsCRBM, parameterTrainingCRBM);
+			Weight[] weights = deep_learning.runDeepLearning(dataTraining
+					.getSample());
+			weight_folds[fold] = weights;
+		}
 
 		System.out.println("- MLP -");
 		// -- DEEP LEARNING
@@ -480,9 +495,10 @@ public class Main {
 		parameterTraining.setValidation(false);
 
 		Crossvalidation crossvalidation = new Crossvalidation();
-		crossvalidation.run(neuralNetwork, net, weights, prefixSampleTraining,
-				prefixSampleTest, numberAttribute, numberOutput,
-				parameterTraining, k, quantityTraining, quantityTest, null);
+		crossvalidation.run(neuralNetwork, net,/* weights */weight_folds,
+				prefixSampleTraining, prefixSampleTest, numberAttribute,
+				numberOutput, parameterTraining, k, quantityTraining,
+				quantityTest, null);
 	}
 
 }

@@ -7,11 +7,11 @@ import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
-import neural.network.util.LogisticLayerMLP;
 import neural.network.util.Weight;
 import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
+import com.syvys.jaRBM.Layers.LogisticLayer;
 import common.Data;
 
 import deeplearning.DeepLearning;
@@ -45,7 +45,7 @@ public class DeepLearningTest {
 		int numberAttribute = 28 * 28;
 		// int numberAttribute = 30;
 		// int numberAttribute = 4;
-		int numberUnitHidden = 10;
+		int[] numberUnitHidden = {10};
 		int numberHiddenLayers = 3;
 		int numberOutput = 2;
 		// int quantityTraining = 513;
@@ -103,16 +103,16 @@ public class DeepLearningTest {
 		NeuralNetworkIF neuralNetwork = new MLP();
 
 		Layer[] net = new Layer[4];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden[0]);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberUnitHidden);
+		net[1] = new LogisticLayer(numberUnitHidden[0]);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
-		net[2] = new LogisticLayerMLP(numberUnitHidden);
+		net[2] = new LogisticLayer(numberUnitHidden[0]);
 		net[2].setMomentum(momentum);
 		net[2].setLearningRate(learningRate);
-		net[3] = new LogisticLayerMLP(numberOutput);
+		net[3] = new LogisticLayer(numberOutput);
 		net[3].setMomentum(momentum);
 		net[3].setLearningRate(learningRate);
 
@@ -173,7 +173,7 @@ public class DeepLearningTest {
 		int numberEpochsCRBM = 10;
 
 		// A list of 'k' lists of weight matrices.
-		Weight[][] weight_folds = new Weight[k][numberUnitHidden + 1];
+		Weight[][] weight_folds = new Weight[k][numberUnitHidden[0] + 1];
 
 		for (int fold = 0; fold < k; fold++) {
 			System.out.println("CRBM pre-training: fold " + (fold + 1) + ":");
@@ -210,7 +210,7 @@ public class DeepLearningTest {
 		crossvalidation.run(neuralNetwork, net, weight_folds,
 				prefixSampleTraining, prefixSampleTest, numberAttribute,
 				numberOutput, parameterTraining, k, quantityTraining,
-				quantityTest);
+				quantityTest, null);
 	}
 
 }

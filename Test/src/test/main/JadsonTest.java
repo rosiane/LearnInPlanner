@@ -11,11 +11,11 @@ import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
-import neural.network.util.LogisticLayerMLP;
 import neural.network.util.Weight;
 import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
+import com.syvys.jaRBM.Layers.LogisticLayer;
 
 public class JadsonTest {
 
@@ -127,10 +127,10 @@ public class JadsonTest {
 		// net[3].setLearningRate(learningRate);
 
 		Layer[] net = new Layer[2];
-		net[0] = new LogisticLayerMLP(numberUnitHidden);
+		net[0] = new LogisticLayer(numberUnitHidden);
 		net[0].setMomentum(momentum);
 		net[0].setLearningRate(learningRate);
-		net[1] = new LogisticLayerMLP(numberOutput);
+		net[1] = new LogisticLayer(numberOutput);
 		net[1].setMomentum(momentum);
 		net[1].setLearningRate(learningRate);
 
@@ -227,7 +227,7 @@ public class JadsonTest {
 
 	public static void testAllSets() throws IOException {
 		// Fixed Parameters
-		String fileResult = "./data/jadson/resultados/Resultados.doc";
+		String fileResult = "./data/jadson/resultados/Resultados_20130317.doc";
 
 		int quantityTraining = 69;
 		int quantityTest = 1;
@@ -297,11 +297,11 @@ public class JadsonTest {
 			for (int indexLearningRate = 0; indexLearningRate < learningRate.length; indexLearningRate++) {
 				for (int indexNumberEpochs = 0; indexNumberEpochs < numberEpochs.length; indexNumberEpochs++) {
 					for (int indexLearningRateDecrease = 0; indexLearningRateDecrease < learningRateDecrease.length; indexLearningRateDecrease++) {
-						net[0] = new LogisticLayerMLP(
+						net[0] = new LogisticLayer(
 								numberUnitHidden[indexUnitHidden]);
 						net[0].setMomentum(momentum);
 						net[0].setLearningRate(learningRate[indexLearningRate]);
-						net[1] = new LogisticLayerMLP(numberOutput);
+						net[1] = new LogisticLayer(numberOutput);
 						net[1].setMomentum(momentum);
 						net[1].setLearningRate(learningRate[indexLearningRate]);
 
