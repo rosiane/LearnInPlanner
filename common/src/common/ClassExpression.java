@@ -46,6 +46,10 @@ public class ClassExpression {
 	public ClassExpression[] getParameter() {
 		return parameter;
 	}
+	
+	public ClassExpression getParameter(int index) {
+		return parameter[index];
+	}
 
 	public void setParameter(ClassExpression[] parameter) {
 		this.parameter = parameter;
@@ -91,12 +95,14 @@ public class ClassExpression {
 		}
 		builder.append(predicate + " ");
 		for (int indexParameter = 0; indexParameter < parameter.length; indexParameter++) {
-			if (intersection != null && intersection.get(indexParameter) != null) {
-				for (int indexIntersection = 0; indexIntersection < intersection.get(indexParameter).length; indexIntersection++) {
+			if (intersection != null
+					&& intersection.get(indexParameter) != null) {
+				for (int indexIntersection = 0; indexIntersection < intersection
+						.get(indexParameter).length; indexIntersection++) {
 					if (indexIntersection > 0) {
 						builder.append(" && ");
 					}
-					builder.append(intersection.get(indexParameter).toString());
+					builder.append(intersection.get(indexParameter)[indexIntersection].toString());
 				}
 			} else {
 				if (parameter[indexParameter] == null) {
@@ -117,10 +123,12 @@ public class ClassExpression {
 		ClassExpression classExpression = new ClassExpression(new String(
 				predicate), parameter.length, parameterType.clone());
 		LinkedList<ClassExpression[]> intersectionNew = new LinkedList<>();
-		int index = 0;
 		for (ClassExpression[] intersec : intersection) {
-			intersectionNew.set(index, intersec.clone());
-			index++;
+			if (intersec == null) {
+				intersectionNew.addLast(null);
+			} else {
+				intersectionNew.addLast(intersec.clone());
+			}
 		}
 		classExpression.setIntersection(intersectionNew);
 		classExpression.setNot(new Boolean(not));
@@ -146,6 +154,7 @@ public class ClassExpression {
 						objectsList.addAll(objectsTmp);
 					} else {
 						objectsTmp2.addAll(objectsList);
+						objectsList = new ArrayList<>(); 
 						for (String[] tmp : objectsTmp) {
 							boolean contains = false;
 							for (String[] tmp2 : objectsTmp2) {
@@ -180,7 +189,7 @@ public class ClassExpression {
 						for (String[] tmp2 : parameterObject
 								.get(indexParameter)) {
 							if (tmp[indexParameter]
-									.equalsIgnoreCase(tmp2[indexParameter])) {
+									.equalsIgnoreCase(tmp2[0])) {
 								contains = true;
 								break;
 							}

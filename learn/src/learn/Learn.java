@@ -34,7 +34,7 @@ public class Learn {
 
 	public Chromosome learn(LearnParameters learnParameters) throws Exception {
 		LinkedList<ClassExpression> features = initialFeatures(learnParameters);
-		writeFeatures(learnParameters.getFeaturesFile(), features);
+		writeFeatures(learnParameters.getFeaturesFile() + 0, features);
 		List<Chromosome> population = RandomUtilsFeatureSelector
 				.initializePopulation(
 						learnParameters.getNumberIndividualInitialGA(),
@@ -51,29 +51,50 @@ public class Learn {
 				learnParameters.getParameterTrainingMLP());
 		Chromosome chromosome = null;
 		Chromosome best = null;
-		LinkedList<ClassExpression> featuresNew;
-		for (int indexExpansion = 0; indexExpansion < learnParameters
+		Chromosome last = null;
+		for (int indexExpansion = 0; indexExpansion <= learnParameters
 				.getNumberExpansion(); indexExpansion++) {
 			if (indexExpansion > 0) {
-				featuresNew = ExpandFeatures.expand(features, types);
-				readerFeaturePlanning = new ReaderFeaturePlanning(featuresNew,
+				features = selectedFeatures(features, last.getGene());
+				features = ExpandFeatures.expand(features, types);
+				writeFeatures(learnParameters.getFeaturesFile()
+						+ (indexExpansion), features);
+				readerFeaturePlanning = new ReaderFeaturePlanning(features,
 						learnParameters.getDirPlanningProblem(),
 						learnParameters.getDirPlanningProblemRPL(),
 						learnParameters.getProblemTraining(),
 						learnParameters.getProblemValidation(),
 						learnParameters.getProblemTest());
+				fitnessFunction = new FitnessFunctionMLP(readerFeaturePlanning,
+						learnParameters.getParameterTrainingMLP());
+				population = RandomUtilsFeatureSelector.initializePopulation(
+						learnParameters.getNumberIndividualInitialGA(),
+						features.size());
 			}
 			chromosome = geneticAlgorithm.run(population, fitnessFunction,
 					learnParameters.getParameterGA());
 			if (best == null) {
 				best = chromosome;
+				last = chromosome;
 			} else {
-				if (chromosome.getEvaluation() > best.getEvaluation()) {
+				if (chromosome.getEvaluation() < best.getEvaluation()) {
 					best = chromosome;
 				}
+				last = chromosome;
 			}
 		}
 		return best;
+	}
+
+	private LinkedList<ClassExpression> selectedFeatures(
+			LinkedList<ClassExpression> features, int[] gene) {
+		LinkedList<ClassExpression> result = new LinkedList<>();
+		for (int indexGene = 0; indexGene < gene.length; indexGene++) {
+			if (gene[indexGene] == 1) {
+				result.addLast(features.get(indexGene));
+			}
+		}
+		return result;
 	}
 
 	private void writeFeatures(String featuresFile,
@@ -138,8 +159,9 @@ public class Learn {
 				parameterType[indexParameter] = parameters.next().getType()
 						.toString();
 			}
-			classExpression = new ClassExpression(predicateSymbol.getName(),
-					predicateSymbol.getParams().size(), parameterType);
+			classExpression = new ClassExpression(PrefixEnum.FACT.prefix()
+					+ predicateSymbol.getName(), predicateSymbol.getParams()
+					.size(), parameterType);
 			features.add(classExpression);
 			classExpression = new ClassExpression(PrefixEnum.ADD.prefix()
 					+ predicateSymbol.getName(), predicateSymbol.getParams()

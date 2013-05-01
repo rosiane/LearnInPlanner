@@ -64,7 +64,7 @@ public class LearnTest {
 		int[] problemTraining = { 1 };
 		int[] problemValidation = { 2 };
 		int[] problemTest = { 3 };
-		int numberExpansion = 1;
+		int numberExpansion = 2;
 
 		long numberEpochs = 1;
 		double maxError = 0;
@@ -92,7 +92,6 @@ public class LearnTest {
 		parameterTraining.setNumberOutput(numberOutput);
 		parameterTraining.setLearningRate(learningRate);
 		parameterTraining.setNumberUnitHidden(numberUnitHidden);
-		
 
 		int numberFathers = 3;
 		int numberGeneration = 2;
