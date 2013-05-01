@@ -28,12 +28,12 @@
 
 package javaff.data.temporal;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import javaff.data.strips.Proposition;
 import javaff.planning.TemporalMetricState;
 import javaff.planning.TemporalMetricStateDelta;
-
-import java.util.Set;
-import java.util.Iterator;
 
 public class EndInstantAction extends SplitInstantAction {
 

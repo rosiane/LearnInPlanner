@@ -1,227 +1,214 @@
-14
-(Lift hoist0 crate2 pallet2 depot0)
-(Lift hoist4 crate5 crate4 distributor1)
-(Drop hoist2 crate9 pallet5 distributor1)
-(Lift hoist0 crate4 crate0 depot0)
-(Drop hoist2 crate9 crate2 depot2)
-(Drive truck1 depot2 distributor0)
-(Drive truck1 depot2 distributor1)
-(Unload hoist4 crate6 truck1 distributor1)
-(Drop hoist4 crate5 pallet2 distributor1)
-(Drop hoist0 crate4 pallet0 depot0)
-(Unload hoist3 crate3 truck1 distributor0)
-(Drop hoist0 crate2 pallet5 depot0)
-(Drop hoist4 crate6 crate5 distributor1)
-(Drop hoist3 crate3 crate9 distributor0)
-9
-(:init
-	(on crate7 crate4)
-	(at crate4 distributor1)
-	(on crate12 crate9)
-	(at crate3 distributor1)
-	(at crate6 distributor0)
-	(on crate1 pallet5)
-	(clear crate4)
-	(on crate6 crate3)
-	(at crate5 depot2)
-	(clear pallet2)
-	(at crate11 depot0)
-	(on crate1 pallet2)
-	(on crate12 crate11)
-	(clear crate5)
-	(clear pallet5)
-	(clear crate12)
-	(on crate14 crate13)
-	(at crate5 depot0)
-	(on crate9 crate7)
-	(on crate0 crate7)
-	(at crate13 distributor0)
-	(at hoist2 distributor1)
-	(at hoist4 distributor1)
-	(on crate5 crate4)
-	(at crate0 distributor1)
-	(at crate9 distributor0)
-	(in crate6 truck1)
-	(on crate6 pallet1)
-	(on crate9 crate8)
-	(at crate8 depot0)
-	(clear crate10)
-	(on crate4 crate2)
-	(on crate4 crate3)
-	(at crate5 distributor1)
-	(at crate2 depot2)
-	(clear crate8)
-	(at pallet4 distributor1)
-	(on crate4 crate0)
-	(on crate5 pallet0)
-	(at truck0 distributor0)
-	(on crate11 pallet4)
-	(on crate14 crate9)
-	(clear crate11)
-	(on crate3 crate1)
-	(at crate2 distributor1)
-	(at pallet3 distributor0)
-	(at crate12 distributor0)
-	(at crate2 depot0)
-	(at crate7 distributor0)
-	(at crate8 distributor0)
-	(at pallet2 depot2)
-	(on crate3 crate2)
-	(on crate0 pallet0)
-	(on crate8 pallet3)
-	(on crate3 pallet1)
-	(on crate1 pallet4)
-	(on crate13 crate12)
-	(at hoist1 distributor0)
-	(on crate5 crate2)
-	(at pallet5 depot0)
-	(on crate11 crate6)
-	(at pallet5 distributor2)
-	(at pallet0 depot0)
-	(clear crate2)
-	(available hoist1)
-	(at truck0 depot0)
-	(at pallet4 distributor0)
-	(at truck0 distributor1)
-	(on crate13 crate4)
-	(at crate10 distributor1)
-	(on crate0 pallet2)
-	(at crate11 distributor0)
-	(at crate4 depot0)
-	(at hoist5 distributor2)
-	(available hoist3)
-	(at crate0 depot0)
-	(at crate7 distributor1)
-	(at pallet1 distributor0)
-	(clear crate0)
-	(at truck0 depot1)
-	(at pallet3 distributor1)
-	(on crate2 crate0)
-	(on crate0 pallet4)
-	(at pallet2 distributor1)
-	(at pallet5 distributor1)
-	(available hoist4)
-	(at pallet1 depot1)
-	(at crate4 depot2)
-	(on crate5 pallet3)
-	(clear crate13)
-	(in crate3 truck1)
-	(available hoist5)
-	(at hoist0 depot0)
-	(clear pallet1)
-	(on crate2 pallet2)
-	(on crate2 crate1)
-	(at hoist3 distributor0)
-	(at crate3 distributor0)
-	(on crate7 crate1)
-	(at crate13 distributor1)
-	(at crate4 distributor0)
-	(at truck1 depot2)
-	(clear pallet0)
-	(at crate3 depot0)
-	(available hoist0)
-	(on crate10 crate5)
-	(at crate6 depot0)
-	(at crate1 distributor1)
-	(clear crate14)
-	(at hoist2 depot2)
-	(on crate6 crate1)
-	(at crate0 distributor0)
-	(at hoist1 depot1)
-	(on crate8 pallet5)
-	(at crate9 distributor1)
-	(lifting hoist2 crate9)
-	(at crate14 distributor0)
-)
-(:add
-	(at crate6 distributor1)
-	(on crate6 crate5)
-	(clear crate6)
-	(available hoist4)
-	(lifting hoist4 crate6)
-	(at truck1 distributor1)
-	(at truck1 distributor0)
-	(available hoist2)
-	(clear crate9)
-	(at crate9 depot2)
-	(on crate9 crate2)
-	(lifting hoist3 crate3)
-	(at crate2 depot0)
-	(on crate2 pallet5)
-	(available hoist0)
-	(clear crate2)
-	(lifting hoist0 crate2)
-	(clear pallet2)
-	(at crate9 distributor1)
-	(available hoist2)
-	(clear crate9)
-	(on crate9 pallet5)
-	(on crate3 crate9)
-	(at crate3 distributor0)
-	(clear crate3)
-	(available hoist3)
-	(on crate5 pallet2)
-	(at crate5 distributor1)
-	(clear crate5)
-	(available hoist4)
-	(clear crate4)
-	(lifting hoist4 crate5)
-	(clear crate4)
-	(at crate4 depot0)
-	(available hoist0)
-	(on crate4 pallet0)
-	(clear crate0)
-	(lifting hoist0 crate4)
-)
-(:delete
-	(lifting hoist4 crate6)
-	(clear crate5)
-	(in crate6 truck1)
-	(available hoist4)
-	(at truck1 depot2)
-	(at truck1 depot2)
-	(lifting hoist2 crate9)
-	(clear crate2)
-	(in crate3 truck1)
-	(available hoist3)
-	(lifting hoist0 crate2)
-	(clear pallet5)
-	(at crate2 depot0)
-	(on crate2 pallet2)
-	(available hoist0)
-	(clear crate2)
-	(lifting hoist2 crate9)
-	(clear pallet5)
-	(clear crate9)
-	(lifting hoist3 crate3)
-	(lifting hoist4 crate5)
-	(clear pallet2)
-	(at crate5 distributor1)
-	(clear crate5)
-	(on crate5 crate4)
-	(available hoist4)
-	(clear pallet0)
-	(lifting hoist0 crate4)
-	(on crate4 crate0)
-	(clear crate4)
-	(at crate4 depot0)
-	(available hoist0)
-)
-(:goal
-	(on crate3 crate9)
-	(on crate5 pallet2)
-	(on crate8 pallet3)
-	(on crate7 crate1)
-	(on crate2 pallet5)
-	(on crate1 pallet4)
-	(on crate6 crate5)
-	(on crate4 pallet0)
-	(on crate0 crate7)
-	(on crate9 crate2)
-)
-(:current
-	(on crate0 crate7)
-	(on crate8 pallet3)
-	(on crate1 pallet4)
-	(on crate7 crate1)
-)
+12
+action_Lift hoist0 crate4 crate2 depot0
+action_Lift hoist4 crate5 pallet3 distributor1
+action_Lift hoist4 crate4 crate3 distributor1
+action_Drop hoist2 crate9 crate2 depot2
+action_Lift hoist4 crate2 pallet2 distributor1
+action_Lift hoist3 crate3 pallet1 distributor0
+action_Drop hoist4 crate2 pallet5 distributor1
+action_Drop hoist4 crate5 pallet2 distributor1
+action_Drop hoist0 crate4 pallet0 depot0
+action_Unload hoist2 crate6 truck1 depot2
+action_Drop hoist2 crate6 crate5 distributor1
+action_Drop hoist3 crate3 crate9 distributor0
+11
+f_on crate7 crate4
+f_at crate4 distributor1
+f_on crate12 crate9
+f_at crate3 distributor1
+f_at crate6 distributor0
+f_on crate1 pallet5
+f_clear crate4
+f_on crate6 crate3
+f_at crate5 depot2
+f_clear pallet2
+f_at crate11 depot0
+f_on crate1 pallet2
+f_on crate12 crate11
+f_clear crate5
+f_clear pallet5
+f_clear crate12
+f_on crate14 crate13
+f_at crate5 depot0
+f_on crate9 crate7
+f_on crate0 crate7
+f_at crate13 distributor0
+f_at hoist2 distributor1
+f_at hoist4 distributor1
+f_on crate5 crate4
+f_at crate0 distributor1
+f_at crate9 distributor0
+f_in crate6 truck1
+f_on crate6 pallet1
+f_on crate9 crate8
+f_at crate8 depot0
+f_clear crate10
+f_on crate4 crate2
+f_on crate4 crate3
+f_at crate5 distributor1
+f_at crate2 depot2
+f_clear crate8
+f_at pallet4 distributor1
+f_on crate4 crate0
+f_on crate5 pallet0
+f_at truck0 distributor0
+f_on crate11 pallet4
+f_on crate14 crate9
+f_clear crate11
+f_on crate3 crate1
+f_at crate2 distributor1
+f_at pallet3 distributor0
+f_at crate12 distributor0
+f_at crate2 depot0
+f_at crate7 distributor0
+f_at crate8 distributor0
+f_at pallet2 depot2
+f_on crate3 crate2
+f_on crate0 pallet0
+f_on crate8 pallet3
+f_on crate3 pallet1
+f_on crate1 pallet4
+f_on crate13 crate12
+f_at hoist1 distributor0
+f_on crate5 crate2
+f_at pallet5 depot0
+f_on crate11 crate6
+f_at pallet5 distributor2
+f_at pallet0 depot0
+f_clear crate2
+f_available hoist1
+f_at truck0 depot0
+f_at pallet4 distributor0
+f_at truck0 distributor1
+f_on crate13 crate4
+f_at crate10 distributor1
+f_on crate0 pallet2
+f_at crate11 distributor0
+f_at crate4 depot0
+f_at hoist5 distributor2
+f_available hoist3
+f_at crate0 depot0
+f_at crate7 distributor1
+f_at pallet1 distributor0
+f_clear crate0
+f_at truck0 depot1
+f_at pallet3 distributor1
+f_on crate2 crate0
+f_on crate0 pallet4
+f_at pallet2 distributor1
+f_at pallet5 distributor1
+f_available hoist4
+f_at pallet1 depot1
+f_at crate4 depot2
+f_on crate5 pallet3
+f_clear crate13
+f_in crate3 truck1
+f_available hoist5
+f_at hoist0 depot0
+f_clear pallet1
+f_on crate2 pallet2
+f_on crate2 crate1
+f_at hoist3 distributor0
+f_at crate3 distributor0
+f_on crate7 crate1
+f_at crate13 distributor1
+f_at crate4 distributor0
+f_at truck1 depot2
+f_clear pallet0
+f_at crate3 depot0
+f_available hoist0
+f_on crate10 crate5
+f_at crate6 depot0
+f_at crate1 distributor1
+f_clear crate14
+f_at hoist2 depot2
+f_on crate6 crate1
+f_at crate0 distributor0
+f_at hoist1 depot1
+f_on crate8 pallet5
+f_at crate9 distributor1
+f_lifting hoist2 crate9
+f_at crate14 distributor0
+a_on crate2 pallet5
+a_clear crate2
+a_available hoist4
+a_at crate2 distributor1
+a_lifting hoist2 crate6
+a_clear crate9
+a_available hoist2
+a_at crate9 depot2
+a_on crate9 crate2
+a_clear pallet1
+a_lifting hoist3 crate3
+a_clear pallet3
+a_lifting hoist4 crate5
+a_lifting hoist0 crate4
+a_clear crate2
+a_on crate3 crate9
+a_at crate3 distributor0
+a_clear crate3
+a_available hoist3
+a_on crate5 pallet2
+a_clear crate5
+a_at crate5 distributor1
+a_available hoist4
+a_lifting hoist4 crate2
+a_clear pallet2
+a_clear crate4
+a_at crate4 depot0
+a_available hoist0
+a_on crate4 pallet0
+a_lifting hoist4 crate4
+a_clear crate3
+a_at crate6 distributor1
+a_available hoist2
+a_on crate6 crate5
+a_clear crate6
+d_lifting hoist4 crate2
+d_clear pallet5
+d_in crate6 truck1
+d_available hoist2
+d_lifting hoist2 crate9
+d_clear crate2
+d_at crate3 distributor0
+d_on crate3 pallet1
+d_clear crate3
+d_available hoist3
+d_on crate5 pallet3
+d_at crate5 distributor1
+d_clear crate5
+d_available hoist4
+d_clear crate4
+d_at crate4 depot0
+d_available hoist0
+d_on crate4 crate2
+d_clear crate9
+d_lifting hoist3 crate3
+d_lifting hoist4 crate5
+d_clear pallet2
+d_on crate2 pallet2
+d_clear crate2
+d_available hoist4
+d_at crate2 distributor1
+d_clear pallet0
+d_lifting hoist0 crate4
+d_on crate4 crate3
+d_clear crate4
+d_at crate4 distributor1
+d_available hoist4
+d_clear crate5
+d_lifting hoist2 crate6
+g_on crate3 crate9
+g_on crate5 pallet2
+g_on crate8 pallet3
+g_on crate7 crate1
+g_on crate2 pallet5
+g_on crate1 pallet4
+g_on crate6 crate5
+g_on crate4 pallet0
+g_on crate0 crate7
+g_on crate9 crate2
+c_on crate0 crate7
+c_on crate8 pallet3
+c_on crate1 pallet4
+c_on crate7 crate1

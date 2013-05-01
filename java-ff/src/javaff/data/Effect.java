@@ -28,7 +28,6 @@
 
 package javaff.data;
 
-import javaff.planning.State;
 
 public interface Effect extends PDDLPrintable
 {

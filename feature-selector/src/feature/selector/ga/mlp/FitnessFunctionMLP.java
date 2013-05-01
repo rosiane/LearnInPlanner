@@ -5,14 +5,15 @@ import java.io.IOException;
 import neural.network.impl.MLP;
 import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.ErrorRate;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.Weight;
-import preprocessor.file.ReaderFeature;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
 import common.Data;
 import common.MatrixHandler;
+import common.preprocessor.file.ReaderFeature;
 
 import feature.selector.ga.Chromosome;
 import feature.selector.ga.FitnessFunction;
@@ -91,7 +92,8 @@ public class FitnessFunctionMLP implements FitnessFunction {
 		Weight[] update = weights.clone();
 		// TODO alterar para passar o nome do arquivo de resultado
 		update = neuralNetwork.train(net, update, dataTraining.getSample(),
-				dataTraining.getLabel(), parameterTraining, dataValidation, null);
+				dataTraining.getLabel(), parameterTraining, dataValidation,
+				null);
 		return update;
 	}
 
@@ -99,22 +101,10 @@ public class FitnessFunctionMLP implements FitnessFunction {
 		Data dataTest = readerFeature.readTest(indexes);
 		dataTest = MatrixHandler.randomize(dataTest.getSample(),
 				dataTest.getLabel());
-		double numberCorrect = 0;
-		double[] result = null;
-		for (int indexData = 0; indexData < MatrixHandler.rows(dataTest
-				.getSample()); indexData++) {
-			result = neuralNetwork.run(net, weights,
-					MatrixHandler.getRow(dataTest.getSample(), indexData));
-			if (NeuralNetworkUtils.isCorrect(result,
-					MatrixHandler.getRow(dataTest.getLabel(), indexData),
-					parameterTraining.getTask())) {
-				numberCorrect++;
-			}
-		}
-		double errorRate = 100 - ((double) numberCorrect / MatrixHandler
-				.rows(dataTest.getSample())) * 100;
-		System.out.println("Error Rate Test " + errorRate);
-		return errorRate;
+		ErrorRate errorRate = NeuralNetworkUtils.calculateErrorRate(net,
+				weights, dataTest, parameterTraining, neuralNetwork);
+		System.out.println("Error Rate Test " + errorRate.getErrorRate());
+		return errorRate.getErrorRate();
 	}
 
 }

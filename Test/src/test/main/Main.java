@@ -9,13 +9,13 @@ import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
 import neural.network.util.HyperbolicTangentLayer;
 import neural.network.util.Weight;
-import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
 import com.syvys.jaRBM.Layers.SoftmaxLayer;
 import common.Data;
 import common.MatrixHandler;
+import common.preprocessor.file.FileManager;
 
 import deeplearning.DeepLearning;
 import deeplearning.ParameterTrainingCRBM;
@@ -67,7 +67,6 @@ public class Main {
 		// randomData = MatrixHandler.randomize(data.getSample(),
 		// data.getLabel());
 		// } catch (IOException e) {
-		// TODO Auto-generated catch block
 		// e.printStackTrace();
 		// }
 		ParameterTraining parameterTraining = new ParameterTraining();
@@ -200,7 +199,6 @@ public class Main {
 			randomData = MatrixHandler.randomize(data.getSample(),
 					data.getLabel());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ParameterTraining parameterTraining = new ParameterTraining();

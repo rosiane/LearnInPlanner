@@ -13,12 +13,12 @@ import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
 import neural.network.util.NeuralNetworkUtils;
 import neural.network.util.Weight;
-import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
 import common.Data;
 import common.MatrixHandler;
+import common.preprocessor.file.FileManager;
 
 public class MnistTest {
 

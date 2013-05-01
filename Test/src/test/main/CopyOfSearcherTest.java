@@ -132,7 +132,7 @@ public class CopyOfSearcherTest {
 		// Now, initialise an BestFirst searcher
 		// BestFirst bestFirst = new BestFirst(new LearnInPlannerState(
 		// initialState), new HeuristicValueComparator());
-		BestFirstSearch bestFirst = new BestFirstSearch(initialState);
+		BestFirstSearch bestFirst = new BestFirstSearch(initialState, Long.MAX_VALUE, null);
 
 		bestFirst.setFilter(HelpfulFilter.getInstance()); // and use the helpful
 		// actions neighbourhood
@@ -170,7 +170,7 @@ public class CopyOfSearcherTest {
 					.println("EHC failed, using best-first search, with all actions");
 
 			// create a Best-First Searcher
-			BestFirstSearch BFS = new BestFirstSearch(initialState);
+			BestFirstSearch BFS = new BestFirstSearch(initialState, Long.MAX_VALUE, null);
 
 			// ... change to using the 'all actions' neighbourhood (a null
 			// filter, as it removes nothing)
@@ -206,7 +206,7 @@ public class CopyOfSearcherTest {
 					.println("EHC failed, using best-first search, with all actions");
 
 			// create a Best-First Searcher
-			BestFirstSearch BFS = new BestFirstSearch(initialState);
+			BestFirstSearch BFS = new BestFirstSearch(initialState, Long.MAX_VALUE, null);
 
 			// ... change to using the 'all actions' neighbourhood (a null
 			// filter, as it removes nothing)
@@ -227,7 +227,7 @@ public class CopyOfSearcherTest {
 		infoOutput.println("Using best-first search, with all actions");
 
 		// create a Best-First Searcher
-		BestFirstSearch BFS = new BestFirstSearch(initialState);
+		BestFirstSearch BFS = new BestFirstSearch(initialState, Long.MAX_VALUE, null);
 
 		BFS.setFilter(NullFilter.getInstance());
 

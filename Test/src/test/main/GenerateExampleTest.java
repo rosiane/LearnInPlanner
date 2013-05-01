@@ -1,9 +1,10 @@
 package test.main;
 
+import heuristic.rpl.GenerateExample;
+
 import java.io.IOException;
 
-import preprocessor.file.GenerateExample;
-import preprocessor.file.GenerateExample;
+
 
 public class GenerateExampleTest {
 	public static void main(String[] args) {

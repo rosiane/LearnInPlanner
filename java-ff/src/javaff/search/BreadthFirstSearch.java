@@ -37,13 +37,14 @@ import javaff.planning.State;
 public class BreadthFirstSearch extends Search {
 
 	protected LinkedList<State> open;
-	protected Hashtable<Integer, State> closed;
+	protected Hashtable<Integer, String> closed;
 	protected Filter filter = null;
-
+	private Runtime runtime = Runtime.getRuntime();
+	
 	public BreadthFirstSearch(State s) {
 		super(s);
 		open = new LinkedList<State>();
-		closed = new Hashtable<Integer, State>();
+		closed = new Hashtable<Integer, String>();
 	}
 
 	public void setFilter(Filter f) {
@@ -60,13 +61,14 @@ public class BreadthFirstSearch extends Search {
 
 	public boolean needToVisit(State s) {
 		Integer Shash = new Integer(s.hashCode());
-		State D = closed.get(Shash);
+		String D = closed.get(Shash);
+		String stateString = s.toString().replace(" ", "");
 
-		if (closed.containsKey(Shash) && D.equals(s)) {
+		if (closed.containsKey(Shash) && D.equals(stateString)) {
 			return false;
 		}
 
-		closed.put(Shash, s);
+		closed.put(Shash, stateString);
 		return true;
 	}
 
@@ -76,6 +78,13 @@ public class BreadthFirstSearch extends Search {
 
 		State s = null;
 		while (!open.isEmpty()) {
+			if (nodeCount % 1000 == 0) {
+				runtime.gc();
+			}
+			if (nodeCount % 10000 == 0) {
+				System.out.println("Execution node " + nodeCount);
+				System.out.println("Open size " + open.size());
+			}
 			s = removeNext();
 			if (needToVisit(s)) {
 				++nodeCount;

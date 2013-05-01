@@ -28,18 +28,18 @@
 
 package javaff.planning;
 
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Set;
+
 import javaff.data.Action;
 import javaff.data.GroundCondition;
-import javaff.data.TotalOrderPlan;
 import javaff.data.Metric;
+import javaff.data.TotalOrderPlan;
 import javaff.data.metric.NamedFunction;
 import javaff.data.strips.Proposition;
-
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Hashtable;
-import java.math.BigDecimal;
 
 public class MetricState extends STRIPSState {
 	public Map<NamedFunction, BigDecimal> funcValues; // maps Named Functions
@@ -99,7 +99,7 @@ public class MetricState extends STRIPSState {
 	public boolean equals(Object obj) {
 		if (obj instanceof MetricState) {
 			MetricState s = (MetricState) obj;
-			return (s.facts.equals(facts) && s.funcValues.equals(funcValues));
+			return (s.facts.toString().equals(facts.toString()) && s.funcValues.toString().equals(funcValues.toString()));
 		} else
 			return false;
 	}

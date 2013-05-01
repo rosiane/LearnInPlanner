@@ -28,11 +28,11 @@
 
 package javaff.scheduling;
 
-import javaff.data.strips.InstantAction;
-
-import java.util.List;
-import java.util.ArrayList;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import javaff.data.strips.InstantAction;
 
 public class TemporalConstraint extends Constraint
 {

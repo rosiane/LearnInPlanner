@@ -30,7 +30,6 @@ package javaff.search;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
@@ -41,9 +40,10 @@ import javaff.planning.State;
 public class EnforcedHillClimbingSearch extends Search {
 	protected BigDecimal bestHValue;
 
-	protected Hashtable<Integer, State> closed;
+	protected LinkedList<String> closed;
 	protected LinkedList<State> open;
 	protected Filter filter = null;
+	private Runtime runtime = Runtime.getRuntime();
 
 	public EnforcedHillClimbingSearch(State s) {
 		this(s, new HValueComparator());
@@ -53,7 +53,7 @@ public class EnforcedHillClimbingSearch extends Search {
 		super(s);
 		setComparator(c);
 
-		closed = new Hashtable<Integer, State>();
+		closed = new LinkedList<String>();
 		open = new LinkedList<State>();
 	}
 
@@ -67,15 +67,12 @@ public class EnforcedHillClimbingSearch extends Search {
 	}
 
 	public boolean needToVisit(State s) {
-		Integer Shash = new Integer(s.hashCode()); // compute hash for state
-		State D = closed.get(Shash); // see if its on the closed list
-
-		if (closed.containsKey(Shash) && D.equals(s)) {
-			return false; // if it is return false
+		String stateString = s.toString().replace(" ", "");
+		if (closed.contains(stateString)) {
+			return false;
 		}
-
-		closed.put(Shash, s); // otherwise put it on
-		return true; // and return true
+		closed.add(stateString);
+		return true;
 	}
 
 	public State search() {
@@ -97,6 +94,7 @@ public class EnforcedHillClimbingSearch extends Search {
 		Set<State> successors = null;
 		Iterator<State> succItr = null;
 		State succ = null;
+		int countVisited = 0;
 		while (!open.isEmpty()) // whilst still states to consider
 		{
 			s = removeNext(); // get the next one
@@ -108,6 +106,13 @@ public class EnforcedHillClimbingSearch extends Search {
 			succItr = successors.iterator();
 
 			while (succItr.hasNext()) {
+				if (countVisited % 1000 == 0) {
+					runtime.gc();
+					System.out.println("Open size " + open.size());
+				}
+				if (countVisited % 10000 == 0) {
+					System.out.println("Visited real " + countVisited);
+				}
 				succ = succItr.next(); // next successor
 
 				if (needToVisit(succ)) {
@@ -128,6 +133,7 @@ public class EnforcedHillClimbingSearch extends Search {
 						open.add(succ); // otherwise, add to the open list
 					}
 				}
+				countVisited++;
 			}
 
 		}

@@ -1,6 +1,7 @@
 package test.main;
 
 import heuristic.rpl.HeuristicRPL;
+import heuristic.rpl.PlanExample;
 import heuristic.rpl.Solution;
 
 import java.io.File;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
 
 import javaff.data.GroundProblem;
 import javaff.data.PDDLPrintable;
@@ -17,7 +19,6 @@ import javaff.data.strips.Proposition;
 import javaff.data.strips.STRIPSInstantAction;
 import javaff.parser.PDDL21parser;
 import javaff.planning.TemporalMetricState;
-import preprocessor.file.PlanExample;
 
 public class DatabaseTest {
 

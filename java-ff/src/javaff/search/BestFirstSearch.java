@@ -28,28 +28,37 @@
 
 package javaff.search;
 
-import javaff.planning.State;
-import javaff.planning.Filter;
+import java.io.IOException;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.TreeSet;
-import java.util.Hashtable;
+
+import javaff.planning.Filter;
+import javaff.planning.State;
+
+import common.preprocessor.file.FileManager;
 
 public class BestFirstSearch extends Search {
 
-	protected Hashtable<Integer, State> closed;
+	protected LinkedList<String> closed;
 	protected TreeSet<State> open;
 	protected Filter filter = null;
+	private Runtime runtime = Runtime.getRuntime();
+	private long timeLimit;
+	private String fileResult;
 
-	public BestFirstSearch(State s) {
-		this(s, new HValueComparator());
+	public BestFirstSearch(State s, long timeLimit, String fileResult) {
+		this(s, new HValueComparator(), timeLimit, fileResult);
 	}
 
-	public BestFirstSearch(State s, Comparator<State> c) {
+	public BestFirstSearch(State s, Comparator<State> c, long timeLimit, String fileResult) {
 		super(s);
 		setComparator(c);
 
-		closed = new Hashtable<Integer, State>();
+		closed = new LinkedList<>();
 		open = new TreeSet<State>(comp);
+		this.timeLimit = timeLimit;
+		this.fileResult = fileResult;
 	}
 
 	public void setFilter(Filter f) {
@@ -61,46 +70,90 @@ public class BestFirstSearch extends Search {
 	}
 
 	public State removeNext() {
-		State S = open.first();
-		open.remove(S);
-		/*
-		 * System.out.println("================================");
-		 * S.getSolution().print(System.out);
-		 * System.out.println("----Helpful Actions-------------");
-		 * javaff.planning.TemporalMetricState ms =
-		 * (javaff.planning.TemporalMetricState) S;
-		 * System.out.println(ms.helpfulActions);
-		 * System.out.println("----Relaxed Plan----------------");
-		 * ms.RelaxedPlan.print(System.out);
-		 */
-		return S;
+		return open.pollFirst();
 	}
 
 	public boolean needToVisit(State s) {
-		Integer Shash = new Integer(s.hashCode());
-		State D = closed.get(Shash);
-
-		if (closed.containsKey(Shash) && D.equals(s))
+		String stateString = s.toString().replace(" ", "");
+		if (closed.contains(stateString)) {
 			return false;
-
-		closed.put(Shash, s);
+		}
+		closed.add(stateString);
 		return true;
 	}
 
 	public State search() {
 		open.add(start);
 		State s = null;
+		int countVisited = 0;
+		long initialTime = System.currentTimeMillis();
 		while (!open.isEmpty()) {
+			if (countVisited % 1000 == 0) {
+				runtime.gc();
+				System.out.println("Open size " + open.size());
+				if(fileResult != null){
+					try {
+						FileManager.write(fileResult, "Open size " + open.size(), true);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			if (countVisited % 10000 == 0) {
+				System.out.println("Execution node " + nodeCount);
+				System.out.println("Visited real " + countVisited);
+				if(fileResult != null){
+					try {
+						FileManager.write(fileResult, "Execution node " + nodeCount, true);
+						FileManager.write(fileResult, "Visited real " + countVisited, true);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
 			s = removeNext();
 			if (needToVisit(s)) {
 				++nodeCount;
 				if (s.goalReached()) {
+					System.out.println("Execution node " + nodeCount);
+					System.out.println("Visited " + countVisited);
+					if(fileResult != null){
+						try {
+							FileManager.write(fileResult, "Found goal", true);
+							FileManager.write(fileResult, "Execution node " + nodeCount, true);
+							FileManager.write(fileResult, "Visited " + countVisited, true);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 					return s;
 				} else {
 					updateOpen(s);
 				}
 			}
-
+			countVisited++;
+			if(System.currentTimeMillis() - initialTime > timeLimit){
+				System.out.println("Execution node " + nodeCount);
+				System.out.println("Visited real " + countVisited);
+				if(fileResult != null){
+					try {
+						FileManager.write(fileResult, "Time reached", true);
+						FileManager.write(fileResult, "Execution node " + nodeCount, true);
+						FileManager.write(fileResult, "Visited real " + countVisited, true);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				break;
+			}
+		}
+		System.out.println("Visited " + countVisited);
+		if(fileResult != null){
+			try {
+				FileManager.write(fileResult, "Visited " + countVisited, true);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}

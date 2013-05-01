@@ -28,16 +28,17 @@
 
 package javaff.data.strips;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javaff.data.Action;
 import javaff.data.UngroundProblem;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.HashSet;
 
 public abstract class Operator implements javaff.data.PDDLPrintable
 {

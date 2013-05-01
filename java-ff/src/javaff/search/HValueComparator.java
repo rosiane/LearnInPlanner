@@ -28,9 +28,10 @@
 
 package javaff.search;
 
-import javaff.planning.State;
-import java.util.Comparator;
 import java.math.BigDecimal;
+import java.util.Comparator;
+
+import javaff.planning.State;
 
 public class HValueComparator implements Comparator<State> {
 	public int compare(State obj1, State obj2) {
@@ -38,21 +39,21 @@ public class HValueComparator implements Comparator<State> {
 		BigDecimal d1 = obj1.getHValue();
 		BigDecimal d2 = obj2.getHValue();
 		r = d1.compareTo(d2);
-		if (r == 0) {
-			d1 = obj1.getGValue();
-			d2 = obj2.getGValue();
-			r = d1.compareTo(d2);
-			if (r == 0) {
-				if (obj1.hashCode() > obj2.hashCode()) {
-					r = 1;
-				} else if (obj1.hashCode() == obj2.hashCode()
-						&& obj1.equals(obj2)) {
-					r = 0;
-				} else {
-					r = -1;
-				}
-			}
-		}
+//		if (r == 0) {
+//			d1 = obj1.getGValue();
+//			d2 = obj2.getGValue();
+//			r = d1.compareTo(d2);
+//			if (r == 0) {
+//				if (obj1.hashCode() > obj2.hashCode()) {
+//					r = 1;
+//				} else if (obj1.hashCode() == obj2.hashCode()
+//						&& obj1.equals(obj2)) {
+//					r = 0;
+//				} else {
+//					r = -1;
+//				}
+//			}
+//		}
 		return r;
 	}
 }

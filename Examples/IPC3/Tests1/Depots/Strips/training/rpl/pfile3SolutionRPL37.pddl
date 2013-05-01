@@ -1,58 +1,48 @@
 1
-(Drop hoist2 crate5 crate0 distributor1)
+action_Drop hoist2 crate5 crate0 distributor1
 0
-(:init
-	(available hoist1)
-	(at crate4 distributor0)
-	(on crate2 pallet0)
-	(at truck0 distributor0)
-	(lifting hoist2 crate5)
-	(on crate2 crate1)
-	(clear crate4)
-	(at hoist0 depot0)
-	(on crate0 crate1)
-	(at pallet0 depot0)
-	(on crate1 pallet2)
-	(clear crate3)
-	(at pallet1 distributor0)
-	(at crate0 depot0)
-	(at crate0 distributor1)
-	(at hoist1 distributor0)
-	(at pallet2 distributor1)
-	(clear crate0)
-	(on crate0 pallet0)
-	(at crate3 depot0)
-	(on crate3 crate2)
-	(at truck1 distributor0)
-	(at crate1 distributor1)
-	(on crate4 pallet1)
-	(at hoist2 distributor1)
-	(on crate3 pallet1)
-	(available hoist0)
-	(at crate2 depot0)
-)
-(:add
-	(on crate5 crate0)
-	(clear crate5)
-	(available hoist2)
-	(at crate5 distributor1)
-)
-(:delete
-	(clear crate0)
-	(lifting hoist2 crate5)
-)
-(:goal
-	(on crate5 crate0)
-	(on crate0 crate1)
-	(on crate4 pallet1)
-	(on crate2 pallet0)
-	(on crate1 pallet2)
-	(on crate3 crate2)
-)
-(:current
-	(on crate2 pallet0)
-	(on crate0 crate1)
-	(on crate1 pallet2)
-	(on crate3 crate2)
-	(on crate4 pallet1)
-)
+f_at crate4 distributor0
+f_available hoist1
+f_on crate2 pallet0
+f_at truck0 distributor0
+f_lifting hoist2 crate5
+f_on crate2 crate1
+f_clear crate4
+f_at hoist0 depot0
+f_on crate0 crate1
+f_at pallet0 depot0
+f_on crate1 pallet2
+f_clear crate3
+f_at pallet1 distributor0
+f_at crate0 depot0
+f_at crate0 distributor1
+f_at hoist1 distributor0
+f_at pallet2 distributor1
+f_clear crate0
+f_on crate0 pallet0
+f_at crate3 depot0
+f_on crate3 crate2
+f_at truck1 distributor0
+f_at crate1 distributor1
+f_on crate4 pallet1
+f_at hoist2 distributor1
+f_on crate3 pallet1
+f_available hoist0
+f_at crate2 depot0
+a_on crate5 crate0
+a_clear crate5
+a_available hoist2
+a_at crate5 distributor1
+d_clear crate0
+d_lifting hoist2 crate5
+g_on crate5 crate0
+g_on crate0 crate1
+g_on crate4 pallet1
+g_on crate2 pallet0
+g_on crate1 pallet2
+g_on crate3 crate2
+c_on crate2 pallet0
+c_on crate0 crate1
+c_on crate1 pallet2
+c_on crate3 crate2
+c_on crate4 pallet1

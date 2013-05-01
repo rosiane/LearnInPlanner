@@ -28,20 +28,20 @@
 
 package javaff.scheduling;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
+
 import javaff.data.Action;
 import javaff.data.Plan;
 import javaff.data.TimeStampedPlan;
 import javaff.data.strips.InstantAction;
-import javaff.data.strips.STRIPSInstantAction;
 import javaff.data.strips.OperatorName;
-import javaff.data.temporal.StartInstantAction;
-import javaff.data.temporal.EndInstantAction;
+import javaff.data.strips.STRIPSInstantAction;
 import javaff.data.temporal.DurativeAction;
-
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.Iterator;
-import java.math.BigDecimal;
+import javaff.data.temporal.EndInstantAction;
+import javaff.data.temporal.StartInstantAction;
 
 public class MatrixSTN implements SimpleTemporalNetwork
 {

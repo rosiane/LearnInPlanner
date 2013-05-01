@@ -1,0 +1,47 @@
+Welcome to PlanningForDummies!
+
+This is merely a small toolbox so you can familiarize yourself with AI
+planning systems. For documentation, please refer to:
+
+http://www.loria.fr/~hoffmanj/papers/ki11.pdf
+
+Sub-directories:
+
+-- FF-v2.3: the FF planning system C source code, including a Linux
+   executable
+
+-- gripper: a planning benchmark domain from the 1998 International
+   Planning Competition, which is extremely simple and just involves
+   moving a robot to transport N balls from a room A to a romm B.
+
+-- hanoi: the Towers-of-Hanoi problem, formulated as a planning
+   problem.
+
+-- miconic-ADL: a planning benchmark domain from the 2000
+   International Planning Competition, which models a complex elevator
+   transportation problem (created in cooperation with Schindler Lifts
+   Inc), using complex logical operator preconditions.
+
+Each domain sub-directory contains a file "domain.pddl" which
+describes the planning operators, as well as a file of the form
+"p-*.pddl" giving an example planning task in this domain, i.e., an
+initial and goal state. The language PDDL used here is the standard
+from the International Planning Competition. I recommend you have a
+look at these files; the syntax should be self-explanatory. Each
+domain contains a "GENERATOR" sub-directory, allowing you to generate
+larger planning tasks as you wish.
+
+You can run FF directly by running, in the base directory, one of the
+following commands:
+
+./ff -o gripper/domain.pddl -f gripper/p-n4.pddl 
+
+./ff -o hanoi/domain.pddl -f hanoi/p-n3.pddl 
+
+./ff -o miconic-ADL/domain.pddl -f miconic-ADL/p-f5-p2.pddl
+
+If you run ./ff without arguments, you get a brief usage
+instruction. 
+
+Have fun!
+Joerg Hoffmann

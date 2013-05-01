@@ -181,12 +181,20 @@ public class MatrixHandler extends Matrix {
 	}
 
 	public static double[] multiplySum(double[][] matrix, double[] vector) {
-		double [] result = new double [MatrixHandler.rows(matrix)];
-		for(int rows = 0; rows < MatrixHandler.rows(matrix); rows++){
-			for(int cols = 0; cols < MatrixHandler.cols(matrix); cols++){
-				result[rows] +=  matrix[rows][cols] * vector[cols];
+		double[] result = new double[MatrixHandler.rows(matrix)];
+		for (int rows = 0; rows < MatrixHandler.rows(matrix); rows++) {
+			for (int cols = 0; cols < MatrixHandler.cols(matrix); cols++) {
+				result[rows] += matrix[rows][cols] * vector[cols];
 			}
 		}
 		return result;
+	}
+
+	public static int sumArray(int[] someArray) {
+		int sum = 0;
+		for (int i = 0; i < someArray.length; i++) {
+			sum += someArray[i];
+		}
+		return sum;
 	}
 }

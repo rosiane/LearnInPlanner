@@ -28,20 +28,20 @@
 
 package javaff.scheduling;
 
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import javaff.data.Action;
-import javaff.data.strips.InstantAction;
 import javaff.data.metric.BinaryComparator;
-import javaff.data.metric.ResourceOperator;
 import javaff.data.metric.MetricSymbolStore;
+import javaff.data.metric.ResourceOperator;
+import javaff.data.strips.InstantAction;
 import javaff.data.temporal.DurationFunction;
 import javaff.data.temporal.DurativeAction;
-
-import java.util.Map;
-import java.util.Hashtable;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.math.BigDecimal;
 
 //OK for new precedence relations (i.e. meetCosntraints) should move consumers to AFTER the >= etc..) (actually maybe no)
 // AND for the new bounds should do incremental sweeps as in precedence relations

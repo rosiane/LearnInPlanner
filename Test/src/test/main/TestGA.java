@@ -5,10 +5,9 @@ import java.util.List;
 
 import neural.network.enums.Task;
 import neural.network.impl.ParameterTraining;
-import preprocessor.file.ReaderFeatureBinaryFile;
 
 import common.MatrixHandler;
-import common.RandomUtils;
+import common.preprocessor.file.ReaderFeatureBinaryFile;
 
 import feature.selector.GeneticAlgorithm;
 import feature.selector.ga.Chromosome;

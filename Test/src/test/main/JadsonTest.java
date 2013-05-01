@@ -12,10 +12,10 @@ import neural.network.impl.ParameterTraining;
 import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.test.Crossvalidation;
 import neural.network.util.Weight;
-import preprocessor.file.FileManager;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
+import common.preprocessor.file.FileManager;
 
 public class JadsonTest {
 
@@ -27,7 +27,6 @@ public class JadsonTest {
 			// test();
 			testAllSets();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -62,7 +61,6 @@ public class JadsonTest {
 						+ index + ".csv", map, separator);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -77,7 +75,6 @@ public class JadsonTest {
 			FileManager.prepareLeaveOneOut(pathInputFile, prefixOutputFile, 70,
 					classes, separator);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -1,87 +1,77 @@
 8
-(Drive truck0 distributor1 depot0)
-(Drive truck0 distributor1 distributor0)
-(Unload hoist2 crate0 truck0 distributor1)
-(Drop hoist2 crate0 crate1 distributor1)
-(Unload hoist1 crate4 truck0 distributor0)
-(Unload hoist0 crate5 truck0 depot0)
-(Drop hoist1 crate4 pallet1 distributor0)
-(Drop hoist0 crate5 crate0 depot0)
+action_Drive truck0 distributor1 distributor0
+action_Drive truck0 distributor1 depot0
+action_Unload hoist2 crate0 truck0 distributor1
+action_Unload hoist0 crate5 truck0 depot0
+action_Unload hoist1 crate4 truck0 distributor0
+action_Drop hoist2 crate0 crate1 distributor1
+action_Drop hoist1 crate4 pallet1 distributor0
+action_Drop hoist0 crate5 crate0 depot0
 -1
-(:init
-	(in crate0 truck0)
-	(available hoist1)
-	(in crate5 truck0)
-	(on crate2 pallet0)
-	(at truck0 distributor1)
-	(clear pallet1)
-	(in crate4 truck0)
-	(on crate2 crate1)
-	(at hoist0 depot0)
-	(at pallet0 depot0)
-	(available hoist2)
-	(on crate1 pallet2)
-	(clear crate3)
-	(at pallet1 distributor0)
-	(at crate0 depot0)
-	(at hoist1 distributor0)
-	(at pallet2 distributor1)
-	(on crate0 pallet0)
-	(at crate3 depot0)
-	(on crate3 crate2)
-	(at truck1 distributor0)
-	(at crate1 distributor1)
-	(at hoist2 distributor1)
-	(on crate3 pallet1)
-	(available hoist0)
-	(clear crate1)
-	(at crate2 depot0)
-)
-(:add
-	(at truck0 distributor0)
-	(on crate5 crate0)
-	(at crate5 depot0)
-	(available hoist0)
-	(clear crate5)
-	(available hoist1)
-	(at crate4 distributor0)
-	(on crate4 pallet1)
-	(clear crate4)
-	(lifting hoist0 crate5)
-	(lifting hoist1 crate4)
-	(lifting hoist2 crate0)
-	(on crate0 crate1)
-	(clear crate0)
-	(available hoist2)
-	(at crate0 distributor1)
-	(at truck0 depot0)
-)
-(:delete
-	(at truck0 distributor1)
-	(clear crate0)
-	(lifting hoist0 crate5)
-	(clear pallet1)
-	(lifting hoist1 crate4)
-	(in crate5 truck0)
-	(available hoist0)
-	(available hoist1)
-	(in crate4 truck0)
-	(in crate0 truck0)
-	(available hoist2)
-	(lifting hoist2 crate0)
-	(clear crate1)
-	(at truck0 distributor1)
-)
-(:goal
-	(on crate5 crate0)
-	(on crate0 crate1)
-	(on crate4 pallet1)
-	(on crate2 pallet0)
-	(on crate1 pallet2)
-	(on crate3 crate2)
-)
-(:current
-	(on crate2 pallet0)
-	(on crate1 pallet2)
-	(on crate3 crate2)
-)
+f_in crate0 truck0
+f_available hoist1
+f_in crate5 truck0
+f_on crate2 pallet0
+f_at truck0 distributor1
+f_clear pallet1
+f_in crate4 truck0
+f_on crate2 crate1
+f_at hoist0 depot0
+f_at pallet0 depot0
+f_available hoist2
+f_on crate1 pallet2
+f_clear crate3
+f_at pallet1 distributor0
+f_at crate0 depot0
+f_at hoist1 distributor0
+f_at pallet2 distributor1
+f_on crate0 pallet0
+f_at crate3 depot0
+f_on crate3 crate2
+f_at truck1 distributor0
+f_at crate1 distributor1
+f_at hoist2 distributor1
+f_on crate3 pallet1
+f_available hoist0
+f_clear crate1
+f_at crate2 depot0
+a_at truck0 distributor0
+a_on crate5 crate0
+a_at crate5 depot0
+a_available hoist0
+a_clear crate5
+a_at crate4 distributor0
+a_available hoist1
+a_on crate4 pallet1
+a_clear crate4
+a_lifting hoist0 crate5
+a_lifting hoist1 crate4
+a_lifting hoist2 crate0
+a_on crate0 crate1
+a_clear crate0
+a_available hoist2
+a_at crate0 distributor1
+a_at truck0 depot0
+d_at truck0 distributor1
+d_clear crate0
+d_lifting hoist0 crate5
+d_clear pallet1
+d_lifting hoist1 crate4
+d_in crate5 truck0
+d_available hoist0
+d_available hoist1
+d_in crate4 truck0
+d_in crate0 truck0
+d_available hoist2
+d_lifting hoist2 crate0
+d_clear crate1
+d_at truck0 distributor1
+g_on crate5 crate0
+g_on crate0 crate1
+g_on crate4 pallet1
+g_on crate2 pallet0
+g_on crate1 pallet2
+g_on crate3 crate2
+c_on crate2 pallet0
+c_on crate1 pallet2
+c_on crate3 crate2

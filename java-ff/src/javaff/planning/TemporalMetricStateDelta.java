@@ -96,13 +96,18 @@ public class TemporalMetricStateDelta extends MetricState {
 		s.checker.addAction((InstantAction) a, s);
 		return s;
 	}
-	
+
 	@Override
 	public BigDecimal getHValue() {
 		BigDecimal hValue = super.getHValue();
-//		System.out.println("Inserir deltaaa");
+		// System.out.println("Inserir deltaaa");
 		// TODO inserir heurística aqui
 		return hValue;
+	}
+
+	@Override
+	public String toString() {
+		return facts.toString() + "@" + funcValues.toString();
 	}
 
 }

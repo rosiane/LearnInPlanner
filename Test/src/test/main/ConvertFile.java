@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import preprocessor.file.FileManager;
+import common.preprocessor.file.FileManager;
+
 
 public class ConvertFile {
 	public static void main(String[] args) {
@@ -50,7 +51,6 @@ public class ConvertFile {
 			FileManager.convertLabelNumberToBinary(pathTest,
 					pathTestBinary, map, " ");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -63,7 +63,6 @@ public class ConvertFile {
 					"./data/cancer/cancer_number_patternized.csv", patterns,
 					attributes, " ");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -87,7 +86,6 @@ public class ConvertFile {
 			FileManager.prepareCrossvalidation(pathInputFile, prefixOutputFile,
 					10, classes, " ");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -111,7 +109,6 @@ public class ConvertFile {
 			FileManager.prepareCrossvalidationBinary(pathInputFile,
 					prefixOutputFile, 10, classes, " ");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -145,7 +142,6 @@ public class ConvertFile {
 			FileManager.separeClasses(pathTestInput, pathTestOutput, classes,
 					" ");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
