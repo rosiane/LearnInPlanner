@@ -17,61 +17,61 @@ import feature.selector.ga.util.RandomUtilsFeatureSelector;
 
 public class TestGA {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		try {
 			test();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static void test() throws IOException {
-		int numberInputTraining = 467;
-		int numberInputTest = 51;
-		int numberInputValidation = 51;
-		int numberOutput = 2;
+		final int numberInputTraining = 467;
+		final int numberInputTest = 51;
+		final int numberInputValidation = 51;
+		final int numberOutput = 2;
 
 		// String pathTraining = "./data/cancer/cancer_binaryTraining1.csv";
 		// String pathTest = "./data/cancer/cancer_binaryTest1.csv";
 		// String pathValidation = "./data/cancer/cancer_binary_validation.csv";
-		String pathTraining = "./data/backup/cancer/cancer_binary_patternizedTraining1.csv";
-		String pathTest = "./data/backup/cancer/cancer_binary_patternizedTest1.csv";
-		String pathValidation = "./data/backup/cancer/cancer_binary_patternized_validation.csv";
+		final String pathTraining = "./data/backup/cancer/cancer_binary_patternizedTraining1.csv";
+		final String pathTest = "./data/backup/cancer/cancer_binary_patternizedTest1.csv";
+		final String pathValidation = "./data/backup/cancer/cancer_binary_patternized_validation.csv";
 
-		int numberIndividualInitial = 20;
-		int numberGenes = 30;
+		final int numberIndividualInitial = 20;
+		final int numberGenes = 30;
 
 		// Parameters GA
-		int numberFathers = 10;
-		long numberGeneration = 10;
-		int numberIndividualCrossing = 4;
-		int numberIndividualMutation = 2;
+		final int numberFathers = 10;
+		final long numberGeneration = 10;
+		final int numberIndividualCrossing = 4;
+		final int numberIndividualMutation = 2;
 
 		// Parameters MLP
-		long numberEpochs = 100;
-		double maxErrorMLPTraining = 6;
-		double learningRateDecrease = 0.99;
-		double minLearningRate = 0.1;
-		boolean initializeRandom = true;
-		Task task = Task.CLASSIFICATION;
-		int intervalEpochPercentage = 2;
-		double momentum = 0.1;
-		double learningRate = 0.4;
-		int numberHiddenLayers = 1;
-		int numberUnitHidden = 10;
-		boolean updateBatch = false;
-		boolean normalizeWeights = true;
-		boolean validation = true;
+		final long numberEpochs = 100;
+		final double maxErrorMLPTraining = 6;
+		final double learningRateDecrease = 0.99;
+		final double minLearningRate = 0.1;
+		final boolean initializeRandom = true;
+		final Task task = Task.CLASSIFICATION;
+		final int intervalEpochPercentage = 2;
+		final double momentum = 0.1;
+		final double learningRate = 0.4;
+		final int numberHiddenLayers = 1;
+		final int numberUnitHidden = 10;
+		final boolean updateBatch = false;
+		final boolean normalizeWeights = true;
+		final boolean validation = true;
 
-		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
-		List<Chromosome> population = RandomUtilsFeatureSelector
+		final GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
+		final List<Chromosome> population = RandomUtilsFeatureSelector
 				.initializePopulation(numberIndividualInitial, numberGenes);
 
-		ReaderFeatureBinaryFile readerFeatureCancer = new ReaderFeatureBinaryFile(
+		final ReaderFeatureBinaryFile readerFeatureCancer = new ReaderFeatureBinaryFile(
 				pathTraining, pathTest, pathValidation, numberInputTraining,
 				numberInputTest, numberInputValidation, numberOutput);
 
-		ParameterTraining parameterTraining = new ParameterTraining();
+		final ParameterTraining parameterTraining = new ParameterTraining();
 		parameterTraining.setNumberEpochs(numberEpochs);
 		parameterTraining.setMaxError(maxErrorMLPTraining);
 		parameterTraining.setTask(task.getValue());
@@ -88,16 +88,16 @@ public class TestGA {
 		parameterTraining.setNormalizeWeights(normalizeWeights);
 		parameterTraining.setValidation(validation);
 
-		FitnessFunctionMLP fitnessFunction = new FitnessFunctionMLP(
-				readerFeatureCancer, parameterTraining);
+		final FitnessFunctionMLP fitnessFunction = new FitnessFunctionMLP(
+				readerFeatureCancer, parameterTraining, null);
 
-		ParameterGA parameterGA = new ParameterGA();
+		final ParameterGA parameterGA = new ParameterGA();
 		parameterGA.setNumberFathers(numberFathers);
 		parameterGA.setNumberGeneration(numberGeneration);
 		parameterGA.setNumberIndividualCrossing(numberIndividualCrossing);
 		parameterGA.setNumberIndividualMutation(numberIndividualMutation);
 
-		Chromosome chromosome = geneticAlgorithm.run(population,
+		final Chromosome chromosome = geneticAlgorithm.run(population,
 				fitnessFunction, parameterGA);
 
 		System.out.println("Genes Finais");

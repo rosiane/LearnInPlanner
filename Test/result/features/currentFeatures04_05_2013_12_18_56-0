@@ -1,8 +1,8 @@
-action_Lift hoist crate surface place
-action_Load hoist crate truck place
 action_Drop hoist crate surface place
-action_Unload hoist crate truck place
 action_Drive truck place place
+action_Load hoist crate truck place
+action_Unload hoist crate truck place
+action_Lift hoist crate surface place
 f_clear surface
 a_clear surface
 d_clear surface

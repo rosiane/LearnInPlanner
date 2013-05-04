@@ -17,6 +17,7 @@ public class ParameterTraining {
 	private boolean updateBatch;
 	private boolean normalizeWeights;
 	private boolean validation;
+	private boolean useHeuristicUnitHidden;
 
 	public long getNumberEpochs() {
 		return numberEpochs;
@@ -137,5 +138,13 @@ public class ParameterTraining {
 
 	public void setValidation(boolean validation) {
 		this.validation = validation;
+	}
+
+	public boolean isUseHeuristicUnitHidden() {
+		return useHeuristicUnitHidden;
+	}
+
+	public void setUseHeuristicUnitHidden(boolean useHeuristicUnitHidden) {
+		this.useHeuristicUnitHidden = useHeuristicUnitHidden;
 	}
 }

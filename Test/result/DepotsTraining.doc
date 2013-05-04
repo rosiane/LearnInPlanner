@@ -1,0 +1,208 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Execution time: 04_05_2013_12_18_56
+Problem Informations
+Domain: ../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl
+Problems training: 1 
+Problems validation: 2 
+Problems test: 3 
+Parameter MLP
+Number Epochs: 1
+Max Error: 0.0
+Learning Rate Decrease: 1.0
+Min Learning Rate: 0.0
+Initialize Random: true
+Interval Epoch Percentage: 2
+Number Hidden Layers: 1
+Number Output: 1
+Learning Rate: 0.3
+Number Unit Hidden: 3
+Use Heuristic Unit Hidden: true
+Initialize Random: true
+Parameter GA
+Number Expansion: 2
+Number Fathers: 3
+Number Generation: 2
+Number Individual Crossing: 2
+Number Individual Mutation: 1
+$$$$$$$$$$ Run Expansion 1$$$$$$$$$$
+########## Run Generation 1##########
+Population size=3
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.37769961590486945
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 85.55891656918685
+Running Epoch: 0
+	 Error Rate: 0.39491018179993026
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.60888062745143
+Running Epoch: 0
+	 Error Rate: 0.3743738495297828
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 84.6436185000164
++++++++++++++++++ Reproduction +++++++++++++++++
+########## Run Generation 2##########
+Population size=7
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.380447609149722
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 85.76054918416507
+Running Epoch: 0
+	 Error Rate: 0.37817676313828313
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 85.46184963685117
+Running Epoch: 0
+	 Error Rate: 0.41056537584751407
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 82.08677559170033
+Running Epoch: 0
+	 Error Rate: 0.3740932728703242
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 85.06181172306671
+Running Epoch: 0
+	 Error Rate: 0.373697579852413
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 84.47230928777029
+Running Epoch: 0
+	 Error Rate: 0.37391889008232454
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 84.6138541415099
+Running Epoch: 0
+	 Error Rate: 0.37573680509258944
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 83.9749460703562
+Current: gene=[0 0 0 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 1 ], evaluation=[82.08677559170033]
+Best: gene=[0 0 0 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 1 ], evaluation=[82.08677559170033]
+$$$$$$$$$$ Run Expansion 2$$$$$$$$$$
+########## Run Generation 1##########
+Population size=3
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.4128372945330992
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 87.23302841623011
+Running Epoch: 0
+	 Error Rate: 0.40066993770190484
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.7944828261341
+Running Epoch: 0
+	 Error Rate: 0.4028552576053179
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.87700988085821
++++++++++++++++++ Reproduction +++++++++++++++++
+########## Run Generation 2##########
+Population size=7
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.4066927054136482
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 87.03098977946036
+Running Epoch: 0
+	 Error Rate: 0.4180705254549971
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 87.40727109343418
+Running Epoch: 0
+	 Error Rate: 0.4023314472202469
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.85389426298511
+Running Epoch: 0
+	 Error Rate: 0.3976867250394326
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.68023814105803
+Running Epoch: 0
+	 Error Rate: 0.41232771479767577
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 87.22906459094116
+Running Epoch: 0
+	 Error Rate: 0.39619123403604956
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 86.5921676044397
+Running Epoch: 0
+	 Error Rate: 0.4237381496366105
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 87.57997789699841
+Current: gene=[1 0 0 1 1 1 1 1 1 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 1 1 0 0 0 1 1 0 1 0 0 1 0 1 0 0 0 1 1 1 0 1 0 0 1 1 0 1 0 1 0 1 0 0 1 0 1 0 0 1 1 0 0 0 1 1 0 0 0 1 1 1 1 0 0 0 0 1 0 1 1 0 0 1 0 0 0 0 0 0 0 1 ], evaluation=[86.5921676044397]
+Best: gene=[0 0 0 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 1 ], evaluation=[82.08677559170033]
+$$$$$$$$$$ Run Expansion 3$$$$$$$$$$
+########## Run Generation 1##########
+Population size=3
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.48860654276293697
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.14278563537721
+Running Epoch: 0
+	 Error Rate: 0.4868515680233179
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.10793512915542
+Running Epoch: 0
+	 Error Rate: 0.48447943074836347
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.05903957179194
++++++++++++++++++ Reproduction +++++++++++++++++
+########## Run Generation 2##########
+Population size=7
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.48415820299104023
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.05231542422675
+Running Epoch: 0
+	 Error Rate: 0.48699923632177294
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.11050163147243
+Running Epoch: 0
+	 Error Rate: 0.48857843699740994
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.14272863129689
+Running Epoch: 0
+	 Error Rate: 0.48599324411061706
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.08958056877475
+Running Epoch: 0
+	 Error Rate: 0.4855895568847951
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.08180939642122
+Running Epoch: 0
+	 Error Rate: 0.4868533579014692
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.10739468973756
+Running Epoch: 0
+	 Error Rate: 0.4882500177556254
+	 Learning Rate: 0.3
+Number Epoches Run: 1
+Error Rate Test 89.13568814083735
+Current: gene=[0 1 0 1 1 0 0 0 0 1 1 0 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 0 1 1 1 0 0 1 0 1 0 1 1 1 0 0 0 0 0 1 0 1 0 1 0 1 0 0 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1 1 1 1 1 0 1 1 0 1 1 0 0 1 1 1 1 0 0 0 1 0 0 1 0 1 0 0 0 0 0 1 0 1 0 1 0 1 1 0 0 0 0 1 0 1 0 0 1 1 0 0 1 0 1 1 1 1 0 0 0 1 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 1 0 0 1 1 0 0 0 0 0 1 1 0 0 0 1 1 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 1 0 0 1 0 0 1 1 1 0 1 1 0 1 1 0 0 1 1 0 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 1 0 0 1 0 0 0 0 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 0 1 1 1 0 1 1 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 1 1 0 1 0 1 0 1 1 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 1 1 0 1 1 0 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 1 1 0 0 1 1 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 1 0 1 1 0 0 1 0 1 1 0 0 0 0 1 1 0 0 1 1 0 0 0 1 0 1 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 0 1 0 1 0 1 1 0 0 0 1 0 1 1 0 0 1 1 1 1 1 1 1 0 1 0 0 1 1 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 0 1 0 1 0 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 0 0 1 1 1 1 0 1 0 0 0 0 1 1 1 1 0 0 1 0 0 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 0 0 1 1 1 0 0 0 1 1 0 0 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 1 1 1 0 0 1 0 1 0 1 0 0 0 0 0 1 0 1 1 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 0 1 0 1 ], evaluation=[89.05231542422675]
+Best: gene=[0 0 0 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 1 ], evaluation=[82.08677559170033]
+Chosen: gene=[0 0 0 1 0 0 1 1 0 1 0 1 1 1 0 0 0 1 0 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 1 ], evaluation=[82.08677559170033]
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

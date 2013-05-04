@@ -20,132 +20,143 @@ public class LearnParameters {
 	private int[] problemTest;
 	private ParameterTraining parameterTrainingMLP;
 	private int numberExpansion;
-
-	public String getDomainPath() {
-		return domainPath;
-	}
-
-	public void setDomainPath(String domainPath) {
-		this.domainPath = domainPath;
-	}
-
-	public String getExamplePathPrefix() {
-		return examplePathPrefix;
-	}
-
-	public void setExamplePathPrefix(String examplePathPrefix) {
-		this.examplePathPrefix = examplePathPrefix;
-	}
-
-	public int getNumberExamples() {
-		return numberExamples;
-	}
-
-	public void setNumberExamples(int numberExamples) {
-		this.numberExamples = numberExamples;
-	}
-
-	public String getSolutionFFPathPrefix() {
-		return solutionFFPathPrefix;
-	}
-
-	public void setSolutionFFPathPrefix(String solutionFFPathPrefix) {
-		this.solutionFFPathPrefix = solutionFFPathPrefix;
-	}
-
-	public String getSolutionFFPathSufix() {
-		return solutionFFPathSufix;
-	}
-
-	public void setSolutionFFPathSufix(String solutionFFPathSufix) {
-		this.solutionFFPathSufix = solutionFFPathSufix;
-	}
+	private String resultFile;
 
 	public String getDatabaseDir() {
-		return databaseDir;
-	}
-
-	public void setDatabaseDir(String databaseDir) {
-		this.databaseDir = databaseDir;
-	}
-
-	public String getFeaturesFile() {
-		return featuresFile;
-	}
-
-	public void setFeaturesFile(String featuresFile) {
-		this.featuresFile = featuresFile;
-	}
-
-	public int getNumberIndividualInitialGA() {
-		return numberIndividualInitialGA;
-	}
-
-	public void setNumberIndividualInitialGA(int numberIndividualInitialGA) {
-		this.numberIndividualInitialGA = numberIndividualInitialGA;
-	}
-
-	public ParameterGA getParameterGA() {
-		return parameterGA;
-	}
-
-	public void setParameterGA(ParameterGA parameterGA) {
-		this.parameterGA = parameterGA;
+		return this.databaseDir;
 	}
 
 	public String getDirPlanningProblem() {
-		return dirPlanningProblem;
-	}
-
-	public void setDirPlanningProblem(String dirPlanningProblem) {
-		this.dirPlanningProblem = dirPlanningProblem;
+		return this.dirPlanningProblem;
 	}
 
 	public String getDirPlanningProblemRPL() {
-		return dirPlanningProblemRPL;
+		return this.dirPlanningProblemRPL;
 	}
 
-	public void setDirPlanningProblemRPL(String dirPlanningProblemRPL) {
-		this.dirPlanningProblemRPL = dirPlanningProblemRPL;
+	public String getDomainPath() {
+		return this.domainPath;
 	}
 
-	public int[] getProblemTraining() {
-		return problemTraining;
+	public String getExamplePathPrefix() {
+		return this.examplePathPrefix;
 	}
 
-	public void setProblemTraining(int[] problemTraining) {
-		this.problemTraining = problemTraining;
+	public String getFeaturesFile() {
+		return this.featuresFile;
 	}
 
-	public int[] getProblemValidation() {
-		return problemValidation;
-	}
-
-	public void setProblemValidation(int[] problemValidation) {
-		this.problemValidation = problemValidation;
-	}
-
-	public int[] getProblemTest() {
-		return problemTest;
-	}
-
-	public void setProblemTest(int[] problemTest) {
-		this.problemTest = problemTest;
-	}
-
-	public ParameterTraining getParameterTrainingMLP() {
-		return parameterTrainingMLP;
-	}
-
-	public void setParameterTrainingMLP(ParameterTraining parameterTrainingMLP) {
-		this.parameterTrainingMLP = parameterTrainingMLP;
+	public int getNumberExamples() {
+		return this.numberExamples;
 	}
 
 	public int getNumberExpansion() {
-		return numberExpansion;
+		return this.numberExpansion;
 	}
 
-	public void setNumberExpansion(int numberExpansion) {
+	public int getNumberIndividualInitialGA() {
+		return this.numberIndividualInitialGA;
+	}
+
+	public ParameterGA getParameterGA() {
+		return this.parameterGA;
+	}
+
+	public ParameterTraining getParameterTrainingMLP() {
+		return this.parameterTrainingMLP;
+	}
+
+	public int[] getProblemTest() {
+		return this.problemTest;
+	}
+
+	public int[] getProblemTraining() {
+		return this.problemTraining;
+	}
+
+	public int[] getProblemValidation() {
+		return this.problemValidation;
+	}
+
+	public String getResultFile() {
+		return this.resultFile;
+	}
+
+	public String getSolutionFFPathPrefix() {
+		return this.solutionFFPathPrefix;
+	}
+
+	public String getSolutionFFPathSufix() {
+		return this.solutionFFPathSufix;
+	}
+
+	public void setDatabaseDir(final String databaseDir) {
+		this.databaseDir = databaseDir;
+	}
+
+	public void setDirPlanningProblem(final String dirPlanningProblem) {
+		this.dirPlanningProblem = dirPlanningProblem;
+	}
+
+	public void setDirPlanningProblemRPL(final String dirPlanningProblemRPL) {
+		this.dirPlanningProblemRPL = dirPlanningProblemRPL;
+	}
+
+	public void setDomainPath(final String domainPath) {
+		this.domainPath = domainPath;
+	}
+
+	public void setExamplePathPrefix(final String examplePathPrefix) {
+		this.examplePathPrefix = examplePathPrefix;
+	}
+
+	public void setFeaturesFile(final String featuresFile) {
+		this.featuresFile = featuresFile;
+	}
+
+	public void setNumberExamples(final int numberExamples) {
+		this.numberExamples = numberExamples;
+	}
+
+	public void setNumberExpansion(final int numberExpansion) {
 		this.numberExpansion = numberExpansion;
 	}
+
+	public void setNumberIndividualInitialGA(final int numberIndividualInitialGA) {
+		this.numberIndividualInitialGA = numberIndividualInitialGA;
+	}
+
+	public void setParameterGA(final ParameterGA parameterGA) {
+		this.parameterGA = parameterGA;
+	}
+
+	public void setParameterTrainingMLP(
+			final ParameterTraining parameterTrainingMLP) {
+		this.parameterTrainingMLP = parameterTrainingMLP;
+	}
+
+	public void setProblemTest(final int[] problemTest) {
+		this.problemTest = problemTest;
+	}
+
+	public void setProblemTraining(final int[] problemTraining) {
+		this.problemTraining = problemTraining;
+	}
+
+	public void setProblemValidation(final int[] problemValidation) {
+		this.problemValidation = problemValidation;
+	}
+
+	public void setResultFile(final String resultFile) {
+		this.resultFile = resultFile;
+	}
+
+	public void setSolutionFFPathPrefix(final String solutionFFPathPrefix) {
+		this.solutionFFPathPrefix = solutionFFPathPrefix;
+	}
+
+	public void setSolutionFFPathSufix(final String solutionFFPathSufix) {
+		this.solutionFFPathSufix = solutionFFPathSufix;
+	}
+
 }
