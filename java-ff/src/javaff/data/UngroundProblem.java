@@ -31,6 +31,7 @@ package javaff.data;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
@@ -40,192 +41,201 @@ import javaff.data.strips.PDDLObject;
 import javaff.data.strips.PredicateSymbol;
 import javaff.data.strips.Proposition;
 import javaff.data.strips.SimpleType;
+import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.Weight;
 
-public class UngroundProblem
-{
-    public String DomainName;                               // Name of Domain
-    public String ProblemName;                              // Name of Problem
-	public String ProblemDomainName;                        // Name of Domain as specified by the Problem
+import com.syvys.jaRBM.Layers.Layer;
+import common.ClassExpression;
 
-	public Set requirements = new HashSet();                // Requirements of the domain     (String)
+public class UngroundProblem {
+	public String DomainName; // Name of Domain
+	public String ProblemName; // Name of Problem
+	public String ProblemDomainName; // Name of Domain as specified by the
+										// Problem
 
-    public Set types = new HashSet();                       // For simple object types in this domain       (SimpleTypes)
-	public Map typeMap = new Hashtable();                   // Set for mapping String -> types  (String => Type)
-	public Map typeSets = new Hashtable();                 // Maps a type on to a set of PDDLObjects (Type => Set (PDDLObjects))
+	public Set requirements = new HashSet(); // Requirements of the domain
+												// (String)
 
-    public Set predSymbols = new HashSet();                 // Set of all (ungrounded) predicate     (PredicateSymbol)
-	public Map predSymbolMap = new Hashtable();             // Maps Strings of the symbol to the Symbols (String => PredicateSymbol)
+	public Set types = new HashSet(); // For simple object types in this domain
+										// (SimpleTypes)
+	public Map typeMap = new Hashtable(); // Set for mapping String -> types
+											// (String => Type)
+	public Map typeSets = new Hashtable(); // Maps a type on to a set of
+											// PDDLObjects (Type => Set
+											// (PDDLObjects))
 
-	public Set constants = new HashSet();                   // Set of all constant           (PDDLObjects)
-	public Map constantMap = new Hashtable();               // Maps Strings of the constant to the PDDLObject
+	public Set predSymbols = new HashSet(); // Set of all (ungrounded) predicate
+											// (PredicateSymbol)
+	public Map predSymbolMap = new Hashtable(); // Maps Strings of the symbol to
+												// the Symbols (String =>
+												// PredicateSymbol)
 
-	public Set funcSymbols = new HashSet();                 // Set of all function symbols (FunctionSymbol)
-	public Map funcSymbolMap = new Hashtable();             // Maps Strings onto the Symbols (String => FunctionSymbol)
+	public Set constants = new HashSet(); // Set of all constant (PDDLObjects)
+	public Map constantMap = new Hashtable(); // Maps Strings of the constant to
+												// the PDDLObject
 
-	public Set actions = new HashSet();                     // List of all (ungrounded) actions      (Operators)
+	public Set funcSymbols = new HashSet(); // Set of all function symbols
+											// (FunctionSymbol)
+	public Map funcSymbolMap = new Hashtable(); // Maps Strings onto the Symbols
+												// (String => FunctionSymbol)
 
-	public Set objects = new HashSet();                     // Objects in the problem        (PDDLObject)
-    public Map objectMap =  new Hashtable();                // Maps Strings onto PDDLObjects (String => PDDLObject)
+	public Set actions = new HashSet(); // List of all (ungrounded) actions
+										// (Operators)
 
-	public Set initial = new HashSet();                     // Set of initial facts          (Proposition)
-	public Map funcValues = new Hashtable();                // Maps functions onto numbers (NamedFunction => BigDecimal)
+	public Set objects = new HashSet(); // Objects in the problem (PDDLObject)
+	public Map objectMap = new Hashtable(); // Maps Strings onto PDDLObjects
+											// (String => PDDLObject)
+
+	public Set initial = new HashSet(); // Set of initial facts (Proposition)
+	public Map funcValues = new Hashtable(); // Maps functions onto numbers
+												// (NamedFunction => BigDecimal)
 	public GroundCondition goal;
 
 	public Metric metric;
 
-	public Map staticPropositionMap = new Hashtable();      // (PredicateName => Set (Proposition))
+	public Map staticPropositionMap = new Hashtable(); // (PredicateName => Set
+														// (Proposition))
 
-	public UngroundProblem()
-	{
-		typeMap.put(SimpleType.rootType.toString(), SimpleType.rootType);
-	}	
-	
-	public GroundProblem ground()
-    {
-		calculateStatics();
-		makeStaticPropositionMap();
-		buildTypeSets();
-		Set groundActions = new HashSet();
-		Iterator ait = actions.iterator();
-		while (ait.hasNext())
-		{
-			Operator o = (Operator) ait.next();
-			Set s = o.ground(this);
-			groundActions.addAll(s);
-		}
-
-		//static-ify the functions
-		Iterator gait = groundActions.iterator();
-		while (gait.hasNext())
-		{
-			Action a = (Action) gait.next();
-			a.staticify(funcValues);
-		}
-
-    //remove static functions from the intial state
-    removeStaticsFromInitialState();
-
-		//-could put in code here to
-		// a) get rid of static functions in initial state - DONE
-		// b) get rid of static predicates in initial state - DONE
-		// c) get rid of static propositions in the actions (this may have already been done)
-		// d) get rid of no use actions (i.e. whose preconditions can't be achieved) 
-
-		GroundProblem rGP = new GroundProblem(groundActions, initial, goal, funcValues, metric);
-		return rGP;
+	public UngroundProblem() {
+		this.typeMap.put(SimpleType.rootType.toString(), SimpleType.rootType);
 	}
 
-	private void buildTypeSets() // builds typeSets for easy access of all the objects of a particular type
+	private void buildTypeSets() // builds typeSets for easy access of all the
+									// objects of a particular type
 	{
-		Iterator tit = types.iterator();
-		while (tit.hasNext())
-		{
-			SimpleType st = (SimpleType) tit.next();
-			Set s = new HashSet();
-			typeSets.put(st, s);
+		final Iterator tit = this.types.iterator();
+		while (tit.hasNext()) {
+			final SimpleType st = (SimpleType) tit.next();
+			final Set s = new HashSet();
+			this.typeSets.put(st, s);
 
-			Iterator oit = objects.iterator();
-			while (oit.hasNext())
-			{
-				PDDLObject o = (PDDLObject) oit.next();
-				if (o.isOfType(st)) s.add(o);
+			final Iterator oit = this.objects.iterator();
+			while (oit.hasNext()) {
+				final PDDLObject o = (PDDLObject) oit.next();
+				if (o.isOfType(st)) {
+					s.add(o);
+				}
 			}
 
-			Iterator cit = constants.iterator();
-			while (cit.hasNext())
-			{
-				PDDLObject c = (PDDLObject) cit.next();
-				if (c.isOfType(st)) s.add(c);
+			final Iterator cit = this.constants.iterator();
+			while (cit.hasNext()) {
+				final PDDLObject c = (PDDLObject) cit.next();
+				if (c.isOfType(st)) {
+					s.add(c);
+				}
 			}
 		}
 
-		Set s = new HashSet(objects);
-		s.addAll(constants);
-		typeSets.put(SimpleType.rootType, s);
+		final Set s = new HashSet(this.objects);
+		s.addAll(this.constants);
+		this.typeSets.put(SimpleType.rootType, s);
 	}
 
-	private void calculateStatics() // Determines whether the predicateSymbols and funcSymbols are static or not
+	private void calculateStatics() // Determines whether the predicateSymbols
+									// and funcSymbols are static or not
 	{
-		Iterator pit = predSymbols.iterator();
-		while (pit.hasNext())
-		{
+		final Iterator pit = this.predSymbols.iterator();
+		while (pit.hasNext()) {
 			boolean isStatic = true;
-			PredicateSymbol ps = (PredicateSymbol) pit.next();
-			Iterator oit = actions.iterator();
-			while (oit.hasNext() && isStatic)
-			{
-				Operator o = (Operator) oit.next();
+			final PredicateSymbol ps = (PredicateSymbol) pit.next();
+			final Iterator oit = this.actions.iterator();
+			while (oit.hasNext() && isStatic) {
+				final Operator o = (Operator) oit.next();
 				isStatic = !o.effects(ps);
 			}
 			ps.setStatic(isStatic);
 		}
 
-		Iterator fit = funcSymbols.iterator();
-		while (fit.hasNext())
-		{
+		final Iterator fit = this.funcSymbols.iterator();
+		while (fit.hasNext()) {
 			boolean isStatic = true;
-			FunctionSymbol fs = (FunctionSymbol) fit.next();
-			Iterator oit = actions.iterator();
-			while (oit.hasNext() && isStatic)
-			{
-				Operator o = (Operator) oit.next();
+			final FunctionSymbol fs = (FunctionSymbol) fit.next();
+			final Iterator oit = this.actions.iterator();
+			while (oit.hasNext() && isStatic) {
+				final Operator o = (Operator) oit.next();
 				isStatic = !o.effects(fs);
 			}
 			fs.setStatic(isStatic);
 		}
 	}
 
-	private void makeStaticPropositionMap()
-	{
-		Iterator pit = predSymbols.iterator();
-		while (pit.hasNext())
-		{
-			PredicateSymbol ps = (PredicateSymbol) pit.next();
-			if (ps.isStatic())
-			{
-				staticPropositionMap.put(ps, new HashSet());
+	public GroundProblem ground(final LinkedList<ClassExpression> features,
+			final NeuralNetworkIF neuralNetwork, final Layer[] net,
+			final Weight[] weights) {
+		this.calculateStatics();
+		this.makeStaticPropositionMap();
+		this.buildTypeSets();
+		final Set groundActions = new HashSet();
+		final Iterator ait = this.actions.iterator();
+		while (ait.hasNext()) {
+			final Operator o = (Operator) ait.next();
+			final Set s = o.ground(this);
+			groundActions.addAll(s);
+		}
+
+		// static-ify the functions
+		final Iterator gait = groundActions.iterator();
+		while (gait.hasNext()) {
+			final Action a = (Action) gait.next();
+			a.staticify(this.funcValues);
+		}
+
+		// remove static functions from the intial state
+		this.removeStaticsFromInitialState();
+
+		// -could put in code here to
+		// a) get rid of static functions in initial state - DONE
+		// b) get rid of static predicates in initial state - DONE
+		// c) get rid of static propositions in the actions (this may have
+		// already been done)
+		// d) get rid of no use actions (i.e. whose preconditions can't be
+		// achieved)
+
+		final GroundProblem rGP = new GroundProblem(groundActions,
+				this.initial, this.goal, this.funcValues, this.metric,
+				features, neuralNetwork, net, weights);
+		return rGP;
+	}
+
+	private void makeStaticPropositionMap() {
+		final Iterator pit = this.predSymbols.iterator();
+		while (pit.hasNext()) {
+			final PredicateSymbol ps = (PredicateSymbol) pit.next();
+			if (ps.isStatic()) {
+				this.staticPropositionMap.put(ps, new HashSet());
 			}
 		}
 
-		Iterator iit = initial.iterator();
-		while (iit.hasNext())
-		{
-			Proposition p = (Proposition) iit.next();
-			if (p.name.isStatic())
-			{
-				Set pset = (Set) staticPropositionMap.get(p.name);
+		final Iterator iit = this.initial.iterator();
+		while (iit.hasNext()) {
+			final Proposition p = (Proposition) iit.next();
+			if (p.name.isStatic()) {
+				final Set pset = (Set) this.staticPropositionMap.get(p.name);
 				pset.add(p);
 			}
 		}
 	}
 
-  private void removeStaticsFromInitialState()
-  {
-  	//remove static functions
-	  /*
-  	Iterator fit = funcValues.keySet().iterator();
-    Set staticFuncs = new HashSet();
-    while (fit.hasNext())
-    {
-    	NamedFunction nf = (NamedFunction) fit.next();
-      if (nf.isStatic()) staticFuncs.add(nf);
-    }
-    fit = staticFuncs.iterator();
-    while (fit.hasNext())
-    {
-    	Object o = fit.next();
-      funcValues.remove(o);
-    }*/
+	private void removeStaticsFromInitialState() {
+		// remove static functions
+		/*
+		 * Iterator fit = funcValues.keySet().iterator(); Set staticFuncs = new
+		 * HashSet(); while (fit.hasNext()) { NamedFunction nf = (NamedFunction)
+		 * fit.next(); if (nf.isStatic()) staticFuncs.add(nf); } fit =
+		 * staticFuncs.iterator(); while (fit.hasNext()) { Object o =
+		 * fit.next(); funcValues.remove(o); }
+		 */
 
-    //remove static Propositions
-    Iterator init = initial.iterator();
-    Set staticProps = new HashSet();
-    while (init.hasNext())
-    {
-    	Proposition p = (Proposition) init.next();
-      if (p.isStatic()) staticProps.add(p);
-    }
-    initial.removeAll(staticProps);
-  }
+		// remove static Propositions
+		final Iterator init = this.initial.iterator();
+		final Set staticProps = new HashSet();
+		while (init.hasNext()) {
+			final Proposition p = (Proposition) init.next();
+			if (p.isStatic()) {
+				staticProps.add(p);
+			}
+		}
+		this.initial.removeAll(staticProps);
+	}
 
 }

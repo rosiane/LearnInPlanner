@@ -3,5 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/neural-network"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/java-ff-lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

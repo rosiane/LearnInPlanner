@@ -12,8 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.sun.org.apache.bcel.internal.generic.INVOKEVIRTUAL;
-
 public class ClassExpression {
 	private String predicate;
 	private LinkedList<ClassExpression[]> intersection;
@@ -21,143 +19,38 @@ public class ClassExpression {
 	private String[] parameterType;
 	private boolean not;
 
-	public ClassExpression(String predicate, int arity, String[] parameterType) {
+	public ClassExpression(final String predicate, final int arity,
+			final String[] parameterType) {
 		this.predicate = predicate;
 		this.parameter = new ClassExpression[arity];
 		this.parameterType = parameterType;
-		initializeIntersection(arity);
+		this.initializeIntersection(arity);
 	}
 
-	private void initializeIntersection(int arity) {
-		this.intersection = new LinkedList<>();
-		for (int countArity = 0; countArity < arity; countArity++) {
-			intersection.addLast(null);
-		}
-	}
-
-	public String getPredicate() {
-		return predicate;
-	}
-
-	public void setPredicate(String predicate) {
-		this.predicate = predicate;
-	}
-
-	public ClassExpression[] getParameter() {
-		return parameter;
-	}
-	
-	public ClassExpression getParameter(int index) {
-		return parameter[index];
-	}
-
-	public void setParameter(ClassExpression[] parameter) {
-		this.parameter = parameter;
-	}
-
-	public void setParameter(int index, ClassExpression parameter) {
-		this.parameter[index] = parameter;
-	}
-
-	public boolean isNot() {
-		return not;
-	}
-
-	public void setNot(boolean not) {
-		this.not = not;
-	}
-
-	public LinkedList<ClassExpression[]> getIntersection() {
-		return intersection;
-	}
-
-	public void setIntersection(LinkedList<ClassExpression[]> intersection) {
-		this.intersection = intersection;
-	}
-
-	public void setIntersection(int index, ClassExpression[] intersection) {
-		this.intersection.set(index, intersection);
-	}
-
-	public String[] getParameterType() {
-		return parameterType;
-	}
-
-	public void setParameterType(String[] parameterType) {
-		this.parameterType = parameterType;
-	}
-
-	@Override
-	public String toString() {
-		StringBuffer builder = new StringBuffer();
-		if (not) {
-			builder.append("¬ ");
-		}
-		builder.append(predicate + " ");
-		for (int indexParameter = 0; indexParameter < parameter.length; indexParameter++) {
-			if (intersection != null
-					&& intersection.get(indexParameter) != null) {
-				for (int indexIntersection = 0; indexIntersection < intersection
-						.get(indexParameter).length; indexIntersection++) {
-					if (indexIntersection > 0) {
-						builder.append(" && ");
-					}
-					builder.append(intersection.get(indexParameter)[indexIntersection].toString());
-				}
-			} else {
-				if (parameter[indexParameter] == null) {
-					builder.append(parameterType[indexParameter]);
-				} else {
-					builder.append(parameter[indexParameter].toString());
-				}
-			}
-			if (indexParameter < parameter.length - 1) {
-				builder.append(" ");
-			}
-		}
-		return builder.toString();
-	}
-
-	@Override
-	public ClassExpression clone() throws CloneNotSupportedException {
-		ClassExpression classExpression = new ClassExpression(new String(
-				predicate), parameter.length, parameterType.clone());
-		LinkedList<ClassExpression[]> intersectionNew = new LinkedList<>();
-		for (ClassExpression[] intersec : intersection) {
-			if (intersec == null) {
-				intersectionNew.addLast(null);
-			} else {
-				intersectionNew.addLast(intersec.clone());
-			}
-		}
-		classExpression.setIntersection(intersectionNew);
-		classExpression.setNot(new Boolean(not));
-		classExpression.setParameter(parameter.clone());
-		return classExpression;
-	}
-
-	public double cardinality(String pathProblem) throws IOException {
-		List<String[]> predicateObject = objects(pathProblem);
-		if (predicate.startsWith(PrefixEnum.ACTION.prefix())) {
+	public double cardinality(final LinkedList<String> database) {
+		final List<String[]> predicateObject = this.objects(database);
+		if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
 			return predicateObject.size();
 		}
 		double cardinality = 0;
-		Map<Integer, List<String[]>> parameterObject = new HashMap<>();
-		for (int indexIntersection = 0; indexIntersection < intersection.size(); indexIntersection++) {
-			if (intersection.get(indexIntersection) != null) {
+		final Map<Integer, List<String[]>> parameterObject = new HashMap<>();
+		for (int indexIntersection = 0; indexIntersection < this.intersection
+				.size(); indexIntersection++) {
+			if (this.intersection.get(indexIntersection) != null) {
 				List<String[]> objectsList = new ArrayList<>();
 				List<String[]> objectsTmp;
-				List<String[]> objectsTmp2 = new ArrayList<>();
-				for (ClassExpression i : intersection.get(indexIntersection)) {
-					objectsTmp = i.objects(pathProblem);
+				final List<String[]> objectsTmp2 = new ArrayList<>();
+				for (final ClassExpression i : this.intersection
+						.get(indexIntersection)) {
+					objectsTmp = i.objects(database);
 					if (objectsList.size() == 0) {
 						objectsList.addAll(objectsTmp);
 					} else {
 						objectsTmp2.addAll(objectsList);
-						objectsList = new ArrayList<>(); 
-						for (String[] tmp : objectsTmp) {
+						objectsList = new ArrayList<>();
+						for (final String[] tmp : objectsTmp) {
 							boolean contains = false;
-							for (String[] tmp2 : objectsTmp2) {
+							for (final String[] tmp2 : objectsTmp2) {
 								if (tmp[0].equalsIgnoreCase(tmp2[0])) {
 									contains = true;
 									break;
@@ -171,9 +64,11 @@ public class ClassExpression {
 				}
 				parameterObject.put(indexIntersection, objectsList);
 			} else {
-				if (parameter[indexIntersection] != null) {
-					parameterObject.put(indexIntersection,
-							parameter[indexIntersection].objects(pathProblem));
+				if (this.parameter[indexIntersection] != null) {
+					parameterObject
+							.put(indexIntersection,
+									this.parameter[indexIntersection]
+											.objects(database));
 				}
 			}
 		}
@@ -181,15 +76,14 @@ public class ClassExpression {
 		if (parameterObject.size() == 0) {
 			cardinality = predicateObject.size();
 		} else {
-			List<String[]> result = new ArrayList<>();
-			for (int indexParameter = 0; indexParameter < parameter.length; indexParameter++) {
+			final List<String[]> result = new ArrayList<>();
+			for (int indexParameter = 0; indexParameter < this.parameter.length; indexParameter++) {
 				if (parameterObject.get(indexParameter) != null) {
-					for (String[] tmp : predicateObject) {
+					for (final String[] tmp : predicateObject) {
 						boolean contains = false;
-						for (String[] tmp2 : parameterObject
+						for (final String[] tmp2 : parameterObject
 								.get(indexParameter)) {
-							if (tmp[indexParameter]
-									.equalsIgnoreCase(tmp2[0])) {
+							if (tmp[indexParameter].equalsIgnoreCase(tmp2[0])) {
 								contains = true;
 								break;
 							}
@@ -205,9 +99,145 @@ public class ClassExpression {
 		return cardinality;
 	}
 
-	public List<String[]> objects(String pathProblem)
+	public double cardinality(final String pathProblem) throws IOException {
+		final List<String[]> predicateObject = this.objects(pathProblem);
+		if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
+			return predicateObject.size();
+		}
+		double cardinality = 0;
+		final Map<Integer, List<String[]>> parameterObject = new HashMap<>();
+		for (int indexIntersection = 0; indexIntersection < this.intersection
+				.size(); indexIntersection++) {
+			if (this.intersection.get(indexIntersection) != null) {
+				List<String[]> objectsList = new ArrayList<>();
+				List<String[]> objectsTmp;
+				final List<String[]> objectsTmp2 = new ArrayList<>();
+				for (final ClassExpression i : this.intersection
+						.get(indexIntersection)) {
+					objectsTmp = i.objects(pathProblem);
+					if (objectsList.size() == 0) {
+						objectsList.addAll(objectsTmp);
+					} else {
+						objectsTmp2.addAll(objectsList);
+						objectsList = new ArrayList<>();
+						for (final String[] tmp : objectsTmp) {
+							boolean contains = false;
+							for (final String[] tmp2 : objectsTmp2) {
+								if (tmp[0].equalsIgnoreCase(tmp2[0])) {
+									contains = true;
+									break;
+								}
+							}
+							if (contains) {
+								objectsList.add(tmp);
+							}
+						}
+					}
+				}
+				parameterObject.put(indexIntersection, objectsList);
+			} else {
+				if (this.parameter[indexIntersection] != null) {
+					parameterObject.put(indexIntersection,
+							this.parameter[indexIntersection]
+									.objects(pathProblem));
+				}
+			}
+		}
+
+		if (parameterObject.size() == 0) {
+			cardinality = predicateObject.size();
+		} else {
+			final List<String[]> result = new ArrayList<>();
+			for (int indexParameter = 0; indexParameter < this.parameter.length; indexParameter++) {
+				if (parameterObject.get(indexParameter) != null) {
+					for (final String[] tmp : predicateObject) {
+						boolean contains = false;
+						for (final String[] tmp2 : parameterObject
+								.get(indexParameter)) {
+							if (tmp[indexParameter].equalsIgnoreCase(tmp2[0])) {
+								contains = true;
+								break;
+							}
+						}
+						if (contains) {
+							result.add(tmp);
+						}
+					}
+				}
+			}
+			cardinality = result.size();
+		}
+		return cardinality;
+	}
+
+	@Override
+	public ClassExpression clone() throws CloneNotSupportedException {
+		final ClassExpression classExpression = new ClassExpression(new String(
+				this.predicate), this.parameter.length,
+				this.parameterType.clone());
+		final LinkedList<ClassExpression[]> intersectionNew = new LinkedList<>();
+		for (final ClassExpression[] intersec : this.intersection) {
+			if (intersec == null) {
+				intersectionNew.addLast(null);
+			} else {
+				intersectionNew.addLast(intersec.clone());
+			}
+		}
+		classExpression.setIntersection(intersectionNew);
+		classExpression.setNot(new Boolean(this.not));
+		classExpression.setParameter(this.parameter.clone());
+		return classExpression;
+	}
+
+	public LinkedList<ClassExpression[]> getIntersection() {
+		return this.intersection;
+	}
+
+	public ClassExpression[] getParameter() {
+		return this.parameter;
+	}
+
+	public ClassExpression getParameter(final int index) {
+		return this.parameter[index];
+	}
+
+	public String[] getParameterType() {
+		return this.parameterType;
+	}
+
+	public String getPredicate() {
+		return this.predicate;
+	}
+
+	private void initializeIntersection(final int arity) {
+		this.intersection = new LinkedList<>();
+		for (int countArity = 0; countArity < arity; countArity++) {
+			this.intersection.addLast(null);
+		}
+	}
+
+	public boolean isNot() {
+		return this.not;
+	}
+
+	public List<String[]> objects(final LinkedList<String> database) {
+		final List<String[]> objects = new ArrayList<>();
+		for (final String strLine : database) {
+			if (strLine.startsWith(this.predicate)) {
+				if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
+					objects.add(new String[] { PrefixEnum.ACTION.prefix() });
+				} else {
+					objects.add(strLine.replace(this.predicate + " ", "")
+							.split(" "));
+				}
+			}
+		}
+		return objects;
+	}
+
+	public List<String[]> objects(final String pathProblem)
 			throws FileNotFoundException, IOException {
-		List<String[]> objects = new ArrayList<>();
+		final List<String[]> objects = new ArrayList<>();
 		DataInputStream dataInputStream = null;
 		BufferedReader bufferedReader = null;
 		try {
@@ -217,16 +247,16 @@ public class ClassExpression {
 					dataInputStream));
 			String strLine;
 			while ((strLine = bufferedReader.readLine()) != null) {
-				if (strLine.startsWith(predicate)) {
-					if (predicate.startsWith(PrefixEnum.ACTION.prefix())) {
+				if (strLine.startsWith(this.predicate)) {
+					if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
 						objects.add(new String[] { PrefixEnum.ACTION.prefix() });
 					} else {
-						objects.add(strLine.replace(predicate + " ", "").split(
-								" "));
+						objects.add(strLine.replace(this.predicate + " ", "")
+								.split(" "));
 					}
 				}
 			}
-		} catch (FileNotFoundException e) {
+		} catch (final FileNotFoundException e) {
 			throw e;
 		} finally {
 			if (dataInputStream != null) {
@@ -234,5 +264,66 @@ public class ClassExpression {
 			}
 		}
 		return objects;
+	}
+
+	public void setIntersection(final int index,
+			final ClassExpression[] intersection) {
+		this.intersection.set(index, intersection);
+	}
+
+	public void setIntersection(final LinkedList<ClassExpression[]> intersection) {
+		this.intersection = intersection;
+	}
+
+	public void setNot(final boolean not) {
+		this.not = not;
+	}
+
+	public void setParameter(final ClassExpression[] parameter) {
+		this.parameter = parameter;
+	}
+
+	public void setParameter(final int index, final ClassExpression parameter) {
+		this.parameter[index] = parameter;
+	}
+
+	public void setParameterType(final String[] parameterType) {
+		this.parameterType = parameterType;
+	}
+
+	public void setPredicate(final String predicate) {
+		this.predicate = predicate;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuffer builder = new StringBuffer();
+		if (this.not) {
+			builder.append("¬ ");
+		}
+		builder.append(this.predicate + " ");
+		for (int indexParameter = 0; indexParameter < this.parameter.length; indexParameter++) {
+			if ((this.intersection != null)
+					&& (this.intersection.get(indexParameter) != null)) {
+				for (int indexIntersection = 0; indexIntersection < this.intersection
+						.get(indexParameter).length; indexIntersection++) {
+					if (indexIntersection > 0) {
+						builder.append(" && ");
+					}
+					builder.append(this.intersection.get(indexParameter)[indexIntersection]
+							.toString());
+				}
+			} else {
+				if (this.parameter[indexParameter] == null) {
+					builder.append(this.parameterType[indexParameter]);
+				} else {
+					builder.append(this.parameter[indexParameter].toString());
+				}
+			}
+			if (indexParameter < (this.parameter.length - 1)) {
+				builder.append(" ");
+			}
+		}
+		return builder.toString();
 	}
 }

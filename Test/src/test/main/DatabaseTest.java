@@ -1,53 +1,40 @@
 package test.main;
 
-import heuristic.rpl.HeuristicRPL;
-import heuristic.rpl.PlanExample;
-import heuristic.rpl.Solution;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
-
 import javaff.data.GroundProblem;
-import javaff.data.PDDLPrintable;
-import javaff.data.PDDLPrinter;
 import javaff.data.UngroundProblem;
 import javaff.data.strips.Proposition;
-import javaff.data.strips.STRIPSInstantAction;
 import javaff.parser.PDDL21parser;
 import javaff.planning.TemporalMetricState;
 
 public class DatabaseTest {
 
-	public static void main(String[] args) throws IOException {
-		heuristicTest();
-	}
-
 	private static void heuristicTest() throws IOException {
-		File domainFile = new File(
+		final File domainFile = new File(
 				"../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
-		File problemFile = new File(
+		final File problemFile = new File(
 				"../Examples/IPC3/Tests1/Depots/Strips/pfile1");
-		UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
+		final UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
 				problemFile);
 		if (unground == null) {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
-		
-		GroundProblem ground = unground.ground();
-		TemporalMetricState initialState = ground
-				.getTemporalMetricInitialState();
-		
-		Set<Proposition> facts = initialState.facts;
 
-		Iterator<Proposition> factsIterator = facts.iterator();
+		final GroundProblem ground = unground.ground(null, null, null, null);
+		final TemporalMetricState initialState = ground
+				.getTemporalMetricInitialState();
+
+		final Set<Proposition> facts = initialState.facts;
+
+		final Iterator<Proposition> factsIterator = facts.iterator();
 
 		while (factsIterator.hasNext()) {
-			Proposition proposition = factsIterator.next();
+			final Proposition proposition = factsIterator.next();
 			System.out.println(proposition.toString());
 		}
 
@@ -91,6 +78,10 @@ public class DatabaseTest {
 		// }
 		// }
 		// }
+	}
+
+	public static void main(final String[] args) throws IOException {
+		heuristicTest();
 	}
 
 }

@@ -1,6 +1,5 @@
 package heuristic.rpl;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -13,13 +12,14 @@ import javaff.parser.PDDL21parser;
 import javaff.planning.TemporalMetricState;
 
 public class GenerateExample {
-	public static void generateAllExample(String domainPath,
-			String examplePathPrefix, long numberExamples,
-			String solutionFFPathPrefix, String solutionFFPathSufix,
-			String resultDir) throws IOException {
-		File domainFile = new File(domainPath);
-		Solution solution = null;
-		String fileSolution = null;
+	public static void generateAllExample(final String domainPath,
+			final String examplePathPrefix, final long numberExamples,
+			final String solutionFFPathPrefix,
+			final String solutionFFPathSufix, final String resultDir)
+			throws IOException {
+		final File domainFile = new File(domainPath);
+		final Solution solution = null;
+		final String fileSolution = null;
 		String pathSolutionFF = null;
 		try {
 			for (int index = 1; index <= numberExamples; index++) {
@@ -30,16 +30,38 @@ public class GenerateExample {
 							solution, fileSolution, pathSolutionFF, index);
 				}
 			}
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			throw e;
 		}
 	}
 
+	private static void generateExample(Solution solution,
+			final TemporalMetricState currentState, String fileSolution,
+			final String resultDir, final int index, final long countAction,
+			final int distanceToGoal) throws IOException {
+		fileSolution = getPathSolution(resultDir, index, countAction);
+		solution = GenerateExampleUtils.calculateRPL(solution, currentState,
+				fileSolution);
+		GenerateExampleUtils.printValueToEstimate(solution, fileSolution,
+				distanceToGoal);
+		GenerateExampleUtils.printStatesFactsInS(currentState, fileSolution);
+		GenerateExampleUtils.printAddList(solution, fileSolution);
+		GenerateExampleUtils.printDeleteList(solution, fileSolution);
+		GenerateExampleUtils.printGoal(currentState, fileSolution);
+		GenerateExampleUtils.printCurrentEqualsGoal(currentState, fileSolution);
+	}
+
+	private static String getPathSolution(final String resultDir,
+			final int indexFile, final long countAction) {
+		return resultDir + File.separator + "pfile" + indexFile + "SolutionRPL"
+				+ countAction + ".pddl";
+	}
+
 	@SuppressWarnings("unchecked")
-	private static void processExample(String examplePathPrefix,
-			String resultDir, File domainFile, Solution solution,
-			String fileSolution, String pathSolutionFF, int index)
-			throws IOException {
+	private static void processExample(final String examplePathPrefix,
+			final String resultDir, final File domainFile,
+			final Solution solution, final String fileSolution,
+			final String pathSolutionFF, final int index) throws IOException {
 		File problemFile = null;
 		GroundProblem ground = null;
 		TemporalMetricState currentState;
@@ -51,14 +73,14 @@ public class GenerateExample {
 		boolean found = false;
 		problemFile = new File(examplePathPrefix + index);
 
-		UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
+		final UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
 				problemFile);
 
 		int distanceToGoal = 0;
 		if (unground == null) {
 			System.out.println("Parsing error - see console for details");
 		} else {
-			ground = unground.ground();
+			ground = unground.ground(null, null, null, null);
 			currentState = ground.getTemporalMetricInitialState();
 			countAction = 1;
 			plan = PlanExample.getPlan(pathSolutionFF);
@@ -66,7 +88,7 @@ public class GenerateExample {
 			generateExample(solution, currentState, fileSolution, resultDir,
 					index, countAction, distanceToGoal);
 			found = false;
-			for (int indexAction = 0; indexAction < plan.size() - 1; indexAction++) {
+			for (int indexAction = 0; indexAction < (plan.size() - 1); indexAction++) {
 				iterator = currentState.getActions().iterator();
 				action = plan.get(indexAction).split(" ");
 				found = false;
@@ -102,27 +124,5 @@ public class GenerateExample {
 				}
 			}
 		}
-	}
-
-	private static String getPathSolution(String resultDir, int indexFile,
-			long countAction) {
-		return resultDir + File.separator + "pfile" + indexFile + "SolutionRPL"
-				+ countAction + ".pddl";
-	}
-
-	private static void generateExample(Solution solution,
-			TemporalMetricState currentState, String fileSolution,
-			String resultDir, int index, long countAction, int distanceToGoal)
-			throws IOException {
-		fileSolution = getPathSolution(resultDir, index, countAction);
-		solution = GenerateExampleUtils.calculateRPL(solution, currentState,
-				fileSolution);
-		GenerateExampleUtils.printValueToEstimate(solution, fileSolution,
-				distanceToGoal);
-		GenerateExampleUtils.printStatesFactsInS(currentState, fileSolution);
-		GenerateExampleUtils.printAddList(solution, fileSolution);
-		GenerateExampleUtils.printDeleteList(solution, fileSolution);
-		GenerateExampleUtils.printGoal(currentState, fileSolution);
-		GenerateExampleUtils.printCurrentEqualsGoal(currentState, fileSolution);
 	}
 }

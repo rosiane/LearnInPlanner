@@ -32,6 +32,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,103 +46,116 @@ import javaff.planning.RelaxedTemporalMetricPlanningGraph;
 import javaff.planning.STRIPSState;
 import javaff.planning.TemporalMetricState;
 import javaff.planning.TemporalMetricStateDelta;
+import neural.network.interfaces.NeuralNetworkIF;
+import neural.network.util.Weight;
 
-public class GroundProblem
-{
-    //public Set facts = new HashSet();                  // (Proposition)
-    public Set<Action> actions = new HashSet<Action>();                // (GroundAction)
-    public Map<NamedFunction, BigDecimal> functionValues = new Hashtable<NamedFunction, BigDecimal>();     // (NamedFunction => BigDecimal)
+import com.syvys.jaRBM.Layers.Layer;
+import common.ClassExpression;
+
+public class GroundProblem {
+	// public Set facts = new HashSet(); // (Proposition)
+	public Set<Action> actions = new HashSet<Action>(); // (GroundAction)
+	public Map<NamedFunction, BigDecimal> functionValues = new Hashtable<NamedFunction, BigDecimal>(); // (NamedFunction
+																										// =>
+																										// BigDecimal)
 	public Metric metric;
 
-    public GroundCondition goal;
-    public Set initial;                                // (Proposition)
+	public GroundCondition goal;
+	public Set initial; // (Proposition)
 
 	public TemporalMetricState state = null;
 	public TemporalMetricStateDelta stateDelta = null;
+	private final LinkedList<ClassExpression> features;
+	private final NeuralNetworkIF neuralNetwork;
+	private final Layer[] net;
+	private final Weight[] weights;
 
-	public GroundProblem(Set a, Set i, GroundCondition g, Map f, Metric m)
-	{
-		actions = a;
-		initial = i;
-		goal = g;
-		functionValues = f;
-		metric = m;
-	}
-	
-    public STRIPSState getSTRIPSInitialState()
-    {
-    	STRIPSState s = new STRIPSState(actions, initial, goal);
-		s.setRPG(new RelaxedPlanningGraph(this));
-		return s;
+	public GroundProblem(final Set a, final Set i, final GroundCondition g,
+			final Map f, final Metric m,
+			final LinkedList<ClassExpression> features,
+			final NeuralNetworkIF neuralNetwork, final Layer[] net,
+			final Weight[] weights) {
+		this.actions = a;
+		this.initial = i;
+		this.goal = g;
+		this.functionValues = f;
+		this.metric = m;
+		this.features = features;
+		this.neuralNetwork = neuralNetwork;
+		this.net = net;
+		this.weights = weights;
 	}
 
-	public MetricState getMetricInitialState()
-    {
-		MetricState ms = new MetricState(actions, initial, goal, functionValues, metric);
+	public MetricState getMetricInitialState() {
+		final MetricState ms = new MetricState(this.actions, this.initial,
+				this.goal, this.functionValues, this.metric);
 		ms.setRPG(new RelaxedMetricPlanningGraph(this));
 		return ms;
 	}
 
-	public TemporalMetricState getTemporalMetricInitialState()
-    {
-		if (state == null)
-		{
-			Set na = new HashSet();
-			Set ni = new HashSet();
-			Iterator ait = actions.iterator();
-			while (ait.hasNext())
-			{
-				Action act = (Action) ait.next();
-				if (act instanceof InstantAction)
-				{
-					na.add(act);
-					ni.add(act);
-				}
-				else if (act instanceof DurativeAction)
-				{
-					DurativeAction dact = (DurativeAction) act;
-					na.add(dact.startAction);
-					na.add(dact.endAction);
-					ni.add(dact.startAction);
-				}
-			}
-			TemporalMetricState ts = new TemporalMetricState(ni, initial, goal, functionValues, metric);
-			GroundProblem gp = new GroundProblem(na, initial, goal, functionValues, metric);
-			ts.setRPG(new RelaxedTemporalMetricPlanningGraph(gp));
-			state = ts;
-		}
-		return state;
+	public STRIPSState getSTRIPSInitialState() {
+		final STRIPSState s = new STRIPSState(this.actions, this.initial,
+				this.goal);
+		s.setRPG(new RelaxedPlanningGraph(this));
+		return s;
 	}
 
-	public TemporalMetricStateDelta getTemporalMetricInitialStateDelta()
-    {
-		if (stateDelta == null)
-		{
-			Set na = new HashSet();
-			Set ni = new HashSet();
-			Iterator ait = actions.iterator();
-			while (ait.hasNext())
-			{
-				Action act = (Action) ait.next();
-				if (act instanceof InstantAction)
-				{
+	public TemporalMetricState getTemporalMetricInitialState() {
+		if (this.state == null) {
+			final Set na = new HashSet();
+			final Set ni = new HashSet();
+			final Iterator ait = this.actions.iterator();
+			while (ait.hasNext()) {
+				final Action act = (Action) ait.next();
+				if (act instanceof InstantAction) {
 					na.add(act);
 					ni.add(act);
-				}
-				else if (act instanceof DurativeAction)
-				{
-					DurativeAction dact = (DurativeAction) act;
+				} else if (act instanceof DurativeAction) {
+					final DurativeAction dact = (DurativeAction) act;
 					na.add(dact.startAction);
 					na.add(dact.endAction);
 					ni.add(dact.startAction);
 				}
 			}
-			TemporalMetricStateDelta ts = new TemporalMetricStateDelta(ni, initial, goal, functionValues, metric);
-			GroundProblem gp = new GroundProblem(na, initial, goal, functionValues, metric);
+			final TemporalMetricState ts = new TemporalMetricState(ni,
+					this.initial, this.goal, this.functionValues, this.metric);
+			final GroundProblem gp = new GroundProblem(na, this.initial,
+					this.goal, this.functionValues, this.metric, this.features,
+					this.neuralNetwork, this.net, this.weights);
 			ts.setRPG(new RelaxedTemporalMetricPlanningGraph(gp));
-			stateDelta = ts;
+			this.state = ts;
 		}
-		return stateDelta;
+		return this.state;
 	}
-	
+
+	public TemporalMetricStateDelta getTemporalMetricInitialStateDelta() {
+		if (this.stateDelta == null) {
+			final Set na = new HashSet();
+			final Set ni = new HashSet();
+			final Iterator ait = this.actions.iterator();
+			while (ait.hasNext()) {
+				final Action act = (Action) ait.next();
+				if (act instanceof InstantAction) {
+					na.add(act);
+					ni.add(act);
+				} else if (act instanceof DurativeAction) {
+					final DurativeAction dact = (DurativeAction) act;
+					na.add(dact.startAction);
+					na.add(dact.endAction);
+					ni.add(dact.startAction);
+				}
+			}
+			final TemporalMetricStateDelta ts = new TemporalMetricStateDelta(
+					ni, this.initial, this.goal, this.functionValues,
+					this.metric, this.features, this.neuralNetwork, this.net,
+					this.weights);
+			final GroundProblem gp = new GroundProblem(na, this.initial,
+					this.goal, this.functionValues, this.metric, this.features,
+					this.neuralNetwork, this.net, this.weights);
+			ts.setRPG(new RelaxedTemporalMetricPlanningGraph(gp));
+			this.stateDelta = ts;
+		}
+		return this.stateDelta;
+	}
+
 }

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-
 import javaff.data.GroundProblem;
 import javaff.data.UngroundProblem;
 import javaff.data.strips.STRIPSInstantAction;
@@ -18,36 +17,24 @@ import javaff.planning.TemporalMetricState;
 
 public class HeuristicRPLTest {
 
-	public static void main(String[] args) throws IOException {
-		// readSolutionPlanTest();
-		heuristicTest();
-	}
-
-	private static void readSolutionPlanTest() throws IOException {
-		for (String action : PlanExample
-				.getPlan("../Examples/IPC3/Tests1/Depots/Strips/training/pfile1Solution.pddl")) {
-			System.out.println(action);
-		}
-	}
-
 	private static void heuristicTest() throws IOException {
-		File domainFile = new File(
+		final File domainFile = new File(
 				"../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
-		File problemFile = new File(
+		final File problemFile = new File(
 				"../Examples/IPC3/Tests1/Depots/Strips/pfile22");
-		UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
+		final UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
 				problemFile);
 		if (unground == null) {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
-		GroundProblem ground = unground.ground();
-		TemporalMetricState initialState = ground
+		final GroundProblem ground = unground.ground(null, null, null, null);
+		final TemporalMetricState initialState = ground
 				.getTemporalMetricInitialState();
 		Solution solution = HeuristicRPL.calculate(initialState);
 		System.out.println(solution.getValue());
 		solution.getRelaxedPlan().print(System.out);
-		List<String> plan = PlanExample
+		final List<String> plan = PlanExample
 				.getPlan("../Examples/IPC3/Tests1/Depots/Strips/training/pfile22Solution.pddl");
 		TemporalMetricState atualState = initialState;
 		Iterator<STRIPSInstantAction> iterator = null;
@@ -82,6 +69,18 @@ public class HeuristicRPLTest {
 					}
 				}
 			}
+		}
+	}
+
+	public static void main(final String[] args) throws IOException {
+		// readSolutionPlanTest();
+		heuristicTest();
+	}
+
+	private static void readSolutionPlanTest() throws IOException {
+		for (final String action : PlanExample
+				.getPlan("../Examples/IPC3/Tests1/Depots/Strips/training/pfile1Solution.pddl")) {
+			System.out.println(action);
 		}
 	}
 }
