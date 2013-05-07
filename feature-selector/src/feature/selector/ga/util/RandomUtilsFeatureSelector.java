@@ -28,6 +28,7 @@ public class RandomUtilsFeatureSelector extends RandomUtils {
 				}
 			}
 			individual.setGene(gene);
+			individual.setEvaluation(100);
 			population.add(individual);
 		}
 		return population;

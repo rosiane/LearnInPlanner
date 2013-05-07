@@ -18,133 +18,142 @@ public class ParameterTraining {
 	private boolean normalizeWeights;
 	private boolean validation;
 	private boolean useHeuristicUnitHidden;
-
-	public long getNumberEpochs() {
-		return numberEpochs;
-	}
-
-	public void setNumberEpochs(long number) {
-		numberEpochs = number;
-	}
-
-	public int getTask() {
-		return task;
-	}
-
-	public void setTask(int task) {
-		this.task = task;
-	}
-
-	public double getMaxError() {
-		return maxError;
-	}
-
-	public void setMaxError(double maxError) {
-		this.maxError = maxError;
-	}
-
-	public double getMinLearningRate() {
-		return minLearningRate;
-	}
-
-	public void setMinLearningRate(double minLearningRate) {
-		this.minLearningRate = minLearningRate;
-	}
-
-	public double getLearningRateDecrease() {
-		return learningRateDecrease;
-	}
-
-	public void setLearningRateDecrease(double learningRateDecrease) {
-		this.learningRateDecrease = learningRateDecrease;
-	}
-
-	public boolean isWeightsInitializationRandom() {
-		return weightsInitializationRandom;
-	}
-
-	public void setWeightsInitializationRandom(
-			boolean weightsInitializationRandom) {
-		this.weightsInitializationRandom = weightsInitializationRandom;
-	}
+	private boolean normalizeLabel;
 
 	public int getIntervalEpochPercentage() {
 		return intervalEpochPercentage;
-	}
-
-	public void setIntervalEpochPercentage(int intervalEpochPercentage) {
-		this.intervalEpochPercentage = intervalEpochPercentage;
-	}
-
-	public int getNumberHiddenLayers() {
-		return numberHiddenLayers;
-	}
-
-	public void setNumberHiddenLayers(int numberHiddenLayers) {
-		this.numberHiddenLayers = numberHiddenLayers;
-	}
-
-	public int getNumberUnitHidden() {
-		return numberUnitHidden;
-	}
-
-	public void setNumberUnitHidden(int numberUnitHidden) {
-		this.numberUnitHidden = numberUnitHidden;
-	}
-
-	public double getMomentum() {
-		return momentum;
-	}
-
-	public void setMomentum(double momentum) {
-		this.momentum = momentum;
 	}
 
 	public double getLearningRate() {
 		return learningRate;
 	}
 
-	public void setLearningRate(double learningRate) {
-		this.learningRate = learningRate;
+	public double getLearningRateDecrease() {
+		return learningRateDecrease;
+	}
+
+	public double getMaxError() {
+		return maxError;
+	}
+
+	public double getMinLearningRate() {
+		return minLearningRate;
+	}
+
+	public double getMomentum() {
+		return momentum;
+	}
+
+	public long getNumberEpochs() {
+		return numberEpochs;
+	}
+
+	public int getNumberHiddenLayers() {
+		return numberHiddenLayers;
 	}
 
 	public int getNumberOutput() {
 		return numberOutput;
 	}
 
-	public void setNumberOutput(int numberOutput) {
-		this.numberOutput = numberOutput;
+	public int getNumberUnitHidden() {
+		return numberUnitHidden;
 	}
 
-	public boolean isUpdateBatch() {
-		return updateBatch;
+	public int getTask() {
+		return task;
 	}
 
-	public void setUpdateBatch(boolean updateBatch) {
-		this.updateBatch = updateBatch;
+	public boolean isNormalizeLabel() {
+		return normalizeLabel;
 	}
 
 	public boolean isNormalizeWeights() {
 		return normalizeWeights;
 	}
 
-	public void setNormalizeWeights(boolean normalizeWeights) {
-		this.normalizeWeights = normalizeWeights;
-	}
-
-	public boolean isValidation() {
-		return validation;
-	}
-
-	public void setValidation(boolean validation) {
-		this.validation = validation;
+	public boolean isUpdateBatch() {
+		return updateBatch;
 	}
 
 	public boolean isUseHeuristicUnitHidden() {
 		return useHeuristicUnitHidden;
 	}
 
-	public void setUseHeuristicUnitHidden(boolean useHeuristicUnitHidden) {
+	public boolean isValidation() {
+		return validation;
+	}
+
+	public boolean isWeightsInitializationRandom() {
+		return weightsInitializationRandom;
+	}
+
+	public void setIntervalEpochPercentage(final int intervalEpochPercentage) {
+		this.intervalEpochPercentage = intervalEpochPercentage;
+	}
+
+	public void setLearningRate(final double learningRate) {
+		this.learningRate = learningRate;
+	}
+
+	public void setLearningRateDecrease(final double learningRateDecrease) {
+		this.learningRateDecrease = learningRateDecrease;
+	}
+
+	public void setMaxError(final double maxError) {
+		this.maxError = maxError;
+	}
+
+	public void setMinLearningRate(final double minLearningRate) {
+		this.minLearningRate = minLearningRate;
+	}
+
+	public void setMomentum(final double momentum) {
+		this.momentum = momentum;
+	}
+
+	public void setNormalizeLabel(final boolean normalizeLabel) {
+		this.normalizeLabel = normalizeLabel;
+	}
+
+	public void setNormalizeWeights(final boolean normalizeWeights) {
+		this.normalizeWeights = normalizeWeights;
+	}
+
+	public void setNumberEpochs(final long number) {
+		numberEpochs = number;
+	}
+
+	public void setNumberHiddenLayers(final int numberHiddenLayers) {
+		this.numberHiddenLayers = numberHiddenLayers;
+	}
+
+	public void setNumberOutput(final int numberOutput) {
+		this.numberOutput = numberOutput;
+	}
+
+	public void setNumberUnitHidden(final int numberUnitHidden) {
+		this.numberUnitHidden = numberUnitHidden;
+	}
+
+	public void setTask(final int task) {
+		this.task = task;
+	}
+
+	public void setUpdateBatch(final boolean updateBatch) {
+		this.updateBatch = updateBatch;
+	}
+
+	public void setUseHeuristicUnitHidden(final boolean useHeuristicUnitHidden) {
 		this.useHeuristicUnitHidden = useHeuristicUnitHidden;
+	}
+
+	public void setValidation(final boolean validation) {
+		this.validation = validation;
+	}
+
+	public void setWeightsInitializationRandom(
+			final boolean weightsInitializationRandom) {
+		this.weightsInitializationRandom = weightsInitializationRandom;
 	}
 }

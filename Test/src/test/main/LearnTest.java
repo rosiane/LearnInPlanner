@@ -43,27 +43,39 @@ public class LearnTest {
 	}
 
 	public static void learn() throws Exception {
+		File dir;
+
+		String dirResult;
+		for (int numberGeneration = 10;; numberGeneration += 10) {
+			dir = new File("../Test/result/ " + numberGeneration + "/features");
+			dir.mkdirs();
+			dirResult = "../Test/result/ " + numberGeneration;
+			learn(dirResult, numberGeneration);
+		}
+	}
+
+	public static void learn(final String dirResult, final int numberGeneration)
+			throws Exception {
 		final SimpleDateFormat formato = new SimpleDateFormat(
 				"dd_MM_yyyy_HH_mm_ss");
 		final String date = formato.format(new Date());
 		final String domainPath = "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl";
 		final String examplePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/pfile";
-		final int numberExamples = 22;
 		final String solutionFFPathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/training/pfile";
 		final String solutionFFPathSufix = "Solution.pddl";
 		final String databaseDir = "../Examples/IPC3/Tests1/Depots/Strips/training/rpl";
-		final String featuresFile = "../Test/result/features/currentFeatures"
+		final String featuresFile = dirResult + "/features/currentFeatures"
 				+ date + "-";
-		final String resultFile = "../Test/result/DepotsTraining.doc";
-		final int numberIndividualInitialGA = 3;
+		final String resultFile = dirResult + "/DepotsTraining.doc";
+		final int numberIndividualInitialGA = 8;
 		final String dirPlanningProblem = "../Examples/IPC3/Tests1/Depots/Strips/training";
 		final String dirPlanningProblemRPL = "../Examples/IPC3/Tests1/Depots/Strips/training/rpl";
-		final int[] problemTraining = { 1 };
-		final int[] problemValidation = { 2 };
-		final int[] problemTest = { 3 };
+		final int[] problemTraining = { 6, 7 };
+		final int[] problemValidation = { 5 };
+		final int[] problemTest = { 2, 3 };
 		final int numberExpansion = 2;
 
-		final long numberEpochs = 1;
+		final long numberEpochs = 100;
 		final double maxError = 0;
 		final Task task = Task.REGRESSION;
 		final double learningRateDecrease = 1;
@@ -72,9 +84,10 @@ public class LearnTest {
 		final int intervalEpochPercentage = 2;
 		final int numberHiddenLayers = 1;
 		final int numberOutput = 1;
-		final double learningRate = 0.3;
+		final double learningRate = 0.1;
 		final int numberUnitHidden = 3;
 		final boolean useHeuristicUnitHidden = true;
+		final boolean normalizeLabel = true;
 
 		FileManager.write(resultFile,
 				"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", true);
@@ -113,6 +126,8 @@ public class LearnTest {
 				+ useHeuristicUnitHidden, true);
 		FileManager.write(resultFile, "Initialize Random: " + initializeRandom,
 				true);
+		FileManager.write(resultFile, "Normalize label: " + normalizeLabel,
+				true);
 
 		final ParameterTraining parameterTraining = new ParameterTraining();
 		parameterTraining.setNumberEpochs(numberEpochs);
@@ -130,16 +145,18 @@ public class LearnTest {
 		parameterTraining.setLearningRate(learningRate);
 		parameterTraining.setNumberUnitHidden(numberUnitHidden);
 		parameterTraining.setUseHeuristicUnitHidden(useHeuristicUnitHidden);
+		parameterTraining.setNormalizeLabel(normalizeLabel);
 
-		final int numberFathers = 3;
-		final int numberGeneration = 2;
-		final int numberIndividualCrossing = 2;
-		final int numberIndividualMutation = 1;
+		final int numberFathers = 6;
+		final int numberIndividualCrossing = 1;
+		final double mutationRate = 0.1;
+		double maxEvaluation = 0.1;
 		final ParameterGA parameterGA = new ParameterGA();
 		parameterGA.setNumberFathers(numberFathers);
 		parameterGA.setNumberGeneration(numberGeneration);
 		parameterGA.setNumberIndividualCrossing(numberIndividualCrossing);
-		parameterGA.setNumberIndividualMutation(numberIndividualMutation);
+		parameterGA.setMutationRate(mutationRate);
+		parameterGA.setMaxEvaluation(maxEvaluation);
 
 		FileManager.write(resultFile, "Parameter GA", true);
 		FileManager.write(resultFile, "Number Expansion: " + numberExpansion,
@@ -149,13 +166,11 @@ public class LearnTest {
 				true);
 		FileManager.write(resultFile, "Number Individual Crossing: "
 				+ numberIndividualCrossing, true);
-		FileManager.write(resultFile, "Number Individual Mutation: "
-				+ numberIndividualMutation, true);
+		FileManager.write(resultFile, "Mutation Rate: " + mutationRate, true);
 
 		final LearnParameters learnParameters = new LearnParameters();
 		learnParameters.setDomainPath(domainPath);
 		learnParameters.setExamplePathPrefix(examplePathPrefix);
-		learnParameters.setNumberExamples(numberExamples);
 		learnParameters.setSolutionFFPathPrefix(solutionFFPathPrefix);
 		learnParameters.setSolutionFFPathSufix(solutionFFPathSufix);
 		learnParameters.setDatabaseDir(databaseDir);
@@ -176,6 +191,15 @@ public class LearnTest {
 		if (chromosome != null) {
 			FileManager.write(resultFile, "Chosen: " + chromosome.toString(),
 					true);
+			final String featureSelectedFile = dirResult + "/featureSelected";
+			FileManager.write(featureSelectedFile,
+					MatrixHandler.toStringArray(chromosome.getGene()), true);
+			final String weightFile = dirResult + "/weight";
+			for (int indexWeight = 0; indexWeight < chromosome.getWeights().length; indexWeight++) {
+				MatrixHandler
+						.write(weightFile + indexWeight, chromosome
+								.getWeights()[indexWeight].getWeights(), true);
+			}
 		}
 		FileManager.write(resultFile,
 				"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", true);
@@ -184,6 +208,9 @@ public class LearnTest {
 
 	public static void main(final String args[]) {
 		// initialFeatures();
+		// final File f = new File("../Test/result/features/10");
+		// System.out.println(f.mkdir());
+		// System.out.println(f.mkdirs());
 		try {
 			learn();
 		} catch (final IOException e) {

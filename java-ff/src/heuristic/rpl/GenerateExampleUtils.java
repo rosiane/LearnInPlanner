@@ -14,7 +14,7 @@ import javaff.data.TotalOrderPlan;
 import javaff.data.strips.Proposition;
 import javaff.planning.TemporalMetricState;
 
-import common.PrefixEnum;
+import common.feature.PrefixEnum;
 import common.preprocessor.file.FileManager;
 
 public class GenerateExampleUtils {

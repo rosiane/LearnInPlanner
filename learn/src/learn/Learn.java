@@ -18,8 +18,8 @@ import learn.utils.ExpandFeatures;
 
 import org.apache.log4j.Logger;
 
-import common.ClassExpression;
-import common.PrefixEnum;
+import common.feature.ClassExpression;
+import common.feature.PrefixEnum;
 import common.preprocessor.file.FileManager;
 import common.preprocessor.file.ReaderFeaturePlanning;
 
@@ -48,17 +48,17 @@ public class Learn {
 
 		@SuppressWarnings("unchecked")
 		final Iterator<UngroundInstantAction> iteratorActions = unground.actions
-				.iterator();
+		.iterator();
 
 		ClassExpression classExpression;
 		UngroundInstantAction ungroundInstantAction;
 		while (iteratorActions.hasNext()) {
 			ungroundInstantAction = iteratorActions.next();
 			final String[] parameterType = new String[ungroundInstantAction.params
-					.size()];
+			                                          .size()];
 			@SuppressWarnings("unchecked")
 			final Iterator<Variable> parameters = ungroundInstantAction.params
-					.iterator();
+			.iterator();
 			for (int indexParameter = 0; indexParameter < parameterType.length; indexParameter++) {
 				parameterType[indexParameter] = parameters.next().getType()
 						.toString();
@@ -70,15 +70,15 @@ public class Learn {
 		}
 		@SuppressWarnings("unchecked")
 		final Iterator<PredicateSymbol> iteratorFacts = unground.predSymbols
-				.iterator();
+		.iterator();
 		PredicateSymbol predicateSymbol;
 		while (iteratorFacts.hasNext()) {
 			predicateSymbol = iteratorFacts.next();
 			final String[] parameterType = new String[predicateSymbol
-					.getParams().size()];
+			                                          .getParams().size()];
 			@SuppressWarnings("unchecked")
 			final Iterator<Variable> parameters = predicateSymbol.getParams()
-					.iterator();
+			.iterator();
 			for (int indexParameter = 0; indexParameter < parameterType.length; indexParameter++) {
 				parameterType[indexParameter] = parameters.next().getType()
 						.toString();
@@ -105,18 +105,17 @@ public class Learn {
 			features.add(classExpression);
 		}
 		final Iterator<SimpleType> iteratorT = unground.types.iterator();
-		this.types = new ArrayList<>();
+		types = new ArrayList<>();
 		while (iteratorT.hasNext()) {
-			this.types.add(iteratorT.next().toString());
+			types.add(iteratorT.next().toString());
 		}
 		return features;
 	}
 
 	public Chromosome learn(final LearnParameters learnParameters)
 			throws Exception {
-		LinkedList<ClassExpression> features = this
-				.initialFeatures(learnParameters);
-		this.writeFeatures(learnParameters.getFeaturesFile() + 0, features);
+		LinkedList<ClassExpression> features = initialFeatures(learnParameters);
+		writeFeatures(learnParameters.getFeaturesFile() + 0, features);
 		List<Chromosome> population = RandomUtilsFeatureSelector
 				.initializePopulation(
 						learnParameters.getNumberIndividualInitialGA(),
@@ -142,15 +141,15 @@ public class Learn {
 					&& !learnParameters.getResultFile().isEmpty()) {
 				FileManager.write(learnParameters.getResultFile(),
 						"$$$$$$$$$$ Run Expansion " + (indexExpansion + 1)
-								+ "$$$$$$$$$$", true);
+						+ "$$$$$$$$$$", true);
 			} else {
 				System.out.println("$$$$$$$$$$ Run Expansion "
 						+ (indexExpansion + 1) + "$$$$$$$$$$");
 			}
 			if (indexExpansion > 0) {
-				features = this.selectedFeatures(features, last.getGene());
-				features = ExpandFeatures.expand(features, this.types);
-				this.writeFeatures(learnParameters.getFeaturesFile()
+				features = selectedFeatures(features, last.getGene());
+				features = ExpandFeatures.expand(features, types);
+				writeFeatures(learnParameters.getFeaturesFile()
 						+ (indexExpansion), features);
 				readerFeaturePlanning = new ReaderFeaturePlanning(features,
 						learnParameters.getDirPlanningProblem(),

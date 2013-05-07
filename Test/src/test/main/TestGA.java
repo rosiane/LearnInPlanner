@@ -45,7 +45,7 @@ public class TestGA {
 		final int numberFathers = 10;
 		final long numberGeneration = 10;
 		final int numberIndividualCrossing = 4;
-		final int numberIndividualMutation = 2;
+		final double mutationRate = 0.1;
 
 		// Parameters MLP
 		final long numberEpochs = 100;
@@ -95,7 +95,7 @@ public class TestGA {
 		parameterGA.setNumberFathers(numberFathers);
 		parameterGA.setNumberGeneration(numberGeneration);
 		parameterGA.setNumberIndividualCrossing(numberIndividualCrossing);
-		parameterGA.setNumberIndividualMutation(numberIndividualMutation);
+		parameterGA.setMutationRate(mutationRate);
 
 		final Chromosome chromosome = geneticAlgorithm.run(population,
 				fitnessFunction, parameterGA);

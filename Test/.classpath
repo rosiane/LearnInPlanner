@@ -4,7 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/neural-network"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/heuristic-rpl"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/feature-selector"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/deep-learning"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/java-ff"/>

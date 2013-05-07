@@ -11,7 +11,7 @@ import javaff.data.TotalOrderPlan;
 import javaff.data.strips.Proposition;
 import javaff.planning.MetricState;
 
-import common.PrefixEnum;
+import common.feature.PrefixEnum;
 
 public class HeuristicRPL {
 	public static Solution calculate(final MetricState initialState) {

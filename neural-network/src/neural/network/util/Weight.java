@@ -4,6 +4,7 @@ import java.util.Random;
 
 import common.MatrixHandler;
 
+
 /**
  * Weights between two layers
  * 

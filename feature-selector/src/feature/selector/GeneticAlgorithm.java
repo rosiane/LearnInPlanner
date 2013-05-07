@@ -1,6 +1,8 @@
 package feature.selector;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import common.preprocessor.file.FileManager;
@@ -26,7 +28,21 @@ public class GeneticAlgorithm {
 			throws IOException {
 		Chromosome result = null;
 		List<Chromosome> currentPopulation = population;
-		for (int index = 0; index < parameterGA.getNumberGeneration(); index++) {
+		Collections.sort(currentPopulation, new Comparator<Chromosome>() {
+			@Override
+			public int compare(final Chromosome o1, final Chromosome o2) {
+				if (o1.getEvaluation() < o2.getEvaluation()) {
+					return -1;
+				}
+				if (o1.getEvaluation() > o2.getEvaluation()) {
+					return 1;
+				}
+				return 0;
+			}
+		});
+		for (int index = 0; index < parameterGA.getNumberGeneration()
+				&& currentPopulation.get(0).getEvaluation() > parameterGA
+						.getMaxEvaluation(); index++) {
 			if ((this.resultFile != null) && !this.resultFile.isEmpty()) {
 				FileManager.write(this.resultFile, "########## Run Generation "
 						+ (index + 1) + "##########", true);

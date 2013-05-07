@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import common.ClassExpression;
-import common.PrefixEnum;
+import common.feature.ClassExpression;
+import common.feature.PrefixEnum;
 
 public class ExpandFeatures {
 	private static String getType(List<String> types, String typeSpecific) {

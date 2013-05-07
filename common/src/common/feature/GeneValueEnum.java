@@ -1,4 +1,4 @@
-package common;
+package common.feature;
 
 public enum GeneValueEnum {
 	TRUE(1), FALSE(0);

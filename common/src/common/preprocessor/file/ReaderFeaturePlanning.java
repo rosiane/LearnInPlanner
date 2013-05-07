@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import common.ClassExpression;
 import common.Data;
-import common.GeneValueEnum;
 import common.MatrixHandler;
+import common.feature.ClassExpression;
+import common.feature.GeneValueEnum;
 
 public class ReaderFeaturePlanning implements ReaderFeature {
 	private static Data initialize(final int numberInput,

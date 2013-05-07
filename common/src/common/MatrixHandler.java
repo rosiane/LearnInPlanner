@@ -1,9 +1,12 @@
 package common;
 
+import java.io.IOException;
+
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 
 import com.syvys.jaRBM.Math.Matrix;
+import common.preprocessor.file.FileManager;
 
 public class MatrixHandler extends Matrix {
 
@@ -114,6 +117,14 @@ public class MatrixHandler extends Matrix {
 		return Math.sqrt(normal);
 	}
 
+	public static double[] normal(final double[][] data) {
+		final double[] normal = new double[cols(data)];
+		for (int indexCols = 0; indexCols < cols(data); indexCols++) {
+			normal[indexCols] = normal(getCol(data, indexCols));
+		}
+		return normal;
+	}
+
 	public static double[][] normalizeCols(final double[][] data) {
 		double normal = 0;
 		final double[][] dataNormalized = new double[rows(data)][cols(data)];
@@ -122,6 +133,18 @@ public class MatrixHandler extends Matrix {
 			for (int indexRows = 0; indexRows < rows(data); indexRows++) {
 				dataNormalized[indexRows][indexCols] = data[indexRows][indexCols]
 						/ normal;
+			}
+		}
+		return dataNormalized;
+	}
+
+	public static double[][] normalizeCols(final double[][] data,
+			final double[] normal) {
+		final double[][] dataNormalized = new double[rows(data)][cols(data)];
+		for (int indexCols = 0; indexCols < cols(data); indexCols++) {
+			for (int indexRows = 0; indexRows < rows(data); indexRows++) {
+				dataNormalized[indexRows][indexCols] = data[indexRows][indexCols]
+						/ normal[indexCols];
 			}
 		}
 		return dataNormalized;
@@ -204,11 +227,28 @@ public class MatrixHandler extends Matrix {
 		return sum;
 	}
 
+	public static String toStringArray(final double[] array) {
+		final StringBuffer arrayString = new StringBuffer();
+		for (int j = 0; j < array.length; j++) {
+			arrayString.append(array[j] + " ");
+		}
+		return arrayString.toString();
+	}
+
 	public static String toStringArray(final int[] array) {
 		final StringBuffer arrayString = new StringBuffer();
 		for (int j = 0; j < array.length; j++) {
 			arrayString.append(array[j] + " ");
 		}
 		return arrayString.toString();
+	}
+
+	public static void write(final String pathFile, final double[][] matrix,
+			final boolean append) throws IOException {
+		for (int indexRow = 0; indexRow < rows(matrix); indexRow++) {
+			FileManager.write(pathFile,
+					toStringArray(getRow(matrix, indexRow)), append);
+		}
+
 	}
 }

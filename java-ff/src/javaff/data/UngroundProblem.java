@@ -45,7 +45,8 @@ import neural.network.interfaces.NeuralNetworkIF;
 import neural.network.util.Weight;
 
 import com.syvys.jaRBM.Layers.Layer;
-import common.ClassExpression;
+
+import common.feature.ClassExpression;
 
 public class UngroundProblem {
 	public String DomainName; // Name of Domain

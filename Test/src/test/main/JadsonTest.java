@@ -15,6 +15,7 @@ import neural.network.util.Weight;
 
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
+
 import common.preprocessor.file.FileManager;
 
 public class JadsonTest {

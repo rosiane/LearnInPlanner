@@ -1,4 +1,4 @@
-package common;
+package common.feature;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 
 public class ClassExpression {
 	private String predicate;

@@ -15,7 +15,7 @@ import java.util.Map;
 
 import common.Data;
 import common.MatrixHandler;
-import common.PrefixEnum;
+import common.feature.PrefixEnum;
 
 public class FileManager {
 

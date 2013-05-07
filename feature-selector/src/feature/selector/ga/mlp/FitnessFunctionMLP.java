@@ -12,8 +12,8 @@ import neural.network.util.Weight;
 import com.syvys.jaRBM.Layers.Layer;
 import com.syvys.jaRBM.Layers.LogisticLayer;
 import common.Data;
-import common.GeneValueEnum;
 import common.MatrixHandler;
+import common.feature.GeneValueEnum;
 import common.preprocessor.file.FileManager;
 import common.preprocessor.file.ReaderFeature;
 
@@ -27,6 +27,9 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	private Weight[] weights;
 	private final ParameterTraining parameterTraining;
 	private final String resultFile;
+	private Data dataTraining;
+	private Data dataValidation;
+	private Data dataTest;
 
 	public FitnessFunctionMLP(final ReaderFeature readerFeature,
 			final ParameterTraining parameterTraining, final String resultFile) {
@@ -44,62 +47,96 @@ public class FitnessFunctionMLP implements FitnessFunction {
 		} else {
 			final int numberAttribute = MatrixHandler.countValue(
 					chromosome.getGene(), GeneValueEnum.TRUE.value());
-			this.initializeNetwork(numberAttribute);
-			final Weight[] result = this.train(chromosome.getGene());
-			evaluation = this.test(result, chromosome.getGene());
+			initializeNetwork(numberAttribute);
+			dataTraining = readerFeature.readTraining(chromosome.getGene());
+			dataValidation = readerFeature.readValidation(chromosome.getGene());
+			dataTest = readerFeature.readTest(chromosome.getGene());
+			if (parameterTraining.isNormalizeLabel()) {
+				normalizeLabel();
+			}
+			final Weight[] result = train(chromosome.getGene());
+			evaluation = test(result, chromosome.getGene());
+			chromosome.setWeights(weights);
 		}
 		return evaluation;
 	}
 
 	private void initializeNetwork(final int numberAttribute) {
-		this.net = new LogisticLayer[this.parameterTraining
-				.getNumberHiddenLayers() + 1];
-		int numberUnitHidden = this.parameterTraining.getNumberUnitHidden();
-		if (this.parameterTraining.isUseHeuristicUnitHidden()) {
+		net = new LogisticLayer[parameterTraining.getNumberHiddenLayers() + 1];
+		int numberUnitHidden = parameterTraining.getNumberUnitHidden();
+		if (parameterTraining.isUseHeuristicUnitHidden()) {
 			final double[] array = { numberAttribute,
-					this.parameterTraining.getNumberOutput() };
+					parameterTraining.getNumberOutput() };
 			numberUnitHidden = (int) MatrixHandler.mean(array);
 		}
-		for (int index = 0; index < this.net.length; index++) {
-			if (index == (this.net.length - 1)) {
-				this.net[index] = new LogisticLayer(
-						this.parameterTraining.getNumberOutput());
+		for (int index = 0; index < net.length; index++) {
+			if (index == (net.length - 1)) {
+				net[index] = new LogisticLayer(
+						parameterTraining.getNumberOutput());
 			} else {
-				this.net[index] = new LogisticLayer(numberUnitHidden);
+				net[index] = new LogisticLayer(numberUnitHidden);
 			}
-			this.net[index].setMomentum(this.parameterTraining.getMomentum());
-			this.net[index].setLearningRate(this.parameterTraining
-					.getLearningRate());
+			net[index].setMomentum(parameterTraining.getMomentum());
+			net[index].setLearningRate(parameterTraining.getLearningRate());
 		}
 
-		this.weights = new Weight[this.parameterTraining
-				.getNumberHiddenLayers() + 1];
+		weights = new Weight[parameterTraining.getNumberHiddenLayers() + 1];
 
-		for (int index = 0; index < this.weights.length; index++) {
+		for (int index = 0; index < weights.length; index++) {
 			if (index == 0) {
-				this.weights[index] = new Weight(numberAttribute,
-						numberUnitHidden);
-			} else if (index == (this.weights.length - 1)) {
-				this.weights[index] = new Weight(numberUnitHidden,
-						this.parameterTraining.getNumberOutput());
+				weights[index] = new Weight(numberAttribute, numberUnitHidden);
+			} else if (index == (weights.length - 1)) {
+				weights[index] = new Weight(numberUnitHidden,
+						parameterTraining.getNumberOutput());
 			} else {
-				this.weights[index] = new Weight(numberUnitHidden,
-						numberUnitHidden);
+				weights[index] = new Weight(numberUnitHidden, numberUnitHidden);
 			}
 		}
-		this.neuralNetwork = new MLP();
+		neuralNetwork = new MLP();
+	}
+
+	private void normalizeLabel() {
+		final double[][] allLabel = new double[MatrixHandler.rows(dataTraining
+				.getLabel())
+				+ MatrixHandler.rows(dataValidation.getLabel())
+				+ MatrixHandler.rows(dataTest.getLabel())][MatrixHandler
+				                                           .cols(dataTraining.getLabel())];
+		int indexRowNormalized = 0;
+		for (int indexRow = 0; indexRow < dataTraining.getLabel().length; indexRow++) {
+			MatrixHandler.setRow(allLabel,
+					MatrixHandler.getRow(dataTraining.getLabel(), indexRow),
+					indexRowNormalized);
+			indexRowNormalized++;
+		}
+		for (int indexRow = 0; indexRow < dataValidation.getLabel().length; indexRow++) {
+			MatrixHandler.setRow(allLabel,
+					MatrixHandler.getRow(dataValidation.getLabel(), indexRow),
+					indexRowNormalized);
+			indexRowNormalized++;
+		}
+		for (int indexRow = 0; indexRow < dataTest.getLabel().length; indexRow++) {
+			MatrixHandler.setRow(allLabel,
+					MatrixHandler.getRow(dataTest.getLabel(), indexRow),
+					indexRowNormalized);
+			indexRowNormalized++;
+		}
+		final double[] normal = MatrixHandler.normal(allLabel);
+		dataTraining.setLabel(MatrixHandler.normalizeCols(
+				dataTraining.getLabel(), normal));
+		dataValidation.setLabel(MatrixHandler.normalizeCols(
+				dataValidation.getLabel(), normal));
+		dataTest.setLabel(MatrixHandler.normalizeCols(dataTest.getLabel(),
+				normal));
 	}
 
 	private double test(final Weight[] weights, final int[] indexes)
 			throws IOException {
-		Data dataTest = this.readerFeature.readTest(indexes);
 		dataTest = MatrixHandler.randomize(dataTest.getSample(),
 				dataTest.getLabel());
-		final ErrorRate errorRate = NeuralNetworkUtils.calculateErrorRate(
-				this.net, weights, dataTest, this.parameterTraining,
-				this.neuralNetwork);
-		if ((this.resultFile != null) && !this.resultFile.isEmpty()) {
-			FileManager.write(this.resultFile,
+		final ErrorRate errorRate = NeuralNetworkUtils.calculateErrorRate(net,
+				weights, dataTest, parameterTraining, neuralNetwork);
+		if ((resultFile != null) && !resultFile.isEmpty()) {
+			FileManager.write(resultFile,
 					"Error Rate Test " + errorRate.getErrorRate(), true);
 		} else {
 			System.out.println("Error Rate Test " + errorRate.getErrorRate());
@@ -108,12 +145,10 @@ public class FitnessFunctionMLP implements FitnessFunction {
 	}
 
 	private Weight[] train(final int[] indexes) throws IOException {
-		final Data dataTraining = this.readerFeature.readTraining(indexes);
-		final Data dataValidation = this.readerFeature.readValidation(indexes);
-		Weight[] update = this.weights.clone();
-		update = this.neuralNetwork.train(this.net, update,
-				dataTraining.getSample(), dataTraining.getLabel(),
-				this.parameterTraining, dataValidation, this.resultFile);
+		Weight[] update = weights.clone();
+		update = neuralNetwork.train(net, update, dataTraining.getSample(),
+				dataTraining.getLabel(), parameterTraining, dataValidation,
+				resultFile);
 		return update;
 	}
 

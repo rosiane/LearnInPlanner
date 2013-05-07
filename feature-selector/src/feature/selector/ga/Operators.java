@@ -62,14 +62,14 @@ public class Operators {
 
 	public static List<Chromosome> mutation(
 			final List<Chromosome> currentPopulation,
-			final int numberIndividualMutation) {
-		Chromosome individual = null;
+			final double mutationRate) {
 		final List<Chromosome> result = currentPopulation;
-		for (int index = 0; index < numberIndividualMutation; index++) {
-			individual = result.get(RandomUtilsFeatureSelector.nextInt(result
-					.size()));
-			individual.mutation(RandomUtilsFeatureSelector.nextInt(individual
-					.getGene().length));
+		for (int indexIndividual = 0; indexIndividual < currentPopulation.size(); indexIndividual++) {
+			for(int indexGene = 0; indexGene < result.get(indexIndividual).getGene().length; indexGene++){
+				if(RandomUtilsFeatureSelector.nextDouble() <= mutationRate){
+					result.get(indexIndividual).mutation(indexGene);
+				}
+			}
 		}
 
 		return result;
@@ -78,20 +78,20 @@ public class Operators {
 	public static List<Chromosome> reproduction(
 			final List<Chromosome> currentPopulation,
 			final ParameterGA parameterGA, final String resultFile)
-			throws IOException {
+					throws IOException {
 		if ((resultFile != null) && !resultFile.isEmpty()) {
 			FileManager.write(resultFile,
 					"+++++++++++++++++ Reproduction +++++++++++++++++", true);
 		} else {
 			System.out
-					.println("+++++++++++++++++ Reproduction +++++++++++++++++");
+			.println("+++++++++++++++++ Reproduction +++++++++++++++++");
 		}
 		final List<Chromosome> result = currentPopulation;
 		List<Chromosome> newIndividuals = new ArrayList<>();
 		newIndividuals = crossing(currentPopulation,
 				parameterGA.getNumberIndividualCrossing());
 		newIndividuals = mutation(newIndividuals,
-				parameterGA.getNumberIndividualMutation());
+				parameterGA.getMutationRate());
 		result.addAll(newIndividuals);
 		return result;
 	}
