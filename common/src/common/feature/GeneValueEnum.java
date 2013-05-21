@@ -12,4 +12,9 @@ public enum GeneValueEnum {
 	public int value() {
 		return this.value;
 	}
+	
+	@Override
+	public String toString() {
+		return Integer.toString(value);
+	}
 }

@@ -1,0 +1,70 @@
+action_Drop hoist crate surface place
+action_Lift hoist crate surface place
+action_Unload hoist crate truck place
+action_Load hoist crate truck place
+action_Load hoist crate truck place
+action_Unload hoist crate truck place
+action_Drive truck place place
+action_Lift hoist crate surface place
+action_Drop hoist crate surface place
+action_Drive truck place place
+f_clear surface surface
+a_clear surface surface
+d_clear surface surface
+g_clear surface surface
+c_clear surface surface
+f_lifting hoist crate hoist crate
+a_lifting hoist crate hoist crate
+d_lifting hoist crate hoist crate
+g_lifting hoist crate hoist crate
+c_lifting hoist crate hoist crate
+f_clear surface surface
+a_clear surface surface
+d_clear surface surface
+g_clear surface surface
+c_clear surface surface
+f_lifting hoist crate hoist crate
+a_lifting hoist crate hoist crate
+d_lifting hoist crate hoist crate
+g_lifting hoist crate hoist crate
+c_lifting hoist crate hoist crate
+f_available hoist hoist
+a_available hoist hoist
+d_available hoist hoist
+g_available hoist hoist
+c_available hoist hoist
+f_in crate truck crate truck
+a_in crate truck crate truck
+d_in crate truck crate truck
+g_in crate truck crate truck
+c_in crate truck crate truck
+f_at locatable place locatable place
+a_at locatable place locatable place
+d_at locatable place locatable place
+g_at locatable place locatable place
+c_at locatable place locatable place
+f_available hoist hoist
+a_available hoist hoist
+d_available hoist hoist
+g_available hoist hoist
+c_available hoist hoist
+f_on crate surface crate surface
+a_on crate surface crate surface
+d_on crate surface crate surface
+g_on crate surface crate surface
+c_on crate surface crate surface
+f_at locatable place locatable place
+a_at locatable place locatable place
+d_at locatable place locatable place
+g_at locatable place locatable place
+c_at locatable place locatable place
+f_in crate truck crate truck
+a_in crate truck crate truck
+d_in crate truck crate truck
+g_in crate truck crate truck
+c_in crate truck crate truck
+f_on crate surface crate surface
+a_on crate surface crate surface
+d_on crate surface crate surface
+g_on crate surface crate surface
+c_on crate surface crate surface

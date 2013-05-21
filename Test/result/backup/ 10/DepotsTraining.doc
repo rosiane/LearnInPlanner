@@ -1,0 +1,818 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Execution time: 07_05_2013_18_40_47
+Problem Informations
+Domain: ../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl
+Problems training: 6 7 
+Problems validation: 5 
+Problems test: 2 3 
+Parameter MLP
+Number Epochs: 100
+Max Error: 0.0
+Learning Rate Decrease: 1.0
+Min Learning Rate: 0.0
+Initialize Random: true
+Interval Epoch Percentage: 2
+Number Hidden Layers: 1
+Number Output: 1
+Learning Rate: 0.1
+Number Unit Hidden: 3
+Use Heuristic Unit Hidden: true
+Initialize Random: true
+Normalize label: true
+Parameter GA
+Number Expansion: 2
+Number Fathers: 6
+Number Generation: 10
+Number Individual Crossing: 1
+Mutation Rate: 0.1
+$$$$$$$$$$ Run Expansion 1$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.04269526227869639
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.020357595418652744
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.019996785843716544
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.01967157758588043
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.019360452079276568
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0190634678564624
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.018780432020082876
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.01851103456047465
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.01825476644392749
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.018011407602241174
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.021139541644474173
+Running Epoch: 0
+	 Error Rate: 0.019529096346518168
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.013649281911213706
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.013460083725959651
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0133174490497839
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.013179435035521374
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.013045468518017111
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.012915536920842156
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.012789535612256708
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.01266742080104722
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.012549132213003073
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.014587700171584202
+Running Epoch: 0
+	 Error Rate: 0.04310570195848366
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.021627227213429176
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.021147739728899696
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.02070277262568992
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.020276619021289997
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.01986981840509
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.019482388018023548
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.01911441800300787
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.01876547069019503
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.018435177973559213
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.02144897407999099
+Running Epoch: 0
+	 Error Rate: 0.05551841576562468
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.02381017160900894
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.023112523206910603
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.022472493448456383
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.021878557567464943
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.021330485205041307
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.02082720500278319
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0203657468434933
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.01994426380458228
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.019559799639608397
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.022682138020281985
+Running Epoch: 0
+	 Error Rate: 0.04808119201624249
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.02261081220861487
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.022092914484070747
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.021620095421239317
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.02118097311688572
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.020774291848126788
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.02039859559528082
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.02005203421809997
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.019732818804159915
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.019439068192292755
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.022170221165825087
+Running Epoch: 0
+	 Error Rate: 0.0414374535579144
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.024482747868363703
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.02375065234896756
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.023084962744921857
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.02246676124584475
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.021895598272265452
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.02136956390163451
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.02088634035462136
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.020443375352758343
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.020037625513930506
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.023236941732729874
+Running Epoch: 0
+	 Error Rate: 0.044675798150347945
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.021163006726502544
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.020783615588850522
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.020436670941840963
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.020104399937791825
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.01978699774108706
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.019484494005889152
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.01919662780894184
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.01892312441390065
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0186636301010611
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.021073905370825246
+Running Epoch: 0
+	 Error Rate: 0.21335725597941188
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.04305213273581875
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.040823828003279154
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.03902835405692792
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0376009497158014
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.036477726305932684
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.03559945403618474
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.03491546497692545
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0343841783927635
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.033972262956445835
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.03892386909742295
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[0 1 1 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 0 ], evaluation=[0.014587700171584202]
+Best: gene=[0 1 1 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 0 ], evaluation=[0.014587700171584202]
+$$$$$$$$$$ Run Expansion 2$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.005740423611289637
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0027672297327855973
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002717090430243863
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027139162784163163
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027092423952782803
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002709021390124603
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002711439816296685
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002709469446551131
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002716142536327236
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002707717448415137
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020187844201739365
+Running Epoch: 0
+	 Error Rate: 0.005933962200735042
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002779948726683726
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0027167958887546893
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002707715371271688
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002700422804415162
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027050530348857005
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002704425706523653
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.00270543836385084
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027077420901302743
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.00270217744648215
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002009562716286323
+Running Epoch: 0
+	 Error Rate: 0.006072064700879184
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0027755718994863132
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0027179348816704025
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027119067229340907
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002709896128189172
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002711075889951976
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.00271576406741216
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027172352953005892
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002714872035927259
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002717305653451492
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002018488248157192
+Running Epoch: 0
+	 Error Rate: 0.005760050343174391
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002785461178043086
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002720935834141197
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027081708457978226
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027073058937178386
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027070372496925416
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002710477793146052
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002714314810248942
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002714224801305382
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027100310255396103
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020170561903020815
+Running Epoch: 0
+	 Error Rate: 0.0061037599241134995
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0027851860645970237
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0027039294671160775
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002697722880661865
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002700787550881116
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027026528103238816
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027081478706694434
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027013858224154545
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027099285028439955
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027045034372667064
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020173098491922093
+Running Epoch: 0
+	 Error Rate: 0.00680409007619607
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0028320237281419173
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002730274391343043
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027188468041219166
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002716208755657814
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002712927345409338
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002714725515610164
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002716824845396096
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027086785084036264
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002714557009397923
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020170423367659998
+Running Epoch: 0
+	 Error Rate: 0.0067682181107668205
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0028564826448050206
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002743359282365309
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027272647122869717
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027209692100400953
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002720816188976946
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027193256409273666
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027201853527355196
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027205385980048078
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027168243094832247
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020364493462731548
+Running Epoch: 0
+	 Error Rate: 0.005928512932601562
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0027953492760783983
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002723600835841655
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027079038644191623
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027007149028221073
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027060719746352054
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027071888533706924
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027047556360037706
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002706990246738228
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027052870623035913
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020020792607323974
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 1 0 0 0 0 1 1 0 0 1 0 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 1 1 1 1 0 1 1 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0 1 0 1 1 0 0 0 0 0 0 1 1 0 0 1 1 0 0 1 0 0 0 0 1 1 0 1 0 1 0 1 1 0 0 1 0 0 0 0 0 1 1 1 0 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 ], evaluation=[0.0020020792607323974]
+Best: gene=[0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 1 0 0 0 0 1 1 0 0 1 0 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 1 1 1 1 0 1 1 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0 1 0 1 1 0 0 0 0 0 0 1 1 0 0 1 1 0 0 1 0 0 0 0 1 1 0 1 0 1 0 1 1 0 0 1 0 0 0 0 0 1 1 1 0 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 ], evaluation=[0.0020020792607323974]
+$$$$$$$$$$ Run Expansion 3$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.0027351042873615394
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026292150269435818
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002540509458012823
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0025484615141670806
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.003072389103371707
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0023806982599238547
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0026978771836648576
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0031954632577282146
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0039046574015564528
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0022658896846840374
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002034144450966875
+Running Epoch: 0
+	 Error Rate: 0.0027231967285527123
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0030908806225505023
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002505125809128891
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.00229613932237983
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002764379216898901
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002599876001382212
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002262173398712044
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0023197962545726284
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002463666487415581
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.003990763094463483
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0018568857710029739
+Running Epoch: 0
+	 Error Rate: 0.005837090367492741
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026259306695369062
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002427786415486336
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002335370613229582
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027518046165367765
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.003814523855640096
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002321286292755181
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0028117766221611006
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.00257509206311909
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0022950105659013823
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0015116354840312245
+Running Epoch: 0
+	 Error Rate: 0.0023742693655161916
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0023474681775600154
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0025192825738068543
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0022679920496622564
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.00255485538719808
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002397280939528981
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002621727801978339
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002331891276708279
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027406447219312144
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002281091776298882
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0010801452511985299
+Running Epoch: 0
+	 Error Rate: 0.0023872091362930753
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.003087299205821711
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0031589487207227085
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002802780147503088
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0030551702222720452
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002403184077029936
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0024749662188194824
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.006834790108950405
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0026068759362497876
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.003318317417109014
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.003022345916940929
+Running Epoch: 0
+	 Error Rate: 0.0026250355237744066
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002855491732349247
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0024638567123607003
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0026097523943540684
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0029176802751473816
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002424708136676651
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002777427886518871
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0023343441345843774
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002350245077960526
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0025916508630710417
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002683110395443696
+Running Epoch: 0
+	 Error Rate: 0.0023926786889854014
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0036240165229617077
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.004307724030800184
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027528850247846588
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0025801408443218024
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002431640137317837
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0032716218593490313
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.00258463708962025
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002700349527061052
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002344770041141449
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.001022075135048866
+Running Epoch: 0
+	 Error Rate: 0.0023283513873234474
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026676375269135393
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0026438085410275362
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002496088173376419
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0023590932543262866
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.00234333146561271
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0022792988523492688
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0026304941007805243
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0025146023984068213
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002531281501156958
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.00671153288843183
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[1 1 0 1 0 1 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 1 0 1 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 0 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 1 1 0 1 1 0 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 1 1 0 1 1 0 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 0 0 1 1 0 0 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 0 0 1 0 0 0 1 1 0 1 1 1 1 0 0 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 1 1 0 0 0 0 0 0 0 1 0 0 1 1 1 0 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 0 0 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 0 1 1 0 0 0 0 1 1 0 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 1 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 0 1 1 1 1 0 0 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 0 1 0 1 1 1 0 1 0 1 0 1 0 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 1 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 0 1 0 1 0 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 1 1 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 0 0 1 0 0 0 1 1 0 1 0 1 0 1 1 1 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 1 0 1 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 1 1 0 0 1 1 0 1 0 0 1 1 0 0 1 1 1 1 1 0 0 1 1 1 0 0 0 0 0 1 0 1 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 1 0 0 1 1 1 0 1 1 0 1 1 0 0 1 1 0 1 1 0 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 0 0 1 0 1 0 1 1 1 1 1 0 0 0 0 1 1 0 1 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 1 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 1 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 1 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 1 0 1 0 0 0 0 0 1 1 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 1 1 0 1 0 0 0 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 1 0 0 1 0 0 0 0 1 0 1 1 1 1 1 1 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 0 0 0 1 0 0 1 1 0 1 1 1 1 1 0 0 1 0 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 0 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 0 1 0 0 1 1 1 0 0 1 0 1 1 0 0 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 0 0 1 0 1 0 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 1 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 1 1 0 1 0 1 1 0 0 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 0 1 0 0 0 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1 1 1 0 0 0 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 0 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 1 0 0 1 1 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 0 1 0 0 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1 0 1 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 0 0 0 0 1 1 0 0 1 1 1 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 1 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 1 1 1 0 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 0 0 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 0 0 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 0 0 1 1 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 0 1 1 0 0 1 1 0 0 0 1 0 1 1 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 0 1 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 0 1 0 0 0 1 1 0 1 0 1 1 1 0 0 1 1 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 1 1 1 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 1 0 1 0 1 1 1 1 0 0 0 1 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 0 1 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 1 1 1 0 1 0 0 1 1 1 1 1 0 1 0 1 1 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 1 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 0 0 1 1 0 0 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 1 1 1 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 1 1 0 0 0 0 1 1 0 0 1 1 0 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 1 0 1 0 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 0 1 0 0 1 1 1 1 1 0 0 1 1 0 0 1 1 0 1 1 0 0 1 1 0 1 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 0 0 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 1 1 1 0 1 0 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1 1 1 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 0 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 0 1 1 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 1 0 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 0 1 0 1 0 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 0 0 1 0 0 1 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 1 0 1 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 1 0 1 1 1 0 1 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 1 0 0 1 1 1 1 0 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1 0 0 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 1 0 1 0 0 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 1 ], evaluation=[0.001022075135048866]
+Best: gene=[1 1 0 1 0 1 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 1 0 1 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 0 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 1 1 0 1 1 0 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 1 1 0 1 1 0 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 0 0 1 1 0 0 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 0 0 1 0 0 0 1 1 0 1 1 1 1 0 0 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 1 1 0 0 0 0 0 0 0 1 0 0 1 1 1 0 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 0 0 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 0 1 1 0 0 0 0 1 1 0 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 1 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 0 1 1 1 1 0 0 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 0 1 0 1 1 1 0 1 0 1 0 1 0 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 1 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 0 1 0 1 0 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 1 1 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 0 0 1 0 0 0 1 1 0 1 0 1 0 1 1 1 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 1 0 1 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 1 1 0 0 1 1 0 1 0 0 1 1 0 0 1 1 1 1 1 0 0 1 1 1 0 0 0 0 0 1 0 1 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 1 0 0 1 1 1 0 1 1 0 1 1 0 0 1 1 0 1 1 0 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 0 0 1 0 1 0 1 1 1 1 1 0 0 0 0 1 1 0 1 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 1 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 1 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 1 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 1 0 1 0 0 0 0 0 1 1 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 1 1 0 1 0 0 0 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 1 0 0 1 0 0 0 0 1 0 1 1 1 1 1 1 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 0 0 0 1 0 0 1 1 0 1 1 1 1 1 0 0 1 0 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 0 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 0 1 0 0 1 1 1 0 0 1 0 1 1 0 0 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 0 0 1 0 1 0 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 1 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 1 1 0 1 0 1 1 0 0 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 0 1 0 0 0 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1 1 1 0 0 0 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 0 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 1 0 0 1 1 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 0 1 0 0 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1 0 1 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 0 0 0 0 1 1 0 0 1 1 1 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 1 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 1 1 1 0 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 0 0 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 0 0 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 0 0 1 1 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 0 1 1 0 0 1 1 0 0 0 1 0 1 1 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 0 1 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 0 1 0 0 0 1 1 0 1 0 1 1 1 0 0 1 1 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 1 1 1 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 1 0 1 0 1 1 1 1 0 0 0 1 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 0 1 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 1 1 1 0 1 0 0 1 1 1 1 1 0 1 0 1 1 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 1 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 0 0 1 1 0 0 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 1 1 1 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 1 1 0 0 0 0 1 1 0 0 1 1 0 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 1 0 1 0 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 0 1 0 0 1 1 1 1 1 0 0 1 1 0 0 1 1 0 1 1 0 0 1 1 0 1 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 0 0 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 1 1 1 0 1 0 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1 1 1 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 0 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 0 1 1 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 1 0 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 0 1 0 1 0 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 0 0 1 0 0 1 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 1 0 1 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 1 0 1 1 1 0 1 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 1 0 0 1 1 1 1 0 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1 0 0 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 1 0 1 0 0 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 1 ], evaluation=[0.001022075135048866]
+Chosen: gene=[1 1 0 1 0 1 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 1 0 1 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 0 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 1 1 0 1 1 0 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 1 1 0 1 1 0 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 0 0 1 1 0 0 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 0 0 1 0 0 0 1 1 0 1 1 1 1 0 0 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 0 1 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 1 1 0 0 0 0 0 0 0 1 0 0 1 1 1 0 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 1 0 1 0 1 1 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 0 1 1 0 1 0 0 0 0 0 1 0 0 0 0 1 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 0 0 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 0 1 1 0 0 0 0 1 1 0 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 1 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 0 1 1 1 1 0 0 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 0 1 0 1 1 1 0 1 0 1 0 1 0 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 1 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 0 1 0 1 0 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 0 1 1 0 0 0 0 1 1 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 0 0 1 0 0 0 1 1 0 1 0 1 0 1 1 1 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 1 0 0 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 1 0 1 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 1 1 0 0 1 1 0 1 0 0 1 1 0 0 1 1 1 1 1 0 0 1 1 1 0 0 0 0 0 1 0 1 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 1 0 0 1 1 1 0 1 1 0 1 1 0 0 1 1 0 1 1 0 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 0 0 1 0 1 0 1 1 1 1 1 0 0 0 0 1 1 0 1 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 1 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 1 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 1 1 0 0 1 1 1 1 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 1 1 0 0 1 1 0 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 1 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 1 0 1 0 0 0 0 0 1 1 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 1 0 1 1 0 1 1 0 0 1 1 0 1 1 1 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 1 0 0 1 0 1 0 1 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 1 0 1 1 0 0 0 0 0 1 1 1 0 1 0 0 0 1 0 1 1 1 0 0 0 0 1 1 1 1 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 1 0 0 1 0 0 0 0 1 0 1 1 1 1 1 1 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 0 0 0 1 0 0 1 1 1 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 1 0 0 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 0 0 0 1 0 0 1 1 0 1 1 1 1 1 0 0 1 0 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 0 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 0 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 0 1 0 0 1 1 1 0 0 1 0 1 1 0 0 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 0 1 1 0 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 1 0 0 1 0 1 0 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 1 1 0 1 1 0 0 0 0 1 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 0 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 1 0 0 1 1 0 0 0 0 0 1 0 1 1 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 1 1 0 1 0 1 1 0 0 0 1 0 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 1 0 1 0 0 0 1 0 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1 1 1 0 0 0 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 0 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 1 1 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 0 0 1 0 1 1 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 1 0 0 1 1 1 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 0 1 0 0 0 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1 0 1 0 0 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 0 0 0 0 1 1 0 0 1 1 1 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 0 0 1 1 1 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 1 1 1 0 1 1 1 0 0 1 0 1 0 1 1 0 0 1 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 0 0 1 0 1 0 0 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 1 0 1 1 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 1 1 0 0 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1 0 0 1 1 1 0 1 0 0 1 1 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 0 1 1 0 0 1 1 0 0 0 1 0 1 1 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 0 1 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 1 1 1 0 1 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 0 0 1 0 1 1 1 0 1 0 0 0 1 1 0 1 0 1 1 1 0 0 1 1 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 0 1 0 1 1 1 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 0 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 1 1 0 1 0 1 0 0 1 0 0 0 1 1 0 1 0 1 1 1 1 0 0 0 1 0 1 1 1 1 0 0 0 1 0 1 0 1 0 1 1 1 1 0 1 0 0 0 1 1 0 1 0 0 0 1 1 1 0 0 1 0 1 0 1 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 1 1 0 0 0 0 1 0 1 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 1 0 1 1 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 1 1 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 1 1 1 0 1 0 0 1 1 1 1 1 0 1 0 1 1 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 1 0 0 0 1 0 1 0 0 1 0 0 1 0 1 1 0 1 1 0 0 1 1 1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 1 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 0 1 0 0 1 0 1 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 0 0 1 1 0 0 0 0 1 0 0 1 1 0 0 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 1 1 1 1 1 0 0 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 0 0 1 0 1 1 0 0 1 0 1 0 1 0 0 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 0 1 0 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1 1 0 1 0 0 0 1 0 0 0 0 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 0 1 0 1 0 1 1 0 0 0 0 1 1 0 0 0 1 1 1 0 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 0 1 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 0 0 1 1 0 0 0 1 0 0 1 1 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0 1 1 1 0 0 0 0 1 1 0 0 1 1 0 0 1 0 1 1 1 0 1 1 1 1 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 1 0 1 0 0 0 0 1 1 1 1 1 1 1 0 1 0 0 0 1 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 0 1 0 0 1 1 1 1 1 0 0 1 1 0 0 1 1 0 1 1 0 0 1 1 0 1 1 1 0 1 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 1 1 0 1 0 1 0 0 0 1 1 1 1 0 0 1 0 1 0 1 1 1 1 0 1 0 0 0 0 1 0 0 1 0 1 1 1 0 0 1 0 1 1 0 1 0 1 0 0 0 1 1 0 1 1 0 0 1 1 0 0 0 1 1 1 0 1 0 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 0 0 0 1 1 0 0 0 1 1 1 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1 1 1 1 1 1 0 0 0 1 1 1 0 1 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 0 1 1 0 1 1 0 1 1 0 0 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 0 0 0 1 0 1 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 0 1 1 0 0 0 1 1 1 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 0 1 1 1 0 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 1 1 0 1 1 1 1 0 1 0 1 0 1 0 0 1 1 1 1 0 0 1 0 1 1 0 0 0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 0 1 0 0 1 0 1 0 0 0 0 1 0 1 1 1 0 0 1 1 1 1 0 0 0 0 1 1 0 0 0 1 1 0 0 0 1 0 0 1 0 1 0 1 0 1 1 1 1 1 1 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 0 1 0 1 1 0 0 1 0 0 0 1 1 0 1 0 0 1 0 0 1 0 1 0 1 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0 0 1 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 0 1 1 0 0 1 1 0 1 0 1 1 1 0 1 0 0 1 1 0 0 1 1 0 0 0 0 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 0 1 1 0 1 1 1 0 1 1 1 1 1 1 0 0 0 1 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 1 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 1 1 1 0 0 0 0 1 1 0 0 1 1 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 1 1 1 1 1 0 0 1 1 1 1 0 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 1 1 0 0 0 1 0 0 0 1 0 1 0 1 1 0 1 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 1 1 1 0 1 1 0 1 1 1 1 0 0 1 1 1 0 1 0 0 0 1 0 1 0 0 1 0 1 1 1 1 0 0 0 1 0 0 0 0 1 0 1 1 1 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 1 0 0 1 1 1 1 ], evaluation=[0.001022075135048866]
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,25 +1,13 @@
 package learn;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import javaff.data.UngroundProblem;
-import javaff.data.strips.PredicateSymbol;
-import javaff.data.strips.SimpleType;
-import javaff.data.strips.UngroundInstantAction;
-import javaff.data.strips.Variable;
-import javaff.parser.PDDL21parser;
 import learn.pojos.LearnParameters;
 import learn.utils.ExpandFeatures;
 
-import org.apache.log4j.Logger;
-
 import common.feature.ClassExpression;
-import common.feature.PrefixEnum;
 import common.preprocessor.file.FileManager;
 import common.preprocessor.file.ReaderFeaturePlanning;
 
@@ -29,93 +17,12 @@ import feature.selector.ga.mlp.FitnessFunctionMLP;
 import feature.selector.ga.util.RandomUtilsFeatureSelector;
 
 public class Learn {
-	private static final Logger LOGGER = Logger.getLogger(Learn.class);
-	private List<String> types;
 
-	private LinkedList<ClassExpression> initialFeatures(
+	public Chromosome learn(final String problem,
 			final LearnParameters learnParameters) throws Exception {
-		final LinkedList<ClassExpression> features = new LinkedList<>();
-		final File domainFile = new File(learnParameters.getDomainPath());
-		final File problemFile = new File(
-				learnParameters.getExamplePathPrefix() + 1);
-		final UngroundProblem unground = PDDL21parser.parseFiles(domainFile,
-				problemFile);
-
-		if (unground == null) {
-			LOGGER.error("Parsing error - see console for details");
-			throw new Exception("Parsing error - see console for detail");
-		}
-
-		@SuppressWarnings("unchecked")
-		final Iterator<UngroundInstantAction> iteratorActions = unground.actions
-		.iterator();
-
-		ClassExpression classExpression;
-		UngroundInstantAction ungroundInstantAction;
-		while (iteratorActions.hasNext()) {
-			ungroundInstantAction = iteratorActions.next();
-			final String[] parameterType = new String[ungroundInstantAction.params
-			                                          .size()];
-			@SuppressWarnings("unchecked")
-			final Iterator<Variable> parameters = ungroundInstantAction.params
-			.iterator();
-			for (int indexParameter = 0; indexParameter < parameterType.length; indexParameter++) {
-				parameterType[indexParameter] = parameters.next().getType()
-						.toString();
-			}
-			classExpression = new ClassExpression(PrefixEnum.ACTION.prefix()
-					+ ungroundInstantAction.name.toString(),
-					ungroundInstantAction.params.size(), parameterType);
-			features.add(classExpression);
-		}
-		@SuppressWarnings("unchecked")
-		final Iterator<PredicateSymbol> iteratorFacts = unground.predSymbols
-		.iterator();
-		PredicateSymbol predicateSymbol;
-		while (iteratorFacts.hasNext()) {
-			predicateSymbol = iteratorFacts.next();
-			final String[] parameterType = new String[predicateSymbol
-			                                          .getParams().size()];
-			@SuppressWarnings("unchecked")
-			final Iterator<Variable> parameters = predicateSymbol.getParams()
-			.iterator();
-			for (int indexParameter = 0; indexParameter < parameterType.length; indexParameter++) {
-				parameterType[indexParameter] = parameters.next().getType()
-						.toString();
-			}
-			classExpression = new ClassExpression(PrefixEnum.FACT.prefix()
-					+ predicateSymbol.getName(), predicateSymbol.getParams()
-					.size(), parameterType);
-			features.add(classExpression);
-			classExpression = new ClassExpression(PrefixEnum.ADD.prefix()
-					+ predicateSymbol.getName(), predicateSymbol.getParams()
-					.size(), parameterType);
-			features.add(classExpression);
-			classExpression = new ClassExpression(PrefixEnum.DEL.prefix()
-					+ predicateSymbol.getName(), predicateSymbol.getParams()
-					.size(), parameterType);
-			features.add(classExpression);
-			classExpression = new ClassExpression(PrefixEnum.GOAL.prefix()
-					+ predicateSymbol.getName(), predicateSymbol.getParams()
-					.size(), parameterType);
-			features.add(classExpression);
-			classExpression = new ClassExpression(PrefixEnum.CURRENT.prefix()
-					+ predicateSymbol.getName(), predicateSymbol.getParams()
-					.size(), parameterType);
-			features.add(classExpression);
-		}
-		final Iterator<SimpleType> iteratorT = unground.types.iterator();
-		types = new ArrayList<>();
-		while (iteratorT.hasNext()) {
-			types.add(iteratorT.next().toString());
-		}
-		return features;
-	}
-
-	public Chromosome learn(final LearnParameters learnParameters)
-			throws Exception {
-		LinkedList<ClassExpression> features = initialFeatures(learnParameters);
-		writeFeatures(learnParameters.getFeaturesFile() + 0, features);
+		LinkedList<ClassExpression> features = FeatureSingleton
+				.initialFeatures(problem, learnParameters);
+		this.writeFeatures(learnParameters.getFeaturesFile() + 0, features);
 		List<Chromosome> population = RandomUtilsFeatureSelector
 				.initializePopulation(
 						learnParameters.getNumberIndividualInitialGA(),
@@ -141,15 +48,16 @@ public class Learn {
 					&& !learnParameters.getResultFile().isEmpty()) {
 				FileManager.write(learnParameters.getResultFile(),
 						"$$$$$$$$$$ Run Expansion " + (indexExpansion + 1)
-						+ "$$$$$$$$$$", true);
+								+ "$$$$$$$$$$", true);
 			} else {
 				System.out.println("$$$$$$$$$$ Run Expansion "
 						+ (indexExpansion + 1) + "$$$$$$$$$$");
 			}
 			if (indexExpansion > 0) {
-				features = selectedFeatures(features, last.getGene());
-				features = ExpandFeatures.expand(features, types);
-				writeFeatures(learnParameters.getFeaturesFile()
+				features = this.selectedFeatures(features, last.getGene());
+				features = ExpandFeatures.expand(features,
+						FeatureSingleton.getTypes(problem));
+				this.writeFeatures(learnParameters.getFeaturesFile()
 						+ (indexExpansion), features);
 				readerFeaturePlanning = new ReaderFeaturePlanning(features,
 						learnParameters.getDirPlanningProblem(),
@@ -166,6 +74,7 @@ public class Learn {
 			}
 			chromosome = geneticAlgorithm.run(population, fitnessFunction,
 					learnParameters.getParameterGA());
+			chromosome.setExpansionNumber(indexExpansion);
 			if (best == null) {
 				best = chromosome;
 				last = chromosome;

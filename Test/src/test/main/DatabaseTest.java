@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
-import javaff.data.GroundProblem;
-import javaff.data.UngroundProblem;
-import javaff.data.strips.Proposition;
-import javaff.parser.PDDL21parser;
-import javaff.planning.TemporalMetricState;
+import planner.javaff.data.GroundProblem;
+import planner.javaff.data.UngroundProblem;
+import planner.javaff.data.strips.Proposition;
+import planner.javaff.parser.PDDL21parser;
+import planner.javaff.planning.TemporalMetricState;
 
 public class DatabaseTest {
 
@@ -25,7 +25,7 @@ public class DatabaseTest {
 			return;
 		}
 
-		final GroundProblem ground = unground.ground(null, null, null, null);
+		final GroundProblem ground = unground.ground(null);
 		final TemporalMetricState initialState = ground
 				.getTemporalMetricInitialState();
 

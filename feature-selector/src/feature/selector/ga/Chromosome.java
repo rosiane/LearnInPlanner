@@ -1,36 +1,45 @@
 package feature.selector.ga;
 
-
 import neural.network.util.Weight;
+
 import common.MatrixHandler;
 
 public class Chromosome {
 	private int[] gene;
 	private double evaluation;
 	private Weight[] weights;
+	private int expansionNumber;
 
 	public double getEvaluation() {
-		return evaluation;
+		return this.evaluation;
+	}
+
+	public int getExpansionNumber() {
+		return this.expansionNumber;
 	}
 
 	public int[] getGene() {
-		return gene;
+		return this.gene;
 	}
 
 	public Weight[] getWeights() {
-		return weights;
+		return this.weights;
 	}
 
 	public void mutation(final int index) {
-		if (gene[index] == 0) {
-			gene[index] = 1;
+		if (this.gene[index] == 0) {
+			this.gene[index] = 1;
 		} else {
-			gene[index] = 0;
+			this.gene[index] = 0;
 		}
 	}
 
 	public void setEvaluation(final double evaluation) {
 		this.evaluation = evaluation;
+	}
+
+	public void setExpansionNumber(final int expansionNumber) {
+		this.expansionNumber = expansionNumber;
 	}
 
 	public void setGene(final int[] gene) {
@@ -43,8 +52,9 @@ public class Chromosome {
 
 	@Override
 	public String toString() {
-		final String text = "gene=[" + MatrixHandler.toStringArray(gene)
-				+ "], evaluation=[" + evaluation + "]";
+		final String text = "gene=[" + MatrixHandler.toStringArray(this.gene)
+				+ "], evaluation=[" + this.evaluation + "], expansionNumber=["
+				+ this.expansionNumber + "]";
 		return text;
 	}
 

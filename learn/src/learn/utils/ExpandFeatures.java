@@ -1,6 +1,5 @@
 package learn.utils;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,20 +8,44 @@ import common.feature.ClassExpression;
 import common.feature.PrefixEnum;
 
 public class ExpandFeatures {
-	private static String getType(List<String> types, String typeSpecific) {
-		String type = null;
-		for (String typeTmp : types) {
-			if (typeTmp.startsWith(typeSpecific)) {
-				type = typeTmp;
-				break;
+	private static LinkedList<ClassExpression> clean(
+			final LinkedList<ClassExpression> list) {
+		final LinkedList<ClassExpression> cleanedList = new LinkedList<>();
+		for (final ClassExpression item : list) {
+			if (!contains(cleanedList, item)) {
+				cleanedList.add(item);
 			}
 		}
-		return type;
+		return cleanedList;
 	}
 
-	private static boolean contains(LinkedList<ClassExpression> list,
-			ClassExpression classExpression) {
-		for (ClassExpression item : list) {
+	private static LinkedList<ClassExpression> complement(
+			final LinkedList<ClassExpression> newExpressionsCurrent,
+			final LinkedList<ClassExpression> seed)
+			throws CloneNotSupportedException {
+		final LinkedList<ClassExpression> result = new LinkedList<>();
+		final Iterator<ClassExpression> seedIterator = seed.iterator();
+		ClassExpression classExpressionNew = null;
+		ClassExpression classExpression = null;
+		while (seedIterator.hasNext()) {
+			classExpression = seedIterator.next();
+			if (!classExpression.getPredicate().startsWith(
+					PrefixEnum.ACTION.prefix())) {
+				classExpressionNew = classExpression.clone();
+				if (classExpression.isNot()) {
+					classExpressionNew.setNot(false);
+				} else {
+					classExpressionNew.setNot(true);
+				}
+				result.add(classExpressionNew);
+			}
+		}
+		return result;
+	}
+
+	private static boolean contains(final LinkedList<ClassExpression> list,
+			final ClassExpression classExpression) {
+		for (final ClassExpression item : list) {
 			if (item.toString().equalsIgnoreCase(classExpression.toString())) {
 				return true;
 			}
@@ -31,22 +54,35 @@ public class ExpandFeatures {
 	}
 
 	public static LinkedList<ClassExpression> expand(
-			LinkedList<ClassExpression> seed, List<String> types)
+			final LinkedList<ClassExpression> seed, final List<String> types)
 			throws CloneNotSupportedException {
 		LinkedList<ClassExpression> result = new LinkedList<>();
 		result.addAll(seed);
 		result.addAll(relationalExtension(result, seed, types));
 		result.addAll(specialize(result, seed, types));
 		result.addAll(complement(result, seed));
+		result = clean(result);
 		return result;
 	}
 
+	private static String getType(final List<String> types,
+			final String typeSpecific) {
+		String type = null;
+		for (final String typeTmp : types) {
+			if (typeTmp.startsWith(typeSpecific)) {
+				type = typeTmp;
+				break;
+			}
+		}
+		return type;
+	}
+
 	private static LinkedList<ClassExpression> relationalExtension(
-			LinkedList<ClassExpression> newExpressionsCurrent,
-			LinkedList<ClassExpression> seed, List<String> types)
+			final LinkedList<ClassExpression> newExpressionsCurrent,
+			final LinkedList<ClassExpression> seed, final List<String> types)
 			throws CloneNotSupportedException {
-		LinkedList<ClassExpression> result = new LinkedList<>();
-		Iterator<ClassExpression> seedIterator = seed.iterator();
+		final LinkedList<ClassExpression> result = new LinkedList<>();
+		final Iterator<ClassExpression> seedIterator = seed.iterator();
 		ClassExpression classExpression = null;
 		ClassExpression classExpressionCurrent = null;
 		String typeCurrent;
@@ -75,15 +111,12 @@ public class ExpandFeatures {
 										classExpression.getParameterType());
 								classExpressionNew.setParameter(indexArity,
 										classExpressionCurrent.clone());
-								ClassExpression[] parameterClean = new ClassExpression[classExpressionNew
+								final ClassExpression[] parameterClean = new ClassExpression[classExpressionNew
 										.getParameter(indexArity)
 										.getParameterType().length];
 								classExpressionNew.getParameter(indexArity)
 										.setParameter(parameterClean);
-								if (!contains(newExpressionsCurrent,
-										classExpressionNew)) {
-									result.add(classExpressionNew);
-								}
+								result.add(classExpressionNew);
 							}
 						}
 					}
@@ -94,11 +127,11 @@ public class ExpandFeatures {
 	}
 
 	private static LinkedList<ClassExpression> specialize(
-			LinkedList<ClassExpression> newExpressionsCurrent,
-			LinkedList<ClassExpression> seed, List<String> types)
+			final LinkedList<ClassExpression> newExpressionsCurrent,
+			final LinkedList<ClassExpression> seed, final List<String> types)
 			throws CloneNotSupportedException {
-		LinkedList<ClassExpression> result = new LinkedList<>();
-		Iterator<ClassExpression> seedIterator = seed.iterator();
+		final LinkedList<ClassExpression> result = new LinkedList<>();
+		final Iterator<ClassExpression> seedIterator = seed.iterator();
 		ClassExpression classExpressionNew = null;
 		ClassExpression classExpression = null;
 		ClassExpression intersection = null;
@@ -129,7 +162,7 @@ public class ExpandFeatures {
 										classExpression.getParameter().length,
 										classExpression.getParameterType());
 								parameter = parameters[indexParameter];
-								if (parameter != null
+								if ((parameter != null)
 										&& !parameter
 												.getPredicate()
 												.equalsIgnoreCase(
@@ -140,39 +173,11 @@ public class ExpandFeatures {
 									intersectionNew[1] = intersection.clone();
 									classExpressionNew.setIntersection(
 											indexParameter, intersectionNew);
-									if (!contains(newExpressionsCurrent,
-											classExpressionNew)) {
-										result.add(classExpressionNew);
-									}
+									result.add(classExpressionNew);
 								}
 							}
 						}
 					}
-				}
-			}
-		}
-		return result;
-	}
-
-	private static LinkedList<ClassExpression> complement(
-			LinkedList<ClassExpression> newExpressionsCurrent,
-			LinkedList<ClassExpression> seed) throws CloneNotSupportedException {
-		LinkedList<ClassExpression> result = new LinkedList<>();
-		Iterator<ClassExpression> seedIterator = seed.iterator();
-		ClassExpression classExpressionNew = null;
-		ClassExpression classExpression = null;
-		while (seedIterator.hasNext()) {
-			classExpression = seedIterator.next();
-			if (!classExpression.getPredicate().startsWith(
-					PrefixEnum.ACTION.prefix())) {
-				classExpressionNew = classExpression.clone();
-				if (classExpression.isNot()) {
-					classExpressionNew.setNot(false);
-				} else {
-					classExpressionNew.setNot(true);
-				}
-				if (!contains(newExpressionsCurrent, classExpressionNew)) {
-					result.add(classExpressionNew);
 				}
 			}
 		}

@@ -6,8 +6,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/feature-selector"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/deep-learning"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/java-ff"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/test-lib"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/learn"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/planner"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

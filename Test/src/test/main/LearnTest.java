@@ -3,18 +3,27 @@ package test.main;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
-import javaff.data.UngroundProblem;
-import javaff.data.strips.UngroundInstantAction;
-import javaff.parser.PDDL21parser;
+import planner.javaff.data.UngroundProblem;
+import planner.javaff.data.strips.PredicateSymbol;
+import planner.javaff.data.strips.SimpleType;
+import planner.javaff.data.strips.UngroundInstantAction;
+import planner.javaff.data.strips.Variable;
+import planner.javaff.parser.PDDL21parser;
+
 import learn.Learn;
 import learn.pojos.LearnParameters;
 import neural.network.enums.Task;
 import neural.network.impl.ParameterTraining;
 
 import common.MatrixHandler;
+import common.feature.ClassExpression;
+import common.feature.PrefixEnum;
 import common.preprocessor.file.FileManager;
 
 import feature.selector.ga.Chromosome;
@@ -34,12 +43,26 @@ public class LearnTest {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
-
+		
 		final Iterator<UngroundInstantAction> iterator = unground.actions
 				.iterator();
 		while (iterator.hasNext()) {
-			System.out.println(iterator.next().name);
+			UngroundInstantAction ungroundInstantAction =  iterator.next();
+			System.out.println(ungroundInstantAction.toString());
+			System.out.println(ungroundInstantAction.name + " " + ungroundInstantAction.params.size());
 		}
+		final Iterator<PredicateSymbol> iteratorFacts = unground.predSymbols
+				.iterator();
+		PredicateSymbol predicateSymbol;
+		while (iteratorFacts.hasNext()) {
+			predicateSymbol = iteratorFacts.next();
+			System.out.println(predicateSymbol.toStringTyped());
+			System.out.println(predicateSymbol.getName() + " " + predicateSymbol.getParams().size());
+		}
+//		final Iterator<SimpleType> iteratorT = unground.types.iterator();
+//		while (iteratorT.hasNext()) {
+//			System.out.println(iteratorT.next().toString());
+//		}
 	}
 
 	public static void learn() throws Exception {
@@ -64,8 +87,7 @@ public class LearnTest {
 		final String solutionFFPathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/training/pfile";
 		final String solutionFFPathSufix = "Solution.pddl";
 		final String databaseDir = "../Examples/IPC3/Tests1/Depots/Strips/training/rpl";
-		final String featuresFile = dirResult + "/features/currentFeatures"
-				+ date + "-";
+		final String featuresFile = dirResult + "/features/currentFeatures-";
 		final String resultFile = dirResult + "/DepotsTraining.doc";
 		final int numberIndividualInitialGA = 8;
 		final String dirPlanningProblem = "../Examples/IPC3/Tests1/Depots/Strips/training";
@@ -75,7 +97,7 @@ public class LearnTest {
 		final int[] problemTest = { 2, 3 };
 		final int numberExpansion = 2;
 
-		final long numberEpochs = 100;
+		final long numberEpochs = 2000;
 		final double maxError = 0;
 		final Task task = Task.REGRESSION;
 		final double learningRateDecrease = 1;
@@ -150,7 +172,7 @@ public class LearnTest {
 		final int numberFathers = 6;
 		final int numberIndividualCrossing = 1;
 		final double mutationRate = 0.1;
-		double maxEvaluation = 0.1;
+		final double maxEvaluation = 0.001;
 		final ParameterGA parameterGA = new ParameterGA();
 		parameterGA.setNumberFathers(numberFathers);
 		parameterGA.setNumberGeneration(numberGeneration);
@@ -187,11 +209,14 @@ public class LearnTest {
 		learnParameters.setResultFile(resultFile);
 
 		final Learn learn = new Learn();
-		final Chromosome chromosome = learn.learn(learnParameters);
+		final String problem = "Depots";
+		final Chromosome chromosome = learn.learn(problem, learnParameters);
 		if (chromosome != null) {
 			FileManager.write(resultFile, "Chosen: " + chromosome.toString(),
 					true);
 			final String featureSelectedFile = dirResult + "/featureSelected";
+			FileManager.write(featureSelectedFile,
+					Integer.toString(chromosome.getExpansionNumber()), true);
 			FileManager.write(featureSelectedFile,
 					MatrixHandler.toStringArray(chromosome.getGene()), true);
 			final String weightFile = dirResult + "/weight";
@@ -207,17 +232,17 @@ public class LearnTest {
 	}
 
 	public static void main(final String args[]) {
-		// initialFeatures();
+		 initialFeatures();
 		// final File f = new File("../Test/result/features/10");
 		// System.out.println(f.mkdir());
 		// System.out.println(f.mkdirs());
-		try {
-			learn();
-		} catch (final IOException e) {
-			e.printStackTrace();
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			learn();
+//		} catch (final IOException e) {
+//			e.printStackTrace();
+//		} catch (final Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }

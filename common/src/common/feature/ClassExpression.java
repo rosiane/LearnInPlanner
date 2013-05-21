@@ -12,13 +12,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-
 public class ClassExpression {
 	private String predicate;
 	private LinkedList<ClassExpression[]> intersection;
 	private ClassExpression[] parameter;
 	private String[] parameterType;
 	private boolean not;
+
+	private ClassExpression() {
+
+	}
 
 	public ClassExpression(final String predicate, final int arity,
 			final String[] parameterType) {
@@ -228,6 +231,9 @@ public class ClassExpression {
 				if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
 					objects.add(new String[] { PrefixEnum.ACTION.prefix() });
 				} else {
+					if (this.not) {
+						strLine.replace(PrefixEnum.NOT.prefix(), "");
+					}
 					objects.add(strLine.replace(this.predicate + " ", "")
 							.split(" "));
 				}
@@ -252,6 +258,9 @@ public class ClassExpression {
 					if (this.predicate.startsWith(PrefixEnum.ACTION.prefix())) {
 						objects.add(new String[] { PrefixEnum.ACTION.prefix() });
 					} else {
+						if (this.not) {
+							strLine.replace(PrefixEnum.NOT.prefix(), "");
+						}
 						objects.add(strLine.replace(this.predicate + " ", "")
 								.split(" "));
 					}
@@ -300,7 +309,7 @@ public class ClassExpression {
 	public String toString() {
 		final StringBuffer builder = new StringBuffer();
 		if (this.not) {
-			builder.append("¬ ");
+			builder.append(PrefixEnum.NOT.prefix());
 		}
 		builder.append(this.predicate + " ");
 		for (int indexParameter = 0; indexParameter < this.parameter.length; indexParameter++) {
@@ -326,5 +335,28 @@ public class ClassExpression {
 			}
 		}
 		return builder.toString();
+	}
+
+	public static ClassExpression getInstance(String featureString,
+			HashMap<String, String[]> typeParameterPredicate) {
+		ClassExpression main = new ClassExpression();
+		if (featureString.startsWith(PrefixEnum.ACTION.prefix())) {
+			String array[] = featureString.split(" ");
+			main.setPredicate(array[0]);
+			main.setParameter(new ClassExpression[typeParameterPredicate
+					.get(main.getPredicate()).length]);
+			main.setParameterType(typeParameterPredicate.get(main
+					.getPredicate()));
+			main.initializeIntersection(typeParameterPredicate.get(main
+					.getPredicate()).length);
+		} else {
+			if (featureString.startsWith(PrefixEnum.NOT.prefix())) {
+				main.setNot(true);
+				featureString = featureString.replace(PrefixEnum.NOT.prefix(),
+						"");
+				// TODO continuar
+			}
+		}
+		return main;
 	}
 }

@@ -1,19 +1,18 @@
 package test.main;
 
-import heuristic.rpl.HeuristicRPL;
-import heuristic.rpl.PlanExample;
-import heuristic.rpl.Solution;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import javaff.data.GroundProblem;
-import javaff.data.UngroundProblem;
-import javaff.data.strips.STRIPSInstantAction;
-import javaff.parser.PDDL21parser;
-import javaff.planning.TemporalMetricState;
+import planner.heuristic.rpl.HeuristicRPL;
+import planner.heuristic.rpl.PlanExample;
+import planner.heuristic.rpl.Solution;
+import planner.javaff.data.GroundProblem;
+import planner.javaff.data.UngroundProblem;
+import planner.javaff.data.strips.STRIPSInstantAction;
+import planner.javaff.parser.PDDL21parser;
+import planner.javaff.planning.TemporalMetricState;
 
 public class HeuristicRPLTest {
 
@@ -28,7 +27,7 @@ public class HeuristicRPLTest {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
-		final GroundProblem ground = unground.ground(null, null, null, null);
+		final GroundProblem ground = unground.ground(null);
 		final TemporalMetricState initialState = ground
 				.getTemporalMetricInitialState();
 		Solution solution = HeuristicRPL.calculate(initialState);

@@ -1,8 +1,9 @@
 package test.main;
 
-import heuristic.rpl.GenerateExample;
 
 import java.io.IOException;
+
+import planner.heuristic.rpl.GenerateExample;
 
 
 

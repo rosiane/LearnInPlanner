@@ -8,19 +8,22 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 
-import javaff.data.GroundProblem;
-import javaff.data.Plan;
-import javaff.data.TotalOrderPlan;
-import javaff.data.UngroundProblem;
-import javaff.parser.PDDL21parser;
-import javaff.planning.HelpfulFilter;
-import javaff.planning.NullFilter;
-import javaff.planning.State;
-import javaff.planning.TemporalMetricStateDelta;
-import javaff.search.BestFirstSearch;
-import javaff.search.BreadthFirstSearch;
-import javaff.search.EnforcedHillClimbingSearch;
-import javaff.search.LimitedEnforcedHillClimbingSearch;
+import planner.heuristic.delta.ParameterReader;
+import planner.heuristic.delta.ParameterSearch;
+import planner.heuristic.delta.ReaderParameterSearch;
+import planner.javaff.data.GroundProblem;
+import planner.javaff.data.Plan;
+import planner.javaff.data.TotalOrderPlan;
+import planner.javaff.data.UngroundProblem;
+import planner.javaff.parser.PDDL21parser;
+import planner.javaff.planning.HelpfulFilter;
+import planner.javaff.planning.NullFilter;
+import planner.javaff.planning.State;
+import planner.javaff.planning.TemporalMetricStateDelta;
+import planner.javaff.search.BestFirstSearch;
+import planner.javaff.search.BreadthFirstSearch;
+import planner.javaff.search.EnforcedHillClimbingSearch;
+import planner.javaff.search.LimitedEnforcedHillClimbingSearch;
 
 import common.preprocessor.file.FileManager;
 
@@ -208,7 +211,83 @@ public class SearcherTest {
 		// PDDLPrinter.printDomainFile(unground, System.out);
 		// PDDLPrinter.printProblemFile(unground, System.out);
 
-		final GroundProblem ground = unground.ground(null, null, null, null);
+		final GroundProblem ground = unground.ground(null);
+
+		final long afterGrounding = System.currentTimeMillis();
+
+		// ********************************
+		// Search for a plan
+		// ********************************
+
+		// Get the initial state
+		final TemporalMetricStateDelta initialState = ground
+				.getTemporalMetricInitialStateDelta();
+
+		// State goalState = performSearchFFModified(initialState);
+		final State goalState = performSearch(initialState);
+		// State goalState = performSearchFFLimited(initialState);
+		// State goalState = performSearchBreadthFirstSearch(initialState);
+
+		final long afterPlanning = System.currentTimeMillis();
+
+		TotalOrderPlan top = null;
+		if (goalState != null) {
+			top = (TotalOrderPlan) goalState.getSolution();
+			infoOutput.println("Plan Lenght " + top.getPlanLength());
+			try {
+				FileManager.write(fileResult,
+						"Plan Lenght " + top.getPlanLength(), true);
+			} catch (final IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		final double groundingTime = (afterGrounding - startTime) / 1000.00;
+		final double planningTime = (afterPlanning - afterGrounding) / 1000.00;
+
+		infoOutput.println("Instantiation Time =\t\t" + groundingTime + "sec");
+		infoOutput.println("Planning Time =\t" + planningTime + "sec");
+
+		try {
+			FileManager.write(fileResult, "Instantiation Time =\t\t"
+					+ groundingTime + "sec", true);
+			FileManager.write(fileResult, "Planning Time =\t" + planningTime
+					+ "sec", true);
+		} catch (final IOException e) {
+			e.printStackTrace();
+		}
+
+		return top;
+	}
+
+	public static Plan plan(final File dFile, final File pFile,
+			final ParameterSearch parameterSearch) {
+		// ********************************
+		// Parse and Ground the Problem
+		// ********************************
+		final long startTime = System.currentTimeMillis();
+
+		final UngroundProblem unground = PDDL21parser.parseFiles(dFile, pFile);
+
+		if (unground == null) {
+			System.out.println("Parsing error - see console for details");
+			return null;
+		}
+
+		final String fileResult = "../Examples/IPC3/Tests1/Depots/Strips/mysearch/performance";
+		try {
+			FileManager.write(fileResult, "Domain " + dFile.getAbsolutePath(),
+					true);
+
+			FileManager.write(fileResult, "Problem " + pFile.getAbsolutePath(),
+					true);
+		} catch (final IOException e) {
+			e.printStackTrace();
+		}
+		// PDDLPrinter.printDomainFile(unground, System.out);
+		// PDDLPrinter.printProblemFile(unground, System.out);
+
+		final GroundProblem ground = unground.ground(parameterSearch);
 
 		final long afterGrounding = System.currentTimeMillis();
 
@@ -285,6 +364,36 @@ public class SearcherTest {
 		final Plan plan = plan(domainFile, problemFile);
 		if ((solutionFile != null) && (plan != null)) {
 			writePlanToFile(plan, solutionFile);
+		}
+	}
+
+	public static void testDepotsNewHeuristic() throws IOException {
+		final String domainFilePath = "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl";
+		final String problemFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/pfile";
+		final String solutionFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/mysearch/pfileSolution_MySearch";
+		final String dirResult = "";
+		final String dirFeatures = "";
+		File domainFile = null;
+		File problemFile = null;
+		File solutionFile = null;
+		final ParameterReader parameterReader = new ParameterReader();
+		parameterReader.setDirFeatures(dirFeatures);
+		parameterReader.setDirResult(dirResult);
+		parameterReader.setNumberHiddenLayers(1);
+		parameterReader.setNumberOutput(1);
+		parameterReader.setUseHeuristicUnitHidden(true);
+		parameterReader.setDomainFilePath(domainFilePath);
+		parameterReader.setProblemFilePath(problemFilePathPrefix + "1");
+		final ParameterSearch parameterSearch = ReaderParameterSearch
+				.read(parameterReader);
+		for (int index = 1; index < 22; index++) {
+			domainFile = new File(domainFilePath);
+			problemFile = new File(problemFilePathPrefix + index);
+			solutionFile = new File(solutionFilePathPrefix + index + ".pddl");
+			final Plan plan = plan(domainFile, problemFile, parameterSearch);
+			if ((solutionFile != null) && (plan != null)) {
+				writePlanToFile(plan, solutionFile);
+			}
 		}
 	}
 

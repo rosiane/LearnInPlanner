@@ -6,18 +6,18 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-import javaff.data.GroundProblem;
-import javaff.data.Plan;
-import javaff.data.TotalOrderPlan;
-import javaff.data.UngroundProblem;
-import javaff.parser.PDDL21parser;
-import javaff.planning.HelpfulFilter;
-import javaff.planning.NullFilter;
-import javaff.planning.State;
-import javaff.planning.TemporalMetricState;
-import javaff.planning.TemporalMetricStateDelta;
-import javaff.search.BestFirstSearch;
-import javaff.search.EnforcedHillClimbingSearch;
+import planner.javaff.data.GroundProblem;
+import planner.javaff.data.Plan;
+import planner.javaff.data.TotalOrderPlan;
+import planner.javaff.data.UngroundProblem;
+import planner.javaff.parser.PDDL21parser;
+import planner.javaff.planning.HelpfulFilter;
+import planner.javaff.planning.NullFilter;
+import planner.javaff.planning.State;
+import planner.javaff.planning.TemporalMetricState;
+import planner.javaff.planning.TemporalMetricStateDelta;
+import planner.javaff.search.BestFirstSearch;
+import planner.javaff.search.EnforcedHillClimbingSearch;
 
 public class CopyOfSearcherTest {
 	public static boolean VALIDATE = false;
@@ -177,7 +177,7 @@ public class CopyOfSearcherTest {
 		// PDDLPrinter.printDomainFile(unground, System.out);
 		// PDDLPrinter.printProblemFile(unground, System.out);
 
-		final GroundProblem ground = unground.ground(null, null, null, null);
+		final GroundProblem ground = unground.ground(null);
 
 		final long afterGrounding = System.currentTimeMillis();
 

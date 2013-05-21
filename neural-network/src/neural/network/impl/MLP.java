@@ -24,19 +24,19 @@ public class MLP implements NeuralNetworkIF {
 
 	private TrainingProperties[] trainingProperties;
 
-	private Weight[] backpropagation(Layer[] net, Weight[] weights,
-			double label[], double result[]) {
-		ErrorLayer[] errorsLayer = new ErrorLayer[weights.length];
+	private Weight[] backpropagation(final Layer[] net, final Weight[] weights,
+			final double label[], final double result[]) {
+		final ErrorLayer[] errorsLayer = new ErrorLayer[weights.length];
 
 		double[] errors = null;
 		for (int indexLayer = net.length - 1; indexLayer >= 0; indexLayer--) {
 			if (indexLayer == (net.length - 1)) {
-				 errors = MatrixHandler.multiply(
-				 net[indexLayer].getLayerDerivative(result),
-				 MatrixHandler.subtract(label, result));
+				errors = MatrixHandler.multiply(
+						net[indexLayer].getLayerDerivative(result),
+						MatrixHandler.subtract(label, result));
 			} else {
 				errors = MatrixHandler.multiply(net[indexLayer]
-						.getLayerDerivative(trainingProperties[indexLayer]
+						.getLayerDerivative(this.trainingProperties[indexLayer]
 								.getOutputsLayer()), MatrixHandler.multiplySum(
 						weights[indexLayer + 1].getWeights(),
 						errorsLayer[indexLayer + 1].getErrors()));
@@ -44,7 +44,7 @@ public class MLP implements NeuralNetworkIF {
 			}
 			errorsLayer[indexLayer] = new ErrorLayer(errors);
 		}
-		Weight[] weightsUpdated = weights;
+		final Weight[] weightsUpdated = weights;
 		double[][] newWeight;
 		double[][] update;
 		for (int indexWeights = 0; indexWeights < weightsUpdated.length; indexWeights++) {
@@ -56,7 +56,7 @@ public class MLP implements NeuralNetworkIF {
 						.cols(newWeight); indexCols++) {
 					update[indexRows][indexCols] = net[indexWeights]
 							.getLearningRate()
-							* trainingProperties[indexWeights]
+							* this.trainingProperties[indexWeights]
 									.getInputsLayerLeft()[indexRows]
 							* errorsLayer[indexWeights].getErrors()[indexCols];
 					if (weightsUpdated[indexWeights].getLastUpdates() != null) {
@@ -73,78 +73,114 @@ public class MLP implements NeuralNetworkIF {
 		return weightsUpdated;
 	}
 
-	private double[] getActivities(Layer layer, double[][] weights,
-			double[] data, int indexLayer) {
-		double[] upwardSum = MatrixHandler.getRow(
-				getUpwardSWSum(new double[][] { data }, weights), 0);
-		if (trainingProperties != null) {
-			setUpwardSumLayer(upwardSum, indexLayer);
+	private Layer[] decreaseLearningRate(final Layer[] net,
+			final double decrease, final double minimumRate) {
+		final Layer[] netUpdated = net;
+		double newLearningRate = 0;
+		for (final Layer netTmp : netUpdated) {
+			newLearningRate = netTmp.getLearningRate() * decrease;
+			if (newLearningRate < minimumRate) {
+				netTmp.setLearningRate(minimumRate);
+			} else {
+				netTmp.setLearningRate(newLearningRate);
+			}
 		}
-		double[][] activationProbabilities = layer
+		return netUpdated;
+	}
+
+	private double[] getActivities(final Layer layer, final double[][] weights,
+			final double[] data, final int indexLayer) {
+		final double[] upwardSum = MatrixHandler.getRow(
+				this.getUpwardSWSum(new double[][] { data }, weights), 0);
+		if (this.trainingProperties != null) {
+			this.setUpwardSumLayer(upwardSum, indexLayer);
+		}
+		final double[][] activationProbabilities = layer
 				.getActivationProbabilities(new double[][] { upwardSum });
 		return MatrixHandler.getRow(activationProbabilities, 0);
 	}
 
-	private double[][] getUpwardSWSum(double[][] batchData, double[][] weights) {
+	private double[][] getUpwardSWSum(final double[][] batchData,
+			final double[][] weights) {
 		return MatrixHandler.multiply(batchData, weights);
 	}
 
+	private Weight[] initializeRandom(final Weight[] weights) {
+		final Weight[] initialized = weights;
+		for (final Weight weight : initialized) {
+			weight.initializeRandom();
+		}
+		return initialized;
+	}
+
+	private Weight[] normalizeWeightsCols(final Weight[] weights) {
+		final Weight[] normalized = weights;
+		for (final Weight weight : normalized) {
+			weight.normalizeCols();
+		}
+		return normalized;
+	}
+
 	@Override
-	public double[] run(Layer[] net, Weight[] weights, double[] data) {
+	public double[] run(final Layer[] net, final Weight[] weights,
+			final double[] data) {
 		double[] activities = data;
 
 		for (int index = 0; index < net.length; index++) {
-			activities = getActivities(net[index], weights[index].getWeights(),
-					activities, index);
-			if (trainingProperties != null) {
-				setOutputsLayer(activities, index);
+			activities = this.getActivities(net[index],
+					weights[index].getWeights(), activities, index);
+			if (this.trainingProperties != null) {
+				this.setOutputsLayer(activities, index);
 				if (index == 0) {
-					setInputsLayerLeft(data, index);
+					this.setInputsLayerLeft(data, index);
 				}
-				if (index < net.length - 1) {
-					setInputsLayerLeft(activities, index + 1);
+				if (index < (net.length - 1)) {
+					this.setInputsLayerLeft(activities, index + 1);
 				}
 			}
 		}
 		return activities;
 	}
 
-	private void setOutputsLayer(double[] outputs, int indexLayer) {
-		trainingProperties[indexLayer].setOutputsLayer(outputs);
+	private void setInputsLayerLeft(final double[] inputs, final int indexLayer) {
+		this.trainingProperties[indexLayer].setInputsLayerLeft(inputs);
 	}
 
-	private void setInputsLayerLeft(double[] inputs, int indexLayer) {
-		trainingProperties[indexLayer].setInputsLayerLeft(inputs);
+	private void setOutputsLayer(final double[] outputs, final int indexLayer) {
+		this.trainingProperties[indexLayer].setOutputsLayer(outputs);
 	}
 
-	private void setUpwardSumLayer(double[] upwardSum, int indexLayer) {
-		trainingProperties[indexLayer].setUpwardSumLayer(upwardSum);
+	private void setUpwardSumLayer(final double[] upwardSum,
+			final int indexLayer) {
+		this.trainingProperties[indexLayer].setUpwardSumLayer(upwardSum);
 	}
 
 	@Override
-	public Weight[] train(Layer[] net, Weight[] weights, double[][] sample,
-			double[][] sampleLabel, ParameterTraining parameterTraining,
-			Data dataValidation, String fileResult) throws IOException {
+	public Weight[] train(Layer[] net, final Weight[] weights,
+			final double[][] sample, final double[][] sampleLabel,
+			final ParameterTraining parameterTraining,
+			final Data dataValidation, final String fileResult)
+			throws IOException {
 		double result[];
 		double errors[] = null;
 		Weight[] weightsUpdated = weights;
 		if (parameterTraining.isWeightsInitializationRandom()) {
-			weightsUpdated = initializeRandom(weightsUpdated);
+			weightsUpdated = this.initializeRandom(weightsUpdated);
 		}
 
-		trainingProperties = new TrainingProperties[net.length];
-		for (int indexProperties = 0; indexProperties < trainingProperties.length; indexProperties++) {
+		this.trainingProperties = new TrainingProperties[net.length];
+		for (int indexProperties = 0; indexProperties < this.trainingProperties.length; indexProperties++) {
 			if (indexProperties == 0) {
-				trainingProperties[indexProperties] = new TrainingProperties(
+				this.trainingProperties[indexProperties] = new TrainingProperties(
 						MatrixHandler.cols(sample),
 						net[indexProperties].getNumUnits());
 			} else {
-				trainingProperties[indexProperties] = new TrainingProperties(
+				this.trainingProperties[indexProperties] = new TrainingProperties(
 						net[indexProperties - 1].getNumUnits(),
 						net[indexProperties].getNumUnits());
 			}
 		}
-		double[] initialLearningRates = new double[net.length];
+		final double[] initialLearningRates = new double[net.length];
 		for (int index = 0; index < initialLearningRates.length; index++) {
 			initialLearningRates[index] = net[index].getLearningRate();
 		}
@@ -155,16 +191,17 @@ public class MLP implements NeuralNetworkIF {
 		data.setSample(sample);
 		data.setLabel(sampleLabel);
 		if (parameterTraining.isNormalizeWeights()) {
-			weightsUpdated = normalizeWeightsCols(weightsUpdated);
+			weightsUpdated = this.normalizeWeightsCols(weightsUpdated);
 		}
 
-		if (fileResult == null || fileResult.isEmpty()) {
+		if ((fileResult == null) || fileResult.isEmpty()) {
 			if (parameterTraining.isValidation()) {
-				errorRate = NeuralNetworkUtils.calculateErrorRate(net, weightsUpdated,
-						dataValidation, parameterTraining, this);
+				errorRate = NeuralNetworkUtils
+						.calculateErrorRate(net, weightsUpdated,
+								dataValidation, parameterTraining, this);
 			} else {
-				errorRate = NeuralNetworkUtils.calculateErrorRate(net, weightsUpdated, data,
-						parameterTraining, this);
+				errorRate = NeuralNetworkUtils.calculateErrorRate(net,
+						weightsUpdated, data, parameterTraining, this);
 			}
 
 			System.out.println("Before training");
@@ -177,19 +214,20 @@ public class MLP implements NeuralNetworkIF {
 		}
 		errorRate = new ErrorRate(0, 100);
 
-		for (epoch = 0; epoch < parameterTraining.getNumberEpochs()
-				&& errorRate.getErrorRate() > parameterTraining.getMaxError(); epoch++) {
+		for (epoch = 0; (epoch < parameterTraining.getNumberEpochs())
+				&& (errorRate.getErrorRate() > parameterTraining.getMaxError()); epoch++) {
 			data = MatrixHandler.randomize(sample, sampleLabel);
 			for (int indexSample = 0; indexSample < MatrixHandler.rows(data
 					.getSample()); indexSample++) {
-				result = run(net, weightsUpdated,
+				result = this.run(net, weightsUpdated,
 						MatrixHandler.getRow(data.getSample(), indexSample));
 				if (!parameterTraining.isUpdateBatch()) {
-					weightsUpdated = backpropagation(net, weightsUpdated,
+					weightsUpdated = this.backpropagation(net, weightsUpdated,
 							MatrixHandler.getRow(data.getLabel(), indexSample),
 							result);
 					if (parameterTraining.isNormalizeWeights()) {
-						weightsUpdated = normalizeWeightsCols(weightsUpdated);
+						weightsUpdated = this
+								.normalizeWeightsCols(weightsUpdated);
 					}
 				} else {
 					if (indexSample == 0) {
@@ -205,34 +243,35 @@ public class MLP implements NeuralNetworkIF {
 			if (parameterTraining.isUpdateBatch()) {
 				errors = MatrixHandler.division(errors,
 						MatrixHandler.rows(data.getSample()));
-				weightsUpdated = backpropagation(net, weightsUpdated, errors,
-						null);
+				weightsUpdated = this.backpropagation(net, weightsUpdated,
+						errors, null);
 				if (parameterTraining.isNormalizeWeights()) {
-					weightsUpdated = normalizeWeightsCols(weightsUpdated);
+					weightsUpdated = this.normalizeWeightsCols(weightsUpdated);
 				}
 			}
 
 			if (parameterTraining.isValidation()) {
-				errorRate = NeuralNetworkUtils.calculateErrorRate(net, weightsUpdated,
-						dataValidation, parameterTraining, this);
+				errorRate = NeuralNetworkUtils
+						.calculateErrorRate(net, weightsUpdated,
+								dataValidation, parameterTraining, this);
 			} else {
-				errorRate = NeuralNetworkUtils.calculateErrorRate(net, weightsUpdated, data,
-						parameterTraining, this);
+				errorRate = NeuralNetworkUtils.calculateErrorRate(net,
+						weightsUpdated, data, parameterTraining, this);
 			}
 
-			if (epoch > 0
-					&& epoch
-							% (((double) (parameterTraining.getNumberEpochs() * parameterTraining
-									.getIntervalEpochPercentage())) / 100) == 0) {
+			if ((epoch > 0)
+					&& ((epoch % (((double) (parameterTraining
+							.getNumberEpochs() * parameterTraining
+							.getIntervalEpochPercentage())) / 100)) == 0)) {
 				if (net[0].getLearningRate() > parameterTraining
 						.getMinLearningRate()) {
-					net = decreaseLearningRate(net,
+					net = this.decreaseLearningRate(net,
 							parameterTraining.getLearningRateDecrease(),
 							parameterTraining.getMinLearningRate());
 				}
 			}
-			if (fileResult == null || fileResult.isEmpty()) {
-				if (epoch % 100 == 0) {
+			if ((fileResult == null) || fileResult.isEmpty()) {
+				if ((epoch % 100) == 0) {
 					System.out.println("Running Epoch: " + epoch);
 					if (parameterTraining.getTask() == Task.CLASSIFICATION
 							.getValue()) {
@@ -245,7 +284,7 @@ public class MLP implements NeuralNetworkIF {
 							+ net[0].getLearningRate());
 				}
 			} else {
-				if (epoch % 10 == 0) {
+				if ((epoch % 100) == 0) {
 					FileManager.write(fileResult, "Running Epoch: " + epoch,
 							true);
 					if (parameterTraining.getTask() == Task.CLASSIFICATION
@@ -261,7 +300,7 @@ public class MLP implements NeuralNetworkIF {
 				}
 			}
 		}
-		if (fileResult == null || fileResult.isEmpty()) {
+		if ((fileResult == null) || fileResult.isEmpty()) {
 			System.out.println("After training");
 			if (parameterTraining.getTask() == Task.CLASSIFICATION.getValue()) {
 				System.out
@@ -274,36 +313,5 @@ public class MLP implements NeuralNetworkIF {
 			FileManager.write(fileResult, "Number Epoches Run: " + epoch, true);
 		}
 		return weightsUpdated;
-	}
-
-	private Weight[] normalizeWeightsCols(Weight[] weights) {
-		Weight[] normalized = weights;
-		for (Weight weight : normalized) {
-			weight.normalizeCols();
-		}
-		return normalized;
-	}
-
-	private Weight[] initializeRandom(Weight[] weights) {
-		Weight[] initialized = weights;
-		for (Weight weight : initialized) {
-			weight.initializeRandom();
-		}
-		return initialized;
-	}
-
-	private Layer[] decreaseLearningRate(Layer[] net, double decrease,
-			double minimumRate) {
-		Layer[] netUpdated = net;
-		double newLearningRate = 0;
-		for (Layer netTmp : netUpdated) {
-			newLearningRate = netTmp.getLearningRate() * decrease;
-			if (newLearningRate < minimumRate) {
-				netTmp.setLearningRate(minimumRate);
-			} else {
-				netTmp.setLearningRate(newLearningRate);
-			}
-		}
-		return netUpdated;
 	}
 }
