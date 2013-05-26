@@ -171,6 +171,10 @@ public class ExpandFeatures {
 									intersectionNew = new ClassExpression[2];
 									intersectionNew[0] = parameter.clone();
 									intersectionNew[1] = intersection.clone();
+									// Clean parameter
+									intersectionNew[1]
+											.setParameter(new ClassExpression[intersectionNew[1]
+													.getParameterType().length]);
 									classExpressionNew.setIntersection(
 											indexParameter, intersectionNew);
 									result.add(classExpressionNew);

@@ -1,0 +1,818 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Execution time: 18_05_2013_16_21_22
+Problem Informations
+Domain: ../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl
+Problems training: 6 7 
+Problems validation: 5 
+Problems test: 2 3 
+Parameter MLP
+Number Epochs: 100
+Max Error: 0.0
+Learning Rate Decrease: 1.0
+Min Learning Rate: 0.0
+Initialize Random: true
+Interval Epoch Percentage: 2
+Number Hidden Layers: 1
+Number Output: 1
+Learning Rate: 0.1
+Number Unit Hidden: 3
+Use Heuristic Unit Hidden: true
+Initialize Random: true
+Normalize label: true
+Parameter GA
+Number Expansion: 2
+Number Fathers: 6
+Number Generation: 10
+Number Individual Crossing: 1
+Mutation Rate: 0.1
+$$$$$$$$$$ Run Expansion 1$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.04949429277125014
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.02424681083195125
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.023698726800870394
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.02318768341952415
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.02270271160716371
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.02224389485278851
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0218113417052298
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.021404584721370846
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.021022955344429307
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.02066557289258748
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.024307945697850424
+Running Epoch: 0
+	 Error Rate: 0.03899090520740081
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.020534700254178348
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.020190833884622814
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.019885143560608633
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.01959241029110481
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.019312387600246266
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.01904501115137543
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.01878984558414889
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.018546779328537873
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.018315436108429766
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.02130419295412967
+Running Epoch: 0
+	 Error Rate: 0.05224577463172182
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.025527920581197374
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.024813352145991216
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.024154880823115676
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.023535678374098354
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.022955846601868925
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.02241524255756888
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.021912591505432663
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.02144656053021615
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.02101526184828357
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.023479025427772866
+Running Epoch: 0
+	 Error Rate: 0.0642971213991021
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.03727296514115244
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.035533427098716035
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.03402818913162431
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.032736167130197245
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.03163197265637315
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.03069100271363144
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.02989049799756807
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.02921040609185364
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.028633196588140602
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.03321276132518326
+Running Epoch: 0
+	 Error Rate: 0.040729732703102234
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.02001138783256066
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.019653879277955554
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.01934586618866788
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.019053730595320575
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.018776504116982375
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.018513781013638774
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.01826521199430742
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.018030126882183025
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.017808064672796383
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.020343228835510502
+Running Epoch: 0
+	 Error Rate: 0.04501550787480157
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.020247113910245244
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.01980863771912083
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.019411713854729645
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.01903492961247162
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.018678195504056177
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.018341190155388123
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.018023321947990518
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.017724044096007023
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.017442618808339562
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.02045900576431196
+Running Epoch: 0
+	 Error Rate: 0.03869243107555782
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.016812019462521966
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.016526918919575376
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.016296236001341193
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.016076762800435452
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.015867868996764643
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.015669029521265948
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.015479870964231892
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.015300015306621142
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.015128989545837282
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.01750801780279413
+Running Epoch: 0
+	 Error Rate: 0.04051844063622676
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.020496759128726092
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.019973376829131785
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.01950189018394663
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.019061886382279014
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.018652199886460285
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.018271282696243715
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.017917533640812413
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.017589225227957698
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.01728459271828599
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.01983149407976977
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[0 0 1 1 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 1 0 1 1 0 1 1 1 1 0 ], evaluation=[0.01750801780279413], expansionNumber=[0]
+Best: gene=[0 0 1 1 0 1 1 1 1 1 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 1 0 1 1 0 1 1 1 1 0 ], evaluation=[0.01750801780279413], expansionNumber=[0]
+$$$$$$$$$$ Run Expansion 2$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.00901619875869956
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.003131139902426193
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0028767236286308807
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002793208262252798
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002755215356093047
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002735939802453893
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002725314529587358
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002719214631272754
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002715084576536471
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027132311559218427
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002029371796231122
+Running Epoch: 0
+	 Error Rate: 0.008424132871756324
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0030576500021250196
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002833325975985505
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.00276152245733779
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0027352195440985406
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027240829608014506
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002716850399301039
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002713492292666094
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027127241943071608
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002711352328470286
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002026374229551781
+Running Epoch: 0
+	 Error Rate: 0.009488273152897497
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0032144457364248246
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0029312940587391295
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002832262838339703
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002783121882030048
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027560379354144163
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027392723342250466
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027293545029756085
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027226548770836346
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027180870631846395
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002046237629484918
+Running Epoch: 0
+	 Error Rate: 0.009171700826083035
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0032815119777599377
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0029780307991668403
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0028690041292264825
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002813917210478316
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002781270074681807
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002760956219774166
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002746927500873053
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002736952097733799
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027301297260636627
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020627081667538667
+Running Epoch: 0
+	 Error Rate: 0.012077833695783285
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0038610248033591954
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0034481764451376137
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0032986601613987023
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.003222709739155281
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0031778124831038893
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0031488950737439798
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.003129232354421782
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0031153476491415713
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.00310524170233577
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0027103982689901177
+Running Epoch: 0
+	 Error Rate: 0.011296597330629632
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0038363031666730227
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0034297947525151595
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.003281435051491961
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.003205770653140037
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.003160807326878985
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0031316946101948625
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0031117546528092867
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0030975364401120277
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0030871006098758813
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.00268609375846386
+Running Epoch: 0
+	 Error Rate: 0.011660318195516753
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0036919757610975306
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0033001309242981967
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0031553764827923396
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0030795893274460718
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.003033298414748708
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.003002203916318267
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0029800852621680004
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0029637014383396476
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002951192600662105
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002467265157769081
+Running Epoch: 0
+	 Error Rate: 0.010075747701132658
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.003348264098279408
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0030250437045861445
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002907371988356059
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002846223453003763
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0028099780648695996
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027859408435488855
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002769108731743223
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027570635416713373
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002747994395886199
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0020756532598795196
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[0 1 1 1 0 0 1 0 0 1 1 1 1 0 1 0 1 1 0 0 1 1 1 1 1 0 0 0 0 1 0 1 0 1 1 0 0 1 0 1 1 1 0 1 1 0 0 1 0 1 1 1 0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 1 1 1 0 1 1 0 1 0 0 1 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 1 1 0 1 0 0 1 1 0 1 0 0 0 1 0 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 0 0 0 1 1 1 ], evaluation=[0.002026374229551781], expansionNumber=[1]
+Best: gene=[0 1 1 1 0 0 1 0 0 1 1 1 1 0 1 0 1 1 0 0 1 1 1 1 1 0 0 0 0 1 0 1 0 1 1 0 0 1 0 1 1 1 0 1 1 0 0 1 0 1 1 1 0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 1 1 1 0 1 1 0 1 0 0 1 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 0 0 1 1 1 0 1 0 0 1 1 0 1 0 0 0 1 0 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 0 0 0 1 1 1 ], evaluation=[0.002026374229551781], expansionNumber=[1]
+$$$$$$$$$$ Run Expansion 3$$$$$$$$$$
+########## Run Generation 1##########
+Population size=8
++++++++++++++++++ Selection +++++++++++++++++
+Running Epoch: 0
+	 Error Rate: 0.0028276938788783074
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026820933868791762
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0025722704716503804
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0027976777208756154
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002719750071886609
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0026804199157625433
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002604411855592338
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027089405994214144
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002524789176799045
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002623577978639302
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0017380265310798612
+Running Epoch: 0
+	 Error Rate: 0.002754524923766802
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026534247628307553
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002789139299295031
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0025539426185806832
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002750798580211059
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027082714575780396
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0028902312814328324
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0026340197802749215
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002697970406094824
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0026605734109804873
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.001969322225484799
+Running Epoch: 0
+	 Error Rate: 0.002646061052958049
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002718835954734298
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0028339079688361325
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0026072262819598403
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0026473129335733312
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002571378877340025
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027561623501972717
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002723677645807459
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0027466438141723333
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002659567414934147
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0019998504092891374
+Running Epoch: 0
+	 Error Rate: 0.0027020618736165875
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002733115060281926
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002859811261161127
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0026053287347147444
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002739536820785855
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.00256739332909573
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002741190818812413
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0027544895972744106
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002522038277940053
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002867045380383808
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.002341880626168857
+Running Epoch: 0
+	 Error Rate: 0.0027359132024302223
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002672794972479299
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002728043069479386
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002626729520087502
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002818187146748167
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0025548743806228197
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002651977957920492
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0026604463715647437
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002611395716150102
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0026294775319575317
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0019540431084660893
+Running Epoch: 0
+	 Error Rate: 0.0028539054262118565
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.002728416681746176
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.0028261045460570085
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.002650398270869769
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002607860538174128
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.0027535676103018613
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027393568365033944
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.0025939550955276624
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.0025857544367961774
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0028374181771826444
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.001922104577520602
+Running Epoch: 0
+	 Error Rate: 0.0026432872642566945
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0026185705039984833
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002736724722100802
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0028423054442308594
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.002900532890993411
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002727326122529317
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.002765743527823798
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002717559190817269
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002580258352370869
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.002583400185769105
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0016452769898579764
+Running Epoch: 0
+	 Error Rate: 0.0026679632353161734
+	 Learning Rate: 0.1
+Running Epoch: 10
+	 Error Rate: 0.0027240171540440844
+	 Learning Rate: 0.1
+Running Epoch: 20
+	 Error Rate: 0.002536729774637262
+	 Learning Rate: 0.1
+Running Epoch: 30
+	 Error Rate: 0.0026684960753748967
+	 Learning Rate: 0.1
+Running Epoch: 40
+	 Error Rate: 0.0028500338388880585
+	 Learning Rate: 0.1
+Running Epoch: 50
+	 Error Rate: 0.002737992908620266
+	 Learning Rate: 0.1
+Running Epoch: 60
+	 Error Rate: 0.0027129537110291988
+	 Learning Rate: 0.1
+Running Epoch: 70
+	 Error Rate: 0.002604449156010156
+	 Learning Rate: 0.1
+Running Epoch: 80
+	 Error Rate: 0.002746053177861241
+	 Learning Rate: 0.1
+Running Epoch: 90
+	 Error Rate: 0.0027920456814654448
+	 Learning Rate: 0.1
+Number Epoches Run: 100
+Error Rate Test 0.0024094125116368094
++++++++++++++++++ Reproduction +++++++++++++++++
+Current: gene=[1 0 0 0 1 0 1 1 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 0 0 1 1 0 1 1 0 0 1 0 0 1 0 0 0 1 1 1 0 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 0 0 1 0 1 0 0 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 1 0 1 1 0 0 1 1 0 1 1 0 1 0 1 1 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 1 0 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 1 0 0 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 0 1 0 1 0 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 1 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 0 0 0 0 0 0 0 1 0 1 1 1 0 1 1 1 1 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 0 0 1 0 1 1 0 1 0 0 1 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 0 1 1 0 1 0 1 1 1 1 1 1 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 0 1 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 0 1 0 1 0 0 1 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 1 1 1 0 1 0 0 0 1 0 1 1 0 1 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0 1 1 0 0 0 0 0 0 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 1 1 1 0 1 0 1 0 1 1 0 0 0 1 1 1 1 0 0 0 0 0 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 0 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 0 1 0 1 1 ], evaluation=[0.0016452769898579764], expansionNumber=[2]
+Best: gene=[1 0 0 0 1 0 1 1 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 0 0 1 1 0 1 1 0 0 1 0 0 1 0 0 0 1 1 1 0 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 0 0 1 0 1 0 0 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 1 0 1 1 0 0 1 1 0 1 1 0 1 0 1 1 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 1 0 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 1 0 0 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 0 1 0 1 0 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 1 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 0 0 0 0 0 0 0 1 0 1 1 1 0 1 1 1 1 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 0 0 1 0 1 1 0 1 0 0 1 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 0 1 1 0 1 0 1 1 1 1 1 1 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 0 1 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 0 1 0 1 0 0 1 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 1 1 1 0 1 0 0 0 1 0 1 1 0 1 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0 1 1 0 0 0 0 0 0 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 1 1 1 0 1 0 1 0 1 1 0 0 0 1 1 1 1 0 0 0 0 0 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 0 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 0 1 0 1 1 ], evaluation=[0.0016452769898579764], expansionNumber=[2]
+Chosen: gene=[1 0 0 0 1 0 1 1 1 0 0 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 1 1 1 0 1 1 0 1 0 1 0 0 1 1 0 1 1 0 0 1 0 0 1 0 0 0 1 1 1 0 1 0 1 1 1 1 1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 0 0 0 0 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 1 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 1 1 0 1 1 0 1 1 0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 1 1 0 1 1 1 0 0 1 0 1 0 0 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 1 0 1 1 0 0 1 1 0 1 1 0 1 0 1 1 0 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 0 0 0 0 1 0 1 1 1 1 1 0 1 1 0 1 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 1 0 1 0 0 1 0 0 1 0 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 1 0 0 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 1 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 1 1 1 0 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 1 1 0 0 1 1 0 0 0 0 0 0 1 0 1 1 0 1 1 1 0 1 0 0 0 0 0 1 1 1 0 1 1 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 1 0 0 1 0 0 0 1 0 1 0 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 0 1 1 0 1 0 1 1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 1 0 0 0 1 0 1 0 1 1 0 1 1 1 0 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1 0 0 0 1 1 1 0 0 1 1 1 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 0 1 0 0 0 0 0 0 0 1 0 1 1 1 0 1 1 1 1 1 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 1 1 1 0 0 0 1 0 1 1 0 1 0 0 1 0 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 0 1 1 1 0 0 1 0 0 0 0 0 0 1 0 1 1 0 1 0 1 1 1 1 1 1 0 0 1 1 0 0 1 1 0 0 0 1 1 1 1 1 1 1 0 0 1 0 0 1 0 1 1 0 0 0 1 0 0 1 1 1 1 1 1 1 0 1 0 1 1 1 0 0 1 0 1 0 1 0 1 0 0 1 1 1 0 0 1 1 1 1 0 1 0 0 1 1 1 1 0 1 0 1 0 0 1 1 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 0 1 1 1 0 1 0 0 0 1 0 1 1 0 1 0 1 0 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0 1 1 0 0 0 0 0 0 1 1 0 1 0 0 1 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 0 1 1 1 1 1 0 1 0 1 0 1 1 0 0 0 1 1 1 1 0 0 0 0 0 1 0 0 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 0 0 0 1 1 0 0 1 1 0 1 1 1 0 1 1 1 0 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 1 1 1 0 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 0 1 0 1 1 ], evaluation=[0.0016452769898579764], expansionNumber=[2]
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

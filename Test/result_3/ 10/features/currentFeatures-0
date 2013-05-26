@@ -1,0 +1,35 @@
+action_Drop hoist crate surface place
+action_Unload hoist crate truck place
+action_Drive truck place place
+action_Load hoist crate truck place
+action_Lift hoist crate surface place
+f_clear surface
+a_clear surface
+d_clear surface
+g_clear surface
+c_clear surface
+f_lifting hoist crate
+a_lifting hoist crate
+d_lifting hoist crate
+g_lifting hoist crate
+c_lifting hoist crate
+f_available hoist
+a_available hoist
+d_available hoist
+g_available hoist
+c_available hoist
+f_in crate truck
+a_in crate truck
+d_in crate truck
+g_in crate truck
+c_in crate truck
+f_at locatable place
+a_at locatable place
+d_at locatable place
+g_at locatable place
+c_at locatable place
+f_on crate surface
+a_on crate surface
+d_on crate surface
+g_on crate surface
+c_on crate surface

@@ -1,0 +1,135 @@
+action_Lift hoist crate surface place
+action_Load hoist crate truck place
+action_Unload hoist crate truck place
+f_clear surface
+c_clear surface
+a_lifting hoist crate
+d_lifting hoist crate
+g_lifting hoist crate
+c_lifting hoist crate
+a_available hoist
+c_available hoist
+f_in crate truck
+a_in crate truck
+g_in crate truck
+f_at locatable place
+a_at locatable place
+g_at locatable place
+a_on crate surface
+d_on crate surface
+g_on crate surface
+f_clear c_clear surface
+c_clear f_clear surface
+a_lifting d_lifting hoist crate crate
+a_lifting g_lifting hoist crate crate
+a_lifting c_lifting hoist crate crate
+a_lifting a_available hoist crate
+a_lifting c_available hoist crate
+a_lifting hoist f_in crate truck
+a_lifting hoist a_in crate truck
+a_lifting hoist g_in crate truck
+a_lifting hoist a_on crate surface
+a_lifting hoist d_on crate surface
+a_lifting hoist g_on crate surface
+d_lifting a_lifting hoist crate crate
+d_lifting g_lifting hoist crate crate
+d_lifting c_lifting hoist crate crate
+d_lifting a_available hoist crate
+d_lifting c_available hoist crate
+d_lifting hoist f_in crate truck
+d_lifting hoist a_in crate truck
+d_lifting hoist g_in crate truck
+d_lifting hoist a_on crate surface
+d_lifting hoist d_on crate surface
+d_lifting hoist g_on crate surface
+g_lifting a_lifting hoist crate crate
+g_lifting d_lifting hoist crate crate
+g_lifting c_lifting hoist crate crate
+g_lifting a_available hoist crate
+g_lifting c_available hoist crate
+g_lifting hoist f_in crate truck
+g_lifting hoist a_in crate truck
+g_lifting hoist g_in crate truck
+g_lifting hoist a_on crate surface
+g_lifting hoist d_on crate surface
+g_lifting hoist g_on crate surface
+c_lifting a_lifting hoist crate crate
+c_lifting d_lifting hoist crate crate
+c_lifting g_lifting hoist crate crate
+c_lifting a_available hoist crate
+c_lifting c_available hoist crate
+c_lifting hoist f_in crate truck
+c_lifting hoist a_in crate truck
+c_lifting hoist g_in crate truck
+c_lifting hoist a_on crate surface
+c_lifting hoist d_on crate surface
+c_lifting hoist g_on crate surface
+a_available a_lifting hoist crate
+a_available d_lifting hoist crate
+a_available g_lifting hoist crate
+a_available c_lifting hoist crate
+a_available c_available hoist
+c_available a_lifting hoist crate
+c_available d_lifting hoist crate
+c_available g_lifting hoist crate
+c_available c_lifting hoist crate
+c_available a_available hoist
+f_in a_in crate truck truck
+f_in g_in crate truck truck
+f_in a_on crate surface truck
+f_in d_on crate surface truck
+f_in g_on crate surface truck
+a_in f_in crate truck truck
+a_in g_in crate truck truck
+a_in a_on crate surface truck
+a_in d_on crate surface truck
+a_in g_on crate surface truck
+g_in f_in crate truck truck
+g_in a_in crate truck truck
+g_in a_on crate surface truck
+g_in d_on crate surface truck
+g_in g_on crate surface truck
+f_at a_at locatable place place
+f_at g_at locatable place place
+a_at f_at locatable place place
+a_at g_at locatable place place
+g_at f_at locatable place place
+g_at a_at locatable place place
+a_on crate f_clear surface
+a_on crate c_clear surface
+a_on f_in crate truck surface
+a_on a_in crate truck surface
+a_on g_in crate truck surface
+a_on d_on crate surface surface
+a_on g_on crate surface surface
+d_on crate f_clear surface
+d_on crate c_clear surface
+d_on f_in crate truck surface
+d_on a_in crate truck surface
+d_on g_in crate truck surface
+d_on a_on crate surface surface
+d_on g_on crate surface surface
+g_on crate f_clear surface
+g_on crate c_clear surface
+g_on f_in crate truck surface
+g_on a_in crate truck surface
+g_on g_in crate truck surface
+g_on a_on crate surface surface
+g_on d_on crate surface surface
+¬f_clear surface
+¬c_clear surface
+¬a_lifting hoist crate
+¬d_lifting hoist crate
+¬g_lifting hoist crate
+¬c_lifting hoist crate
+¬a_available hoist
+¬c_available hoist
+¬f_in crate truck
+¬a_in crate truck
+¬g_in crate truck
+¬f_at locatable place
+¬a_at locatable place
+¬g_at locatable place
+¬a_on crate surface
+¬d_on crate surface
+¬g_on crate surface

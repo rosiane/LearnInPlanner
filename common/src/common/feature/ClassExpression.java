@@ -319,15 +319,22 @@ public class ClassExpression {
 						.get(indexParameter).length; indexIntersection++) {
 					if (indexIntersection > 0) {
 						builder.append(" && ");
+					} else {
+						builder.append("( ");
 					}
 					builder.append(this.intersection.get(indexParameter)[indexIntersection]
 							.toString());
+					if (indexIntersection == (this.intersection
+							.get(indexParameter).length - 1)) {
+						builder.append(" )");
+					}
 				}
 			} else {
 				if (this.parameter[indexParameter] == null) {
 					builder.append(this.parameterType[indexParameter]);
 				} else {
-					builder.append(this.parameter[indexParameter].toString());
+					builder.append("( "
+							+ this.parameter[indexParameter].toString() + " )");
 				}
 			}
 			if (indexParameter < (this.parameter.length - 1)) {
@@ -354,9 +361,58 @@ public class ClassExpression {
 				main.setNot(true);
 				featureString = featureString.replace(PrefixEnum.NOT.prefix(),
 						"");
-				// TODO continuar
+			}
+			String array[] = featureString.split(" ");
+			int indexArray = 0;
+			main = processPredicate(main, array[indexArray],
+					typeParameterPredicate);
+			String[] parameterType = main.getParameterType();
+			ClassExpression classExpression = null;
+			List<ClassExpression> intersectionParameter = new ArrayList<>();
+			for (int indexParameterMain = 0; indexParameterMain < parameterType.length; indexParameterMain++) {
+				indexArray++;
+				if (array[indexArray].equalsIgnoreCase("(")) {
+					indexArray++;
+					while (!array[indexArray].equalsIgnoreCase(")")) {
+						if (array[indexArray].equalsIgnoreCase("&&")) {
+							intersectionParameter.add(classExpression);
+						} else {
+							classExpression = new ClassExpression();
+							if (array[indexArray].startsWith(PrefixEnum.NOT.prefix())) {
+								main.setNot(true);
+								array[indexArray] = array[indexArray].replace(PrefixEnum.NOT.prefix(),
+										"");
+							}
+							classExpression = processPredicate(classExpression,
+									array[indexArray], typeParameterPredicate);
+							indexArray += classExpression.getParameterType().length;
+						}
+						indexArray++;
+					}
+					if(intersectionParameter.size() > 0){
+						intersectionParameter.add(classExpression);
+						main.setIntersection(indexParameterMain, (ClassExpression[]) intersectionParameter.toArray());
+					} else {
+						main.setParameter(indexParameterMain, classExpression);
+					}
+				}
 			}
 		}
 		return main;
+	}
+
+	private static ClassExpression processPredicate(ClassExpression expression,
+			String predicate, HashMap<String, String[]> typeParameterPredicate) {
+		expression.setPredicate(predicate);
+		String predicateWithoutPrefix = expression.getPredicate();
+		if (predicateWithoutPrefix.contains("_")) {
+			predicateWithoutPrefix = predicateWithoutPrefix.split("_")[1];
+		}
+		String[] parameterType = typeParameterPredicate
+				.get(predicateWithoutPrefix);
+		expression.setParameter(new ClassExpression[parameterType.length]);
+		expression.setParameterType(parameterType);
+		expression.initializeIntersection(parameterType.length);
+		return expression;
 	}
 }

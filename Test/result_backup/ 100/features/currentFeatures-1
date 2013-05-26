@@ -1,0 +1,103 @@
+action_Lift hoist crate surface place
+action_Load hoist crate truck place
+action_Unload hoist crate truck place
+d_clear surface
+g_clear surface
+c_clear surface
+f_lifting hoist crate
+a_lifting hoist crate
+a_available hoist
+d_available hoist
+c_available hoist
+f_in crate truck
+d_in crate truck
+c_in crate truck
+a_at locatable place
+d_at locatable place
+c_at locatable place
+d_on crate surface
+g_on crate surface
+d_clear g_clear surface
+d_clear c_clear surface
+g_clear d_clear surface
+g_clear c_clear surface
+c_clear d_clear surface
+c_clear g_clear surface
+f_lifting a_lifting hoist crate crate
+f_lifting a_available hoist crate
+f_lifting d_available hoist crate
+f_lifting c_available hoist crate
+f_lifting hoist f_in crate truck
+f_lifting hoist d_in crate truck
+f_lifting hoist c_in crate truck
+f_lifting hoist d_on crate surface
+f_lifting hoist g_on crate surface
+a_lifting f_lifting hoist crate crate
+a_lifting a_available hoist crate
+a_lifting d_available hoist crate
+a_lifting c_available hoist crate
+a_lifting hoist f_in crate truck
+a_lifting hoist d_in crate truck
+a_lifting hoist c_in crate truck
+a_lifting hoist d_on crate surface
+a_lifting hoist g_on crate surface
+a_available f_lifting hoist crate
+a_available a_lifting hoist crate
+a_available d_available hoist
+a_available c_available hoist
+d_available f_lifting hoist crate
+d_available a_lifting hoist crate
+d_available a_available hoist
+d_available c_available hoist
+c_available f_lifting hoist crate
+c_available a_lifting hoist crate
+c_available a_available hoist
+c_available d_available hoist
+f_in d_in crate truck truck
+f_in c_in crate truck truck
+f_in d_on crate surface truck
+f_in g_on crate surface truck
+d_in f_in crate truck truck
+d_in c_in crate truck truck
+d_in d_on crate surface truck
+d_in g_on crate surface truck
+c_in f_in crate truck truck
+c_in d_in crate truck truck
+c_in d_on crate surface truck
+c_in g_on crate surface truck
+a_at d_at locatable place place
+a_at c_at locatable place place
+d_at a_at locatable place place
+d_at c_at locatable place place
+c_at a_at locatable place place
+c_at d_at locatable place place
+d_on crate d_clear surface
+d_on crate g_clear surface
+d_on crate c_clear surface
+d_on f_in crate truck surface
+d_on d_in crate truck surface
+d_on c_in crate truck surface
+d_on g_on crate surface surface
+g_on crate d_clear surface
+g_on crate g_clear surface
+g_on crate c_clear surface
+g_on f_in crate truck surface
+g_on d_in crate truck surface
+g_on c_in crate truck surface
+g_on d_on crate surface surface
+¬d_clear surface
+¬g_clear surface
+¬c_clear surface
+¬f_lifting hoist crate
+¬a_lifting hoist crate
+¬a_available hoist
+¬d_available hoist
+¬c_available hoist
+¬f_in crate truck
+¬d_in crate truck
+¬c_in crate truck
+¬a_at locatable place
+¬d_at locatable place
+¬c_at locatable place
+¬d_on crate surface
+¬g_on crate surface

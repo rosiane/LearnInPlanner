@@ -1,0 +1,1050 @@
+action_Unload hoist crate truck place
+f_clear surface
+a_clear surface
+c_clear surface
+d_available hoist
+g_available hoist
+c_available hoist
+f_in crate truck
+f_at locatable place
+g_at locatable place
+f_on crate surface
+g_on crate surface
+f_clear a_clear surface
+f_clear d_clear surface
+f_clear g_clear surface
+f_clear c_clear surface
+d_clear f_clear surface
+d_clear g_clear surface
+g_clear f_clear surface
+g_clear a_clear surface
+c_clear f_clear surface
+c_clear d_clear surface
+c_clear g_clear surface
+f_available a_available hoist
+f_available g_available hoist
+f_available c_available hoist
+a_available g_available hoist
+d_available f_available hoist
+d_available a_available hoist
+d_available g_available hoist
+g_available a_available hoist
+c_available a_available hoist
+c_available d_available hoist
+c_available g_available hoist
+a_in f_on crate surface truck
+a_in a_on crate surface truck
+a_in d_on crate surface truck
+f_at d_at locatable place place
+f_at g_at locatable place place
+d_at g_at locatable place place
+f_on crate f_clear surface
+f_on crate a_clear surface
+f_on crate d_clear surface
+f_on crate g_clear surface
+f_on crate c_clear surface
+f_on f_in crate truck surface
+f_on a_in crate truck surface
+f_on d_on crate surface surface
+f_on g_on crate surface surface
+a_on crate a_clear surface
+a_on crate d_clear surface
+a_on crate g_clear surface
+a_on crate c_clear surface
+a_on f_in crate truck surface
+a_on a_in crate truck surface
+a_on f_on crate surface surface
+d_on crate f_clear surface
+d_on crate a_clear surface
+d_on crate d_clear surface
+d_on crate c_clear surface
+d_on f_on crate surface surface
+d_on a_on crate surface surface
+g_on crate f_clear surface
+g_on crate c_clear surface
+g_on a_in crate truck surface
+g_on f_on crate surface surface
+g_on d_on crate surface surface
+¬f_clear surface
+¬a_clear surface
+¬d_clear surface
+¬g_clear surface
+¬a_available hoist
+¬d_available hoist
+¬f_in crate truck
+¬a_in crate truck
+¬f_at locatable place
+¬a_on crate surface
+¬d_on crate surface
+¬g_on crate surface
+f_clear ¬a_clear surface
+f_clear ¬d_clear surface
+f_clear ¬g_clear surface
+a_clear f_clear surface
+a_clear c_clear surface
+a_clear d_clear surface
+a_clear g_clear surface
+a_clear ¬f_clear surface
+a_clear ¬d_clear surface
+a_clear ¬g_clear surface
+c_clear a_clear surface
+c_clear ¬f_clear surface
+c_clear ¬a_clear surface
+c_clear ¬d_clear surface
+c_clear ¬g_clear surface
+d_available c_available hoist
+d_available ¬a_available hoist
+g_available d_available hoist
+g_available c_available hoist
+g_available f_available hoist
+g_available ¬a_available hoist
+g_available ¬d_available hoist
+c_available f_available hoist
+c_available ¬a_available hoist
+c_available ¬d_available hoist
+f_in f_on crate surface truck
+f_in g_on crate surface truck
+f_in a_in crate truck truck
+f_in a_on crate surface truck
+f_in d_on crate surface truck
+f_in ¬a_in crate truck truck
+f_in ¬a_on crate surface truck
+f_in ¬d_on crate surface truck
+f_in ¬g_on crate surface truck
+g_at f_at locatable place place
+g_at d_at locatable place place
+g_at ¬f_at locatable place place
+f_on a_on crate surface surface
+f_on crate ¬f_clear surface
+f_on crate ¬a_clear surface
+f_on crate ¬d_clear surface
+f_on crate ¬g_clear surface
+f_on ¬f_in crate truck surface
+f_on ¬a_in crate truck surface
+f_on ¬a_on crate surface surface
+f_on ¬d_on crate surface surface
+f_on ¬g_on crate surface surface
+g_on crate a_clear surface
+g_on f_in crate truck surface
+g_on crate d_clear surface
+g_on crate g_clear surface
+g_on a_on crate surface surface
+g_on crate ¬f_clear surface
+g_on crate ¬a_clear surface
+g_on crate ¬d_clear surface
+g_on crate ¬g_clear surface
+g_on ¬f_in crate truck surface
+g_on ¬a_in crate truck surface
+g_on ¬a_on crate surface surface
+g_on ¬d_on crate surface surface
+d_clear a_clear surface
+d_clear c_clear surface
+d_clear ¬f_clear surface
+d_clear ¬a_clear surface
+d_clear ¬g_clear surface
+g_clear c_clear surface
+g_clear d_clear surface
+g_clear ¬f_clear surface
+g_clear ¬a_clear surface
+g_clear ¬d_clear surface
+f_available d_available hoist
+f_available ¬a_available hoist
+f_available ¬d_available hoist
+a_available d_available hoist
+a_available c_available hoist
+a_available f_available hoist
+a_available ¬d_available hoist
+a_in f_in crate truck truck
+a_in g_on crate surface truck
+a_in ¬f_in crate truck truck
+a_in ¬a_on crate surface truck
+a_in ¬d_on crate surface truck
+a_in ¬g_on crate surface truck
+d_at f_at locatable place place
+d_at ¬f_at locatable place place
+a_on crate f_clear surface
+a_on g_on crate surface surface
+a_on d_on crate surface surface
+a_on crate ¬f_clear surface
+a_on crate ¬a_clear surface
+a_on crate ¬d_clear surface
+a_on crate ¬g_clear surface
+a_on ¬f_in crate truck surface
+a_on ¬a_in crate truck surface
+a_on ¬d_on crate surface surface
+a_on ¬g_on crate surface surface
+d_on f_in crate truck surface
+d_on g_on crate surface surface
+d_on crate g_clear surface
+d_on a_in crate truck surface
+d_on crate ¬f_clear surface
+d_on crate ¬a_clear surface
+d_on crate ¬d_clear surface
+d_on crate ¬g_clear surface
+d_on ¬f_in crate truck surface
+d_on ¬a_in crate truck surface
+d_on ¬a_on crate surface surface
+d_on ¬g_on crate surface surface
+f_clear a_clear surface && c_clear surface
+f_clear a_clear surface && d_clear f_clear surface
+f_clear a_clear surface && d_clear g_clear surface
+f_clear a_clear surface && g_clear f_clear surface
+f_clear a_clear surface && g_clear a_clear surface
+f_clear a_clear surface && c_clear f_clear surface
+f_clear a_clear surface && c_clear d_clear surface
+f_clear a_clear surface && c_clear g_clear surface
+f_clear a_clear surface && ¬d_clear surface
+f_clear a_clear surface && ¬g_clear surface
+f_clear d_clear surface && a_clear surface
+f_clear d_clear surface && c_clear surface
+f_clear d_clear surface && g_clear f_clear surface
+f_clear d_clear surface && g_clear a_clear surface
+f_clear d_clear surface && c_clear f_clear surface
+f_clear d_clear surface && c_clear d_clear surface
+f_clear d_clear surface && c_clear g_clear surface
+f_clear d_clear surface && ¬a_clear surface
+f_clear d_clear surface && ¬g_clear surface
+f_clear g_clear surface && a_clear surface
+f_clear g_clear surface && c_clear surface
+f_clear g_clear surface && d_clear f_clear surface
+f_clear g_clear surface && d_clear g_clear surface
+f_clear g_clear surface && c_clear f_clear surface
+f_clear g_clear surface && c_clear d_clear surface
+f_clear g_clear surface && c_clear g_clear surface
+f_clear g_clear surface && ¬a_clear surface
+f_clear g_clear surface && ¬d_clear surface
+f_clear c_clear surface && a_clear surface
+f_clear c_clear surface && d_clear f_clear surface
+f_clear c_clear surface && d_clear g_clear surface
+f_clear c_clear surface && g_clear f_clear surface
+f_clear c_clear surface && g_clear a_clear surface
+f_clear c_clear surface && ¬a_clear surface
+f_clear c_clear surface && ¬d_clear surface
+f_clear c_clear surface && ¬g_clear surface
+d_clear f_clear surface && a_clear surface
+d_clear f_clear surface && c_clear surface
+d_clear f_clear surface && g_clear f_clear surface
+d_clear f_clear surface && g_clear a_clear surface
+d_clear f_clear surface && c_clear f_clear surface
+d_clear f_clear surface && c_clear d_clear surface
+d_clear f_clear surface && c_clear g_clear surface
+d_clear f_clear surface && ¬a_clear surface
+d_clear f_clear surface && ¬g_clear surface
+d_clear g_clear surface && f_clear surface
+d_clear g_clear surface && a_clear surface
+d_clear g_clear surface && c_clear surface
+d_clear g_clear surface && f_clear a_clear surface
+d_clear g_clear surface && f_clear d_clear surface
+d_clear g_clear surface && f_clear g_clear surface
+d_clear g_clear surface && f_clear c_clear surface
+d_clear g_clear surface && c_clear f_clear surface
+d_clear g_clear surface && c_clear d_clear surface
+d_clear g_clear surface && c_clear g_clear surface
+d_clear g_clear surface && ¬f_clear surface
+d_clear g_clear surface && ¬a_clear surface
+g_clear f_clear surface && a_clear surface
+g_clear f_clear surface && c_clear surface
+g_clear f_clear surface && d_clear f_clear surface
+g_clear f_clear surface && d_clear g_clear surface
+g_clear f_clear surface && c_clear f_clear surface
+g_clear f_clear surface && c_clear d_clear surface
+g_clear f_clear surface && c_clear g_clear surface
+g_clear f_clear surface && ¬a_clear surface
+g_clear f_clear surface && ¬d_clear surface
+g_clear a_clear surface && f_clear surface
+g_clear a_clear surface && c_clear surface
+g_clear a_clear surface && f_clear a_clear surface
+g_clear a_clear surface && f_clear d_clear surface
+g_clear a_clear surface && f_clear g_clear surface
+g_clear a_clear surface && f_clear c_clear surface
+g_clear a_clear surface && d_clear f_clear surface
+g_clear a_clear surface && d_clear g_clear surface
+g_clear a_clear surface && c_clear f_clear surface
+g_clear a_clear surface && c_clear d_clear surface
+g_clear a_clear surface && c_clear g_clear surface
+g_clear a_clear surface && ¬f_clear surface
+g_clear a_clear surface && ¬d_clear surface
+c_clear f_clear surface && a_clear surface
+c_clear f_clear surface && d_clear f_clear surface
+c_clear f_clear surface && d_clear g_clear surface
+c_clear f_clear surface && g_clear f_clear surface
+c_clear f_clear surface && g_clear a_clear surface
+c_clear f_clear surface && ¬a_clear surface
+c_clear f_clear surface && ¬d_clear surface
+c_clear f_clear surface && ¬g_clear surface
+c_clear d_clear surface && f_clear surface
+c_clear d_clear surface && a_clear surface
+c_clear d_clear surface && f_clear a_clear surface
+c_clear d_clear surface && f_clear d_clear surface
+c_clear d_clear surface && f_clear g_clear surface
+c_clear d_clear surface && f_clear c_clear surface
+c_clear d_clear surface && g_clear f_clear surface
+c_clear d_clear surface && g_clear a_clear surface
+c_clear d_clear surface && ¬f_clear surface
+c_clear d_clear surface && ¬a_clear surface
+c_clear d_clear surface && ¬g_clear surface
+c_clear g_clear surface && f_clear surface
+c_clear g_clear surface && a_clear surface
+c_clear g_clear surface && f_clear a_clear surface
+c_clear g_clear surface && f_clear d_clear surface
+c_clear g_clear surface && f_clear g_clear surface
+c_clear g_clear surface && f_clear c_clear surface
+c_clear g_clear surface && d_clear f_clear surface
+c_clear g_clear surface && d_clear g_clear surface
+c_clear g_clear surface && ¬f_clear surface
+c_clear g_clear surface && ¬a_clear surface
+c_clear g_clear surface && ¬d_clear surface
+f_available a_available hoist && d_available hoist
+f_available a_available hoist && g_available hoist
+f_available a_available hoist && c_available hoist
+f_available a_available hoist && d_available f_available hoist
+f_available a_available hoist && d_available a_available hoist
+f_available a_available hoist && d_available g_available hoist
+f_available a_available hoist && g_available a_available hoist
+f_available a_available hoist && c_available a_available hoist
+f_available a_available hoist && c_available d_available hoist
+f_available a_available hoist && c_available g_available hoist
+f_available a_available hoist && ¬d_available hoist
+f_available g_available hoist && d_available hoist
+f_available g_available hoist && c_available hoist
+f_available g_available hoist && a_available g_available hoist
+f_available g_available hoist && d_available f_available hoist
+f_available g_available hoist && d_available a_available hoist
+f_available g_available hoist && d_available g_available hoist
+f_available g_available hoist && c_available a_available hoist
+f_available g_available hoist && c_available d_available hoist
+f_available g_available hoist && c_available g_available hoist
+f_available g_available hoist && ¬a_available hoist
+f_available g_available hoist && ¬d_available hoist
+f_available c_available hoist && d_available hoist
+f_available c_available hoist && g_available hoist
+f_available c_available hoist && a_available g_available hoist
+f_available c_available hoist && d_available f_available hoist
+f_available c_available hoist && d_available a_available hoist
+f_available c_available hoist && d_available g_available hoist
+f_available c_available hoist && g_available a_available hoist
+f_available c_available hoist && ¬a_available hoist
+f_available c_available hoist && ¬d_available hoist
+a_available g_available hoist && d_available hoist
+a_available g_available hoist && c_available hoist
+a_available g_available hoist && f_available a_available hoist
+a_available g_available hoist && f_available g_available hoist
+a_available g_available hoist && f_available c_available hoist
+a_available g_available hoist && d_available f_available hoist
+a_available g_available hoist && d_available a_available hoist
+a_available g_available hoist && d_available g_available hoist
+a_available g_available hoist && c_available a_available hoist
+a_available g_available hoist && c_available d_available hoist
+a_available g_available hoist && c_available g_available hoist
+a_available g_available hoist && ¬d_available hoist
+d_available f_available hoist && g_available hoist
+d_available f_available hoist && c_available hoist
+d_available f_available hoist && a_available g_available hoist
+d_available f_available hoist && g_available a_available hoist
+d_available f_available hoist && c_available a_available hoist
+d_available f_available hoist && c_available d_available hoist
+d_available f_available hoist && c_available g_available hoist
+d_available f_available hoist && ¬a_available hoist
+d_available a_available hoist && g_available hoist
+d_available a_available hoist && c_available hoist
+d_available a_available hoist && f_available a_available hoist
+d_available a_available hoist && f_available g_available hoist
+d_available a_available hoist && f_available c_available hoist
+d_available a_available hoist && g_available a_available hoist
+d_available a_available hoist && c_available a_available hoist
+d_available a_available hoist && c_available d_available hoist
+d_available a_available hoist && c_available g_available hoist
+d_available g_available hoist && c_available hoist
+d_available g_available hoist && f_available a_available hoist
+d_available g_available hoist && f_available g_available hoist
+d_available g_available hoist && f_available c_available hoist
+d_available g_available hoist && a_available g_available hoist
+d_available g_available hoist && c_available a_available hoist
+d_available g_available hoist && c_available d_available hoist
+d_available g_available hoist && c_available g_available hoist
+d_available g_available hoist && ¬a_available hoist
+g_available a_available hoist && d_available hoist
+g_available a_available hoist && c_available hoist
+g_available a_available hoist && f_available a_available hoist
+g_available a_available hoist && f_available g_available hoist
+g_available a_available hoist && f_available c_available hoist
+g_available a_available hoist && d_available f_available hoist
+g_available a_available hoist && d_available a_available hoist
+g_available a_available hoist && d_available g_available hoist
+g_available a_available hoist && c_available a_available hoist
+g_available a_available hoist && c_available d_available hoist
+g_available a_available hoist && c_available g_available hoist
+g_available a_available hoist && ¬d_available hoist
+c_available a_available hoist && d_available hoist
+c_available a_available hoist && g_available hoist
+c_available a_available hoist && f_available a_available hoist
+c_available a_available hoist && f_available g_available hoist
+c_available a_available hoist && f_available c_available hoist
+c_available a_available hoist && d_available f_available hoist
+c_available a_available hoist && d_available a_available hoist
+c_available a_available hoist && d_available g_available hoist
+c_available a_available hoist && g_available a_available hoist
+c_available a_available hoist && ¬d_available hoist
+c_available d_available hoist && g_available hoist
+c_available d_available hoist && f_available a_available hoist
+c_available d_available hoist && f_available g_available hoist
+c_available d_available hoist && f_available c_available hoist
+c_available d_available hoist && a_available g_available hoist
+c_available d_available hoist && g_available a_available hoist
+c_available d_available hoist && ¬a_available hoist
+c_available g_available hoist && d_available hoist
+c_available g_available hoist && f_available a_available hoist
+c_available g_available hoist && f_available g_available hoist
+c_available g_available hoist && f_available c_available hoist
+c_available g_available hoist && a_available g_available hoist
+c_available g_available hoist && d_available f_available hoist
+c_available g_available hoist && d_available a_available hoist
+c_available g_available hoist && d_available g_available hoist
+c_available g_available hoist && ¬a_available hoist
+c_available g_available hoist && ¬d_available hoist
+a_in f_on crate surface && f_in crate truck truck
+a_in f_on crate surface && g_on crate surface truck
+a_in f_on crate surface && a_on crate a_clear surface truck
+a_in f_on crate surface && a_on crate d_clear surface truck
+a_in f_on crate surface && a_on crate g_clear surface truck
+a_in f_on crate surface && a_on crate c_clear surface truck
+a_in f_on crate surface && a_on f_in crate truck surface truck
+a_in f_on crate surface && a_on a_in crate truck surface truck
+a_in f_on crate surface && a_on f_on crate surface surface truck
+a_in f_on crate surface && d_on crate f_clear surface truck
+a_in f_on crate surface && d_on crate a_clear surface truck
+a_in f_on crate surface && d_on crate d_clear surface truck
+a_in f_on crate surface && d_on crate c_clear surface truck
+a_in f_on crate surface && d_on f_on crate surface surface truck
+a_in f_on crate surface && d_on a_on crate surface surface truck
+a_in f_on crate surface && g_on crate f_clear surface truck
+a_in f_on crate surface && g_on crate c_clear surface truck
+a_in f_on crate surface && g_on a_in crate truck surface truck
+a_in f_on crate surface && g_on f_on crate surface surface truck
+a_in f_on crate surface && g_on d_on crate surface surface truck
+a_in f_on crate surface && ¬f_in crate truck truck
+a_in f_on crate surface && ¬a_on crate surface truck
+a_in f_on crate surface && ¬d_on crate surface truck
+a_in f_on crate surface && ¬g_on crate surface truck
+a_in a_on crate surface && f_in crate truck truck
+a_in a_on crate surface && f_on crate surface truck
+a_in a_on crate surface && g_on crate surface truck
+a_in a_on crate surface && f_on crate f_clear surface truck
+a_in a_on crate surface && f_on crate a_clear surface truck
+a_in a_on crate surface && f_on crate d_clear surface truck
+a_in a_on crate surface && f_on crate g_clear surface truck
+a_in a_on crate surface && f_on crate c_clear surface truck
+a_in a_on crate surface && f_on f_in crate truck surface truck
+a_in a_on crate surface && f_on a_in crate truck surface truck
+a_in a_on crate surface && f_on d_on crate surface surface truck
+a_in a_on crate surface && f_on g_on crate surface surface truck
+a_in a_on crate surface && d_on crate f_clear surface truck
+a_in a_on crate surface && d_on crate a_clear surface truck
+a_in a_on crate surface && d_on crate d_clear surface truck
+a_in a_on crate surface && d_on crate c_clear surface truck
+a_in a_on crate surface && d_on f_on crate surface surface truck
+a_in a_on crate surface && d_on a_on crate surface surface truck
+a_in a_on crate surface && g_on crate f_clear surface truck
+a_in a_on crate surface && g_on crate c_clear surface truck
+a_in a_on crate surface && g_on a_in crate truck surface truck
+a_in a_on crate surface && g_on f_on crate surface surface truck
+a_in a_on crate surface && g_on d_on crate surface surface truck
+a_in a_on crate surface && ¬f_in crate truck truck
+a_in a_on crate surface && ¬d_on crate surface truck
+a_in a_on crate surface && ¬g_on crate surface truck
+a_in d_on crate surface && f_in crate truck truck
+a_in d_on crate surface && f_on crate surface truck
+a_in d_on crate surface && g_on crate surface truck
+a_in d_on crate surface && f_on crate f_clear surface truck
+a_in d_on crate surface && f_on crate a_clear surface truck
+a_in d_on crate surface && f_on crate d_clear surface truck
+a_in d_on crate surface && f_on crate g_clear surface truck
+a_in d_on crate surface && f_on crate c_clear surface truck
+a_in d_on crate surface && f_on f_in crate truck surface truck
+a_in d_on crate surface && f_on a_in crate truck surface truck
+a_in d_on crate surface && f_on d_on crate surface surface truck
+a_in d_on crate surface && f_on g_on crate surface surface truck
+a_in d_on crate surface && a_on crate a_clear surface truck
+a_in d_on crate surface && a_on crate d_clear surface truck
+a_in d_on crate surface && a_on crate g_clear surface truck
+a_in d_on crate surface && a_on crate c_clear surface truck
+a_in d_on crate surface && a_on f_in crate truck surface truck
+a_in d_on crate surface && a_on a_in crate truck surface truck
+a_in d_on crate surface && a_on f_on crate surface surface truck
+a_in d_on crate surface && g_on crate f_clear surface truck
+a_in d_on crate surface && g_on crate c_clear surface truck
+a_in d_on crate surface && g_on a_in crate truck surface truck
+a_in d_on crate surface && g_on f_on crate surface surface truck
+a_in d_on crate surface && g_on d_on crate surface surface truck
+a_in d_on crate surface && ¬f_in crate truck truck
+a_in d_on crate surface && ¬a_on crate surface truck
+a_in d_on crate surface && ¬g_on crate surface truck
+f_at d_at locatable place && g_at locatable place place
+f_at g_at locatable place && d_at g_at locatable place place place
+d_at g_at locatable place && f_at locatable place place
+d_at g_at locatable place && f_at d_at locatable place place place
+d_at g_at locatable place && f_at g_at locatable place place place
+d_at g_at locatable place && ¬f_at locatable place place
+f_on crate f_clear surface && a_clear surface
+f_on crate f_clear surface && c_clear surface
+f_on crate f_clear surface && d_clear f_clear surface
+f_on crate f_clear surface && d_clear g_clear surface
+f_on crate f_clear surface && g_clear f_clear surface
+f_on crate f_clear surface && g_clear a_clear surface
+f_on crate f_clear surface && c_clear f_clear surface
+f_on crate f_clear surface && c_clear d_clear surface
+f_on crate f_clear surface && c_clear g_clear surface
+f_on crate f_clear surface && ¬a_clear surface
+f_on crate f_clear surface && ¬d_clear surface
+f_on crate f_clear surface && ¬g_clear surface
+f_on crate a_clear surface && f_clear surface
+f_on crate a_clear surface && c_clear surface
+f_on crate a_clear surface && f_clear a_clear surface
+f_on crate a_clear surface && f_clear d_clear surface
+f_on crate a_clear surface && f_clear g_clear surface
+f_on crate a_clear surface && f_clear c_clear surface
+f_on crate a_clear surface && d_clear f_clear surface
+f_on crate a_clear surface && d_clear g_clear surface
+f_on crate a_clear surface && g_clear f_clear surface
+f_on crate a_clear surface && g_clear a_clear surface
+f_on crate a_clear surface && c_clear f_clear surface
+f_on crate a_clear surface && c_clear d_clear surface
+f_on crate a_clear surface && c_clear g_clear surface
+f_on crate a_clear surface && ¬f_clear surface
+f_on crate a_clear surface && ¬d_clear surface
+f_on crate a_clear surface && ¬g_clear surface
+f_on crate d_clear surface && f_clear surface
+f_on crate d_clear surface && a_clear surface
+f_on crate d_clear surface && c_clear surface
+f_on crate d_clear surface && f_clear a_clear surface
+f_on crate d_clear surface && f_clear d_clear surface
+f_on crate d_clear surface && f_clear g_clear surface
+f_on crate d_clear surface && f_clear c_clear surface
+f_on crate d_clear surface && g_clear f_clear surface
+f_on crate d_clear surface && g_clear a_clear surface
+f_on crate d_clear surface && c_clear f_clear surface
+f_on crate d_clear surface && c_clear d_clear surface
+f_on crate d_clear surface && c_clear g_clear surface
+f_on crate d_clear surface && ¬f_clear surface
+f_on crate d_clear surface && ¬a_clear surface
+f_on crate d_clear surface && ¬g_clear surface
+f_on crate g_clear surface && f_clear surface
+f_on crate g_clear surface && a_clear surface
+f_on crate g_clear surface && c_clear surface
+f_on crate g_clear surface && f_clear a_clear surface
+f_on crate g_clear surface && f_clear d_clear surface
+f_on crate g_clear surface && f_clear g_clear surface
+f_on crate g_clear surface && f_clear c_clear surface
+f_on crate g_clear surface && d_clear f_clear surface
+f_on crate g_clear surface && d_clear g_clear surface
+f_on crate g_clear surface && c_clear f_clear surface
+f_on crate g_clear surface && c_clear d_clear surface
+f_on crate g_clear surface && c_clear g_clear surface
+f_on crate g_clear surface && ¬f_clear surface
+f_on crate g_clear surface && ¬a_clear surface
+f_on crate g_clear surface && ¬d_clear surface
+f_on crate c_clear surface && f_clear surface
+f_on crate c_clear surface && a_clear surface
+f_on crate c_clear surface && f_clear a_clear surface
+f_on crate c_clear surface && f_clear d_clear surface
+f_on crate c_clear surface && f_clear g_clear surface
+f_on crate c_clear surface && f_clear c_clear surface
+f_on crate c_clear surface && d_clear f_clear surface
+f_on crate c_clear surface && d_clear g_clear surface
+f_on crate c_clear surface && g_clear f_clear surface
+f_on crate c_clear surface && g_clear a_clear surface
+f_on crate c_clear surface && ¬f_clear surface
+f_on crate c_clear surface && ¬a_clear surface
+f_on crate c_clear surface && ¬d_clear surface
+f_on crate c_clear surface && ¬g_clear surface
+f_on f_in crate truck && g_on crate surface surface
+f_on f_in crate truck && a_in f_on crate surface truck surface
+f_on f_in crate truck && a_in a_on crate surface truck surface
+f_on f_in crate truck && a_in d_on crate surface truck surface
+f_on f_in crate truck && a_on crate a_clear surface surface
+f_on f_in crate truck && a_on crate d_clear surface surface
+f_on f_in crate truck && a_on crate g_clear surface surface
+f_on f_in crate truck && a_on crate c_clear surface surface
+f_on f_in crate truck && a_on f_in crate truck surface surface
+f_on f_in crate truck && a_on a_in crate truck surface surface
+f_on f_in crate truck && a_on f_on crate surface surface surface
+f_on f_in crate truck && d_on crate f_clear surface surface
+f_on f_in crate truck && d_on crate a_clear surface surface
+f_on f_in crate truck && d_on crate d_clear surface surface
+f_on f_in crate truck && d_on crate c_clear surface surface
+f_on f_in crate truck && d_on f_on crate surface surface surface
+f_on f_in crate truck && d_on a_on crate surface surface surface
+f_on f_in crate truck && g_on crate f_clear surface surface
+f_on f_in crate truck && g_on crate c_clear surface surface
+f_on f_in crate truck && g_on a_in crate truck surface surface
+f_on f_in crate truck && g_on f_on crate surface surface surface
+f_on f_in crate truck && g_on d_on crate surface surface surface
+f_on f_in crate truck && ¬a_in crate truck surface
+f_on f_in crate truck && ¬a_on crate surface surface
+f_on f_in crate truck && ¬d_on crate surface surface
+f_on f_in crate truck && ¬g_on crate surface surface
+f_on a_in crate truck && f_in crate truck surface
+f_on a_in crate truck && g_on crate surface surface
+f_on a_in crate truck && a_on crate a_clear surface surface
+f_on a_in crate truck && a_on crate d_clear surface surface
+f_on a_in crate truck && a_on crate g_clear surface surface
+f_on a_in crate truck && a_on crate c_clear surface surface
+f_on a_in crate truck && a_on f_in crate truck surface surface
+f_on a_in crate truck && a_on a_in crate truck surface surface
+f_on a_in crate truck && a_on f_on crate surface surface surface
+f_on a_in crate truck && d_on crate f_clear surface surface
+f_on a_in crate truck && d_on crate a_clear surface surface
+f_on a_in crate truck && d_on crate d_clear surface surface
+f_on a_in crate truck && d_on crate c_clear surface surface
+f_on a_in crate truck && d_on f_on crate surface surface surface
+f_on a_in crate truck && d_on a_on crate surface surface surface
+f_on a_in crate truck && g_on crate f_clear surface surface
+f_on a_in crate truck && g_on crate c_clear surface surface
+f_on a_in crate truck && g_on a_in crate truck surface surface
+f_on a_in crate truck && g_on f_on crate surface surface surface
+f_on a_in crate truck && g_on d_on crate surface surface surface
+f_on a_in crate truck && ¬f_in crate truck surface
+f_on a_in crate truck && ¬a_on crate surface surface
+f_on a_in crate truck && ¬d_on crate surface surface
+f_on a_in crate truck && ¬g_on crate surface surface
+f_on d_on crate surface && f_in crate truck surface
+f_on d_on crate surface && g_on crate surface surface
+f_on d_on crate surface && a_in f_on crate surface truck surface
+f_on d_on crate surface && a_in a_on crate surface truck surface
+f_on d_on crate surface && a_in d_on crate surface truck surface
+f_on d_on crate surface && a_on crate a_clear surface surface
+f_on d_on crate surface && a_on crate d_clear surface surface
+f_on d_on crate surface && a_on crate g_clear surface surface
+f_on d_on crate surface && a_on crate c_clear surface surface
+f_on d_on crate surface && a_on f_in crate truck surface surface
+f_on d_on crate surface && a_on a_in crate truck surface surface
+f_on d_on crate surface && a_on f_on crate surface surface surface
+f_on d_on crate surface && g_on crate f_clear surface surface
+f_on d_on crate surface && g_on crate c_clear surface surface
+f_on d_on crate surface && g_on a_in crate truck surface surface
+f_on d_on crate surface && g_on f_on crate surface surface surface
+f_on d_on crate surface && g_on d_on crate surface surface surface
+f_on d_on crate surface && ¬f_in crate truck surface
+f_on d_on crate surface && ¬a_in crate truck surface
+f_on d_on crate surface && ¬a_on crate surface surface
+f_on d_on crate surface && ¬g_on crate surface surface
+f_on g_on crate surface && f_in crate truck surface
+f_on g_on crate surface && a_in f_on crate surface truck surface
+f_on g_on crate surface && a_in a_on crate surface truck surface
+f_on g_on crate surface && a_in d_on crate surface truck surface
+f_on g_on crate surface && a_on crate a_clear surface surface
+f_on g_on crate surface && a_on crate d_clear surface surface
+f_on g_on crate surface && a_on crate g_clear surface surface
+f_on g_on crate surface && a_on crate c_clear surface surface
+f_on g_on crate surface && a_on f_in crate truck surface surface
+f_on g_on crate surface && a_on a_in crate truck surface surface
+f_on g_on crate surface && a_on f_on crate surface surface surface
+f_on g_on crate surface && d_on crate f_clear surface surface
+f_on g_on crate surface && d_on crate a_clear surface surface
+f_on g_on crate surface && d_on crate d_clear surface surface
+f_on g_on crate surface && d_on crate c_clear surface surface
+f_on g_on crate surface && d_on f_on crate surface surface surface
+f_on g_on crate surface && d_on a_on crate surface surface surface
+f_on g_on crate surface && ¬f_in crate truck surface
+f_on g_on crate surface && ¬a_in crate truck surface
+f_on g_on crate surface && ¬a_on crate surface surface
+f_on g_on crate surface && ¬d_on crate surface surface
+a_on crate a_clear surface && f_clear surface
+a_on crate a_clear surface && c_clear surface
+a_on crate a_clear surface && f_clear a_clear surface
+a_on crate a_clear surface && f_clear d_clear surface
+a_on crate a_clear surface && f_clear g_clear surface
+a_on crate a_clear surface && f_clear c_clear surface
+a_on crate a_clear surface && d_clear f_clear surface
+a_on crate a_clear surface && d_clear g_clear surface
+a_on crate a_clear surface && g_clear f_clear surface
+a_on crate a_clear surface && g_clear a_clear surface
+a_on crate a_clear surface && c_clear f_clear surface
+a_on crate a_clear surface && c_clear d_clear surface
+a_on crate a_clear surface && c_clear g_clear surface
+a_on crate a_clear surface && ¬f_clear surface
+a_on crate a_clear surface && ¬d_clear surface
+a_on crate a_clear surface && ¬g_clear surface
+a_on crate d_clear surface && f_clear surface
+a_on crate d_clear surface && a_clear surface
+a_on crate d_clear surface && c_clear surface
+a_on crate d_clear surface && f_clear a_clear surface
+a_on crate d_clear surface && f_clear d_clear surface
+a_on crate d_clear surface && f_clear g_clear surface
+a_on crate d_clear surface && f_clear c_clear surface
+a_on crate d_clear surface && g_clear f_clear surface
+a_on crate d_clear surface && g_clear a_clear surface
+a_on crate d_clear surface && c_clear f_clear surface
+a_on crate d_clear surface && c_clear d_clear surface
+a_on crate d_clear surface && c_clear g_clear surface
+a_on crate d_clear surface && ¬f_clear surface
+a_on crate d_clear surface && ¬a_clear surface
+a_on crate d_clear surface && ¬g_clear surface
+a_on crate g_clear surface && f_clear surface
+a_on crate g_clear surface && a_clear surface
+a_on crate g_clear surface && c_clear surface
+a_on crate g_clear surface && f_clear a_clear surface
+a_on crate g_clear surface && f_clear d_clear surface
+a_on crate g_clear surface && f_clear g_clear surface
+a_on crate g_clear surface && f_clear c_clear surface
+a_on crate g_clear surface && d_clear f_clear surface
+a_on crate g_clear surface && d_clear g_clear surface
+a_on crate g_clear surface && c_clear f_clear surface
+a_on crate g_clear surface && c_clear d_clear surface
+a_on crate g_clear surface && c_clear g_clear surface
+a_on crate g_clear surface && ¬f_clear surface
+a_on crate g_clear surface && ¬a_clear surface
+a_on crate g_clear surface && ¬d_clear surface
+a_on crate c_clear surface && f_clear surface
+a_on crate c_clear surface && a_clear surface
+a_on crate c_clear surface && f_clear a_clear surface
+a_on crate c_clear surface && f_clear d_clear surface
+a_on crate c_clear surface && f_clear g_clear surface
+a_on crate c_clear surface && f_clear c_clear surface
+a_on crate c_clear surface && d_clear f_clear surface
+a_on crate c_clear surface && d_clear g_clear surface
+a_on crate c_clear surface && g_clear f_clear surface
+a_on crate c_clear surface && g_clear a_clear surface
+a_on crate c_clear surface && ¬f_clear surface
+a_on crate c_clear surface && ¬a_clear surface
+a_on crate c_clear surface && ¬d_clear surface
+a_on crate c_clear surface && ¬g_clear surface
+a_on f_in crate truck && f_on crate surface surface
+a_on f_in crate truck && g_on crate surface surface
+a_on f_in crate truck && a_in f_on crate surface truck surface
+a_on f_in crate truck && a_in a_on crate surface truck surface
+a_on f_in crate truck && a_in d_on crate surface truck surface
+a_on f_in crate truck && f_on crate f_clear surface surface
+a_on f_in crate truck && f_on crate a_clear surface surface
+a_on f_in crate truck && f_on crate d_clear surface surface
+a_on f_in crate truck && f_on crate g_clear surface surface
+a_on f_in crate truck && f_on crate c_clear surface surface
+a_on f_in crate truck && f_on f_in crate truck surface surface
+a_on f_in crate truck && f_on a_in crate truck surface surface
+a_on f_in crate truck && f_on d_on crate surface surface surface
+a_on f_in crate truck && f_on g_on crate surface surface surface
+a_on f_in crate truck && d_on crate f_clear surface surface
+a_on f_in crate truck && d_on crate a_clear surface surface
+a_on f_in crate truck && d_on crate d_clear surface surface
+a_on f_in crate truck && d_on crate c_clear surface surface
+a_on f_in crate truck && d_on f_on crate surface surface surface
+a_on f_in crate truck && d_on a_on crate surface surface surface
+a_on f_in crate truck && g_on crate f_clear surface surface
+a_on f_in crate truck && g_on crate c_clear surface surface
+a_on f_in crate truck && g_on a_in crate truck surface surface
+a_on f_in crate truck && g_on f_on crate surface surface surface
+a_on f_in crate truck && g_on d_on crate surface surface surface
+a_on f_in crate truck && ¬a_in crate truck surface
+a_on f_in crate truck && ¬d_on crate surface surface
+a_on f_in crate truck && ¬g_on crate surface surface
+a_on a_in crate truck && f_in crate truck surface
+a_on a_in crate truck && f_on crate surface surface
+a_on a_in crate truck && g_on crate surface surface
+a_on a_in crate truck && f_on crate f_clear surface surface
+a_on a_in crate truck && f_on crate a_clear surface surface
+a_on a_in crate truck && f_on crate d_clear surface surface
+a_on a_in crate truck && f_on crate g_clear surface surface
+a_on a_in crate truck && f_on crate c_clear surface surface
+a_on a_in crate truck && f_on f_in crate truck surface surface
+a_on a_in crate truck && f_on a_in crate truck surface surface
+a_on a_in crate truck && f_on d_on crate surface surface surface
+a_on a_in crate truck && f_on g_on crate surface surface surface
+a_on a_in crate truck && d_on crate f_clear surface surface
+a_on a_in crate truck && d_on crate a_clear surface surface
+a_on a_in crate truck && d_on crate d_clear surface surface
+a_on a_in crate truck && d_on crate c_clear surface surface
+a_on a_in crate truck && d_on f_on crate surface surface surface
+a_on a_in crate truck && d_on a_on crate surface surface surface
+a_on a_in crate truck && g_on crate f_clear surface surface
+a_on a_in crate truck && g_on crate c_clear surface surface
+a_on a_in crate truck && g_on a_in crate truck surface surface
+a_on a_in crate truck && g_on f_on crate surface surface surface
+a_on a_in crate truck && g_on d_on crate surface surface surface
+a_on a_in crate truck && ¬f_in crate truck surface
+a_on a_in crate truck && ¬d_on crate surface surface
+a_on a_in crate truck && ¬g_on crate surface surface
+a_on f_on crate surface && f_in crate truck surface
+a_on f_on crate surface && g_on crate surface surface
+a_on f_on crate surface && a_in f_on crate surface truck surface
+a_on f_on crate surface && a_in a_on crate surface truck surface
+a_on f_on crate surface && a_in d_on crate surface truck surface
+a_on f_on crate surface && d_on crate f_clear surface surface
+a_on f_on crate surface && d_on crate a_clear surface surface
+a_on f_on crate surface && d_on crate d_clear surface surface
+a_on f_on crate surface && d_on crate c_clear surface surface
+a_on f_on crate surface && d_on f_on crate surface surface surface
+a_on f_on crate surface && d_on a_on crate surface surface surface
+a_on f_on crate surface && g_on crate f_clear surface surface
+a_on f_on crate surface && g_on crate c_clear surface surface
+a_on f_on crate surface && g_on a_in crate truck surface surface
+a_on f_on crate surface && g_on f_on crate surface surface surface
+a_on f_on crate surface && g_on d_on crate surface surface surface
+a_on f_on crate surface && ¬f_in crate truck surface
+a_on f_on crate surface && ¬a_in crate truck surface
+a_on f_on crate surface && ¬d_on crate surface surface
+a_on f_on crate surface && ¬g_on crate surface surface
+d_on crate f_clear surface && a_clear surface
+d_on crate f_clear surface && c_clear surface
+d_on crate f_clear surface && d_clear f_clear surface
+d_on crate f_clear surface && d_clear g_clear surface
+d_on crate f_clear surface && g_clear f_clear surface
+d_on crate f_clear surface && g_clear a_clear surface
+d_on crate f_clear surface && c_clear f_clear surface
+d_on crate f_clear surface && c_clear d_clear surface
+d_on crate f_clear surface && c_clear g_clear surface
+d_on crate f_clear surface && ¬a_clear surface
+d_on crate f_clear surface && ¬d_clear surface
+d_on crate f_clear surface && ¬g_clear surface
+d_on crate a_clear surface && f_clear surface
+d_on crate a_clear surface && c_clear surface
+d_on crate a_clear surface && f_clear a_clear surface
+d_on crate a_clear surface && f_clear d_clear surface
+d_on crate a_clear surface && f_clear g_clear surface
+d_on crate a_clear surface && f_clear c_clear surface
+d_on crate a_clear surface && d_clear f_clear surface
+d_on crate a_clear surface && d_clear g_clear surface
+d_on crate a_clear surface && g_clear f_clear surface
+d_on crate a_clear surface && g_clear a_clear surface
+d_on crate a_clear surface && c_clear f_clear surface
+d_on crate a_clear surface && c_clear d_clear surface
+d_on crate a_clear surface && c_clear g_clear surface
+d_on crate a_clear surface && ¬f_clear surface
+d_on crate a_clear surface && ¬d_clear surface
+d_on crate a_clear surface && ¬g_clear surface
+d_on crate d_clear surface && f_clear surface
+d_on crate d_clear surface && a_clear surface
+d_on crate d_clear surface && c_clear surface
+d_on crate d_clear surface && f_clear a_clear surface
+d_on crate d_clear surface && f_clear d_clear surface
+d_on crate d_clear surface && f_clear g_clear surface
+d_on crate d_clear surface && f_clear c_clear surface
+d_on crate d_clear surface && g_clear f_clear surface
+d_on crate d_clear surface && g_clear a_clear surface
+d_on crate d_clear surface && c_clear f_clear surface
+d_on crate d_clear surface && c_clear d_clear surface
+d_on crate d_clear surface && c_clear g_clear surface
+d_on crate d_clear surface && ¬f_clear surface
+d_on crate d_clear surface && ¬a_clear surface
+d_on crate d_clear surface && ¬g_clear surface
+d_on crate c_clear surface && f_clear surface
+d_on crate c_clear surface && a_clear surface
+d_on crate c_clear surface && f_clear a_clear surface
+d_on crate c_clear surface && f_clear d_clear surface
+d_on crate c_clear surface && f_clear g_clear surface
+d_on crate c_clear surface && f_clear c_clear surface
+d_on crate c_clear surface && d_clear f_clear surface
+d_on crate c_clear surface && d_clear g_clear surface
+d_on crate c_clear surface && g_clear f_clear surface
+d_on crate c_clear surface && g_clear a_clear surface
+d_on crate c_clear surface && ¬f_clear surface
+d_on crate c_clear surface && ¬a_clear surface
+d_on crate c_clear surface && ¬d_clear surface
+d_on crate c_clear surface && ¬g_clear surface
+d_on f_on crate surface && f_in crate truck surface
+d_on f_on crate surface && g_on crate surface surface
+d_on f_on crate surface && a_in f_on crate surface truck surface
+d_on f_on crate surface && a_in a_on crate surface truck surface
+d_on f_on crate surface && a_in d_on crate surface truck surface
+d_on f_on crate surface && a_on crate a_clear surface surface
+d_on f_on crate surface && a_on crate d_clear surface surface
+d_on f_on crate surface && a_on crate g_clear surface surface
+d_on f_on crate surface && a_on crate c_clear surface surface
+d_on f_on crate surface && a_on f_in crate truck surface surface
+d_on f_on crate surface && a_on a_in crate truck surface surface
+d_on f_on crate surface && a_on f_on crate surface surface surface
+d_on f_on crate surface && g_on crate f_clear surface surface
+d_on f_on crate surface && g_on crate c_clear surface surface
+d_on f_on crate surface && g_on a_in crate truck surface surface
+d_on f_on crate surface && g_on f_on crate surface surface surface
+d_on f_on crate surface && g_on d_on crate surface surface surface
+d_on f_on crate surface && ¬f_in crate truck surface
+d_on f_on crate surface && ¬a_in crate truck surface
+d_on f_on crate surface && ¬a_on crate surface surface
+d_on f_on crate surface && ¬g_on crate surface surface
+d_on a_on crate surface && f_in crate truck surface
+d_on a_on crate surface && f_on crate surface surface
+d_on a_on crate surface && g_on crate surface surface
+d_on a_on crate surface && a_in f_on crate surface truck surface
+d_on a_on crate surface && a_in a_on crate surface truck surface
+d_on a_on crate surface && a_in d_on crate surface truck surface
+d_on a_on crate surface && f_on crate f_clear surface surface
+d_on a_on crate surface && f_on crate a_clear surface surface
+d_on a_on crate surface && f_on crate d_clear surface surface
+d_on a_on crate surface && f_on crate g_clear surface surface
+d_on a_on crate surface && f_on crate c_clear surface surface
+d_on a_on crate surface && f_on f_in crate truck surface surface
+d_on a_on crate surface && f_on a_in crate truck surface surface
+d_on a_on crate surface && f_on d_on crate surface surface surface
+d_on a_on crate surface && f_on g_on crate surface surface surface
+d_on a_on crate surface && g_on crate f_clear surface surface
+d_on a_on crate surface && g_on crate c_clear surface surface
+d_on a_on crate surface && g_on a_in crate truck surface surface
+d_on a_on crate surface && g_on f_on crate surface surface surface
+d_on a_on crate surface && g_on d_on crate surface surface surface
+d_on a_on crate surface && ¬f_in crate truck surface
+d_on a_on crate surface && ¬a_in crate truck surface
+d_on a_on crate surface && ¬g_on crate surface surface
+g_on crate f_clear surface && a_clear surface
+g_on crate f_clear surface && c_clear surface
+g_on crate f_clear surface && d_clear f_clear surface
+g_on crate f_clear surface && d_clear g_clear surface
+g_on crate f_clear surface && g_clear f_clear surface
+g_on crate f_clear surface && g_clear a_clear surface
+g_on crate f_clear surface && c_clear f_clear surface
+g_on crate f_clear surface && c_clear d_clear surface
+g_on crate f_clear surface && c_clear g_clear surface
+g_on crate f_clear surface && ¬a_clear surface
+g_on crate f_clear surface && ¬d_clear surface
+g_on crate f_clear surface && ¬g_clear surface
+g_on crate c_clear surface && f_clear surface
+g_on crate c_clear surface && a_clear surface
+g_on crate c_clear surface && f_clear a_clear surface
+g_on crate c_clear surface && f_clear d_clear surface
+g_on crate c_clear surface && f_clear g_clear surface
+g_on crate c_clear surface && f_clear c_clear surface
+g_on crate c_clear surface && d_clear f_clear surface
+g_on crate c_clear surface && d_clear g_clear surface
+g_on crate c_clear surface && g_clear f_clear surface
+g_on crate c_clear surface && g_clear a_clear surface
+g_on crate c_clear surface && ¬f_clear surface
+g_on crate c_clear surface && ¬a_clear surface
+g_on crate c_clear surface && ¬d_clear surface
+g_on crate c_clear surface && ¬g_clear surface
+g_on a_in crate truck && f_in crate truck surface
+g_on a_in crate truck && f_on crate surface surface
+g_on a_in crate truck && f_on crate f_clear surface surface
+g_on a_in crate truck && f_on crate a_clear surface surface
+g_on a_in crate truck && f_on crate d_clear surface surface
+g_on a_in crate truck && f_on crate g_clear surface surface
+g_on a_in crate truck && f_on crate c_clear surface surface
+g_on a_in crate truck && f_on f_in crate truck surface surface
+g_on a_in crate truck && f_on a_in crate truck surface surface
+g_on a_in crate truck && f_on d_on crate surface surface surface
+g_on a_in crate truck && f_on g_on crate surface surface surface
+g_on a_in crate truck && a_on crate a_clear surface surface
+g_on a_in crate truck && a_on crate d_clear surface surface
+g_on a_in crate truck && a_on crate g_clear surface surface
+g_on a_in crate truck && a_on crate c_clear surface surface
+g_on a_in crate truck && a_on f_in crate truck surface surface
+g_on a_in crate truck && a_on a_in crate truck surface surface
+g_on a_in crate truck && a_on f_on crate surface surface surface
+g_on a_in crate truck && d_on crate f_clear surface surface
+g_on a_in crate truck && d_on crate a_clear surface surface
+g_on a_in crate truck && d_on crate d_clear surface surface
+g_on a_in crate truck && d_on crate c_clear surface surface
+g_on a_in crate truck && d_on f_on crate surface surface surface
+g_on a_in crate truck && d_on a_on crate surface surface surface
+g_on a_in crate truck && ¬f_in crate truck surface
+g_on a_in crate truck && ¬a_on crate surface surface
+g_on a_in crate truck && ¬d_on crate surface surface
+g_on f_on crate surface && f_in crate truck surface
+g_on f_on crate surface && a_in f_on crate surface truck surface
+g_on f_on crate surface && a_in a_on crate surface truck surface
+g_on f_on crate surface && a_in d_on crate surface truck surface
+g_on f_on crate surface && a_on crate a_clear surface surface
+g_on f_on crate surface && a_on crate d_clear surface surface
+g_on f_on crate surface && a_on crate g_clear surface surface
+g_on f_on crate surface && a_on crate c_clear surface surface
+g_on f_on crate surface && a_on f_in crate truck surface surface
+g_on f_on crate surface && a_on a_in crate truck surface surface
+g_on f_on crate surface && a_on f_on crate surface surface surface
+g_on f_on crate surface && d_on crate f_clear surface surface
+g_on f_on crate surface && d_on crate a_clear surface surface
+g_on f_on crate surface && d_on crate d_clear surface surface
+g_on f_on crate surface && d_on crate c_clear surface surface
+g_on f_on crate surface && d_on f_on crate surface surface surface
+g_on f_on crate surface && d_on a_on crate surface surface surface
+g_on f_on crate surface && ¬f_in crate truck surface
+g_on f_on crate surface && ¬a_in crate truck surface
+g_on f_on crate surface && ¬a_on crate surface surface
+g_on f_on crate surface && ¬d_on crate surface surface
+g_on d_on crate surface && f_in crate truck surface
+g_on d_on crate surface && f_on crate surface surface
+g_on d_on crate surface && a_in f_on crate surface truck surface
+g_on d_on crate surface && a_in a_on crate surface truck surface
+g_on d_on crate surface && a_in d_on crate surface truck surface
+g_on d_on crate surface && f_on crate f_clear surface surface
+g_on d_on crate surface && f_on crate a_clear surface surface
+g_on d_on crate surface && f_on crate d_clear surface surface
+g_on d_on crate surface && f_on crate g_clear surface surface
+g_on d_on crate surface && f_on crate c_clear surface surface
+g_on d_on crate surface && f_on f_in crate truck surface surface
+g_on d_on crate surface && f_on a_in crate truck surface surface
+g_on d_on crate surface && f_on d_on crate surface surface surface
+g_on d_on crate surface && f_on g_on crate surface surface surface
+g_on d_on crate surface && a_on crate a_clear surface surface
+g_on d_on crate surface && a_on crate d_clear surface surface
+g_on d_on crate surface && a_on crate g_clear surface surface
+g_on d_on crate surface && a_on crate c_clear surface surface
+g_on d_on crate surface && a_on f_in crate truck surface surface
+g_on d_on crate surface && a_on a_in crate truck surface surface
+g_on d_on crate surface && a_on f_on crate surface surface surface
+g_on d_on crate surface && ¬f_in crate truck surface
+g_on d_on crate surface && ¬a_in crate truck surface
+g_on d_on crate surface && ¬a_on crate surface surface
+¬c_clear surface
+¬g_available hoist
+¬c_available hoist
+¬g_at locatable place
+¬f_on crate surface
+¬f_clear a_clear surface
+¬f_clear d_clear surface
+¬f_clear g_clear surface
+¬f_clear c_clear surface
+¬d_clear f_clear surface
+¬d_clear g_clear surface
+¬g_clear f_clear surface
+¬g_clear a_clear surface
+¬c_clear f_clear surface
+¬c_clear d_clear surface
+¬c_clear g_clear surface
+¬f_available a_available hoist
+¬f_available g_available hoist
+¬f_available c_available hoist
+¬a_available g_available hoist
+¬d_available f_available hoist
+¬d_available a_available hoist
+¬d_available g_available hoist
+¬g_available a_available hoist
+¬c_available a_available hoist
+¬c_available d_available hoist
+¬c_available g_available hoist
+¬a_in f_on crate surface truck
+¬a_in a_on crate surface truck
+¬a_in d_on crate surface truck
+¬f_at d_at locatable place place
+¬f_at g_at locatable place place
+¬d_at g_at locatable place place
+¬f_on crate f_clear surface
+¬f_on crate a_clear surface
+¬f_on crate d_clear surface
+¬f_on crate g_clear surface
+¬f_on crate c_clear surface
+¬f_on f_in crate truck surface
+¬f_on a_in crate truck surface
+¬f_on d_on crate surface surface
+¬f_on g_on crate surface surface
+¬a_on crate a_clear surface
+¬a_on crate d_clear surface
+¬a_on crate g_clear surface
+¬a_on crate c_clear surface
+¬a_on f_in crate truck surface
+¬a_on a_in crate truck surface
+¬a_on f_on crate surface surface
+¬d_on crate f_clear surface
+¬d_on crate a_clear surface
+¬d_on crate d_clear surface
+¬d_on crate c_clear surface
+¬d_on f_on crate surface surface
+¬d_on a_on crate surface surface
+¬g_on crate f_clear surface
+¬g_on crate c_clear surface
+¬g_on a_in crate truck surface
+¬g_on f_on crate surface surface
+¬g_on d_on crate surface surface
+d_clear surface
+g_clear surface
+a_available hoist
+a_in crate truck
+a_on crate surface
+d_on crate surface
