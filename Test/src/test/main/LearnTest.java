@@ -43,13 +43,14 @@ public class LearnTest {
 			System.out.println("Parsing error - see console for details");
 			return;
 		}
-		
+
 		final Iterator<UngroundInstantAction> iterator = unground.actions
 				.iterator();
 		while (iterator.hasNext()) {
-			UngroundInstantAction ungroundInstantAction =  iterator.next();
+			UngroundInstantAction ungroundInstantAction = iterator.next();
 			System.out.println(ungroundInstantAction.toString());
-			System.out.println(ungroundInstantAction.name + " " + ungroundInstantAction.params.size());
+			System.out.println(ungroundInstantAction.name + " "
+					+ ungroundInstantAction.params.size());
 		}
 		final Iterator<PredicateSymbol> iteratorFacts = unground.predSymbols
 				.iterator();
@@ -57,12 +58,13 @@ public class LearnTest {
 		while (iteratorFacts.hasNext()) {
 			predicateSymbol = iteratorFacts.next();
 			System.out.println(predicateSymbol.toStringTyped());
-			System.out.println(predicateSymbol.getName() + " " + predicateSymbol.getParams().size());
+			System.out.println(predicateSymbol.getName() + " "
+					+ predicateSymbol.getParams().size());
 		}
-//		final Iterator<SimpleType> iteratorT = unground.types.iterator();
-//		while (iteratorT.hasNext()) {
-//			System.out.println(iteratorT.next().toString());
-//		}
+		// final Iterator<SimpleType> iteratorT = unground.types.iterator();
+		// while (iteratorT.hasNext()) {
+		// System.out.println(iteratorT.next().toString());
+		// }
 	}
 
 	public static void learn() throws Exception {
@@ -79,6 +81,13 @@ public class LearnTest {
 
 	public static void learn(final String dirResult, final int numberGeneration)
 			throws Exception {
+		final double learningRateDecrease = 1;
+		final double learningRate = 0.05;
+		learn(dirResult, numberGeneration, learningRate, learningRateDecrease);
+	}
+
+	private static void learn(String dirResult, int numberGeneration,
+			double learningRate, double learningRateDecrease) throws Exception {
 		final SimpleDateFormat formato = new SimpleDateFormat(
 				"dd_MM_yyyy_HH_mm_ss");
 		final String date = formato.format(new Date());
@@ -100,13 +109,13 @@ public class LearnTest {
 		final long numberEpochs = 2000;
 		final double maxError = 0;
 		final Task task = Task.REGRESSION;
-		final double learningRateDecrease = 1;
+		// final double learningRateDecrease = 1;
 		final double minLearningRate = 0;
 		final boolean initializeRandom = true;
 		final int intervalEpochPercentage = 2;
 		final int numberHiddenLayers = 1;
 		final int numberOutput = 1;
-		final double learningRate = 0.05;
+		// final double learningRate = 0.05;
 		final int numberUnitHidden = 3;
 		final boolean useHeuristicUnitHidden = true;
 		final boolean normalizeLabel = true;
@@ -230,18 +239,48 @@ public class LearnTest {
 		FileManager.write(resultFile,
 				"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", true);
 		System.out.println("End");
+
+	}
+
+	public static void learnTestParameter() throws Exception {
+		int numberGeneration[] = { 10, 50 };
+		double learningRate[] = { 0.1, 0.2 };
+		double[] learningRateDecrease = { 1, 0.99 };
+		int indexTest = 1;
+		File dir;
+		String dirResult;
+		for (int indexNumberGeneration = 0; indexNumberGeneration < numberGeneration.length; indexNumberGeneration++) {
+			for (int indexLearningRate = 0; indexLearningRate < learningRate.length; indexLearningRate++) {
+				for (int indexLearningRateDecrease = 0; indexLearningRateDecrease < learningRateDecrease.length; indexLearningRateDecrease++) {
+					dir = new File("../Test/result/ " + indexTest + "/features");
+					dir.mkdirs();
+					dirResult = "../Test/result/ " + indexTest;
+					learn(dirResult, numberGeneration[indexNumberGeneration],
+							learningRate[indexLearningRate],
+							learningRateDecrease[indexLearningRateDecrease]);
+					indexTest++;
+				}
+			}
+		}
+
 	}
 
 	public static void main(final String args[]) {
-//		 initialFeatures();
+		// initialFeatures();
 		// final File f = new File("../Test/result/features/10");
 		// System.out.println(f.mkdir());
 		// System.out.println(f.mkdirs());
+		// try {
+		// learn();
+		// } catch (final IOException e) {
+		// e.printStackTrace();
+		// } catch (final Exception e) {
+		// e.printStackTrace();
+		// }
 		try {
-			learn();
-		} catch (final IOException e) {
-			e.printStackTrace();
-		} catch (final Exception e) {
+			learnTestParameter();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
