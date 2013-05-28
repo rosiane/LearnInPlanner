@@ -1,6 +1,5 @@
 package planner.javaff.planning;
 
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,6 +26,7 @@ import neural.network.util.Weight;
 
 import com.syvys.jaRBM.Layers.Layer;
 
+import common.MatrixHandler;
 import common.feature.ClassExpression;
 
 public class TemporalMetricStateDelta extends MetricState {
@@ -134,19 +134,27 @@ public class TemporalMetricStateDelta extends MetricState {
 
 	@Override
 	public BigDecimal getHValue() {
+		return getHValue(true);
+	}
+
+	public BigDecimal getHValue(boolean useDelta) {
 		BigDecimal hValue = super.getHValue();
-		if ((this.features != null) && !this.features.isEmpty()) {
-			final LinkedList<String> database = HeuristicRPL
-					.generateDatabase(this);
-			final double[] data = new double[this.features.size()];
-			for (int indexFeatures = 0; indexFeatures < this.features.size(); indexFeatures++) {
-				data[indexFeatures] = this.features.get(indexFeatures)
-						.cardinality(database);
+		if (useDelta) {
+			if ((this.features != null) && !this.features.isEmpty()) {
+				final LinkedList<String> database = HeuristicRPL
+						.generateDatabase(this);
+				double[] data = new double[this.features.size()];
+				for (int indexFeatures = 0; indexFeatures < this.features
+						.size(); indexFeatures++) {
+					data[indexFeatures] = this.features.get(indexFeatures)
+							.cardinality(database);
+				}
+				data = MatrixHandler.normalizeArray(data);
+				final double[] delta = this.neuralNetwork.run(this.net,
+						this.weights, data);
+				final double hValueNew = hValue.doubleValue() + delta[0];
+				hValue = new BigDecimal(hValueNew);
 			}
-			final double[] delta = this.neuralNetwork.run(this.net,
-					this.weights, data);
-			final double hValueNew = hValue.doubleValue() + delta[0];
-			hValue = new BigDecimal(hValueNew);
 		}
 		return hValue;
 	}

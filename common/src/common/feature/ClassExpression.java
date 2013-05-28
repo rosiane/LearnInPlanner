@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -378,10 +379,11 @@ public class ClassExpression {
 							intersectionParameter.add(classExpression);
 						} else {
 							classExpression = new ClassExpression();
-							if (array[indexArray].startsWith(PrefixEnum.NOT.prefix())) {
-								main.setNot(true);
-								array[indexArray] = array[indexArray].replace(PrefixEnum.NOT.prefix(),
-										"");
+							if (array[indexArray].startsWith(PrefixEnum.NOT
+									.prefix())) {
+								classExpression.setNot(true);
+								array[indexArray] = array[indexArray].replace(
+										PrefixEnum.NOT.prefix(), "");
 							}
 							classExpression = processPredicate(classExpression,
 									array[indexArray], typeParameterPredicate);
@@ -389,9 +391,20 @@ public class ClassExpression {
 						}
 						indexArray++;
 					}
-					if(intersectionParameter.size() > 0){
+					if (intersectionParameter.size() > 0) {
 						intersectionParameter.add(classExpression);
-						main.setIntersection(indexParameterMain, (ClassExpression[]) intersectionParameter.toArray());
+						ClassExpression[] intersectionArray = new ClassExpression[intersectionParameter
+								.size()];
+						Iterator<ClassExpression> iteratorIntersection = intersectionParameter
+								.iterator();
+						int indexIntersectionArray = 0;
+						while (iteratorIntersection.hasNext()) {
+							intersectionArray[indexIntersectionArray] = iteratorIntersection
+									.next();
+							indexIntersectionArray++;
+						}
+						main.setIntersection(indexParameterMain,
+								intersectionArray);
 					} else {
 						main.setParameter(indexParameterMain, classExpression);
 					}

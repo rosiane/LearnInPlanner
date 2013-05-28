@@ -17,7 +17,7 @@ import common.feature.PrefixEnum;
 public class HeuristicRPL {
 	public static Solution calculate(final MetricState initialState) {
 		final Solution solution = new Solution();
-		solution.setValue(initialState.getHValue());
+		solution.setValue(initialState.getHValue(false));
 		final TotalOrderPlan top = (TotalOrderPlan) initialState.getRPG()
 				.getPlan(initialState);
 		solution.setRelaxedPlan(top);

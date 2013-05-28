@@ -112,4 +112,9 @@ public class MetricState extends STRIPSState {
 		return hash;
 	}
 
+	// implemented only in subclass
+	public BigDecimal getHValue(boolean useDelta) {
+		return getHValue();
+	}
+
 }

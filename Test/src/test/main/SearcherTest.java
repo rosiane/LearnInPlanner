@@ -36,7 +36,13 @@ public class SearcherTest {
 	public static PrintStream errorOutput = System.err;
 
 	public static void main(final String args[]) {
-		testDepots();
+//		testDepots();
+		try {
+			testDepotsNewHeuristic();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// testDepotsMemory();
 		// File domainFile = new File(
 		// "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl");
@@ -371,8 +377,8 @@ public class SearcherTest {
 		final String domainFilePath = "../Examples/IPC3/Tests1/Depots/Strips/Depots.pddl";
 		final String problemFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/pfile";
 		final String solutionFilePathPrefix = "../Examples/IPC3/Tests1/Depots/Strips/mysearch/pfileSolution_MySearch";
-		final String dirResult = "";
-		final String dirFeatures = "";
+		final String dirResult = "../Test/result/10";
+		final String dirFeatures = "../Test/result/10/features";
 		File domainFile = null;
 		File problemFile = null;
 		File solutionFile = null;

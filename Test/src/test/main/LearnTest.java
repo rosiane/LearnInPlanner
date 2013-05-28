@@ -106,7 +106,7 @@ public class LearnTest {
 		final int intervalEpochPercentage = 2;
 		final int numberHiddenLayers = 1;
 		final int numberOutput = 1;
-		final double learningRate = 0.1;
+		final double learningRate = 0.05;
 		final int numberUnitHidden = 3;
 		final boolean useHeuristicUnitHidden = true;
 		final boolean normalizeLabel = true;
@@ -189,6 +189,7 @@ public class LearnTest {
 		FileManager.write(resultFile, "Number Individual Crossing: "
 				+ numberIndividualCrossing, true);
 		FileManager.write(resultFile, "Mutation Rate: " + mutationRate, true);
+		FileManager.write(resultFile, "Max evaluation: " + maxEvaluation, true);
 
 		final LearnParameters learnParameters = new LearnParameters();
 		learnParameters.setDomainPath(domainPath);
@@ -232,17 +233,17 @@ public class LearnTest {
 	}
 
 	public static void main(final String args[]) {
-		 initialFeatures();
+//		 initialFeatures();
 		// final File f = new File("../Test/result/features/10");
 		// System.out.println(f.mkdir());
 		// System.out.println(f.mkdirs());
-//		try {
-//			learn();
-//		} catch (final IOException e) {
-//			e.printStackTrace();
-//		} catch (final Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			learn();
+		} catch (final IOException e) {
+			e.printStackTrace();
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

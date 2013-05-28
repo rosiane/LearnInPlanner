@@ -37,7 +37,7 @@ public class ReaderParameterSearch {
 		final ParameterSearch parameterSearch = new ParameterSearch();
 		// Setting features selected
 		final LinkedList<ClassExpression> features = readFeatureSelected(
-				parameterReader.getDirResult() + File.pathSeparator
+				parameterReader.getDirResult() + File.separator
 						+ "featureSelected", parameterReader.getDirFeatures());
 		parameterSearch.setFeatures(features);
 
@@ -75,7 +75,7 @@ public class ReaderParameterSearch {
 				weights[index] = new Weight(numberUnitHidden, numberUnitHidden);
 			}
 		}
-		weights = readWeights(parameterReader.getDirResult() + "weight",
+		weights = readWeights(parameterReader.getDirResult() + File.separator + "weight",
 				weights);
 		parameterSearch.setWeights(weights);
 		return parameterSearch;
@@ -156,7 +156,7 @@ public class ReaderParameterSearch {
 				}
 				index++;
 			}
-			features = readFeatureSelected(dirFeatures + File.pathSeparator
+			features = readFeatureSelected(dirFeatures + File.separator
 					+ "currentFeatures-" + suffixFileFeatures, lineArray);
 		} catch (final FileNotFoundException e) {
 			throw e;
@@ -192,7 +192,7 @@ public class ReaderParameterSearch {
 					features.addLast(ClassExpression.getInstance(strLine,
 							typeParameterPredicate));
 				}
-				index++;
+//				index++;
 			}
 		} catch (final FileNotFoundException e) {
 			throw e;

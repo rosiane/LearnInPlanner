@@ -251,4 +251,15 @@ public class MatrixHandler extends Matrix {
 		}
 
 	}
+
+	public static double[] normalizeArray(double[] someArray) {
+		double sum = 0.;
+		for (int i = 0; i < someArray.length; i++) {
+			sum += someArray[i];
+		}
+		for (int i = 0; i < someArray.length; i++) {
+			someArray[i] /= sum;
+		}
+		return someArray;
+	}
 }
